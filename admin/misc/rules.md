@@ -46,7 +46,11 @@ Weekly Meetings: Fridays, 4:00pm to approximately 5:00pm. We will also have casu
 ## 5) Conflict Resolution
 
 - Group conflict resolution: majority vote (5/9 required) to reach consensus on decisions regarding components of the project.
-- Personal conflict resolution: first attempt direct communication among group members if there are conflicts on an individual level. Second attempt should be to consult with Sim. If escalated, Sim may recommend we take it to Professor Powell.
+- Personal conflict resolution:
+  1. Direct private communication through Slack
+  2. Zoom Meeting (Minimum: 15 minutes)
+  3. Zoom Meeting with Sim
+  4. Zoom Meeting with Professor Powell
 
 ## 6) Expectations of Faculty and GTA’s
 
