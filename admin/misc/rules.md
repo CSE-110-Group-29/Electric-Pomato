@@ -63,4 +63,4 @@ If a major conflict issue arises, reach out to Sim.
 
 ## 7) Team Signatures
 
-![Team Signatures](Allen's Signature.PNG)
+![Team Signatures](Allen's\ Signature.PNG)
