@@ -61,6 +61,6 @@ Weekly Meetings: Fridays, 4:00pm to approximately 5:00pm. We will also have casu
 
 If a major conflict issue arises, reach out to Sim.
 
-## Signature
+## Team Signatures
 
-![Team Signatures](Test.png)
+![Team Signatures](Signatures.png)
