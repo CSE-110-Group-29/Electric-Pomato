@@ -35,13 +35,16 @@ Weekly Meetings: Fridays, 4:00pm to approximately 5:00pm. We will also have casu
 
 ## 4) General Responsibilities/Values for ALL Team Members
 
-- Respond to communications promptly, Slack or Github. Acknowledge communications with reactions (comments, emojis, etc.) for important posts.
+- Prompt/proactive communication through Slack or Github. Acknowledge communications with reactions (comments, emojis, etc.) for important posts.
 - Be honest and transparent about your tasks current/upcoming events.
 - Respect each other’s time. If it’s an emergency, Slack’s force notification or text messages can be used. Otherwise, try to get back to people within 24 hours.
 - At the beginning of each weekly meeting, everyone is expected to share an update/status report on progress, issues, accomplishments, etc. Updates are to keep everyone on the same page.
 - If you’re stuck, ask for help! Someone might know the answer and speed the troubleshooting up. We are still learning and no-one is expected to be a pro, the better we can communicate road blocks the easier we can overcome them.
-- Put in a fair amount of effort. To succeed we’ll all have to do our part.(there’s probably a better way to phrase this but i basically just mean try your best, everyone should strive to complete things on time and to the best of their ability, and if they’re unable to, communicate that so we can accommodate. all team assignments are everyone’s responsibility)
-  - I (Allen) was going to say roughly the same thing. Please don’t procrastinate. If you’re unable to complete the task they are assigned due to external factors, then that’s fine (as long as that person communicates with the rest of the group), but if you are able to dedicate time to working on a task, then try not to put it off for too long.
+- Be a team player. Show fair and honest effort. To succeed, we all have to do our part. Complete tasks on time and to the best of your ability. 
+  - If you are unable to complete a task, communicate with the team so that we can accommodate—the sooner the better while the issue is small.
+  - Please don’t procrastinate. 
+  - Lend a helping hand when someone is reaching out for help.
+
 
 ## 5) Conflict Resolution
 
