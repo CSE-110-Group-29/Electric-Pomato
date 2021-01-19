@@ -1,4 +1,11 @@
-# Jan. 16th 2020 Kick-off Meeting
+# Jan. 16th 2020 Kick-off Meeting (Group 29)
+
+## Meeting Details
+
+- Type of meeting: kick-off
+- Members present: all
+- Meeting location: ZOOM
+- Start/finish time: 3:00 PM PST - 4:30 PM PST
 
 ## Meeting Goals
 
