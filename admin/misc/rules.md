@@ -1,6 +1,7 @@
 # Team Working Agreement
 
 Term: Winter 2021
+Creation: January 20, 2021
 
 ## 1) Group Identification
 
