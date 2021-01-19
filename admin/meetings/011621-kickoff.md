@@ -3,7 +3,7 @@
 ## Meeting Details
 
 - Type of meeting: kick-off
-- Members present: all
+- Members present/absent: Allen Zou, Andy Young, Annika Hatcher, Arman Mansourian, Don Wolfson, Enrique Gan, Justin Lee, Liam Stone, Teresa Truong/Sim (TA)
 - Meeting location: ZOOM
 - Start/finish time: 3:00 PM PST - 4:30 PM PST
 
