@@ -1,0 +1,18 @@
+{
+  "name": "cse110-w21-group29",
+  "version": "0.1",
+  "description": "Pomato!",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DonaldWolfson/cse110-w21-group29.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DonaldWolfson/cse110-w21-group29/issues"
+  },
+  "homepage": "https://github.com/DonaldWolfson/cse110-w21-group29#readme"
+}
