@@ -22,4 +22,26 @@
 
 ## Meetings Notes
 
+1. Presented Design Team's Pitch
+   1. People really liked the Tomato them (add those as symbols later).
+   2. Found a cool [CSS library](https://www.getpapercss.com/) to possibly use.
+   3. Simplify the break button to (Done with Task) and (Done with Session).
+      1. If Done with Task button clicked the next task will be booted up at the end of break.
+         1. Else, the same task is repeated.
+      2. Replace "Day" with "Session" incase of multiple "Session"'s in a day.  
+   4. Debate if we want new user, returning user.
+      1. Helpful Links:
+         1. [Documentation](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
+         2. [Resource](https://medium.com/datadriveninvestor/cookies-vs-local-storage-2f3732c7d977)
+         3. [Single Page Vs. Multipage](https://medium.com/@NeotericEU/single-page-application-vs-multiple-page-application-2591588efe58)
+      2. Decided on multipage app.
+2. Began moving to [Miro](https://miro.com/app/board/o9J_lWyGFBY=/).
+    1. Finalized Work Flow.
+
 ## Tasks to Complete
+
+1. Read over the two GitHub Wikis.
+2. Add relevannt issues (break them up!).
+   1. There is difference between front end of the feature, the back end, and it communicating with the page (could be 2-3 issues).
+3. Do some research on the parts you're working on.
+4. If possible meetings this weekend to attend to work together.
