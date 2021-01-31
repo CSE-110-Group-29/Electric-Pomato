@@ -9,36 +9,6 @@ if (list == null) {
 
 render();
 
-document.querySelector("tbody").addEventListener("mousemove", function(e) {
-    document.querySelectorAll("tbody tr").forEach(function(el) {
-        if (el == e.target.closest("tr")) {
-            el.lastElementChild.classList.remove("hide-actions");
-        } else {
-            el.lastElementChild.classList.add("hide-actions");
-        }
-    });
-});
-
-document.querySelector("tbody").addEventListener("mouseleave", function(e) {
-    document.querySelectorAll("tbody tr").forEach(function (el) {
-        el.lastElementChild.classList.add("hide-actions");
-    });
-});
-
-/*
-document.querySelectorAll("tbody tr").forEach(function(el) {
-    el.addEventListener("mouseenter", function(e) {
-        console.log("enter");
-        this.lastElementChild.classList.remove("hide-actions");
-    });
-
-    el.addEventListener("mouseleave", function (e) {
-        console.log("leave");
-        this.lastElementChild.classList.add("hide-actions");
-    });
-})
-*/
-
 // populate list on frontend
 function render() {
     let str = "";
@@ -50,7 +20,7 @@ function render() {
             <td>${list[i].name}</td>
             <td>${list[i].expected}</td>
             <td class="text-right hide-actions">
-                <div class="actions">
+                <div class="actions" data-id=${i}>
                     <i class="fas fa-pencil-alt text-warning edit-icon"></i>
                     <i class="fas fa-trash-alt text-danger delete-icon"></i>
                 </div>
@@ -62,51 +32,103 @@ function render() {
         </tr>`;
     }
 
+    str += `
+    <tr id="new-task">
+        <td><input type="text" disabled value="${list.length + 1}"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td class="text-right hide-actions">
+            <button class="btn-small btn-success">Add Task</button>
+        </td>
+    </tr>
+    `;
+
     document.querySelector("tbody").innerHTML = str;
+    
+    let button = document.querySelector("button");
+    button.onclick = function() {
+        addTask(...extractInputs(this.closest("tr")));
+    }
 
-    document.querySelectorAll(".edit-icon").forEach(function(el) {
-        el.addEventListener("click", function (e) {
-            editMode(this.closest("tr"));
-        });
+    let newTaskInputs = document.querySelectorAll("#new-task input");
+    for(let i = 1; i < 3; i++) {
+        newTaskInputs[i].onkeyup = function (e) {
+            clickIfEnter(e, button);
+        }
+        
+        if(i == 1) {
+            newTaskInputs[i].focus();
+        }
+    }
+
+    document.querySelectorAll("tbody tr").forEach(function (el) {
+        el.onmouseenter = function() {
+            this.lastElementChild.classList.remove("hide-actions");
+        }
+
+        el.onmouseleave = function() {
+            this.lastElementChild.classList.add("hide-actions");
+        }
     });
 
-    document.querySelectorAll(".delete-icon").forEach(function (el) {
-        el.addEventListener("click", function (e) {
-            deleteTask(Array.from(document.querySelectorAll(".delete-icon")).indexOf(this));
-        });
-    });
+    document.querySelectorAll(".actions").forEach(function(el) {
+        let index = Number(el.dataset.id);
 
-    document.querySelector("button").addEventListener("click", function(e) {
-        addTask("", "");
-        render();
-        let trs = document.querySelectorAll("tr");
-        editMode(trs[trs.length - 1]);
+        el.firstElementChild.onclick = function() {
+            render();
+            editMode(index);
+        };
+
+        el.lastElementChild.onclick = function() {
+            deleteTask(index);
+        }
     });
 }
 
-function editMode(tr) {
-    for (let i = 0; i < 3; i++) {
-        tr.children[i].innerHTML = `
-                <input type="text" value="${tr.children[i].innerText}" ${i == 0 ? "disabled" : ""}>
-                `;
-        if (i == 1) {
-            let input = tr.children[i].firstElementChild;
-            input.focus();
-            input.setSelectionRange(input.value.length, input.value.length);
-        }
-    };
+function editMode(index) {
+    let tr = document.querySelectorAll("tbody tr")[index];
+    let actions = tr.querySelector(".actions");
 
-    tr.querySelector(".actions").style.display = "none";
-    tr.querySelector(".edit-mode").style.display = "inline-block";
+    actions.style.display = "none";
+    document.querySelector("#new-task").style.display = "none";
 
-    tr.querySelector(".save-icon").onclick = function () {
-        let inputs = tr.querySelectorAll("input");
-        editTask(Array.from(document.querySelectorAll(".save-icon")).indexOf(this), inputs[1].value, inputs[2].value);
+    let next = actions.nextElementSibling;
+    next.style.display = "block";
+
+    next.firstElementChild.onclick = function () {
+        editTask(index, ...extractInputs(tr));
     }
 
-    tr.querySelector(".cancel-icon").onclick = function () {
+    next.lastElementChild.onclick = function () {
         render();
     }
+
+    for (let i = 0; i < 3; i++) {
+        tr.children[i].innerHTML = `
+        <input type="text" value="${tr.children[i].innerText}" ${i == 0 ? "disabled" : ""}>
+        `;
+
+        if (i == 1) {
+            let nameInput = tr.children[i].firstElementChild;
+            nameInput.focus();
+            nameInput.setSelectionRange(nameInput.value.length, nameInput.value.length);
+        }
+
+        tr.children[i].firstElementChild.onkeyup = function(e) {
+            clickIfEnter(e, next.firstElementChild);
+        };
+    }
+}
+
+function clickIfEnter(e, element) {
+    if (e.code == "Enter") {
+        element.click();
+    }
+}
+
+function extractInputs(tr) {
+    let inputs = tr.querySelectorAll("input");
+    return [inputs[1].value, inputs[2].value];
 }
 
 // add task to list object save to localstorage and render
@@ -123,6 +145,7 @@ function addTask(name, expected) {
     render();
 }
 
+// edit task at index i in list object, save to local storage, and render
 function editTask(i, name, expected) {
     list[i].name = name;
     list[i].expected = expected;
@@ -134,7 +157,7 @@ function editTask(i, name, expected) {
 // delete task at index i in list object, save to local storage, and render
 function deleteTask(i) {
     list.splice(i, 1);
-    
+
     saveList();
     render();
 }
