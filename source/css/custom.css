@@ -1,0 +1,12 @@
+.hide-actions .actions i {
+    color: white;
+}
+
+.edit-mode {
+    display: none;
+}
+
+tr td:last-child i {
+    cursor: pointer;
+    margin-left: 1rem;
+}
