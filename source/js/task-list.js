@@ -1,6 +1,6 @@
 // get the task list from localStorage
 let list = JSON.parse(localStorage.getItem("task_list"));
-
+console.log(list);
 // if it doesn't exist, initialize a default one
 if (list == null) {
     list = []
