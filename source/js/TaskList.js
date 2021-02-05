@@ -86,23 +86,41 @@ class TaskList {
     this.save();
   }
 
-  /*
-  // TODO:
+  /**
+   * Remove task from todo at given index.
+   * @param {Number} index Index of task to remove.
+   */
   remove(index) {
+    this.todo = this.todo.splice(index, 1);
     this.save();
   }
 
-  // TODO:
+  /**
+   * Update the task at the given index with the given name and expected pomodoros.
+   * @param {Number} index Index of task to update.
+   * @param {String} name Updated name of task.
+   * @param {Number} expected Updated expected number of pomodoros.
+   */
   update(index, name, expected) {
+    this.todo[index].name = name;
+    this.todo[index].expected = expected;
     this.save();
   }
 
   // TODO:
+  /**
+   * Increment actual pomodoros of current task (i think?).
+   */
+  /*
   increment() {
     this.save();
   }
 
   // TODO:
+  /**
+   * Finish the current task (i think?).
+   */
+  /*
   finish() {
     this.save();
   }
