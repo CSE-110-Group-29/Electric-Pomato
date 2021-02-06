@@ -14,5 +14,10 @@
   "bugs": {
     "url": "https://github.com/DonaldWolfson/cse110-w21-group29/issues"
   },
-  "homepage": "https://github.com/DonaldWolfson/cse110-w21-group29#readme"
+  "homepage": "https://github.com/DonaldWolfson/cse110-w21-group29#readme",
+  "devDependencies": {
+    "eslint": "^7.19.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  }
 }
