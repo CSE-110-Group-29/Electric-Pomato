@@ -107,24 +107,22 @@ class TaskList {
     this.save();
   }
 
-  // TODO:
   /**
-   * Increment actual pomodoros of current task (i think?).
+   * Add a pomodoro to the current task.
    */
-  /*
-  increment() {
+  addPomo() {
+    this.todo[0].actual++;
     this.save();
   }
 
-  // TODO:
   /**
-   * Finish the current task (i think?).
+   * Update todo/completed after finishing a task.
    */
-  /*
-  finish() {
+  finishTask() {
+    task = this.todo[0];
+    this.completed.push(task);
     this.save();
   }
-  */
 
   save() {
     localStorage.setItem('TaskList', JSON.stringify({ todo: this.todo, completed: this.completed }));
