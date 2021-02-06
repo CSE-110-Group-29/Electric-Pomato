@@ -1,12 +1,41 @@
-.hide-actions .actions i {
-    color: white;
+input {
+    width: 95%;
 }
 
-.edit-mode {
+input:disabled {
+    cursor: text;
+    opacity: 1 !important;
+    border: none !important;
+    margin: 2px;
+}
+
+.row {
+    margin-bottom: 0;
+}
+
+.col {
+    padding: 0;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.actions i {
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+.save-cancel-container {
     display: none;
 }
 
-tr td:last-child i {
-    cursor: pointer;
-    margin-left: 1rem;
+.edit-mode .save-cancel-container {
+    display: block;
+}
+
+.edit-mode .edit-remove-container {
+    display: none;
 }
