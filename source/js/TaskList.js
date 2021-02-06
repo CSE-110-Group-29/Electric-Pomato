@@ -1,44 +1,9 @@
-/* *
+/**
  * Author: Andy Young, Annika Hatcher
  * Updated By: (Any names of people who've done some editing of the file)
  * Date: 02/05/2021
  * Github Issue: https://github.com/DonaldWolfson/cse110-w21-group29/issues/13
- * */
-
-/*
-TaskList {
-  todo: [
-    {
-      name: String,
-      expected: Number,
-      actual: Number
-    }
-    .
-    .
-    .
-    {
-      name: String,
-      expected: Number,
-      actual: Number
-    }
-  ],
-  completed: [
-    {
-      name: String,
-      expected: Number,
-      actual: Number
-    }
-    .
-    .
-    .
-    {
-      name: String,
-      expected: Number,
-      actual: Number
-    }
-  ]
-}
-*/
+ */
 
 class TaskList {
   /**
@@ -50,9 +15,7 @@ class TaskList {
 
     if (stored == null) {
       // If null, initialize variables to default value and save to localStorage.
-      this.todo = [];
-      this.completed = [];
-      this.save();
+      this.reset();
     } else {
       // Otherwise, initialize variables to stored data.
       this.todo = stored.todo;
@@ -61,19 +24,28 @@ class TaskList {
   }
 
   /**
+   * Reset instance variables to default empty value and save to localStorage.
+   */
+  reset() {
+    this.todo = [];
+    this.completed = [];
+    this.save();
+  }
+
+  /**
+   * Save the instance variables to localStorage.
+   */
+  save() {
+    // Writes a stringified object with instance variables of TaskList to localStorage.
+    localStorage.setItem('TaskList', JSON.stringify({ todo: this.todo, completed: this.completed }));
+  }
+
+  /**
    * Add new task to todo with given name and expected pomodoros.
    * @param {String} name Name of task.
    * @param {Number} expected Expected number of pomodoros.
    */
-  add(name, expected) {
-    if (typeof name !== 'string') {
-      throw new TypeError('expected string');
-    }
-
-    if (typeof expected !== 'number') {
-      throw new TypeError('expected number');
-    }
-
+  createTask(name, expected) {
     // Put inputs into a task object with initial actual value of 0.
     const task = {
       name,
@@ -90,8 +62,8 @@ class TaskList {
    * Remove task from todo at given index.
    * @param {Number} index Index of task to remove.
    */
-  remove(index) {
-    this.todo = this.todo.splice(index, 1);
+  deleteTask(index) {
+    this.todo.splice(index, 1);
     this.save();
   }
 
@@ -101,7 +73,7 @@ class TaskList {
    * @param {String} name Updated name of task.
    * @param {Number} expected Updated expected number of pomodoros.
    */
-  update(index, name, expected) {
+  updateTask(index, name, expected) {
     this.todo[index].name = name;
     this.todo[index].expected = expected;
     this.save();
@@ -111,7 +83,7 @@ class TaskList {
    * Add a pomodoro to the current task.
    */
   addPomo() {
-    this.todo[0].actual++;
+    this.todo[0].actual += 1;
     this.save();
   }
 
@@ -119,13 +91,10 @@ class TaskList {
    * Update todo/completed after finishing a task.
    */
   finishTask() {
-    task = this.todo[0];
-    this.completed.push(task);
-    this.save();
-  }
+    const current = this.todo[0];
 
-  save() {
-    localStorage.setItem('TaskList', JSON.stringify({ todo: this.todo, completed: this.completed }));
+    this.completed.push(current);
+    this.deleteTask(0);
   }
 }
 
