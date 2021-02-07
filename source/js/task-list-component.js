@@ -3,7 +3,7 @@ class TaskList extends HTMLElement {
         super();
     }
 
-    connectedCallback() {
+      connectedCallback() {
         this.innerHTML = `
             <div class="paper container">
                 <table class="margin-bottom">
