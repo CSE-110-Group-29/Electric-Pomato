@@ -47,7 +47,9 @@ let continueFinalBreakBtn = document.getElementById("continueFinalBreakBtn");
 let recordsDisplay = document.getElementById("recordsDisplay")
 
 /** Event Listeners: (TODO)                                                  **/
-//      Add event listeners for the elements above, and map them to helper funcitons.
+// Add event listeners for the elements above, and map them to helper functions.
+startFirstTaskBtn.addEventListener("click", startTaskHandler);
+
 
 /** Helper Methods: (TODO)                                                   **/
 //      Based on the System Diagram: https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/specs/brainstorm/System%20Diagram.jpg
