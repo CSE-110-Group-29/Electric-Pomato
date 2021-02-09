@@ -1,3 +1,5 @@
+/*
+
 // get the task list from localStorage
 let list = JSON.parse(localStorage.getItem("task_list"));
 
@@ -48,7 +50,7 @@ function render() {
 
     // set the innerhtml of the tbody to html stored in str
     document.querySelector("tbody").innerHTML = str;
-    
+
     // the button to add a new task
     let button = document.querySelector("button");
     // onclick, extract values of inputs and addTask()
@@ -123,9 +125,15 @@ function editMode(index) {
     }
 
     // replace all text values in the row with their corresponding inputs
-    tr.children[0].innerHTML = `<input name="number" type="number" value="${index + 1}" disabled>`;
-    tr.children[1].innerHTML = `<input name="name" type="text" value="${list[index].name}">`;
-    tr.children[2].innerHTML = `<input name="expected" type="number" value="${list[index].expected}">`;
+    tr.children[0].innerHTML = `
+        <input name="number" type="number" value="${index + 1}" disabled>
+    `;
+    tr.children[1].innerHTML = `
+        <input name="name" type="text" value="${list[index].name}">
+    `;
+    tr.children[2].innerHTML = `
+        <input name="expected" type="number" value="${list[index].expected}">
+    `;
 
     // format the inputs of the current row and click the save button on enter
     formatInputs(tr, next.firstElementChild);
@@ -203,3 +211,5 @@ function deleteTask(i) {
 function saveList() {
     localStorage.setItem("task_list", JSON.stringify(list));
 }
+
+*/
