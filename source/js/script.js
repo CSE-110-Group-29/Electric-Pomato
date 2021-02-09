@@ -1,8 +1,13 @@
 import TaskList from './TaskList.js';
 
 const t = new TaskList();
-// t.createTask("lmao", 2);
+//t.createTask("hi", 3);
 console.log(t);
+
+//TODO
+document.querySelector('button').onclick = () => {
+  t.createTask("hi", 3);
+}
 
 function rowTemplate(number, name, expected) {
   return `
@@ -36,16 +41,15 @@ const editing = {
 
 // TODO: extract the inputs from the given row and TaskList.addTask()
 function save(row) {
+  editing.row.classList.remove("edit-mode");
+  editing.inputs.forEach((input, i) => {
+    const curr = input;
+    curr.disabled = true;
+    editing.originals[i] = curr.value;
+  });
 
-  // If both inputs are not null, save
-  if (editing.inputs[0] && editing.inputs[1]) {
-    editing.row.classList.remove('edit-mode');
-    editing.inputs.forEach((input, i) => {
-      const curr = input;
-      curr.disabled = true;
-      editing.originals[i] = curr.value;
-    });
-  }
+  const index = Array.from(document.querySelectorAll("#tasks .row")).indexOf(row);
+  t.updateTask(index, editing.inputs[0].value, editing.inputs[1].value);
 }
 
 function cancel() {
@@ -84,19 +88,19 @@ function edit(row) {
 // TODO: remove the given row from TaskList
 function remove(row) {
 
-  // Delete row
-  editing.row.classList.remove('edit-mode');
-  editing.inputs.forEach((input) => {
-    //const curr = input;
-    curr.disabled = true;
-    //curr.value = null;
-  });
-
-  editing.row = null;
-  editing.inputs = null;
-  editing.originals = null;
+  if (editing.row) {
+    cancel(editing.row);
+  }
 
   // Readjust succeeding row indices
+  const index = Array.from(document.querySelectorAll("#tasks .row")).indexOf(row);
+  t.deleteTask(index);  
+  
+  row.remove();
+
+  document.querySelectorAll("#tasks .row").forEach((row, i) => {
+    row.querySelector('input').value = i + 1;
+  });
 }
 
 document.querySelectorAll('#tasks .row').forEach((row) => {
@@ -114,4 +118,6 @@ document.querySelectorAll('#tasks .row').forEach((row) => {
   icons[3].onclick = () => {
     cancel(row);
   };
+
+  //add row (function)
 });
