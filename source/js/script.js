@@ -141,18 +141,27 @@ function remove(row) {
   });
 }
 
-document.querySelectorAll('#tasks .row').forEach((row) => {
+// Iterate through all rows in task list.
+rows.forEach((row) => {
+  // Get all the icons in the current row and add onclick listeners.
   const icons = row.querySelectorAll('i');
 
+  // Edit button.
   icons[0].onclick = () => {
     edit(row);
   };
+
+  // Remove button.
   icons[1].onclick = () => {
     remove(row);
   };
+
+  // Save button.
   icons[2].onclick = () => {
     save();
   };
+
+  // Cancel button.
   icons[3].onclick = () => {
     cancel();
   };
