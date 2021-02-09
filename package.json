@@ -1,18 +1,26 @@
 {
   "name": "cse110-w21-group29",
-  "version": "0.1",
-  "description": "Pomato!",
+  "version": "0.0.1",
+  "description": "Electric Pomato!",
   "main": "index.js",
   "scripts": {
     "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "eslint": "^7.19.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DonaldWolfson/cse110-w21-group29.git"
   },
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/DonaldWolfson/cse110-w21-group29/issues"
   },
   "homepage": "https://github.com/DonaldWolfson/cse110-w21-group29#readme"
 }
+
