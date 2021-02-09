@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+
+* {
+    font-family: 'Neucha', sans-serif;
+    font-weight: 400;
+    color: #333333;
+}
+
+html, body, h1, h2, h3, p {
+    margin: 0;
+}
+
+body {
+    background-color: #203647;
+    min-height: 100vh;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.invisible {
+    opacity: 0;
+}
+
+.btn {
+    color: #333333;
+    text-decoration: none;
+    font-size: 1.5rem;
+    background-color: #BEC8ED;
+    padding: 0.75rem 3rem;
+    border-radius: 50px;
+}
+
+header {
+    display: flex;
+    padding-top: 2rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title-container * {
+    color: white;
+}
+
+.title {
+    font-size: 4rem;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem 0;
+}
+
+.legend-row {
+    display: flex;
+    align-items: center;
+}
+
+.legend-icon {
+    width: 80px;
+    margin-right: 1.5rem;
+}
+
+.legend-text {
+    color: white;
+    font-size: 1.75rem;
+}
+
+.start {
+    padding: 2rem;
+    background-color: white;
+}
+
+.start-question-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 500px;
+}
+
+.start-question {
+    color: #203645;
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    margin-right: 0.5rem;
+}
+
+.start-question-icon {
+    width: 40px;
+}
+
+.start-input-container {
+    position: relative;
+    margin-top: 0.25rem;
+}
+
+.start-input {
+    width: 100%;
+    font-size: 2rem;
+    border: solid 2px #203645;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+    outline: 0;
+}
+
+.start-input-button-wrapper {
+    position: absolute;
+    background-color: #203645;
+    border-radius: 10px;
+    height: 100%;
+    top: 0;
+    right: 0;
+}
+
+.start-input-button-wrapper img {
+    height: 100%;
+    display: block;
+}
+
+.start-note {
+    font-size: 1.25rem;
+    margin-top: 0.25rem;
+}
+
+.documentation {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+    background-color: white;
+    border-radius: 50px;
+    width: 32%;
+}
+
+.card-header {
+    padding-top: 2rem;
+    padding-left: 2rem;
+    font-size: 2rem;
+}
+
+.card-body {
+    padding: 1rem 2rem 2rem 2rem;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 1.5rem 0;
+    font-size: 1.25rem;
+}
+
+footer * {
+    color: white;
+}
+
+footer > .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
