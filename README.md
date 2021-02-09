@@ -4,7 +4,7 @@
 ## Airbnb Linter Setup Instructions (VS Code)
 
 - Make sure `node` is installed
-- `cd` to root directory of local repository
+- `cd` to root directory of local repository `.../cse110-w21-group29/`
 - From console run `npm install` to install dependencies locally
 - Download ESLint VSCode extension
 
