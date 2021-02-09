@@ -12,6 +12,7 @@ module.exports = {
     ],
     // To allow console.log().
     'no-console': 'off',
+    // To allow modification of DOM objects
+    'no-param-reassign': 0,
   },
 };
-
