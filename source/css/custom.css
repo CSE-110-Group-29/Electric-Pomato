@@ -3,7 +3,7 @@ input {
 }
 
 input:disabled {
-    cursor: text;
+    cursor: default;
     opacity: 1 !important;
     border: none !important;
     margin: 2px;
@@ -38,4 +38,10 @@ input:disabled {
 
 .edit-mode .edit-remove-container {
     display: none;
+}
+
+.col button {
+    height: 100%;
+    padding: 0;
+    width: 100%;
 }

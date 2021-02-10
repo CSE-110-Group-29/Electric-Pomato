@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/paper.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <title>Task List</title>
+</head>
+<body>
+    <h1 class="text-center">Andy's Day</h1>
+    <h2 class="text-center margin-bottom">Task List</h2>
+    <div class="paper container">
+        <div class="row">
+            <div class="col-1 col"><input type="text" value="#" disabled></div>
+            <div class="col-6 col"><input type="text" value="Name" disabled></div>
+            <div class="col-3 col"><input type="text" value="Estimated Pomos" disabled></div>
+            <div class="col-2 col"></div>
+        </div>
+        <template>
+            <div class="row">
+                <div class="col-1 col"><input type="text" value="" disabled></div>
+                <div class="col-6 col"><input type="text" value="" disabled></div>
+                <div class="col-3 col"><input type="text" value="" disabled></div>
+                <div class="col-2 col actions">
+                    <div class="edit-remove-container">
+                        <i class="fas fa-pencil-alt text-warning edit-icon"></i>
+                        <i class="fas fa-trash-alt text-danger remove-icon"></i>
+                    </div>
+                    <div class="save-cancel-container">
+                        <i class="fas fa-check text-success save-icon"></i>
+                        <i class="fas fa-times text-danger cancel-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <div id="tasks">
+        </div>
+        <div id="add-task-row" class="row">
+            <div class="col-1 col"><input type="text" value="" disabled></div>
+            <div class="col-6 col"><input type="text" value="" autofocus></div>
+            <div class="col-3 col"><input type="number" value=""></div>
+            <div class="col-2 col">
+                <button class="btn-success">Add Task</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js" type="module"></script>
+</body>
+</html>

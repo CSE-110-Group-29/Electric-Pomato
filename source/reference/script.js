@@ -1,12 +1,7 @@
-import TaskList from './TaskList.js';
+import TaskList from '../js/TaskList.js';
 
 // Initialize TaskList
 const t = new TaskList();
-
-// TODO
-document.querySelector('button').onclick = () => {
-  t.createTask('hi', 3);
-};
 
 /**
  * Return the HTML string of a row given the input parameters.
@@ -39,8 +34,16 @@ const rowsHTML = t.todo.reduce((total, task, i) => total + rowTemplate(i + 1, ta
 // Set the combined HTML string as the innerHTML of #tasks.
 document.querySelector('#tasks').innerHTML = rowsHTML;
 
+function clickIfEnter(e, element) {
+  // check if event code is enter
+  if (e.code === 'Enter') {
+    // click element
+    element.click();
+  }
+}
+
 // Store the row elements inside #tasks that we created into an array.
-const rows = Array.from(document.querySelectorAll('#tasks .row'));
+let rows = Array.from(document.querySelectorAll('#tasks .row'));
 // Create a state variable containing data about the row currently being edited.
 const editing = {
   // Reference to the row element.
@@ -50,6 +53,10 @@ const editing = {
   // Array of the original values of the inputs in the row, mapped from input above.
   originalValues: null,
 };
+// Reference to the inputs in the #add-task-row.
+const addInputs = Array.from(document.querySelectorAll('#add-task-row input')).slice(-2);
+// Reference to the button in the #add-task-row
+const addButton = document.querySelector('#add-task-row button');
 
 /**
  * Cancel any changes made on a row that is currently being edited.
@@ -68,6 +75,8 @@ function cancel() {
   editing.row = null;
   editing.inputs = null;
   editing.originalValues = null;
+
+  addInputs[0].focus();
 }
 
 /**
@@ -139,30 +148,72 @@ function remove(row) {
   rows.forEach((r, i) => {
     r.querySelector('input').value = i + 1;
   });
+
+  addInputs[0].focus();
 }
 
-// Iterate through all rows in task list.
-rows.forEach((row) => {
-  // Get all the icons in the current row and add onclick listeners.
-  const icons = row.querySelectorAll('i');
+function addListeners() {
+  // Iterate through all rows in task list.
+  rows.forEach((row) => {
+    // Get all the icons in the current row and add onclick listeners.
+    const inputs = row.querySelectorAll('input');
+    const icons = row.querySelectorAll('i');
 
-  // Edit button.
-  icons[0].onclick = () => {
-    edit(row);
-  };
+    // Edit button.
+    icons[0].onclick = () => {
+      edit(row);
+    };
 
-  // Remove button.
-  icons[1].onclick = () => {
-    remove(row);
-  };
+    // Remove button.
+    icons[1].onclick = () => {
+      remove(row);
+    };
 
-  // Save button.
-  icons[2].onclick = () => {
-    save();
-  };
+    // Save button.
+    icons[2].onclick = () => {
+      save();
+    };
 
-  // Cancel button.
-  icons[3].onclick = () => {
-    cancel();
+    // Cancel button.
+    icons[3].onclick = () => {
+      cancel();
+    };
+
+    inputs.forEach((input) => {
+      input.onkeyup = (e) => {
+        clickIfEnter(e, icons[2]);
+      };
+    });
+  });
+}
+
+addListeners();
+
+addInputs.forEach((input) => {
+  input.onkeyup = (e) => {
+    clickIfEnter(e, addButton);
   };
 });
+
+addButton.onclick = () => {
+  const values = addInputs.map((input) => {
+    const { value } = input;
+    input.value = '';
+    return value;
+  });
+
+  const clone = document.querySelector('template').content.cloneNode(true);
+  const inputs = clone.querySelectorAll('input');
+  inputs[0].value = rows.length + 1;
+
+  const [first, second] = values;
+  inputs[1].value = first;
+  inputs[2].value = second;
+
+  document.querySelector('#tasks').appendChild(clone);
+  rows = Array.from(document.querySelectorAll('#tasks .row'));
+  addListeners();
+  t.createTask(...values);
+
+  addInputs[0].focus();
+};
