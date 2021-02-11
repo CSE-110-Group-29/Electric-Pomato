@@ -56,7 +56,11 @@ class Timer {
     /* *
      * Returns a string representing the seconds left with the format "SS".
      * ie: If 25 seconds are left, "25". If 9 seconds are left "09"
+<<<<<<< HEAD
      * @returns {String} Seconds Left
+=======
+     * @returns {String} Minutes Left
+>>>>>>> d971ca95f018edfb065d53d841da4b8f034cac32
      * */
     parseSeconds() {
         if(this.seconds == 60)
