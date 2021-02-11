@@ -20,6 +20,11 @@ class Timer {
         this.timerElement = timerElement;
     }
 
+    /* *
+     * Starts ticking the timer. Timer cannot be reset to original time after ticking.
+     * Note: This doesn't not check system date/time. It ticks at 1 second 
+     * intervals, possibly being ahead or behind by negligible amounts.
+     * */
     startTimer() {
         return new Promise(resolve => {
             let countdown = setInterval(() => {
@@ -37,12 +42,22 @@ class Timer {
         });
     }
 
+    /* *
+     * Returns a string representing the minutes left with the format "MM".
+     * ie: If 25 minuts are left, "25". If 9 minutes are left "09"
+     * @returns {String} Minutes Left
+     * */
     parseMinutes() {
         if(this.minutes < 10) 
             return "0" + String(this.minutes);
         return String(this.minutes);
     }
 
+    /* *
+     * Returns a string representing the seconds left with the format "SS".
+     * ie: If 25 seconds are left, "25". If 9 seconds are left "09"
+     * @returns {String} Seconds Left
+     * */
     parseSeconds() {
         if(this.seconds == 60)
             return "00";
