@@ -1,5 +1,15 @@
+/**
+ * Author: Andy Young, Teresa Truong, Annika Hatcher
+ * Updated By: (Any names of people who've done some editing of the file)
+ * Date: 02/12/2021
+ * Github Issue: https://github.com/DonaldWolfson/cse110-w21-group29/issues/13
+ */
+
 import TaskList from './TaskList.js';
 
+/**
+* Constructor for the task list object.
+*/
 class TaskListUI extends HTMLElement {
   constructor() {
     super();
@@ -11,6 +21,14 @@ class TaskListUI extends HTMLElement {
     this.data.todo.forEach(({ name, expected }, i) => {
       this.insertRow(i + 1, name, expected);
     });
+
+    var addIcon = document.getElementById("addButton");
+    
+    addIcon.addEventListener('click', () => {
+      var newName = `Task ${String(this.data.todo.length+1)}`;
+      this.data.createTask(newName, 0);
+      this.insertRow(this.data.todo.length, newName, 0);
+    });
   }
 
   resetEditingState() {
@@ -19,6 +37,11 @@ class TaskListUI extends HTMLElement {
     this.originalValues = null;
   }
 
+  /**
+   * Remove task from todo at given index.
+   * @param {Number} index Index of task to remove.
+   * @param {} inputs New row data.
+   */
   editRow(row, inputs) {
     if (this.editingRow) {
       this.cancelEdit();
@@ -38,6 +61,10 @@ class TaskListUI extends HTMLElement {
     inputs[0].setSelectionRange(inputs[0].value.length, inputs[0].value.length);
   }
 
+  /**
+  * Remove task from todo at given index.
+  * @param {Number} row Row of task to remove.
+  */
   removeRow(row) {
     if (this.editingRow) {
       this.cancelEdit();
@@ -52,6 +79,9 @@ class TaskListUI extends HTMLElement {
     });
   }
 
+  /**
+   * Save changes to the row.
+   */
   saveEdit() {
     const newValues = this.editingInputs.map((input) => input.value);
     this.data.updateTask(Number(this.editingRow.dataset.id), ...newValues);
@@ -59,6 +89,9 @@ class TaskListUI extends HTMLElement {
     this.cancelEdit();
   }
 
+  /**
+   * Exit out of editing mode.
+   */
   cancelEdit() {
     this.editingRow.classList.remove('edit-mode');
 
@@ -70,7 +103,11 @@ class TaskListUI extends HTMLElement {
     this.resetEditingState();
   }
 
+  /**
+   * Add a row.
+   */
   insertRow(...args) {
+    console.log("inserting");
     const clone = this.template.cloneNode(true);
     this.appendChild(clone);
 
