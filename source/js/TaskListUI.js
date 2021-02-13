@@ -22,10 +22,10 @@ class TaskListUI extends HTMLElement {
       this.insertRow(i + 1, name, expected);
     });
 
-    var addIcon = document.getElementById("addButton");
-    
+    const addIcon = document.getElementById('addButton');
+
     addIcon.addEventListener('click', () => {
-      var newName = `Task ${String(this.data.todo.length+1)}`;
+      const newName = `Task ${String(this.data.todo.length + 1)}`;
       this.data.createTask(newName, 0);
       this.insertRow(this.data.todo.length, newName, 0);
     });
@@ -107,7 +107,6 @@ class TaskListUI extends HTMLElement {
    * Add a row.
    */
   insertRow(...args) {
-    console.log("inserting");
     const clone = this.template.cloneNode(true);
     this.appendChild(clone);
 
