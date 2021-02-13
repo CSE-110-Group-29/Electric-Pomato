@@ -1,8 +1,13 @@
 module.exports = {
-  extends: 'airbnb-base',
+  extends: [
+    'airbnb-base',
+    'plugin:jest/recommended'
+  ],
+  plugins: ['jest'],
   env: {
     // To allow console variable.
     browser: true,
+    node: true,
   },
   rules: {
     // Because browser doesn't automatically add the file extensions.
