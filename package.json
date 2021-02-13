@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "npx eslint ./source --ext .js",
-    "test": "jest ./source/__test__"
+    "test": "jest ./source/__tests__"
   },
   "keywords": [],
   "author": "",
