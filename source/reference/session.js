@@ -7,7 +7,7 @@
 //  *  script will communicate with the index.html (and possibly other pages), and
 //  *  send inputs from HTML to their respective function calls to the backend
 //  *  libraries.
-//  *  
+//  *
 //  *  IF YOU DON'T LIKE THE NAMES OF ANYTHING NOW IS THE TIME TO CHANGE THEM!
 //  *      I promise I won't be offended :)
 //  * */
@@ -15,7 +15,7 @@
 // //     Will hold DOM data on HTML elements (buttons, forms, etc.)
 // //     The ID's and names aren't final, and don't connect to anything in HTML.
 // //     Just made them in hopes of simulating some processes better.
-// //     These are defined based on the design Teresa made, check the Project 
+// //     These are defined based on the design Teresa made, check the Project
 // //     Pitch do for context.
 // // Figure 1:
 // let returningUserBtn = document.getElementById("returningUserBtn");
