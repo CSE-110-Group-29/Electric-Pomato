@@ -14,7 +14,7 @@ class TaskListUI extends HTMLElement {
   constructor() {
     super();
 
-    this.template = document.querySelector('template').content;
+    this.template = document.querySelector('#task-row-template').content;
     this.data = new TaskList();
     this.resetEditingState();
 
@@ -22,13 +22,12 @@ class TaskListUI extends HTMLElement {
       this.insertRow(i + 1, name, expected);
     });
 
-    const addIcon = document.getElementById('addButton');
+    this.addTaskRow = this.nextElementSibling;
+  }
 
-    addIcon.addEventListener('click', () => {
-      const newName = `Task ${String(this.data.todo.length + 1)}`;
-      this.data.createTask(newName, 0);
-      this.insertRow(this.data.todo.length, newName, 0);
-    });
+  addRow(...args) {
+    this.data.createTask(...args);
+    this.insertRow(this.data.todo.length, ...args);
   }
 
   resetEditingState() {
@@ -77,6 +76,8 @@ class TaskListUI extends HTMLElement {
       child.querySelector('input').value = i + 1;
       child.dataset.id = i;
     });
+
+    this.addTaskRow.reset();
   }
 
   /**
@@ -101,6 +102,8 @@ class TaskListUI extends HTMLElement {
     });
 
     this.resetEditingState();
+
+    this.addTaskRow.reset();
   }
 
   /**
