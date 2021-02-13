@@ -3,14 +3,14 @@ name: Jest CI
 on: [push]
 
 jobs:
-  build:
+  test:
 
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, mac-latest]
-        node-version: [12.x, 14.x, 15.x]
+        os: [ubuntu-latest, windows-latest]
+        node-version: [12.x, 14.x]
 
     steps:
       - name: Checkout repo
