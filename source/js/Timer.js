@@ -73,4 +73,4 @@ async function sessionTest() {
 sessionTest();
 */
 
-export default Timer
+export default Timer;
