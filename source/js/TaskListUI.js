@@ -7,17 +7,19 @@
 
 import TaskList from './TaskList.js';
 
-/**
-* Constructor for the task list object.
-*/
 class TaskListUI extends HTMLElement {
+  /**
+   * Constructor for the Task List UI.
+   */
   constructor() {
     super();
 
+    // Initialize instance variables.
     this.template = document.querySelector('#task-row-template').content;
     this.data = new TaskList();
     this.resetEditingState();
 
+    // For each task in the TaskList, insert a row.
     this.data.todo.forEach(({ name, expected }, i) => {
       this.insertRow(i + 1, name, expected);
     });
@@ -25,11 +27,19 @@ class TaskListUI extends HTMLElement {
     this.addTaskRow = this.nextElementSibling;
   }
 
+  /**
+   * Create a new task with the given inputs and update the UI.
+   * @param {String} name Name of new task.
+   * @param {Number} expected Expected number of pomos.
+   */
   addRow(...args) {
     this.data.createTask(...args);
     this.insertRow(this.data.todo.length, ...args);
   }
 
+  /**
+   * Resets the instance variables relating to row editing.
+   */
   resetEditingState() {
     this.editingRow = null;
     this.editingInputs = null;
@@ -61,9 +71,9 @@ class TaskListUI extends HTMLElement {
   }
 
   /**
-  * Remove task from todo at given index.
-  * @param {Number} row Row of task to remove.
-  */
+   * Remove task from todo at given index.
+   * @param {Number} row Row of task to remove.
+   */
   removeRow(row) {
     if (this.editingRow) {
       this.cancelEdit();
@@ -107,7 +117,10 @@ class TaskListUI extends HTMLElement {
   }
 
   /**
-   * Add a row.
+   * Add a new row to the UI.
+   * @param {Number} number Number of new task on the list.
+   * @param {String} name Name of new task.
+   * @param {Number} expected Expected number of pomos.
    */
   insertRow(...args) {
     const clone = this.template.cloneNode(true);
