@@ -21,7 +21,7 @@
             <div class="col-3 col"><input type="text" value="Estimated Pomos" disabled></div>
             <div class="col-2 col"></div>
         </div>
-        <template>
+        <template id="task-row-template">
             <div class="row">
                 <div class="col-1 col"><input type="number" value="" disabled></div>
                 <div class="col-6 col"><input type="text" value="" disabled></div>
@@ -38,10 +38,21 @@
                 </div>
             </div>
         </template>
+        <template id="add-row-template">
+            <div class="row">
+                <div class="col-1 col"></div>
+                <div class="col-6 col"><input type="text" value=""></div>
+                <div class="col-3 col"><input type="number" value="" min=1></div>
+                <div class="col-2 col">
+                    <button class="btn-success">Add Task</button>
+                </div>
+            </div>
+        </template>
         <task-list></task-list>
-        <button id="addButton">+</button>
+        <add-row></add-row>
     </div>
     <script src="js/TaskListUI.js" type="module"></script>
+    <script src="js/AddRowUI.js" type="module"></script>
 </body>
 
 </html>
