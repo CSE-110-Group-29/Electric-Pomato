@@ -63,6 +63,7 @@ class Timer {
   }
 }
 
+/* Testing. Creates and starts timer. Then prints "Done" after timer ends.
 async function sessionTest() {
   const timer = new Timer(0, 5, null);
   await timer.startTimer();
@@ -70,3 +71,6 @@ async function sessionTest() {
 }
 
 sessionTest();
+*/
+
+export default Timer;
