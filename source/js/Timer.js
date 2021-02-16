@@ -26,7 +26,8 @@ class Timer {
     return new Promise((resolve) => {
       const countdown = setInterval(() => {
         // This would be the line where HTML timer updates.
-        console.log(`${this.parseMinutes()}:${this.parseSeconds()}`);
+        // console.log(`${this.parseMinutes()}:${this.parseSeconds()}`);
+        this.timerElement();
         if (this.seconds === 0 && this.minutes !== 0) {
           this.minutes -= 1;
           this.seconds = 60;
