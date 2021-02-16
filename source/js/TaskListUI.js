@@ -47,7 +47,7 @@ class TaskListUI extends HTMLElement {
   }
 
   /**
-   * Remove task from todo at given index.
+   * Edit task from todo at given index.
    * @param {Number} index Index of task to remove.
    * @param {HTMLElement[]} inputs References to input tag of the row.
    */
