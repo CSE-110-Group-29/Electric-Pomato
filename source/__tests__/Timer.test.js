@@ -13,9 +13,11 @@ jest.useFakeTimers();
 test('Check Timer Count Down', () => {
   const jestCallback = jest.fn();
   let something = 1;
-  const callback = function thing() {
+  const callback = function thing(a, b) {
     jestCallback();
     something = 2;
+    console.log(a);
+    console.log(b);
   };
   const OneSecondTimer = new Timer(0, 1, callback);
 
