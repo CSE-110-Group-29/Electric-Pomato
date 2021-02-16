@@ -11,10 +11,10 @@ class Timer {
    * @param {number} seconds - Numerical value of maximum seconds.
    * @input {?@link timerElement} timerElement - HTML element for timer.
    * */
-  constructor(minutes, seconds, timerElement) {
+  constructor(minutes, seconds, callbackEverySecond) {
     this.minutes = minutes;
     this.seconds = seconds;
-    this.timerElement = timerElement;
+    this.callbackEverySecond = callbackEverySecond;
   }
 
   /* *
@@ -27,7 +27,7 @@ class Timer {
       const countdown = setInterval(() => {
         // This would be the line where HTML timer updates.
         // console.log(`${this.parseMinutes()}:${this.parseSeconds()}`);
-        this.timerElement(this.minutes, this.seconds);
+        this.callbackEverySecond(this.minutes, this.seconds);
         if (this.seconds === 0 && this.minutes !== 0) {
           this.minutes -= 1;
           this.seconds = 60;
