@@ -51,19 +51,22 @@ test('Check Timers Initialized Values : Second > 59', () => {
 jest.useFakeTimers();
 
 test('Check Timer Count Down 2sec and Callback Each Sec', () => {
+  // callback jest function and increment mutableNum
   const jestCallback = jest.fn();
   let mutatableNum = 0;
-  // callback jest function and increment mutableNum
   const callback = function thing() {
     jestCallback();
     mutatableNum += 1;
   };
 
+  // timer
   const seconds = 2;
   const timer = new Timer(0, seconds, callback);
 
+  // start counting
   expect(jestCallback).not.toBeCalled();
   timer.startTimer();
+
   // advance one second
   jest.advanceTimersByTime(1000);
   expect(timer.minutes).toBe(0);
@@ -72,25 +75,27 @@ test('Check Timer Count Down 2sec and Callback Each Sec', () => {
   // advance another second second
   jest.advanceTimersByTime(1000);
 
-  expect(jestCallback).toHaveBeenCalledTimes(seconds);
   expect(timer.minutes).toBe(0);
   expect(timer.seconds).toBe(0);
+  expect(jestCallback).toHaveBeenCalledTimes(seconds);
   expect(mutatableNum).toBe(seconds);
 });
 
 test('Check Timer Count Down 1min and Access Timer Members', () => {
+  // callback jest function and increment mutableNum
   const jestCallback = jest.fn();
   let mutatableNum = 0;
-  // callback jest function and increment mutableNum
   const callback = function thing() {
     jestCallback();
     mutatableNum += 1;
   };
 
+  // timer
   const minutes = 1;
   const seconds = 0;
   const timer = new Timer(minutes, seconds, callback);
 
+  // start counting down
   expect(jestCallback).not.toBeCalled();
   timer.startTimer();
 
