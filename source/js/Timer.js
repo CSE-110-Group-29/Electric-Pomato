@@ -13,7 +13,9 @@ class Timer {
    * func to call every second the timer ticks.
    * */
   constructor(minutes, seconds, callbackEverySecond) {
+    if (minutes > 99) minutes = 99;
     this.minutes = minutes;
+    if (seconds > 59) seconds = 59;
     this.seconds = seconds;
     this.callbackEverySecond = callbackEverySecond;
   }
@@ -26,8 +28,9 @@ class Timer {
   startTimer() {
     return new Promise((resolve) => {
       const countdown = setInterval(() => {
-        // This would be the line where HTML timer updates.
+        // ~~This would be the line where HTML timer updates.~~
         // console.log(`${this.parseMinutes()}:${this.parseSeconds()}`);
+        // This is where the timer callbacks a function every second
         if (this.callbackEverySecond !== null) {
           this.callbackEverySecond(this.minutes, this.seconds);
         }
