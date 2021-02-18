@@ -128,6 +128,7 @@ class TaskListUI extends HTMLElement {
 
     const row = this.lastElementChild;
     const inputs = row.querySelectorAll('input');
+    const userInputs = Array.from(inputs).slice(-2);
     const [editIcon, removeIcon, saveIcon, cancelIcon] = row.querySelectorAll('i');
     const [number] = args;
 
@@ -137,8 +138,16 @@ class TaskListUI extends HTMLElement {
       input.value = args[i];
     });
 
+    userInputs.forEach((input) => {
+      input.addEventListener('keyup', (e) => {
+        if (e.code === 'Enter') {
+          this.saveEdit();
+        }
+      });
+    });
+
     editIcon.addEventListener('click', () => {
-      this.editRow(row, Array.from(inputs).slice(-2));
+      this.editRow(row, userInputs);
     });
 
     removeIcon.addEventListener('click', () => {
