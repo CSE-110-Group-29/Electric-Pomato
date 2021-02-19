@@ -11,7 +11,7 @@ test('TaskList Constructor', () => {
 
 // This one is a bit funky, I think TaskList is writing to
 // localStorage for every method. This isn't changing anything.
-test('Ta.kList Save', () => {
+test('TaskList Save', () => {
   // create new tasklist
   const taskList = new TaskList();
 
@@ -61,7 +61,7 @@ test('TaskList Create 1 Task', () => {
 });
 
 // Our tasklist implementation requires that it be reset between tests
-test('TaskList reset', () => {
+test('TaskList Reset', () => {
   const taskList = new TaskList();
   taskList.reset();
 
@@ -125,6 +125,32 @@ test('TaskList Delete Task', () => {
   taskList.reset();
 });
 
+test('TaskList Delete Task at Nonexistent Index', () => {
+  // create task list
+  const taskList = new TaskList();
+
+  // delete task before adding any tasks
+  taskList.deleteTask(0);
+
+  // create task
+  const taskName = 'first task';
+  const taskExpectedPomo = 3;
+  taskList.createTask(taskName, taskExpectedPomo);
+  taskList.createTask(taskName, taskExpectedPomo);
+
+  // delete task at index that doesn't have a task
+  taskList.deleteTask(2);
+  taskList.deleteTask(3);
+
+  // there should be 0 todo tasks and 0 completed tasks
+  expect(Object.keys(taskList.todo).length).toBe(2);
+  expect(Object.keys(taskList.completed).length).toBe(0);
+
+  // taskList always tries to initialize from localStorage in proceeding tests
+  // so we must reset at the end of tests
+  taskList.reset();
+});
+
 test('TaskList Update Task', () => {
   // create task list
   const taskList = new TaskList();
@@ -167,7 +193,25 @@ test('TaskList Update Task', () => {
   taskList.reset();
 });
 
-test('Add Pomo to a Task', () => {
+test('TaskList Update Task at Nonexistent Index', () => {
+  // create task list
+  const taskList = new TaskList();
+
+  // should be an empty todo list
+  expect(Object.keys(taskList.todo).length).toBe(0);
+
+  // update task at nonexistent index
+  taskList.updateTask(0, '', 0);
+
+  // should be an empty todo list
+  expect(Object.keys(taskList.todo).length).toBe(0);
+
+  // taskList always tries to initialize from localStorage in proceeding tests
+  // so we must reset at the end of tests
+  taskList.reset();
+});
+
+test('TaskList Add Pomo to a Task', () => {
   // create tasklist
   const taskList = new TaskList();
 
@@ -187,14 +231,28 @@ test('Add Pomo to a Task', () => {
   expect(taskList.todo[0].expected).toBe(taskExpectedPomo);
   expect(taskList.todo[0].actual).toBe(1);
 
+  // taskList always tries to initialize from localStorage in proceeding tests
+  // so we must reset at the end of tests
+  taskList.reset();
+});
+
+test('TaskList Add Many Pomos to Current Task', () => {
+  // create tasklist
+  const taskList = new TaskList();
+
+  // create task
+  const firstTaskName = 'first task';
+  const taskExpectedPomo = 3;
+  taskList.createTask(firstTaskName, taskExpectedPomo);
+
   // add a few pomos
-  const actualPomos = 4;
+  const actualPomos = 90;
   for (let i = 0; i < actualPomos; i += 1) {
     taskList.addPomo();
   }
 
   // added pomo formerly and then an additional actualPomos amount
-  expect(taskList.todo[0].actual).toBe(actualPomos + 1);
+  expect(taskList.todo[0].actual).toBe(actualPomos);
 
   // taskList always tries to initialize from localStorage in proceeding tests
   // so we must reset at the end of tests
