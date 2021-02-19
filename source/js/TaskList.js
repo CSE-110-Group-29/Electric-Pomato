@@ -98,4 +98,4 @@ class TaskList {
   }
 }
 
-export default TaskList;
+module.exports = { TaskList };
