@@ -142,5 +142,37 @@ test('TaskList Update Task', () => {
 });
 
 test('Add Pomo to a Task', () => {
+  // create tasklist
+  const taskList = new TaskList();
+  // create task
+  const firstTaskName = 'first task';
+  const taskExpectedPomo = 3;
+  taskList.createTask(firstTaskName, taskExpectedPomo);
+
+  // check to make sure that actual pomos should be 0
+  expect(taskList.todo[0].actual).toBe(0);
+
+  // add an actual pomo to the current task (which should be indexed at 0)
+  taskList.addPomo();
+
+  // check to see if an actual pomo was added
+  expect(taskList.todo[0].name).toBe(firstTaskName);
+  expect(taskList.todo[0].expected).toBe(taskExpectedPomo);
+  expect(taskList.todo[0].actual).toBe(1);
+
+  // add a few pomos
+  const actualPomos = 4;
+  for (let i = 0; i < actualPomos; i += 1) {
+    taskList.addPomo();
+  }
+
+  // added pomo formerly and then an additional actualPomos amount
+  expect(taskList.todo[0].actual).toBe(actualPomos + 1);
+
+  // first task should be changed
   expect(true).toBe(true);
+
+  // taskList always tries to initialize from localStorage in proceeding tests
+  // so we must reset at the end of tests
+  taskList.reset();
 });
