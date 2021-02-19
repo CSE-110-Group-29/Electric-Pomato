@@ -1,12 +1,5 @@
 const { TaskList } = require('../js/TaskList');
 
-/**
- * Functionality that I [Enrique] cannot figure out how to
- * do in jest: save (to localStorage) and read (from localStorage).
- * EDIT: nvm. For some reason, jest actually uses a mocked local storage
- * that is initialized at the beginning of this test suite.
- */
-
 test('TaskList Constructor', () => {
   // create new tasklist
   const taskList = new TaskList();
@@ -14,6 +7,37 @@ test('TaskList Constructor', () => {
   // check that `todo` and `completed` are empty
   expect(Object.keys(taskList.todo).length).toBe(0);
   expect(Object.keys(taskList.completed).length).toBe(0);
+});
+
+// This one is a bit funky, I think TaskList is writing to
+// localStorage for every method. This isn't changing anything.
+test('Ta.kList Save', () => {
+  // create new tasklist
+  const taskList = new TaskList();
+
+  // create a task and add it
+  const taskName = 'first task';
+  const taskExpectedPomo = 3;
+  taskList.createTask(taskName, taskExpectedPomo);
+
+  // expected json string
+  const taskListJsonStringExpected = JSON.stringify({
+    todo: taskList.todo,
+    completed: taskList.completed,
+  });
+
+  // save tasklist
+  taskList.save();
+
+  // actual json string
+  const taskListJsonString = localStorage.getItem('TaskList');
+
+  // compare json strings
+  expect(taskListJsonString).toBe(taskListJsonStringExpected);
+
+  // taskList always tries to initialize from localStorage in proceeding tests
+  // so we must reset at the end of tests
+  taskList.reset();
 });
 
 test('TaskList Create 1 Task', () => {
@@ -32,6 +56,8 @@ test('TaskList Create 1 Task', () => {
   // check that the properties were correctly placed
   expect(taskList.todo[0].name).toBe(taskName);
   expect(taskList.todo[0].expected).toBe(taskExpectedPomo);
+
+  taskList.reset();
 });
 
 // Our tasklist implementation requires that it be reset between tests
@@ -144,12 +170,13 @@ test('TaskList Update Task', () => {
 test('Add Pomo to a Task', () => {
   // create tasklist
   const taskList = new TaskList();
+
   // create task
   const firstTaskName = 'first task';
   const taskExpectedPomo = 3;
   taskList.createTask(firstTaskName, taskExpectedPomo);
 
-  // check to make sure that actual pomos should be 0
+  // check to make sure that actual pomos should be 0 before anything happens
   expect(taskList.todo[0].actual).toBe(0);
 
   // add an actual pomo to the current task (which should be indexed at 0)
@@ -169,8 +196,35 @@ test('Add Pomo to a Task', () => {
   // added pomo formerly and then an additional actualPomos amount
   expect(taskList.todo[0].actual).toBe(actualPomos + 1);
 
-  // first task should be changed
-  expect(true).toBe(true);
+  // taskList always tries to initialize from localStorage in proceeding tests
+  // so we must reset at the end of tests
+  taskList.reset();
+});
+
+test('TaskList Finish', () => {
+  // create tasklist
+  const taskList = new TaskList();
+
+  // create task
+  const gtaskName = 'first task';
+  const taskExpectedPomo = 3;
+  taskList.createTask(gtaskName, taskExpectedPomo);
+
+  // completed list should be 0
+  expect(Object.keys(taskList.todo).length).toBe(1);
+  expect(Object.keys(taskList.completed).length).toBe(0);
+
+  // finish current task (which should be indexed at 0)
+  taskList.finishTask();
+
+  // completed list should be 1 and the todo list should be empty
+  expect(Object.keys(taskList.todo).length).toBe(0);
+  expect(Object.keys(taskList.completed).length).toBe(1);
+
+  // check to see if completed task is the same as the original task we made
+  expect(taskList.completed[0].name).toBe(gtaskName);
+  expect(taskList.completed[0].expected).toBe(taskExpectedPomo);
+  expect(taskList.completed[0].actual).toBe(0);
 
   // taskList always tries to initialize from localStorage in proceeding tests
   // so we must reset at the end of tests
