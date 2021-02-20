@@ -1,0 +1,26 @@
+# this workflow will create the documentation for files uploaded to the main branch
+
+name: JSDOC CI
+
+on: [push]
+
+
+jobs:
+  jsdoc:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Set up node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12
+
+      - name: Install modules
+        run: npm ci
+
+      - name: Run JSDoc
+        run: npm run generate-docs

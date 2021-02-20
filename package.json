@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "lint": "npx eslint ./source --ext .js",
-    "test": "jest ./source/__tests__"
+    "test": "jest ./source/__tests__",
+    "generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose"
   },
   "keywords": [],
   "author": "",
