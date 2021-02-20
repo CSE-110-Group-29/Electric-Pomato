@@ -1,6 +1,6 @@
 # this workflow will create the documentation for files uploaded to the main branch
 
-name: JSDOC CI
+name: JSDoc CI
 
 on: [push]
 
