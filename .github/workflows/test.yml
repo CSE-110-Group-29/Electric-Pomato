@@ -46,8 +46,7 @@ jobs:
         run: sudo mv /tmp/cse110-w21-group29/source/css ./
 
       - name: Remove private files on production
-        run: sudo rm -r ./scss
-        run: sudo rm -r ./__tests__
+        run: sudo rm -r ./scss && sudo rm -r ./__tests__
 
       - name: Add and Commit changes to pr-pages branch
         run: |
