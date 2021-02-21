@@ -25,6 +25,9 @@ jobs:
       - name: Push to prod
         run: git push origin `git subtree split --prefix source setup-bootstrap`:production --force
 
+      - name: Install modules
+        run: npm ci
+
       - name: Make destination directory for compiled CSS
         run: mkdir -vp /tmp/cse110-w21-group29/source/css
 
