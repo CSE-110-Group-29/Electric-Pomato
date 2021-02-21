@@ -7,7 +7,7 @@ Resources to get started:
 
 ## Status: accepted
 
-## Deciders: Dev Team, Andy, Annika, Teresa
+## Deciders: Andy, Annika, Teresa
 
 ## Date: 02/10/2021
 

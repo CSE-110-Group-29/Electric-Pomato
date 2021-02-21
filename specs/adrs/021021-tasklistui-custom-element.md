@@ -7,9 +7,9 @@ Resources to get started:
 
 ## Status: accepted
 
-## Deciders: Dev Team, Justin, Enrique, Donald
+## Deciders: Andy, Annika, Teresa
 
-## Date: 02/12/2021
+## Date: 02/10/2021
 
 Technical Story: [description | ticket/issue URL] <!-- optional -->
 

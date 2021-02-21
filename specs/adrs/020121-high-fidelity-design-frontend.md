@@ -10,7 +10,7 @@ Resources to get started:
 
 ## Status: accepted
 
-## Deciders: Design Team, Teresa, Liam, Donald, Andy
+## Deciders: Teresa, Liam, Donald, Andy
 
 ## Date: 02/01/2021
 

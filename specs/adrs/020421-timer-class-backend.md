@@ -7,7 +7,7 @@ Resources to get started:
 
 ## Status: accepted
 
-## Deciders: Dev Team, Justin, Enrique, Donald
+## Deciders: Justin, Enrique, Donald
 
 ## Date: 02/10/2021
 
