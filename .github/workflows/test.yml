@@ -22,11 +22,35 @@ jobs:
         with:
           node-version: 12
 
+      - name: Push to prod
+        run: git push origin `git subtree split --prefix source setup-bootstrap`:production --force
+
       - name: Install modules
         run: npm ci
 
-      - name: Compile
-        run: npm run sass-compile
+      - name: Compile CSS from SCSS files
+        uses: gha-utilities/sass-build@v0.3.6
+        with:
+          source: ./source/scss/main.scss
+          destination: /tmp/repo-name/assets/css/main.css
 
-      - name: Push to prod
-        run: git push origin `git subtree split --prefix source setup-bootstrap`:production --force
+      - name: Checkout destination Git branch
+        uses: actions/checkout@v2
+        with:
+            ref: production
+
+      - name: Move compiled CSS to path within pr-pages branch
+        run: mv /tmp/repo-name/assets/css /
+
+      - name: Add and Commit changes to pr-pages branch
+        run: |
+          git config --local user.email 'action@github.com'
+          git config --local user.name 'GitHub Action'
+          git add .
+          git commit -m 'Updates compiled CSS files'
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: production
