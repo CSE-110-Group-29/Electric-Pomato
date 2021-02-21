@@ -5,7 +5,9 @@
  * Github Issue: https://github.com/DonaldWolfson/cse110-w21-group29/issues/13
  */
 
-import TaskList from './TaskList.js';
+// import TaskList from './TaskList.js';
+
+const TaskList = require('./TaskList');
 
 class TaskListUI extends HTMLElement {
   /**
