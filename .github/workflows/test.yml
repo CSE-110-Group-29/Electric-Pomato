@@ -32,7 +32,7 @@ jobs:
         uses: gha-utilities/sass-build@v0.3.6
         with:
           source: ./source/scss/main.scss
-          destination: /tmp/repo-name/assets/css/main.css
+          destination: /tmp/cse110-w21-group29/main.css
 
       - name: Checkout destination Git branch
         uses: actions/checkout@v2
@@ -40,7 +40,7 @@ jobs:
             ref: production
 
       - name: Move compiled CSS to path within pr-pages branch
-        run: mv /tmp/repo-name/assets/css /
+        run: mv /tmp/cse110-w21-group29/main.css /
 
       - name: Add and Commit changes to pr-pages branch
         run: |
