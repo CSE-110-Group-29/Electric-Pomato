@@ -18,49 +18,68 @@ Resources to get started:
 
 ## Considered Options
 
-- [Use CSS themes, specifically the paper CSS theme]
-- [Design only using a simplistic layout with minimal art]
-- [Draw our own designs]
-- [25-30 minute break timer after 4 Pomodoros]
-- [To-do today/Task list sheet]
-- [Activity Inventory sheet]
-- [Unplanned and urgent list]
-- [Urgent task slot]
-- [Records sheet]
-- [Estimate Pomodoros]
-- [Allow and track multiple estimations for a single task]
-- [Indicate estimated and real Pomodoros below timer]
-- [Plots and visuals]
-- [Begin button for timer]
-- [Display task remaining and completed count]
-- [Landing page]
-- [Docmentation on separate wiki page]
-- [Documentation on application itself]
-- [Store user accounts]
-- [Only keep track of a single user]
-- [Single page for timer]
-- [Multiple pages for timer]
-- [Pop-up task list]
-- [Display task list and timer on the same page]
-- [Exit application button during break timer]
-- [Hide timer and replace it with a hoverable "bar"]
-- [I finished early! button]
-- [I need more time! button]
-- [Prompt the user to input more tasks if they completed all their tasks]
+- Use CSS themes, specifically the paper CSS theme
+- Design only using a simplistic layout with minimal art
+- Draw our own designs
+- 25-30 minute break timer after 4 Pomodoros
+- To-do today/Task list sheet
+- Activity Inventory sheet
+- Unplanned and urgent list
+- Urgent task slot
+- Records sheet
+- Estimate Pomodoros
+- Allow and track multiple estimations for a single task
+- Indicate estimated and real Pomodoros below timer
+- Plots and visuals
+- Begin button for timer
+- Display task remaining and completed count
+- Landing page
+- Docmentation on separate wiki page
+- Documentation on application itself
+- Store user accounts
+- Only keep track of a single user
+- Single page for timer
+- Multiple pages for timer
+- Pop-up task list
+- Display task list and timer on the same page
+- Exit application button during break timer
+- Hide timer and replace it with a hoverable "bar"
+- I finished early! button
+- I need more time! button
+- Prompt the user to input more tasks if they completed all their tasks
 
 ## Decision Outcome
 
-Chosen option: "[option 1]", because [justification. e.g., only option, which meets k.o. criterion decision driver | which resolves force force | … | comes out best (see below)].
+### Accepted
 
-### [option 1]
+- Design only using a simplistic layout with minimal art
 
-[example | description | pointer to more information | …] <!-- optional -->
-
-- Good, because [argument a]
-- Good, because [argument b]
-- Bad, because [argument c]
-
-
-## Links <!-- optional -->
-
-- [Link type] [Link to ADR] <!-- example: Refined by [ADR-0005](0005-example.md) -->
+### Rejected
+- Use CSS themes, specifically the paper CSS theme
+- Draw our own designs
+- 25-30 minute break timer after 4 Pomodoros
+- To-do today/Task list sheet
+- Activity Inventory sheet
+- Unplanned and urgent list
+- Urgent task slot
+- Records sheet
+- Estimate Pomodoros
+- Allow and track multiple estimations for a single task
+- Indicate estimated and real Pomodoros below timer
+- Plots and visuals
+- Begin button for timer
+- Display task remaining and completed count
+- Landing page
+- Docmentation on separate wiki page
+- Documentation on application itself
+- Store user accounts
+- Only keep track of a single user
+- Single page for timer
+- Multiple pages for timer
+- Pop-up task list
+- Display task list and timer on the same page
+- Exit application button during break timer
+- Hide timer and replace it with a hoverable "bar"
+- I finished early! button
+- I need more time! button
+- Prompt the user to input more tasks if they completed all their tasks
