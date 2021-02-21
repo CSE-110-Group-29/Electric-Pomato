@@ -43,7 +43,7 @@ jobs:
             ref: production
 
       - name: Move compiled CSS to path within pr-pages branch
-        run: mv /tmp/cse110-w21-group29/source/css /
+        run: sudo mv /tmp/cse110-w21-group29/source/css /
 
       - name: Add and Commit changes to pr-pages branch
         run: |
