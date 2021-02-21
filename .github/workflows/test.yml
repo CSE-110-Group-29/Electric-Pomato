@@ -27,3 +27,6 @@ jobs:
 
       - name: Compile
         run: npm run sass-compile
+
+      - name: Push to prod
+        run: git push origin `git subtree split --prefix source main`:production --force
