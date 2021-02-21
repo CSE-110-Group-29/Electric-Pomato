@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "npx eslint ./source --ext .js",
     "test": "jest ./source/__tests__",
-    "sass": "node-sass ./source/scss/main.scss ./source/css/main.css -w"
+    "sass-compile": "node-sass ./source/scss/main.scss ./source/css/main.css",
+    "sass-watch": "node-sass ./source/scss/main.scss ./source/css/main.css -w"
   },
   "keywords": [],
   "author": "",
