@@ -25,14 +25,14 @@ jobs:
       - name: Push to prod
         run: git push origin `git subtree split --prefix source setup-bootstrap`:production --force
 
-      - name: Install modules
-        run: npm ci
+      - name: Make destination directory for compiled CSS
+        run: mkdir -vp /tmp/cse110-w21-group29/source/css
 
       - name: Compile CSS from SCSS files
         uses: gha-utilities/sass-build@v0.3.6
         with:
           source: ./source/scss/main.scss
-          destination: /tmp/cse110-w21-group29/main.css
+          destination: /tmp/cse110-w21-group29/source/css/main.css
 
       - name: Checkout destination Git branch
         uses: actions/checkout@v2
@@ -40,7 +40,7 @@ jobs:
             ref: production
 
       - name: Move compiled CSS to path within pr-pages branch
-        run: mv /tmp/cse110-w21-group29/main.css /
+        run: mv /tmp/cse110-w21-group29/source/css/main.css /
 
       - name: Add and Commit changes to pr-pages branch
         run: |
