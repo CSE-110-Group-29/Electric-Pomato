@@ -12,7 +12,7 @@ Resources to get started:
 
 ## Context and Problem Statement
 
-[What are the features and mechanics we should include in our final design of our application?]
+[What image assest should we use for our final project?]
 
 ## Considered Options
 
