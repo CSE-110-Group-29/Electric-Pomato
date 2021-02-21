@@ -1,0 +1,26 @@
+# This is a basic workflow to help you get started with Actions
+
+name: test
+
+on:
+  push:
+    branches:
+      - setup-bootstrap
+      
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          ref: setup-bootstrap
+
+      - name: Set up node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12
+    
+      - name: Compile
+        run: npm run sass-compile
