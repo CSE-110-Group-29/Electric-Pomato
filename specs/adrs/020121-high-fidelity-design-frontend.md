@@ -18,9 +18,35 @@ Resources to get started:
 
 ## Considered Options
 
-- [option 1]
-- [option 2]
-- [option 3]
+- [Use CSS themes, specifically the paper CSS theme]
+- [Design only using a simplistic layout with minimal art]
+- [Draw our own designs]
+- [25-30 minute break timer after 4 Pomodoros]
+- [To-do today/Task list sheet]
+- [Activity Inventory sheet]
+- [Unplanned and urgent list]
+- [Urgent task slot]
+- [Records sheet]
+- [Estimate Pomodoros]
+- [Allow and track multiple estimations for a single task]
+- [Indicate estimated and real Pomodoros below timer]
+- [Plots and visuals]
+- [Begin button for timer]
+- [Display task remaining and completed count]
+- [Landing page]
+- [Docmentation on separate wiki page]
+- [Documentation on application itself]
+- [Store user accounts]
+- [Only keep track of a single user]
+- [Single page for timer]
+- [Multiple pages for timer]
+- [Pop-up task list]
+- [Display task list and timer on the same page]
+- [Exit application button during break timer]
+- [Hide timer and replace it with a hoverable "bar"]
+- [I finished early! button]
+- [I need more time! button]
+- [Prompt the user to input more tasks if they completed all their tasks]
 
 ## Decision Outcome
 
