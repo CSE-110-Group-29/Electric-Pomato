@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - setup-bootstrap
+      - main
 
 jobs:
   compile:
@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
         with:
-          ref: setup-bootstrap
+          ref: main
 
       - name: Set up node
         uses: actions/setup-node@v2
@@ -24,7 +24,7 @@ jobs:
         run: npm ci
 
       - name: Push source subdirectory to production branch
-        run: git push origin `git subtree split --prefix source setup-bootstrap`:production --force
+        run: git push origin `git subtree split --prefix source main`:production --force
 
       - name: Make temp directory for compiled CSS
         run: mkdir -vp /tmp/cse110-w21-group29/source/css
