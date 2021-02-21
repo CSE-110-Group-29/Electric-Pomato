@@ -52,12 +52,17 @@ Resources to get started:
 
 ### Accepted
 
-- Design only using a simplistic layout with minimal art
+- Draw our own designs
+  - Below, we were considering CSS themes, especially the paper theme, but Teresa showed us some drawings, which looked considerably better and much more fitting for the setting of a Pomodoro Timer
+- 25-30 minute break timer after 4 Pomodoros
+  - This is a core functionality of the timer, so we need to include it
 
 ### Rejected
+
+- Design only using a simplistic layout with minimal art
+  - Most of the members felt that having minimal art was a bit too bland and uninteresting for our application
 - Use CSS themes, specifically the paper CSS theme
-- Draw our own designs
-- 25-30 minute break timer after 4 Pomodoros
+  - The team was considering this first, but as mentioned above, we saw Teresa's drawings for the application and found it much more fitting for the project
 - To-do today/Task list sheet
 - Activity Inventory sheet
 - Unplanned and urgent list
