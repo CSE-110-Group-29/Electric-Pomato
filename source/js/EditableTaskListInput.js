@@ -5,7 +5,7 @@
  * Github Issue: https://github.com/DonaldWolfson/cse110-w21-group29/issues/13
  */
 
-class AddRowUI extends HTMLElement {
+class EditableTaskListInput extends HTMLElement {
   /**
    * Constructor for the Add Task Row UI.
    */
@@ -81,4 +81,6 @@ class AddRowUI extends HTMLElement {
   }
 }
 
-customElements.define('add-row', AddRowUI);
+customElements.define('editable-task-list-input', EditableTaskListInput);
+
+export default EditableTaskListInput;

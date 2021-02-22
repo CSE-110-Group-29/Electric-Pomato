@@ -7,7 +7,7 @@
 
 import TaskList from './TaskList.js';
 
-class TaskListUI extends HTMLElement {
+class EditableTaskListBody extends HTMLElement {
   /**
    * Constructor for the Task List UI.
    */
@@ -23,8 +23,6 @@ class TaskListUI extends HTMLElement {
     this.data.todo.forEach(({ name, expected }, i) => {
       this.insertRow(i + 1, name, expected);
     });
-
-    this.addTaskRow = this.nextElementSibling;
   }
 
   /**
@@ -87,7 +85,7 @@ class TaskListUI extends HTMLElement {
       child.dataset.id = i;
     });
 
-    this.addTaskRow.reset();
+    this.nextElementSibling.reset();
   }
 
   /**
@@ -113,7 +111,7 @@ class TaskListUI extends HTMLElement {
 
     this.resetEditingState();
 
-    this.addTaskRow.reset();
+    this.nextElementSibling.reset();
   }
 
   /**
@@ -164,4 +162,6 @@ class TaskListUI extends HTMLElement {
   }
 }
 
-customElements.define('task-list', TaskListUI);
+customElements.define('editable-task-list-body', EditableTaskListBody);
+
+export default EditableTaskListBody;
