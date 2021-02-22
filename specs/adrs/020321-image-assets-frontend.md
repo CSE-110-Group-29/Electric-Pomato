@@ -12,7 +12,7 @@ Resources to get started:
 
 ## Context and Problem Statement
 
-[What image assest should we use for our final project?]
+What image assest should we use for our final project?
 
 ## Things Teresa considered and the decisions for each question
 - What parts of the project should be implemented using image assets and by building?
