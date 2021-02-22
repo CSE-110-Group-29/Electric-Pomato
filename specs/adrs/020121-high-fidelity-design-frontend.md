@@ -14,7 +14,7 @@ Resources to get started:
 
 ## Context and Problem Statement
 
-[What are the features and mechanics that we want to include in our final design of our application?]
+What are the features and mechanics that we want to include in our final design of our application?
 
 ## Considered Options
 
