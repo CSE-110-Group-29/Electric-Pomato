@@ -15,57 +15,19 @@ Technical Story: [description | ticket/issue URL] <!-- optional -->
 
 ## Context and Problem Statement
 
-[Describe the context and problem statement, e.g., in free form using two to three sentences. You may want to articulate the problem in form of a question.]
+How should we set up our documentation in our workflow?
 
-## Decision Drivers <!-- optional -->
+## Things to consider
 
-- [driver 1, e.g., a force, facing concern, …]
-- [driver 2, e.g., a force, facing concern, …]
-
-## Considered Options
-
-- [option 1]
-- [option 2]
-- [option 3]
+1. How do we want to create documentation for this project?
+2. The different types of documentation frameworks that exist.
 
 ## Decision Outcome
 
-Chosen option: "[option 1]", because [justification. e.g., only option, which meets k.o. criterion decision driver | which resolves force force | … | comes out best (see below)].
-
-### Positive Consequences <!-- optional -->
-
-- [e.g., improvement of quality attribute satisfaction, follow-up decisions required, …]
-
-### Negative Consequences <!-- optional -->
-
-- [e.g., compromising quality attribute, follow-up decisions required, …]
-
-## Pros and Cons of the Options <!-- optional -->
-
-### [option 1]
-
-[example | description | pointer to more information | …] <!-- optional -->
-
-- Good, because [argument a]
-- Good, because [argument b]
-- Bad, because [argument c]
-
-### [option 2]
-
-[example | description | pointer to more information | …] <!-- optional -->
-
-- Good, because [argument a]
-- Good, because [argument b]
-- Bad, because [argument c]
-
-### [option 3]
-
-[example | description | pointer to more information | …] <!-- optional -->
-
-- Good, because [argument a]
-- Good, because [argument b]
-- Bad, because [argument c]
-
-## Links <!-- optional -->
-
-- [Link type] [Link to ADR] <!-- example: Refined by [ADR-0005](0005-example.md) -->
+1. The DevOps team chose to implement automatic documentation.  
+  - The only other alternative to documentation would be someone writing it manually in Markdown. This technically could be done for the project because the code base is relatively small. Doing so, however, is still too much of an inconvenience for us, thus we still went with automation.
+  - Automatic documentation is a requirement for the class.
+2. The DevOps team simply chose JSDocs
+  - JSDocs seemed to be the most widely used framework.
+  - It was suggested by the professor in lecture.
+  - JSDocs is already a framework that has been adopted by several members in our group. There are a few others like ESDoc and Gitbook but the team didn't look into them much because they figured that learning something new wouldn't be efficient.
