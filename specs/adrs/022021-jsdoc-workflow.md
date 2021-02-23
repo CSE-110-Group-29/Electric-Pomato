@@ -7,11 +7,7 @@ Resources to get started:
 
 ## Status: accepted
 
-## Deciders: Class Recommendation
-
-## Date: 02/20/2021
-
-Technical Story: [description | ticket/issue URL] <!-- optional -->
+## Deciders: Class Recommendation, Arman, and Liam
 
 ## Context and Problem Statement
 
