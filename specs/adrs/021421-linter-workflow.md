@@ -15,12 +15,22 @@ Resources to get started:
 
 ## Context and Problem Statement
 
-How should we set up our testing framework?
+How should we set up our style enforcement framework?
 
 ## Things to consider
 
-- What testing framework should we use?
+- What style enforcement framework should we use?
 - Depending on the testing framework we choose, what template should we work with?
 - Are there any specific config file options we want?
 
 ## Decision Outcome
+
+- The DevOps team chose ESLint as the framework.
+  - There are several different frameworks available. The team narrowed it down to Prettier and ESLint, but the team quickly decided that ESLint would be the better framework to use.
+  - ESLint is the standard framework nowadays.
+  - Github has built in support for ESLint, which makes it convenient for us
+- The Airbnb style guide was chosen.
+  - Same as ESLint, Airbnb is also the standard style guide to use.
+  - It's also built in as an extension in ESLint, making it very easy to set up.
+  - This decision is mainly made by Andy, who has the most experience in these frameworks and styling guides.
+- No specific changes to the config file were made.
