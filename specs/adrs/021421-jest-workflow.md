@@ -13,11 +13,11 @@ Resources to get started:
 
 How should we set up our testing framework?
 
-## Considered Options
+## Things to consider
 
-- [option 1]
-- [option 2]
-- [option 3]
+- What testing framework should we use?
+- Depending on the testing framework we choose, what template should we work with?
+- Are there any specific config file options we want?
 
 ## Decision Outcome
 
