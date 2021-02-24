@@ -15,9 +15,12 @@ How should we set up our testing framework?
 
 ## Things to consider
 
+- Maybe some alternatives to modular unit testing.
 - What testing framework should we use?
-- Depending on the testing framework we choose, what template should we work with?
-- Are there any specific config file options we want?
+- How often should we be running tests and when do we run them?
+- How should we approach writing the tests themselves?
 
 ## Decision Outcome
 
+- Everyone was set on doing unit testing from the beginning.
+- 
