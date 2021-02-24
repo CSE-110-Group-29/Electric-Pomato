@@ -23,4 +23,14 @@ How should we set up our testing framework?
 ## Decision Outcome
 
 - Everyone was set on doing unit testing from the beginning.
-- 
+- The DevOps team chose Jest as the unit testing framework.
+  - Jest is the most common testing framework.
+  - This decision was rather straightforward to make because we weren't aware of alternatives before looking at the assignment's examples.
+  - The team found some nice Github Actions for it, which would make it a lot more convenient for us.
+- We should be running these tests fairly often.
+  - Run these tests every times someone updates the remote codebase with new additions to code (any time someone pushes).
+  - Run these tests even if these pushes occur on branches other than main.
+- Because of the learning curve and the amount of difficulty the DevOps team has with Jest, they decided that it's probably best to have a member from the development team (Enrique) write out some example tests first, which would provide some examples for the DevOps members to reference.
+  - Every function in the codebase should be tested (start with basic ones for reference before moving on to edge cases).
+  - Add some object instantiation tests for objects like the timer and task list.
+  
