@@ -31,6 +31,6 @@ How should we set up our testing framework?
   - Run these tests every times someone updates the remote codebase with new additions to code (any time someone pushes).
   - Run these tests even if these pushes occur on branches other than main.
 - Because of the learning curve and the amount of difficulty the DevOps team has with Jest, they decided that it's probably best to have a member from the development team (Enrique) write out some example tests first, which would provide some examples for the DevOps members to reference.
+  - Enrique found it best to make tests after code has been implemented in the codebase since it fits the development team's process. The development team tends to do a copious amount of exploratory programming -- they go through a few iterations of what they want before adding tests.
   - Every function in the codebase should be tested (start with basic ones for reference before moving on to edge cases).
   - Add some object instantiation tests for objects like the timer and task list.
-  
