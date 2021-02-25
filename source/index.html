@@ -3,92 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/index.css" type="text/css">
+    <link rel="stylesheet" href="css/main.css" type="text/css">
     <title>Electric Pomato</title>
 </head>
-<body>
+<body class="pb-6">
     <div class="container">
-        <header>
-            <div class="title-container">
-                <h1 class="title">Electric Pomato</h1>
-                <h3 class="subtitle">Plan. Track. Record.</h3>
+        <div class="d-flex justify-content-between align-items-center pt-5">
+            <div class="text-white">
+                <h1 class="mb-0">Electric Pomato</h1>
+                <h4 class="mb-0">Plan. Track. Record.</h4>
             </div>
-            <a class="btn" href="#">Returning User</a>
-        </header>
-        <main>
-            <section class="hero">
-                <div class="legend">
-                    <article class="legend-row">
-                        <img class="legend-icon" src="img/green-tomato.svg" alt="green tomato">
-                        <h2 class="legend-text">25 Minutes of Productivity</h2>
-                    </article>
-                    <article class="legend-row">
-                        <img class="legend-icon" src="img/red-tomato.svg" alt="red tomato">
-                        <h2 class="legend-text"><span class="invisible">2</span>5 Minutes to Recharge</h2>
-                    </article>
+            <button type="button" class="btn btn-custom">Returning User</button>
+        </div>
+        <div class="row pt-6 pb-6">
+            <div class="col-12 col-lg-6 mb-4 mb-lg-0 d-flex flex-column justify-content-center">
+                <div class="d-flex align-items-center">
+                    <img class="legend-icon" src="img/green-tomato.svg" alt="green tomato">
+                    <h3 class="text-white mb-0">25 Minutes of Productivity</h3>
                 </div>
-                <div class="start">
-                    <div class="start-question-container">
+                <div class="d-flex align-items-center">
+                    <img class="legend-icon" src="img/red-tomato.svg" alt="red tomato">
+                    <h3 class="text-white mb-0"><span class="invisible">2</span>5 Minutes of Productivity</h3>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="start-container">
+                    <div class="d-flex justify-content-start align-items-center">
                         <h2 class="start-question">Are you ready to plug in?</h2>
                         <img class="start-question-icon" src="img/plug.svg" alt="plug">
                     </div>
-                    <div class="start-input-container">
-                        <input class="start-input" type="text" autofocus>
+                    <div class="start-input-container mb-2">
+                        <input class="start-input" type="text" autofocus="">
                         <div class="start-input-button-wrapper">
                             <a href="#"><img src="img/bolt.png" alt="bolt"></a>
                         </div>
                     </div>
-                    <div class="start-note">Enter your name to start.</div>
+                    <h5>Enter your name to start.</h5>
                 </div>
-            </section>
-            <section class="documentation">
-                <article class="card">
-                    <div class="card-header">
-                        <h3>Plan.</h3>
-                    </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-4 mb-4 mb-lg-0">
+                <div class="card">
                     <div class="card-body">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
+                        <h2 class="card-title">Plan</h2>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
-                </article>
-                <article class="card">
-                    <div class="card-header">
-                        <h3>Track.</h3>
-                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 mb-4 mb-lg-0">
+                <div class="card">
                     <div class="card-body">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna
-                            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis
-                            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                            sint
-                            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
+                        <h2 class="card-title">Track</h2>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
-                </article>
-                <article class="card">
-                    <div class="card-header">
-                        <h3>Record.</h3>
-                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 mb-4 mg-lg-0">
+                <div class="card">
                     <div class="card-body">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna
-                            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis
-                            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                            sint
-                            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
+                        <h2 class="card-title">Record</h2>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
-                </article>
-            </section>
-        </main>
+                </div>
+            </div>
+        </div>
     </div>
     <footer>
         <div class="container">
@@ -96,8 +84,13 @@
                 Made with ❤️ by Pomato!
             </div>
             <div>
-                © Pomato 2021
+                © Pomato <span id="year"></span>
             </div>
+            <script>
+                let d = new Date();
+                let year = d.getFullYear();
+                document.querySelector('#year').innerHTML = year;
+            </script>
         </div>
     </footer>
 </body>

@@ -74,6 +74,10 @@ class TaskList {
    * @param {Number} expected Updated expected number of pomodoros.
    */
   updateTask(index, name, expected) {
+    const todoListSize = Object.keys(this.todo).length;
+    if (index >= todoListSize) {
+      return;
+    }
     this.todo[index].name = name;
     this.todo[index].expected = expected;
     this.save();
@@ -98,4 +102,4 @@ class TaskList {
   }
 }
 
-export default TaskList;
+module.exports = { TaskList };
