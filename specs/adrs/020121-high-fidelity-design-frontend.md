@@ -78,8 +78,6 @@ What are the features and mechanics that we want to include in our final design 
   - The user needs to be able to indicate if they finish their task early so they don't get stuck on the same task even if they've completed it
 - I need more time! button
   - Our reasoning for changing the button if the number of actual Pomodoros exceeds that of the user's estimated Pomodoros is because one of one of the philosophies behind the Pomodoro Technique: you should start getting a feel for how much time each task should take as you employ this technique, which should help you with planning. This small time pressure should help encourage the aforementioned idea.
-- Prompt the user to input more tasks if they completed all their tasks
-  - Perhaps the user may want to do more tasks in a single day, and this doesn't add much complexity
 
 ### Rejected
 
@@ -113,3 +111,6 @@ What are the features and mechanics that we want to include in our final design 
   - The user can just close the application any time. Additionally, it just adds more clutter.
 - Hide timer and replace it with a hoverable "bar"
   - This might make the application a lot less intuitive and understandable for the user
+- Prompt the user to input more tasks if they completed all their tasks
+  - ~~Perhaps the user may want to do more tasks in a single day, and this doesn't add much complexity~~
+  - UPDATE: the development team thinks that implementing this is wishful thinking, so we are moving this to rejected.
