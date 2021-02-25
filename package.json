@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "lint": "npx eslint ./source --ext .js",
-    "test": "jest ./source/__tests__"
+    "test": "jest ./source/__tests__",
+    "sass-compile": "node-sass ./source/scss/main.scss ./source/css/main.css",
+    "sass-watch": "node-sass ./source/scss/main.scss ./source/css/main.css -w"
   },
   "keywords": [],
   "author": "",
@@ -24,5 +26,9 @@
   "bugs": {
     "url": "https://github.com/DonaldWolfson/cse110-w21-group29/issues"
   },
-  "homepage": "https://github.com/DonaldWolfson/cse110-w21-group29#readme"
+  "homepage": "https://github.com/DonaldWolfson/cse110-w21-group29#readme",
+  "dependencies": {
+    "bootstrap": "^5.0.0-beta2",
+    "node-sass": "^5.0.0"
+  }
 }

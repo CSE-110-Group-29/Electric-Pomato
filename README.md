@@ -23,3 +23,9 @@ And that should be it!
 - To make sure your code is synced with the repo, and up-to-date, run `git fetch --all`.
 - To remove old/deleted branches from your local machine, run `git fetch --prune`.
 - To make a new branch and check it out, run `git checkout -b <branch_name>`.
+
+## Sass Setup Instructions
+
+- Assuming Linter Setup Instructions are followed, simply `cd` to the root directory of local repository `cse110-w21-group29/`
+- Run `npm run sass` and the scss files will automatically compile into css whenever the main.scss file is changed.
+- NOTE: Keep the terminal open when developing and if the script you ran ever crashes, just re-run `npm run sass` again once you fix the issues.
