@@ -39,6 +39,8 @@ $spacers: (
 body {
     min-height: 100vh;
     position: relative;
+    opacity: 0;
+    transition: opacity 1.5s;
 }
 
 .btn {
@@ -85,7 +87,6 @@ input:focus {
     font-size: 2.5rem;
     font-weight: 600;
     text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-    margin-right: 0.5rem;
 }
 
 .start-container {
@@ -207,4 +208,20 @@ footer > .container {
         padding: 0;
         width: 100%;
     }
+}
+
+.task-list-container {
+    cursor: pointer;
+    height: calc(100% - 8rem - 5rem);
+    top: calc(100% - 7rem);
+    transition-property: top;
+    transition-duration: 0.5s;
+}
+
+.hidden {
+    top: calc(100% - 7rem);
+}
+
+.showing {
+    top: calc(0% + 8rem + 5rem);
 }

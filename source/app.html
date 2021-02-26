@@ -10,11 +10,12 @@
     <title>Task List</title>
 </head>
 
-<body class="d-flex">
+<body class="d-flex" onload="document.body.style.opacity='1'">
     <div class="container d-flex">
-        <div class="w-100 d-flex flex-column">
-            <h1 class="text-white text-center pt-6 pb-6">Arman's Day</h1>
-            <div class="task-list-container bg-white flex-grow-1 p-5">
+        <div class="w-100 d-flex flex-column position-relative" style="overflow: hidden;">
+            <input type="checkbox" name="toggle" id="toggle" class="invisible">
+            <div class="d-flex justify-content-center text-white pt-6 pb-6" style="font-size: 5rem;">Current Task: Finish Biology Homework</div>
+            <div class="task-list-container hidden bg-white flex-grow-1 p-5 position-absolute w-100">
                 <template id="edit-title-template">
                     <div class="row">
                         <div class="col-10">
