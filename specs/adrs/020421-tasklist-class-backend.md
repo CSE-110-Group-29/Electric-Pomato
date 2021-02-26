@@ -27,7 +27,7 @@ How should we design the TaskList object? Additionally, the development team wan
 ## Decision Outcomes
 
 1.	Implementing the ability for the user to edit the task list is a reasonable and achievable addition for the amount of time we have in the quarter.
-  - Don’t have a separate button to edit a task on the list because it might be annoying. Instead, allow the user to click on the input itself to edit the task.
+    - Don’t have a separate button to edit a task on the list because it might be annoying. Instead, allow the user to click on the input itself to edit the task.
   - ~~For now, don’t add the option to reset the task list or remove tasks from the list during the day. A warning should pop up saying that their task list is final once they’ve finished adding tasks.~~ Update: not being able to remove would be annoying for the user. It’s also not wishful thinking to implement such a thing. A reset task feature still isn’t necessary, though.
   - Use onclick in JavaScript instead of the input keyword in HTML. Andy says the advantage for doing this is that we have access to it in the Javascript file and some scoping blocks.
   - What is too much for the development team to add, however, is the ability to shift tasks around in the task list.
