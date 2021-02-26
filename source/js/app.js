@@ -3,7 +3,7 @@ import ViewOnlyTaskList from './ViewOnlyTaskList.js';
 
 const e = new EditableTaskList();
 const v = new ViewOnlyTaskList();
-document.querySelector('.task-list-container').appendChild(v);
+ocument.querySelector('.task-list-container').appendChild([e, v][Math.floor(Math.random() * 2)]);
 
 const taskList = document.querySelector('.task-list-container');
 const dropToggle = document.getElementById('toggle');
