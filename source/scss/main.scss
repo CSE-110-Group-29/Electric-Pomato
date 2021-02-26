@@ -39,8 +39,10 @@ $spacers: (
 body {
     min-height: 100vh;
     position: relative;
-    opacity: 0;
-    transition: opacity 1.5s;
+}
+
+.container {
+    display: flex;
 }
 
 .btn {
@@ -146,9 +148,27 @@ footer > .container {
     align-items: center;
 }
 
+.app-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.app-title {
+    color: white;
+    text-align: center;
+    padding: map-get($spacers, 6) 0;
+    margin-bottom: 0;
+}
+
 .task-list-container {
     border-radius: 2.5rem 2.5rem 0 0;
     font-size: $h5-font-size;
+    background-color: white;
+    height: 100%;
+    padding: map-get($spacers, 5);
 
     input {
         width: 95%;
@@ -210,18 +230,14 @@ footer > .container {
     }
 }
 
-.task-list-container {
+.view-only {
+    position: absolute;
     cursor: pointer;
-    height: calc(100% - 8rem - 5rem);
-    top: calc(100% - 7rem);
     transition-property: top;
     transition-duration: 0.5s;
-}
+    width: 100%;
 
-.hidden {
-    top: calc(100% - 7rem);
-}
-
-.showing {
-    top: calc(0% + 8rem + 5rem);
+    input:disabled {
+        cursor: pointer;
+    }
 }

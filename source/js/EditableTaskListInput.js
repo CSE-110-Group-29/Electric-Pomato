@@ -40,7 +40,9 @@ class EditableTaskListInput extends HTMLElement {
     this.button.addEventListener('click', () => {
       this.addRow();
     });
+  }
 
+  connectedCallback() {
     // Initialize row to default UI state.
     this.reset();
   }
