@@ -51,8 +51,7 @@ class EditableTaskListInput extends HTMLElement {
    * Disable/Enable add task button based on validity of inputs.
    */
   updateButtonState() {
-    if (this.nameInput.value.length === 0 || Number(this.expectedInput.value) < 1
-        || Number(this.expectedInput.value) > 5) {
+    if (this.nameInput.value.length === 0 || Number(this.expectedInput.value) < 1) {
       /* Alert user to break down task
       if (Number(this.expectedInput.value) > 5) {
         alert("Estimated Pomos exceeds maximum of 5.\nTip: Break it down into smaller tasks.");
