@@ -15,6 +15,6 @@ How should we design the TaskList object?
 
 ## Things to consider
 
-
+- The way of interacting with the 
 
 ## Decision Outcome
