@@ -18,3 +18,6 @@ How should we design the TaskList object?
 - The way of interacting with the 
 
 ## Decision Outcome
+
+-	Should we allow the user to edit the task list? If so, how should the user edit/delete a task on the list?
+-	How should we store information from the task list?
