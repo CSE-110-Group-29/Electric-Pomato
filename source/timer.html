@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css" type="text/css">
+    <link rel="icon" href="img/green-tomato.ico">
     <title>Electric Pomato</title>
     <script src="js/session.js" type="module"></script>
 </head>
@@ -22,5 +23,20 @@
             </div>
         </template>
     </div>
+   <footer>
+        <div class="container">
+            <div>
+                Made with ❤️ by Team Pomato!
+            </div>
+            <div>
+                © Pomato <span id="year"></span>
+            </div>
+            <script>
+                let d = new Date();
+                let year = d.getFullYear();
+                document.querySelector('#year').innerHTML = year;
+            </script>
+        </div>
+    </footer>
 </body>
 </html>
