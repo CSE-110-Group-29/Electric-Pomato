@@ -21,11 +21,11 @@ How should we design the TaskList object? Additionally, the development team wan
 4.	How should we handle initialization of the task list?
 5.	How should we handle modifications to the task list?
 6.	How should the work be split up?
-7.	How do we deal with the user refreshing the page?
-8.	Is it much easier to work with the task list if it’s converted to a Session object?
-9.	How should we handle the interactivity of the task list?
-10.	Should we rebuild or re-render the task list every time it's updated?
-11.	Consider one or more TaskList objects.
+7.	Consider one or more TaskList objects.
+8.	How do we deal with the user refreshing the page?
+9.	Is it much easier to work with the task list if it’s converted to a Session object?
+10.	How should we handle the interactivity of the task list?
+11.	Should we rebuild or re-render the task list every time it's updated?
 
 ## Decision Outcomes
 
@@ -48,14 +48,15 @@ How should we design the TaskList object? Additionally, the development team wan
     - Annika: perform exploratory coding in the TaskList.js script and work on edge cases for both the TaskList and TaskListUI classes.
     - Teresa: stylize the TaskList code.
     - Enrique: Not part of the group that’s implementing the code for the task list, but he will be writing unit tests for the TaskList class.
-7. Refreshing or exiting the page should just void the Pomodoro.
-8. ~~The development team decided that it’s much better to convert the TaskList object to a Session object.~~ Update: it’s better to keep these two objects separate. The session script will act as the middle man between the Timer and the TaskList object. This is because the session script is only communicating with UI components.
+7. There should be two different task lists: one that's view-only and one that's editable.
+    - The view-only task list 
+8. Refreshing or exiting the page should just void the Pomodoro.
+9. ~~The development team decided that it’s much better to convert the TaskList object to a Session object.~~ Update: it’s better to keep these two objects separate. The session script will act as the middle man between the Timer and the TaskList object. This is because the session script is only communicating with UI components.
     - ~~One reason is because the TaskList object is already doing LocalStorage read and writes.~~
     - ~~It’s better to keep all the LocalStorage manipulation in one place because it makes the job of the main script easier – all it has to do is run new Session() and call the methods to do its logic.~~
-9. The pop-up task list should be a button with its own standalone logic. Teresa or Annika will implement this part of the task list.
-10. ~~We should update the task list by rebuilding. That is, we should procedurally inject HTML code into the task list via innerHTML every time something changes, even if it's a small change.~~ Update: Don't rely on rebuilding the task list every time something changes. Instead, we should just re-render the task list.
+10. The pop-up task list should be a button with its own standalone logic. Teresa or Annika will implement this part of the task list.
+11. ~~We should update the task list by rebuilding. That is, we should procedurally inject HTML code into the task list via innerHTML every time something changes, even if it's a small change.~~ Update: Don't rely on rebuilding the task list every time something changes. Instead, we should just re-render the task list.
     - Rebuilding the task list was rather inefficient -- it completely destroyed and recreates the HTML elements, which is inefficient; not to mention that it also removes event listeners, making it hard to manage references. Additionally, Andy says that a problem they've had is that the TaskList object is an instance variable, which means it won't be able to handle edits as the user is pulling up the task list on the web application.
     - Thus, by going with a component based approach and cloning the template for each row, we can store references of each row and keep track of the state easily.
     - Additionally, this precents the need to re-render the HTML portion of the task list after each change.
-11. There should be two different task lists: one that's view-only and one that's editable.
-    - The view-only task list
+    - One thing to keep in mind, however, is that we should also create a separate TaskList object for the session script, so it has its own list that can be rendered safely.
