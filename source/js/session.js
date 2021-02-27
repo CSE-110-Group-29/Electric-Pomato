@@ -1,15 +1,12 @@
-// /* *
-//  * Author: Donald Wolfson, Justin Lee, Enrique Gan, Andy Young
-//  * Date: 02/25/2021
-//  * */
-// /** Global Values: (TODO)                                                  **/
-// //     Will hold DOM data on HTML elements (buttons, forms, etc.)
-// //     The ID's and names aren't final, and don't connect to anything in HTML.
-// //     Just made them in hopes of simulating some processes better.
-// //     These are defined based on the design Teresa made, check the Project
-// //     Pitch do for context.
+/* *
+ * Author: Donald Wolfson, Justin Lee, Enrique Gan, Andy Young
+ * Date: 02/25/2021
+ * */
+
+// Imports:
 import TimerUI from './TimerUI.js';
 
+// Global Variables:
 const body = document.querySelector('.container');
 const timerUI = new TimerUI();
 
