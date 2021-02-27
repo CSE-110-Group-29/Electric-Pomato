@@ -13,7 +13,7 @@ Resources to get started:
 
 TODO: Fill this out
 
-## Considered Options
+## Things to consider
 
 - How do we split up the work for the Timer object?
 
