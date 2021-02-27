@@ -12,11 +12,12 @@ Resources to get started:
 ## Context and Problem Statement
 
 TODO: Allen left this template for Enrique if he wanted to replicate the format he's using.
+1.
 
 ## Things to consider
 
-- TODO
+1.
 
 ## Decision Outcome
 
-- TODO
+1.
