@@ -117,4 +117,5 @@ What are the features and mechanics that we want to include in our final design 
     - UPDATE: The button now merely changes to “I finished!”
 29. Prompt the user to input more tasks if they completed all their tasks
     - ~~Perhaps the user may want to do more tasks in a single day, and this doesn't add much complexity~~
-    - UPDATE: the development team thinks that implementing this is wishful thinking, so we are moving this to rejected.
+    - ~~UPDATE: the development team thinks that implementing this is wishful thinking, so we are moving this to rejected.~~
+    - UPDATE: we changed our minds again. We should show the prompt after the user completes the last task again. The timer should still count down while the prompt is shown on the screen, and if the timer fully elapss, then it should automatically take the user directly to the Records Sheet screen.
