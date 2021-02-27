@@ -11,7 +11,7 @@ Resources to get started:
 
 ## Context and Problem Statement
 
-TODO: Allen left this template for Enrique if he wanted to replicate the format he's using.
+TODO: Allen left this template for Enrique if he wanted to replicate the format he's using.  
 1.
 
 ## Things to consider
