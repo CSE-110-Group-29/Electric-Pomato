@@ -49,7 +49,8 @@ How should we design the TaskList object? Additionally, the development team wan
     - Teresa: stylize the TaskList code.
     - Enrique: Not part of the group that’s implementing the code for the task list, but he will be writing unit tests for the TaskList class.
 7. There should be two different task lists: one that's view-only and one that's editable.
-    - The view-only task list 
+    - The view-only task list should be the task list that simply displays upcoming and completed tasks to the user.
+    - The editable task should only appear once the user clicks on the pencil icon to edit.
 8. Refreshing or exiting the page should just void the Pomodoro.
 9. ~~The development team decided that it’s much better to convert the TaskList object to a Session object.~~ Update: it’s better to keep these two objects separate. The session script will act as the middle man between the Timer and the TaskList object. This is because the session script is only communicating with UI components.
     - ~~One reason is because the TaskList object is already doing LocalStorage read and writes.~~
