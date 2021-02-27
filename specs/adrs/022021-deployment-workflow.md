@@ -21,7 +21,8 @@ How should we set up our deployment?
 ## Decision Outcome
 
 1. Because of security reasons, we should create a new branch called "production" for our deployment.
-  - The Github repository should be using this branch as the root for the deployment.
+    - The Github repository should be using this branch as the root for the deployment.
 2. The following files and folders should be the only items that exist in this branch: css folder, img folder, js folder, reference folder, TaskListUI.html, and index.html.
-  - These are the only files that are necessary for Github pages.
-  - Don't use anything else in the main branch because it allows us to hide all our workflows, meeting notes, etc. from people that use our website.
+    - These are the only files that are necessary for Github pages.
+    - Don't use anything else in the main branch because it allows us to hide all our workflows, meeting notes, etc. from people that use our website.
+    - As a small side note, bootstrap and sass should be automatically built on our deployment.
