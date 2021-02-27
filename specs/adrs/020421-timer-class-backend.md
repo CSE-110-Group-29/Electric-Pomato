@@ -11,10 +11,12 @@ Resources to get started:
 
 ## Context and Problem Statement
 
-TODO: Fill this out
+TODO
 
 ## Things to consider
 
-- How do we split up the work for the Timer object?
+- TODO
 
 ## Decision Outcome
+
+- TODO
