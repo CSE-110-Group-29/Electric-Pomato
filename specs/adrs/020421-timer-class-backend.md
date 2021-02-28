@@ -11,13 +11,13 @@ Resources to get started:
 
 ## Context and Problem Statement
 
-We need a way to keep track of time the passed when we start a pomo or a break, and a basic timer object felt like the most natural solution. We can create a new timer, run it, have it tell us how much time is left, and then throw it away when we're done.
+We need a way to keep track of time are we start a Pomodoro or the break timer, and a basic Timer object felt like the most natural solution. We can create a new Timer object, run it, have it tell us how much time is left, and then throw it away when we're done.
 
 NOTE: Anything having to do with the html representation and not so much the internal workings of how the clock keeps track of time has been offloaded to the TimerUI class. This will allow us to have classes with minimal responsibilities and be flexible if we decide to change how we render the time onto the screen. 
 
 ## Things to consider
 
-1. The timer needs to know how much time has passed has passed since we started it.
+1. The timer needs to know how much time has passed since we started it.
    - Should we have the timer object store the time it was started and periodically check how much time has passed since?
    - Should we make use of javascript `setInteval()` exclusively to tick the timer down? 
 2. How do we reflect the current time left onto html? (Now the job of the TimerUI class)
