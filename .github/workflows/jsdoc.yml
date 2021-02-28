@@ -5,7 +5,7 @@ name: JSDoc CI
 on:
   push:
     branches:
-      - main
+      - jsdoc-workflow
 
 jobs:
   jsdoc:
@@ -38,5 +38,5 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
+          branch: jsdoc-workflow
 
