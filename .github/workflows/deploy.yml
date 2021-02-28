@@ -3,7 +3,7 @@ name: JSDoc and Deploy
 on:
   push:
     branches:
-      - jsdoc-workflow
+      - main
 
 jobs:
   jsdoc:
@@ -34,7 +34,7 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: jsdoc-workflow
+          branch: main
 
   compile:
     needs: jsdoc
@@ -53,7 +53,7 @@ jobs:
         run: npm ci
 
       - name: Push source subdirectory to production branch
-        run: git push origin `git subtree split --prefix source jsdoc-workflow`:production --force
+        run: git push origin `git subtree split --prefix source main`:production --force
 
       - name: Make temp directory for compiled CSS
         run: mkdir -vp /tmp/cse110-w21-group29/source/css
