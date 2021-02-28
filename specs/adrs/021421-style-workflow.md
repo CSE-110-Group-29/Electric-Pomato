@@ -3,7 +3,9 @@
 Resources to get started:
 
 - [Github Action](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/.github/workflows/lint.yml)
-- Ask Arman and Liam about this one for clarification.
+- [Meeting Notes](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/admin/meetings/020421-dev.md)
+- Ask Andy for clarification on AirBnB style guide.
+- Ask Arman and Liam about this one for clarification on the linter.
 
 ## Status: accepted
 
@@ -28,5 +30,6 @@ How should we set up our style enforcement framework?
 2. The Airbnb style guide was chosen.
     - Same as ESLint, Airbnb is also the standard style guide to use.
     - It's also built in as an extension in ESLint, making it very easy to set up.
-    - This decision is mainly made by Andy, who has the most experience in these frameworks and styling guides.
+    - This decision is mainly made by Andy, who has the most experienced in these frameworks and styling guides.
+    - Although most of AirBnB's guide is very in depth, we mainly use it for naming convention, while we use the linter to help enforce a similar format on tabs, and function structure.
 3. No specific changes to the config file were made.
