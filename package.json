@@ -4,7 +4,7 @@
   "description": "Electric Pomato!",
   "main": "index.js",
   "scripts": {
-    "lint": "npx eslint ./source --ext .js",
+    "lint": "npx eslint ./source/js --ext .js",
     "test": "jest ./source/__tests__",
     "generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose",
     "sass-compile": "node-sass ./source/scss/main.scss ./source/css/main.css",
