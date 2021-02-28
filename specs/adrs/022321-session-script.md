@@ -31,7 +31,7 @@ How should we set up our session script?
     - Username
     - A Boolean variable of HasCreatedTaskList or something similar. It should be noted that if the user refreshes the task list screen, this Boolean variable should construe this as remaining on the initial task list screen.
     - Number of Pomodoros
-5.	The session script will decide what to show as soon as the user inputs all his or her information on the landing page.
+5.	The session script will decide what to show as soon as the user inputs all of his or her information on the landing page.
     - Send the session script down a list of event handlers to see what the user has done. 
     - Update: it should be much simpler to merely check what’s in LocalStorage because it should already contain information about what the user has done.
     - As mentioned above, the user could be on any stage of the application (for example, inputting tasks on the initial task list for the day, the work timer, the break timer, etc.). We will refer to the two states as denoted in question 2 for the session script’s behavior.
