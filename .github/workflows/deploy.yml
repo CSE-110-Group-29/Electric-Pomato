@@ -1,0 +1,93 @@
+name: JSDoc and Deploy
+
+on:
+  push:
+    branches:
+      - jsdoc-workflow
+
+jobs:
+  jsdoc:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Set up node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12
+
+      - name: Install modules
+        run: npm ci
+
+      - name: Run JSDoc
+        run: npm run generate-docs
+
+      - name: Add and commit doc changes to main
+        run: |
+          git config --local user.email 'action@github.com'
+          git config --local user.name 'GitHub Action'
+          git add -A
+          git commit -m 'Updates JSDoc documentation files'
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: jsdoc-workflow
+
+  compile:
+    needs: jsdoc
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Set up node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12
+
+      - name: Install modules
+        run: npm ci
+
+      - name: Push source subdirectory to production branch
+        run: git push origin `git subtree split --prefix source jsdoc-workflow`:production --force
+
+      - name: Make temp directory for compiled CSS
+        run: mkdir -vp /tmp/cse110-w21-group29/source/css
+
+      - name: Compile CSS from SCSS files to temp directory
+        uses: gha-utilities/sass-build@v0.3.6
+        with:
+          source: ./source/scss/main.scss
+          destination: /tmp/cse110-w21-group29/source/css/main.css
+
+      - name: Checkout production branch
+        uses: actions/checkout@v2
+        with:
+            ref: production
+
+      - name: Move compiled CSS to production branch
+        run: sudo mv /tmp/cse110-w21-group29/source/css ./
+
+      - name: Remove private files on production branch
+        run: |
+          sudo rm -r ./scss
+          sudo rm -r ./__tests__
+
+      - name: Add and Commit changes to production branch
+        run: |
+          git config --local user.email 'action@github.com'
+          git config --local user.name 'GitHub Action'
+          git add .
+          git commit -m 'Updates compiled CSS files'
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: production
+
