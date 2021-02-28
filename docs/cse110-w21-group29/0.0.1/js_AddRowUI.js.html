@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>js/AddRowUI.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="AddRowUI.html">AddRowUI</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AddRowUI.html#addRow">addRow</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AddRowUI.html#reset">reset</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AddRowUI.html#updateButtonState">updateButtonState</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="TaskList.html">TaskList</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TaskList.html#addPomo">addPomo</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TaskList.html#createTask">createTask</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TaskList.html#deleteTask">deleteTask</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TaskList.html#finishTask">finishTask</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TaskList.html#reset">reset</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TaskList.html#save">save</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TaskList.html#updateTask">updateTask</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="TaskListUI.html">TaskListUI</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TaskListUI.html#addRow">addRow</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TaskListUI.html#cancelEdit">cancelEdit</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TaskListUI.html#editRow">editRow</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TaskListUI.html#insertRow">insertRow</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TaskListUI.html#removeRow">removeRow</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TaskListUI.html#resetEditingState">resetEditingState</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TaskListUI.html#saveEdit">saveEdit</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#cancel">cancel</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#edit">edit</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#remove">remove</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#rowTemplate">rowTemplate</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#save">save</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">js/AddRowUI.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Author: Andy Young, Teresa Truong, Annika Hatcher
+ * Updated By: (Any names of people who've done some editing of the file)
+ * Date: 02/12/2021
+ * Github Issue: https://github.com/DonaldWolfson/cse110-w21-group29/issues/13
+ */
+
+class AddRowUI extends HTMLElement {
+  /**
+   * Constructor for the Add Task Row UI.
+   */
+  constructor() {
+    super();
+
+    // Clone the template.
+    const clone = document.querySelector('#add-row-template').content.cloneNode(true);
+    this.appendChild(clone);
+
+    // Store references to inputs/button to instance variable.
+    [this.nameInput, this.expectedInput] = this.querySelectorAll('input');
+    this.button = this.querySelector('button');
+
+    // Add event listener to both inputs to update button state.
+    [this.nameInput, this.expectedInput].forEach((input) => {
+      input.addEventListener('input', () => {
+        this.updateButtonState();
+      });
+    });
+
+    // Add event listener to both inputs to add row on enter if inputs are valid.
+    [this.nameInput, this.expectedInput].forEach((input) => {
+      input.addEventListener('keyup', (e) => {
+        if (e.code === 'Enter' &amp;&amp; !this.button.disabled) {
+          this.addRow();
+        }
+      });
+    });
+
+    // Add event listener to button to add row on click.
+    this.button.addEventListener('click', () => {
+      this.addRow();
+    });
+
+    // Initialize row to default UI state.
+    this.reset();
+  }
+
+  /**
+   * Disable/Enable add task button based on validity of inputs.
+   */
+  updateButtonState() {
+    if (this.nameInput.value.length === 0 || Number(this.expectedInput.value) &lt; 1) {
+      this.button.disabled = true;
+    } else {
+      this.button.disabled = false;
+    }
+  }
+
+  /**
+   * Add row to TaskList assuming it is the previous sibling.
+   */
+  addRow() {
+    this.previousElementSibling.addRow(this.nameInput.value, this.expectedInput.value);
+    this.reset();
+  }
+
+  /**
+   * Initializes the UI of the row to its initial state.
+   */
+  reset() {
+    this.nameInput.value = '';
+    this.expectedInput.value = '';
+    this.nameInput.focus();
+    this.updateButtonState();
+  }
+}
+
+customElements.define('add-row', AddRowUI);
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Sun Feb 28 2021 21:45:49 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
