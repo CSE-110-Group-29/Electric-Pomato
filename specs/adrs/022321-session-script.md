@@ -31,7 +31,7 @@ How should we set up our session script?
     - If the session script detects that the user is on the timer screen, it will begin the timer immediately.
     - Note: there has been some discussion of making the buttons prompts. This has been ruled out because it would make the timer screen a bit cluttered.
 3. It’s imperative for the session script to keep track of the “I finished!” and “I need another Pomodoro” buttons.
-    - The TimerUI has to be incognizant about when this happens, and when this occurs during the situation where the session script needs to create a new timer.
+    - The TimerUI is incognizant of when this happens, and when this occurs during the situation where the session script needs to create a new timer.
     - The session script needs to use this as an indicator to pop the next task off the task list.
 4. The following are elements that the session script should contain:
     - Username
