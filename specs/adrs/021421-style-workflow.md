@@ -1,4 +1,4 @@
-# Feb. 14th 2021, Linter Workflow ADR
+# Feb. 14th 2021, Style Workflow ADR
 
 Resources to get started:
 
