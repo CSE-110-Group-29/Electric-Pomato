@@ -1,4 +1,4 @@
-# Feb. 14th 2021, Linter Workflow ADR
+# Feb. 14th 2021, Session Script ADR
 
 ## Status: accepted
 
