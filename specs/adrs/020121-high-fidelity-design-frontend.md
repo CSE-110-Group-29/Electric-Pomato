@@ -22,37 +22,44 @@ What are the features and mechanics that we want to subsume into our final desig
 - Francesco Chirillo's Pomodoro Technique philosophy.
 - Task and time management.
 
-## Considered Options
+## Options to consider
 
-1. Use CSS themes, specifically the paper CSS theme.
-2. Design only using a simplistic layout and a Lillipution amount of art.
-3. Draw our own designs.
-4. 25-30 minute break timer after 4 Pomodoros.
-5. To-do today/Task list sheet.
-6. Activity Inventory sheet.
-7. Unplanned and urgent list.
-8. Urgent task slot.
-9. Records sheet.
-10. Estimated number of Pomodoros.
-11. Allow and track multiple estimations for a single task.
-12. Evince estimated and real number of Pomodoros below timer.
-13. Plots and visuals.
-14. Begin button for the timer.
-15. Display task remaining and completed count.
-16. Landing page.
-17. Docmentation on separate wiki page.
-18. Documentation on application itself.
-19. Store user accounts.
-20. Only keep track of a single user.
-21. Single page for timer.
-22. Multiple pages for timer.
-23. Pop-up task list.
-24. Display task list and timer concomitantly on the same page.
-25. Exit application button during the break timer.
-26. Hide timer and supplant it with a hoverable "bar."
-27. I finished early! button.
-28. I need more time! button.
-29. Prompt the user to input more tasks if they completed all their tasks for the day.
+1. Theme:
+    - Use CSS themes, specifically the paper CSS theme.
+    - Draw our own designs.
+    - Design only using a simplistic layout and a Lillipution amount of art.
+2. Features pertaining to Francesco's Pomodoro Technique:
+    - 25-30 minute break timer after 4 Pomodoros.
+    - To-do today/Task list sheet.
+    - Activity Inventory sheet.
+    - Unplanned and urgent list.
+        - Urgent task slot.
+    - Records sheet.
+    - Estimated number of Pomodoros.
+        - Allow and track multiple estimations for a single task.
+        - Evince estimated and real number of Pomodoros below timer.
+3. Miscellaneous features:
+    - Plots and visuals.
+    - Display task remaining and completed count.
+    - Documentation on application itself.
+        - Landing page.
+    - Docmentation on separate wiki page.
+5. Funcitonality:
+    - Begin button for the timer.
+    - Exit application button during the break timer.
+    - Hide timer and supplant it with a hoverable "bar."
+    - "I finished early!" button.
+        - Additional "I need more time!" button.
+    - Prompt the user to input more tasks if they completed all their tasks for the day.
+6. User information storage:
+    - Store user accounts.
+    - Only keep track of a single user.
+7. Page layout:
+    - Single page for timer.
+    - Multiple pages for timer.
+8. Task list appearance:
+    - Pop-up task list.
+    - Display task list and timer concomitantly on the same page.
 
 ## Decision Outcome
 
