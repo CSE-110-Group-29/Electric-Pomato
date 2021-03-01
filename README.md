@@ -1,5 +1,6 @@
 # cse110-w21-group29
 
+Our site can found [here](https://donaldwolfson.github.io/cse110-w21-group29/)!
 
 ## Airbnb Linter Setup Instructions (VS Code)
 
@@ -26,5 +27,5 @@ And that should be it!
 ## Sass Setup Instructions
 
 - Assuming Linter Setup Instructions are followed, simply `cd` to the root directory of local repository `cse110-w21-group29/`
-- Run `npm run sass` and the scss files will automatically compile into css whenever the main.scss file is changed.
+- Run `npm run sass-watch` and the scss files will automatically compile into css whenever the main.scss file is saved.
 - NOTE: Keep the terminal open when developing and if the script you ran ever crashes, just re-run `npm run sass` again once you fix the issues.
