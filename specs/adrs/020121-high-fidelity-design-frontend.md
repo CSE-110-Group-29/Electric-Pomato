@@ -44,20 +44,20 @@ What are the features and mechanics that we want to subsume into our final desig
     - Documentation on application itself.
         - Landing page.
     - Docmentation on separate wiki page.
-5. Funcitonality:
+4. Funcitonality:
     - Begin button for the timer.
     - Exit application button during the break timer.
     - Hide timer and supplant it with a hoverable "bar."
     - "I finished early!" button.
         - Additional "I need more time!" button.
     - Prompt the user to input more tasks if they completed all their tasks for the day.
-6. User information storage:
+5. User information storage:
     - Store user accounts.
     - Only keep track of a single user.
-7. Page layout:
+6. Page layout:
     - Single page for timer.
     - Multiple pages for timer.
-8. Task list appearance:
+7. Task list appearance:
     - Pop-up task list.
     - Display task list and timer concomitantly on the same page.
 
@@ -82,43 +82,25 @@ What are the features and mechanics that we want to subsume into our final desig
     - Display task remaining and completed count: Same reason as "evince estimated and real number of Pomodoros below timer."
     - __Documentation on application itself: after a bit of thinking, we feel that our documentation would only take up a modicum of space on a Wiki page, so we advocated for writing documentation on the application itself, specifically on the landing page.__
         - __Landing page: we decided to incorporate a landing page to help introduce the user to the application since the Pomodoro Technique is a rather obscure self-improvement technique.__
-    - Docmentation on separate wiki page.
-
-14. Begin button for timer.
-    - To clarify, we were debating on whether the timer should start immediately after adding completing the task list at the beginning of the day or prompt the user to start when they're ready. We decided to do the latter. That is, to add a button prompting the user so the application doesn't start untowardly.
-16. Landing page.
-    - 
-20. Only keep track of a single user.
-    - This application is most likely going to be used for personal reasons, so we decided to only keep track of a single user's information.
-21. Single page for timer.
-    - As our project was still in an amorphus state, this is something we needed to ask the developers about since it shapes the code layout of our project. They ultimately decided to go for a single pagea application (timer page only) because it's a lot easier to keep track of things and minimizes the number of times the program must interact with local storage.
-23. Pop-up task list.
-    - We felt like hiding the task list while the work timer is active might be inconvenient for the user. There was also another option for keeping the task list on the same screen as the timer, but that may obfuscate and add clutter on the screen.
-27. ~~I finished early!~~ button.
-    - The user needs to be able to indicate if they finish their task early so they don't get stuck on the same task even if they've completed it.
-    - UPDATE: “I finished early” may be ambiguous because some people may take that as finish the break early. It will be renamed to “I need another Pomodoro” instead. 
-
-### Rejected
-
-17. Docmentation on separate wiki page.
-    - See "documentation on application itself" in the accepted section.
-19. Store user accounts.
-    - Implementing this would most likely require a server/backend component of this project, which is quite an unconscionable expectation for the developers.
-22. Multiple pages for timer.
-    - See "single page for timer" in the accepted section.
-24. Display task list and timer concomitantly the same page.
-    - See "pop-up task list" in the accepted section.
-25. Exit application button during the break timer.
-    - The user can just close the application any time. Additionally, it just adds more clutter.
-26. Hide timer and supplant it with a hoverable "bar."
-    - This might make the application a lot less intuitive and understandable for the user.
-28. I need more time! button.
-    - ~~Our reason for changing the button if the number of actual Pomodoros exceeds that of the user's estimated Pomodoros is because of the following philosophy behind the Pomodoro Technique: you should start getting a feel for how much time each task should take as you employ this technique, which should help you with planning. This small time pressure should help encourage the aforementioned idea.~~
-    - ~~UPDATE: the development team thinks this makes the logic a bit convoluted.~~
-    - ~~UPDATE: They want to change this button to use the same logic as the “I finished early!” so it doesn’t forcibly kick the user off, which may stress out the user.~~
-    - ~~UPDATE: The button is now changed to “I finished!”~~
-    - UPDATE: Teresa brought up that both buttons ("I need another Pomodoro" and "I finished") should be implemented; these buttons should have a toggle function that enables the user to swap between these two buttons. Clicking on "I finished!" changes the screen to the "Next Task" screen while clicking on "I need another Pomodoro" should change the screen to the "Current Task:" screen.
-29. Prompt the user to input more tasks if they have completed all their tasks.
-    - ~~Perhaps the user may want to do more tasks in a single day, and this doesn't add much complexity~~
-    - ~~UPDATE: the development team thinks that implementing this is wishful thinking, so we are moving this to rejected.~~
-    - UPDATE: we changed our minds again. The application should show the prompt after the user completes the last task. The timer will still count down while the prompt is shown on the screen. however. If the timer fully elapses, then it should automatically take the user to the Records Sheet screen.
+    - Docmentation on separate wiki page: see "documentation on application itself" above.
+4. Funcitonality.
+    - __Begin button for the timer: to clarify, we were debating on whether the timer should start immediately after adding completing the task list at the beginning of the day or prompt the user to start when they're ready. We decided to do the latter. That is, to add a button prompting the user so the application doesn't start untowardly.__
+    - Exit application button during the break timer: the user can just close the application any time. Additionally, it just adds more clutter.
+    - Hide timer and supplant it with a hoverable "bar:" this might make the application a lot less intuitive and understandable for the user.
+    - __"I finished early!" button: the user needs to be able to indicate if they finish their task early so they don't get stuck on the same task even if they've completed it.
+        - UPDATE: “I finished early” may be ambiguous because some people may take that as finish the break early. It will be renamed to “I need another Pomodoro” instead. __
+    - __"I need more time!" button: ~~our reason for changing the button if the number of actual Pomodoros exceeds that of the user's estimated Pomodoros is because of the following philosophy behind the Pomodoro Technique: you should start getting a feel for how much time each task should take as you employ this technique, which should help you with planning. This small time pressure should help encourage the aforementioned idea.~~
+        - ~~UPDATE: the development team thinks this makes the logic a bit convoluted. They want to change this button to use the same logic as the “I finished early!” so it doesn’t forcibly kick the user off, which may stress out the user.~~
+        - UPDATE 2: Teresa brought up that both buttons ("I need another Pomodoro" and "I finished") should be implemented; these buttons should have a toggle function that enables the user to swap between these two buttons. Clicking on "I finished!" changes the screen to the "Next Task" screen while clicking on "I need another Pomodoro" should change the screen to the "Current Task" screen.__
+    - __Prompt the user to input more tasks if they completed all their tasks for the day: ~~perhaps the user may want to do more tasks in a single day, and this doesn't add much complexity.~~
+        - ~~UPDATE: the development team thinks that implementing this is wishful thinking, so we are moving this to rejected.~~
+        - UPDATE 2: we changed our minds again. The application should show the prompt after the user completes the last task. The timer will still count down while the prompt is shown on the screen. however. If the timer fully elapses, then it should automatically take the user to the Records Sheet screen.__
+5. User information storage.
+    - Store user accounts: implementing this would most likely require a server/backend component of this project, which is an unconscionable expectation for the developers.
+    - __Only keep track of a single user: this application is most likely going to be used for personal reasons, so we decided to only keep track of a single user's information.__
+6. Page layout.
+    - __Single page for timer: as our project was still in an amorphus state, this is something we needed to ask the developers about since it shapes the code layout of our project. They ultimately decided to go for a single pagea application (timer page only) because it's a lot easier to keep track of things and minimizes the number of times the program must interact with local storage.__
+    - Multiple pages for timer: see "single page for timer" above.
+7. Task list appearance.
+    - __Pop-up task list: we felt like hiding the task list while the work timer is active might be inconvenient for the user. There was also another option for keeping the task list on the same screen as the timer, but that may obfuscate and add clutter on the screen.__
+    - Display task list and timer concomitantly on the same page: see "pop-up task list" above.
