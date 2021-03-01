@@ -16,6 +16,12 @@ Resources to get started:
 
 What are the features and mechanics that we want to subsume into our final design of our application?
 
+## Decision Drivers
+
+- Simplicity and intuitiveness.
+- Francesco Chirillo's Pomodoro Technique philosophy.
+- Task and time management.
+
 ## Considered Options
 
 1. Use CSS themes, specifically the paper CSS theme.
