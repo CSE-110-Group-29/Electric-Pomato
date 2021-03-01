@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <title>Task List</title>
+</head>
+
+<body class="d-flex">
+    <div class="container d-flex">
+        <div class="app-container">
+            <h1 class="app-title">Current Task: Finish Biology Homework</h1>
+            <template id="edit-title-template">
+                <div class="row g-0">
+                    <div class="col-10">
+                        <h2 class="subtitle">Task List</h2>
+                    </div>
+                    <div class="col-2">
+                        <button class="btn btn-secondary btn-block">Start My Day!</button>
+                    </div>
+                </div>
+            </template>
+            <template id="view-title-template">
+                <h2 class="subtitle text-center"></h2>
+            </template>
+            <template id="edit-header-row-template">
+                <div class="row g-0 header row-bordered">
+                    <div class="d-none d-lg-block col-1"><input type="text" value="#" disabled></div>
+                    <div class="col-7 col-lg-6"><input type="text" value="Name" disabled></div>
+                    <div class="col-3"><input type="text" value="Estimated Pomos" disabled></div>
+                    <div class="col-2"></div>
+                </div>
+            </template>
+            <template id="task-row-template">
+                <div class="row g-0 row-bordered">
+                    <div class="d-none d-lg-block col-lg-1"><input type="number" value="" disabled></div>
+                    <div class="col-7 col-lg-6"><input type="text" value="" disabled></div>
+                    <div class="col-3"><input type="number" value="" disabled min=0></div>
+                    <div class="col-2 actions">
+                        <div class="edit-remove-container">
+                            <i class="fas fa-pencil-alt text-warning edit-icon"></i>
+                            <i class="fas fa-trash-alt text-danger remove-icon"></i>
+                        </div>
+                        <div class="save-cancel-container">
+                            <i class="fas fa-check text-success save-icon"></i>
+                            <i class="fas fa-times text-danger cancel-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </template>
+            <template id="view-header-row-template">
+                <div class="row g-0 header row-bordered">
+                    <div class="d-none d-lg-block col-lg-1"><input type="text" value="#" disabled></div>
+                    <div class="col-6 col-lg-5"><input type="text" value="Name" disabled></div>
+                    <div class="col-3"><input type="text" value="Estimated Pomos" disabled></div>
+                    <div class="col-3"><input type="text" value="Actual Pomos" disabled></div>
+                </div>
+            </template>
+            <template id="view-row-template">
+                <div class="row g-0 row-bordered">
+                    <div class="d-none d-lg-block col-lg-1"><input type="number" value="" disabled></div>
+                    <div class="col-6 col-lg-5"><input type="text" value="" disabled></div>
+                    <div class="col-3"><input type="number" value="" disabled min=0></div>
+                    <div class="col-3"><input type="number" value="" disabled min=0></div>
+                </div>
+            </template>
+            <template id="add-row-template">
+                <div class="row g-0">
+                    <div class="d-none d-lg-block col-lg-1"></div>
+                    <div class="col-7 col-lg-6"><input type="text" value=""></div>
+                    <div class="col-3"><input type="number" value="" min=1></div>
+                    <div class="col-2">
+                        <button class="btn btn-success btn-block">Add Task</button>
+                    </div>
+                </div>
+            </template>
+            <div class="text-white text-center">Left arrow for editable, right arrow for view only(this element will be replaced)</div>
+        </div>
+    </div>
+    <script src="js/app.js" type="module"></script>
+</body>
+
+</html>
