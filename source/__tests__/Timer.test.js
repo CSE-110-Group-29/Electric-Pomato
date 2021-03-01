@@ -1,6 +1,7 @@
 // to learn jest.timers -> https://jestjs.io/docs/en/timer-mocks
 
-const { Timer } = require('../js/Timer');
+import { jest } from '@jest/globals';
+import Timer from '../js/Timer.js';
 
 // CONSTRUCTOR TESTS
 

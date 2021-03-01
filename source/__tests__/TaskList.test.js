@@ -1,4 +1,4 @@
-const { TaskList } = require('../js/TaskList');
+import TaskList from '../js/TaskList.js';
 
 test('TaskList Constructor', () => {
   // create new tasklist

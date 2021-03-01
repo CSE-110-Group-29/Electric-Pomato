@@ -5,11 +5,9 @@
  * Github Issue: https://github.com/DonaldWolfson/cse110-w21-group29/issues/13
  */
 
-// import TaskList from './TaskList.js';
+import TaskList from './TaskList.js';
 
-const TaskList = require('./TaskList');
-
-class TaskListUI extends HTMLElement {
+class EditableTaskListBody extends HTMLElement {
   /**
    * Constructor for the Task List UI.
    */
@@ -25,8 +23,6 @@ class TaskListUI extends HTMLElement {
     this.data.todo.forEach(({ name, expected }, i) => {
       this.insertRow(i + 1, name, expected);
     });
-
-    this.addTaskRow = this.nextElementSibling;
   }
 
   /**
@@ -49,7 +45,7 @@ class TaskListUI extends HTMLElement {
   }
 
   /**
-   * Remove task from todo at given index.
+   * Edit task from todo at given index.
    * @param {Number} index Index of task to remove.
    * @param {HTMLElement[]} inputs References to input tag of the row.
    */
@@ -89,7 +85,7 @@ class TaskListUI extends HTMLElement {
       child.dataset.id = i;
     });
 
-    this.addTaskRow.reset();
+    this.nextElementSibling.reset();
   }
 
   /**
@@ -115,7 +111,7 @@ class TaskListUI extends HTMLElement {
 
     this.resetEditingState();
 
-    this.addTaskRow.reset();
+    this.nextElementSibling.reset();
   }
 
   /**
@@ -130,6 +126,7 @@ class TaskListUI extends HTMLElement {
 
     const row = this.lastElementChild;
     const inputs = row.querySelectorAll('input');
+    const userInputs = Array.from(inputs).slice(-2);
     const [editIcon, removeIcon, saveIcon, cancelIcon] = row.querySelectorAll('i');
     const [number] = args;
 
@@ -139,8 +136,16 @@ class TaskListUI extends HTMLElement {
       input.value = args[i];
     });
 
+    userInputs.forEach((input) => {
+      input.addEventListener('keyup', (e) => {
+        if (e.code === 'Enter') {
+          this.saveEdit();
+        }
+      });
+    });
+
     editIcon.addEventListener('click', () => {
-      this.editRow(row, Array.from(inputs).slice(-2));
+      this.editRow(row, userInputs);
     });
 
     removeIcon.addEventListener('click', () => {
@@ -157,4 +162,6 @@ class TaskListUI extends HTMLElement {
   }
 }
 
-customElements.define('task-list', TaskListUI);
+customElements.define('editable-task-list-body', EditableTaskListBody);
+
+export default EditableTaskListBody;
