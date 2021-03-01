@@ -73,21 +73,21 @@ What are the features and mechanics that we want to subsume into our final desig
     - Activity Inventory sheet: while this is part of the Pomodoro Technique that Francesco delineated, we felt that this may inundate the development team with too many things to implement. It also adds a layer of complexity that goes against the idea of simplicity and intuitiveness that we want for the user.
     - Unplanned and urgent list: same reason as above, especially because this is one of the most convoluted parts of the Pomodoro Technique.
         - ~~Urgent task slot: IGNORE.~~
-    - Records sheet.
-    - Estimated number of Pomodoros.
-        - Allow and track multiple estimations for a single task.
-        - Evince estimated and real number of Pomodoros below timer.
+    - __Records sheet: our team decided to incorporate this page because it goes along with the task list and would help the user summarize his or her performance; however, we don't want this to be too sophisticated for the sake of giving the developers enough time to work on this project.__
+    - __Estimated number of Pomodoros: this is a relatively straightforward thing to implement. It's also a mechanic that Francesco limns in his book.__
+        - Allow and track multiple estimations for a single task: this can engender a number of issues for the development team, and it may make parts of the page look cluttered. The biggest issue with this feature is that it aggrandizes the number of variables to keep track of and may drastically alter the way the Records Sheet must be displayed.
+        - Evince estimated and real number of Pomodoros below timer: this simply contributes to clutter on the page and isn't necessary to implement.
+3. Miscellaneous features.
+    - Plots and visuals: this can introduce inexorable impediments because of how much planning may be invovled for implementing these features, so we thought it's best to exlude them from this project.
+    - Display task remaining and completed count: Same reason as "evince estimated and real number of Pomodoros below timer."
+    - __Documentation on application itself: after a bit of thinking, we feel that our documentation would only take up a modicum of space on a Wiki page, so we advocated for writing documentation on the application itself, specifically on the landing page.__
+        - __Landing page: we decided to incorporate a landing page to help introduce the user to the application since the Pomodoro Technique is a rather obscure self-improvement technique.__
+    - Docmentation on separate wiki page.
 
-9. Records sheet.
-    - Our team decided to incorporate this page because it goes along with the task list and would help the user summarize his or her performance; however, we don't want this to be too sophisticated for the sake of giving the developers enough time to work on this project.
-10. Estimated number of Pomodoros.
-    - This is a relatively straightforward thing to implement. It's also a mechanic that Francesco limns in his book.
 14. Begin button for timer.
     - To clarify, we were debating on whether the timer should start immediately after adding completing the task list at the beginning of the day or prompt the user to start when they're ready. We decided to do the latter. That is, to add a button prompting the user so the application doesn't start untowardly.
 16. Landing page.
-    - We decided to incorporate a landing page to help introduce the user to the application since the Pomodoro Technique is a rather obscure self-improvement technique.
-19. Documentation on application itself.
-    - After a bit of thinking, we feel that our documentation would only take up a modicum of space on a Wiki page, so we advocated for writing documentation on the application itself, specifically on the landing page.
+    - 
 20. Only keep track of a single user.
     - This application is most likely going to be used for personal reasons, so we decided to only keep track of a single user's information.
 21. Single page for timer.
@@ -100,14 +100,6 @@ What are the features and mechanics that we want to subsume into our final desig
 
 ### Rejected
 
-11. Allow and track multiple estimations for a single task.
-    - This can cause a number of issues for the development team, and it may make parts of the page look cluttered. The biggest issue with this feature is that it aggrandizes the number of variables to keep track of and may drastically alter the way the Records Sheet must be displayed.
-12. Evince estimated and real number of Pomodoros below timer.
-     - This simply contributes to clutter on the page and isn't necessary to implement.
-13. Plots and visuals.
-    - This can introduce inexorable impediments because of how much planning may be invovled for implementing these features, so we thought it's best to exlude them from this project.
-15. Display task remaining and completed count.
-    - Same reason as "evince estimated and real number of Pomodoros below timer."
 17. Docmentation on separate wiki page.
     - See "documentation on application itself" in the accepted section.
 19. Store user accounts.
