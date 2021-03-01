@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
+          with:
+            persist-credentials: false
 
       - name: Set up node
         uses: actions/setup-node@v2
@@ -35,6 +37,7 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+          force: true
           branch: main
 
   compile:
@@ -88,4 +91,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: production
+
 
