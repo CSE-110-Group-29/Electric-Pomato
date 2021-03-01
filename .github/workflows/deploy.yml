@@ -1,12 +1,14 @@
 name: JSDoc and Deploy
 
 on:
-  push:
+  pull_request:
     branches:
       - main
+    types: [closed]
 
 jobs:
   jsdoc:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
@@ -41,6 +43,7 @@ jobs:
           branch: main
 
   compile:
+    if: github.event.pull_request.merged == true
     needs: jsdoc
     runs-on: ubuntu-latest
 
