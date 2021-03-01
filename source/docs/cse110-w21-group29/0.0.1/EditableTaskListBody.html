@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Global - Documentation</title>
+    <title>EditableTaskListBody - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Global</h1>
+    <h1 class="page-title">EditableTaskListBody</h1>
     
 
     
@@ -42,7 +42,7 @@
 <header>
     
         <h2>
-        
+        EditableTaskListBody
         </h2>
         
     
@@ -52,8 +52,22 @@
     <div class="container-overview">
     
         
+<div class="section-method">
 
-        
+    
+
+    <h4 class="name" id="EditableTaskListBody"><span class="type-signature"></span>new EditableTaskListBody<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Constructor for the Task List UI.</p>
+</div>
+
+
+
 
 
 <dl class="details">
@@ -83,6 +97,11 @@
     
 
     
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="js_EditableTaskListBody.js.html">js/EditableTaskListBody.js</a>, <a href="js_EditableTaskListBody.js.html#line14">line 14</a>
+    </li></ul></dd>
+    
 
     
 
@@ -92,7 +111,28 @@
 </dl>
 
 
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
     
     </div>
 
@@ -117,14 +157,14 @@
 
     
 
-    <h4 class="name" id="cancel"><span class="type-signature"></span>cancel<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="addRow"><span class="type-signature"></span>addRow<span class="signature">(name, expected)</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Cancel any changes made on a row that is currently being edited.</p>
+    <p>Create a new task with the given inputs and update the UI.</p>
 </div>
 
 
@@ -160,90 +200,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="reference_script.js.html">reference/script.js</a>, <a href="reference_script.js.html#line64">line 64</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-        
-            
-<div class="section-method">
-
-    
-
-    <h4 class="name" id="edit"><span class="type-signature"></span>edit<span class="signature">(row)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-<div class="description">
-    <p>Put the given row into edit mode.</p>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="reference_script.js.html">reference/script.js</a>, <a href="reference_script.js.html#line103">line 103</a>
+        <a href="js_EditableTaskListBody.js.html">js/EditableTaskListBody.js</a>, <a href="js_EditableTaskListBody.js.html#line33">line 33</a>
     </li></ul></dd>
     
 
@@ -287,13 +244,13 @@
 
         <tr>
             
-                <td class="name"><code>row</code></td>
+                <td class="name"><code>name</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><code>HTMLElement</code></span>
+<span class="param-type"><code>String</code></span>
 
 
             
@@ -304,7 +261,33 @@
             
 
             <td class="description last">
-                <p>Reference to the row that is going to be edited.</p>
+                <p>Name of new task.</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>expected</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Number</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>Expected number of pomos.</p>
                 
             </td>
         </tr>
@@ -335,14 +318,14 @@
 
     
 
-    <h4 class="name" id="remove"><span class="type-signature"></span>remove<span class="signature">(row)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="cancelEdit"><span class="type-signature"></span>cancelEdit<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Remove the given row.</p>
+    <p>Exit out of editing mode.</p>
 </div>
 
 
@@ -378,7 +361,90 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="reference_script.js.html">reference/script.js</a>, <a href="reference_script.js.html#line132">line 132</a>
+        <a href="js_EditableTaskListBody.js.html">js/EditableTaskListBody.js</a>, <a href="js_EditableTaskListBody.js.html#line104">line 104</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="editRow"><span class="type-signature"></span>editRow<span class="signature">(index, inputs)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Edit task from todo at given index.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="js_EditableTaskListBody.js.html">js/EditableTaskListBody.js</a>, <a href="js_EditableTaskListBody.js.html#line52">line 52</a>
     </li></ul></dd>
     
 
@@ -422,13 +488,13 @@
 
         <tr>
             
-                <td class="name"><code>row</code></td>
+                <td class="name"><code>index</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><code>HTMLElement</code></span>
+<span class="param-type"><code>Number</code></span>
 
 
             
@@ -439,7 +505,33 @@
             
 
             <td class="description last">
-                <p>Reference to the row that is going to be removed.</p>
+                <p>Index of task to remove.</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>inputs</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Array.&lt;HTMLElement></code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>References to input tag of the row.</p>
                 
             </td>
         </tr>
@@ -470,14 +562,14 @@
 
     
 
-    <h4 class="name" id="rowTemplate"><span class="type-signature"></span>rowTemplate<span class="signature">(number, name, expected)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="insertRow"><span class="type-signature"></span>insertRow<span class="signature">(number, name, expected)</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Return the HTML string of a row given the input parameters.</p>
+    <p>Add a new row to the UI.</p>
 </div>
 
 
@@ -513,7 +605,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="reference_script.js.html">reference/script.js</a>, <a href="reference_script.js.html#line12">line 12</a>
+        <a href="js_EditableTaskListBody.js.html">js/EditableTaskListBody.js</a>, <a href="js_EditableTaskListBody.js.html#line123">line 123</a>
     </li></ul></dd>
     
 
@@ -574,7 +666,7 @@
             
 
             <td class="description last">
-                <p>Number of the row.</p>
+                <p>Number of new task on the list.</p>
                 
             </td>
         </tr>
@@ -600,7 +692,7 @@
             
 
             <td class="description last">
-                <p>Name of the row.</p>
+                <p>Name of new task.</p>
                 
             </td>
         </tr>
@@ -626,7 +718,7 @@
             
 
             <td class="description last">
-                <p>Expected number of pomodoros of row.</p>
+                <p>Expected number of pomos.</p>
                 
             </td>
         </tr>
@@ -657,14 +749,14 @@
 
     
 
-    <h4 class="name" id="save"><span class="type-signature"></span>save<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="removeRow"><span class="type-signature"></span>removeRow<span class="signature">(row)</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Save the changes made on a row that is currently being edited.</p>
+    <p>Remove task from todo at given index.</p>
 </div>
 
 
@@ -700,7 +792,225 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="reference_script.js.html">reference/script.js</a>, <a href="reference_script.js.html#line85">line 85</a>
+        <a href="js_EditableTaskListBody.js.html">js/EditableTaskListBody.js</a>, <a href="js_EditableTaskListBody.js.html#line75">line 75</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>row</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Number</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>Row of task to remove.</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="resetEditingState"><span class="type-signature"></span>resetEditingState<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Resets the instance variables relating to row editing.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="js_EditableTaskListBody.js.html">js/EditableTaskListBody.js</a>, <a href="js_EditableTaskListBody.js.html#line41">line 41</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="saveEdit"><span class="type-signature"></span>saveEdit<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Save changes to the row.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="js_EditableTaskListBody.js.html">js/EditableTaskListBody.js</a>, <a href="js_EditableTaskListBody.js.html#line94">line 94</a>
     </li></ul></dd>
     
 
