@@ -63,5 +63,5 @@ What are the features and mechanics that we want to subsume into our final desig
     - __Single page for timer__: as our project was still in an amorphus state, this is something we needed to ask the developers about since it shapes the code layout of our project. They ultimately decided to go for a single pagea application (timer page only) because it's a lot easier to keep track of things and minimizes the number of times the program must interact with local storage.
     - Multiple pages for timer: see "single page for timer" above.
 7. Task list appearance.
-    - __Pop-up task list__: we felt like hiding the task list while the work timer is active might be inconvenient for the user. There was also another option for keeping the task list on the same screen as the timer, but that may obfuscate and add clutter on the screen.
+    - __Pop-up task list__: The task list is tucked away at the bottom of the timer page. Our task list acts like a dropdown menu when the user places their cursor over its bar. The option of keeping the entire task list on the same screen as the timer was discarded, because it would be too distracting and adding clutter on the screen.
     - Display task list and timer concomitantly on the same page: see "pop-up task list" above.
