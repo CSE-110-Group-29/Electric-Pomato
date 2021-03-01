@@ -61,16 +61,23 @@ What are the features and mechanics that we want to subsume into our final desig
     - Pop-up task list.
     - Display task list and timer concomitantly on the same page.
 
-## Decision Outcome
+## Decision Outcome (bolded options indicate the features we decided to implement)
 
-### Accepted
+1. Theme.
+    - Use CSS themes, specifically the paper CSS theme: see the bolded reason below.
+    - __Draw our own designs: we were considering CSS themes, especially the paper theme, but Teresa showed us some drawings, which looked better and felicitous for the setting of a Pomodoro Timer.__
+    - Design only using a simplistic layout and a Lillipution amount of art: most of the members felt that having a miniscule amount of art was a bit too bland for our application.
+2. Features pertaining to Francesco's Pomodoro Technique.
+    - __25-30 minute break timer after 4 Pomodoros: this is part of the core functionality of the timer, so we need to include it.__
+    - __To-do today/Task list sheet: only having a timer as our project would seem insipid and prosaic. Adding a task list seems reasonable and achievable by the end of the quarter. Furthermore, it will help the user manage their tasks for the day.__
+    - Activity Inventory sheet: while this is part of the Pomodoro Technique that Francesco delineated, we felt that this may inundate the development team with too many things to implement. It also adds a layer of complexity that goes against the idea of simplicity and intuitiveness that we want for the user.
+    - Unplanned and urgent list: same reason as above, especially because this is one of the most convoluted parts of the Pomodoro Technique.
+        - ~~Urgent task slot: IGNORE.~~
+    - Records sheet.
+    - Estimated number of Pomodoros.
+        - Allow and track multiple estimations for a single task.
+        - Evince estimated and real number of Pomodoros below timer.
 
-3. Draw our own designs.
-    - In the rejected section, we were considering CSS themes, especially the paper theme, but Teresa showed us some drawings, which looked better and felicitous for the setting of a Pomodoro Timer.
-4. 25-30 minute break timer after 4 Pomodoros.
-    - This is part of the core functionality of the timer, so we need to include it.
-5. To-do today/Task list sheet.
-    - Only having a timer as our project would seem insipid and prosaic. Adding a task list seems reasonable and achievable by the end of the quarter. Furthermore, it will help the user manage their tasks for the day.
 9. Records sheet.
     - Our team decided to incorporate this page because it goes along with the task list and would help the user summarize his or her performance; however, we don't want this to be too sophisticated for the sake of giving the developers enough time to work on this project.
 10. Estimated number of Pomodoros.
@@ -93,16 +100,6 @@ What are the features and mechanics that we want to subsume into our final desig
 
 ### Rejected
 
-1. Use CSS themes, specifically the paper CSS theme.
-    - The team was considering this first, but as mentioned above, we saw Teresa's drawings for the application and found it much more fitting for the project.
-2. Design only using a simplistic layout with minimal art.
-    - Most of the members felt that having a miniscule amount of art was a bit too bland and uninteresting for our application.
-6. Activity Inventory sheet.
-    - While this is part of the Pomodoro Technique that Francesco delineated, we felt that this may inundate the development team with too many things to implement. It also adds a layer of complexity that goes against the idea of simplicity and intuitiveness that we want for the user.
-7. Unplanned and urgent list.
-    - Same reason as above, especially because this is one of the most convoluted parts of the Pomodoro Technique.
-8. Urgent task slot.
-    - Same reason as above again.
 11. Allow and track multiple estimations for a single task.
     - This can cause a number of issues for the development team, and it may make parts of the page look cluttered. The biggest issue with this feature is that it aggrandizes the number of variables to keep track of and may drastically alter the way the Records Sheet must be displayed.
 12. Evince estimated and real number of Pomodoros below timer.
