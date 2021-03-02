@@ -10,7 +10,7 @@ Resources to get started:
 
 ## Status: accepted
 
-## Deciders: Teresa, Liam, Donald, Andy
+## Deciders: Teresa, Liam, Donald, Andy, and Allen
 
 ## Context and Problem Statement
 
