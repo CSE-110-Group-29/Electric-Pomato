@@ -22,7 +22,7 @@ What are the features and mechanics that we want to subsume into our final desig
 - Francesco Chirillo's Pomodoro Technique philosophy.
 - Task and time management.
 
-## Options to Consider and Decision Outcome (bolded options indicate the features we decided to implement)
+## Options to Consider and Decision Outcome (bolded options indicate the features we want to implement)
 
 1. Theme.
     - Use CSS themes, specifically the paper CSS theme: see the bolded reason below.
