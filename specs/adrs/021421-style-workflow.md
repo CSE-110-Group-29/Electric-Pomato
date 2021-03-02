@@ -24,12 +24,12 @@ How should we set up our style enforcement framework?
 ## Decision Outcome
 
 1. The DevOps team chose ESLint as the framework.
-    - There are several different frameworks available. The team narrowed it down to Prettier and ESLint, but the team quickly decided that ESLint would be the better framework to use.
+    - There are several different frameworks available. The team narrowed it down to Prettier and ESLint, but they quickly decided that ESLint would be the better framework to use.
     - ESLint is the standard framework nowadays.
     - Github has built in support for ESLint, which makes it convenient for us
 2. The Airbnb style guide was chosen.
     - Same as ESLint, Airbnb is also the standard style guide to use.
-    - It's also built in as an extension in ESLint, making it very easy to set up.
-    - This decision is mainly made by Andy, who has the most experienced in these frameworks and styling guides.
-    - Although most of AirBnB's guide is very in depth, we mainly use it for naming convention, while we use the linter to help enforce a similar format on tabs, and function structure.
+    - It's also built in as an ESLint extension, making it easy to set up.
+    - This decision is mainly made by Andy, who has the most experience in these frameworks and styling guides.
+    - Although most of AirBnB's guide is elaborate, we primarily use it for its naming convention, while we use ESLint to help enforce a similar format on tabs and function structure.
 3. No specific changes to the config file were made.
