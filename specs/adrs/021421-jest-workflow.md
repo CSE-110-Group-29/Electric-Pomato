@@ -22,16 +22,16 @@ How should we set up our testing framework?
 
 ## Decision Outcome
 
-1. Everyone was set on doing unit testing from the beginning.
+1. Everyone unanimously agreed to incorporate unit testing from the beginning.
 2. The DevOps team chose Jest as the unit testing framework.
-    - Jest is the most common testing framework.
-    - This decision was rather straightforward to make because we weren't aware of alternatives before looking at the assignment's examples.
-    - The team found some nice Github Actions for it, which would make it a lot more convenient for us.
-3. We should be running these tests fairly often.
-    - Run these tests every times someone updates the remote codebase with new additions to code (any time someone pushes).
+    - Jest is the mainstream testing framework.
+    - This decision was a rather straightforward one because we weren't cognizant of alternatives before looking at the assignment's examples.
+    - The team found some propitious Github Actions for it, make testing convenient for us.
+3. We should be executing these tests fairly often.
+    - Run these tests every time someone updates the remote codebase with more code (any time someone pushes).
     - Run these tests even if these pushes occur on branches other than main.
-4. Because of the learning curve and the amount of difficulty the DevOps team has with Jest, they decided that it's probably best to have a member from the development team (Enrique) write out some example tests first, which would provide some examples for the DevOps members to reference.
-    - Enrique found it best to make tests after code has been implemented in the codebase since it fits the development team's process. The development team tends to do a copious amount of exploratory programming -- they go through a few iterations of what they want before adding tests.
-    - The decisions are made based on the development team's build process: all Jest tests must be passed before branches can be pushed to the main branch. Enrique will also add final "consolidation" tests. That is, he will add tests that ensures the full funcionality of the branch. This way, if the team has to change something in the codebase that they've made before, they will know exactly how it changes the functionality of the code and if they need to make adjustmenets to other areas of the codebase.
+4. Because of the learning curve and arduity the DevOps team has with Jest, however, they decided that it's auspicious to have a member from the development team (Enrique) write out some rudimentary tests, which would provide some examples for the DevOps members to reference.
+    - Enrique found it best to make tests after code has been implemented since it fits the development team's process. They tend to do a copious amount of exploratory programming.
+    - The decisions are made based on the development team's build process: all Jest tests must be passed before branches can be pushed to the main branch. Enrique will also add final "consolidation" tests. That is, he will add tests that ensure the full funcionality of the branch. This way, if the team has to change something in the codebase they've previously completed, then they will know exactly how it changes the functionality of the code and if they need to make adjustments to other areas of the codebase.
     - Every function in the codebase should be tested (start with basic ones for reference before moving on to edge cases).
-    - Add some object instantiation tests for objects like the timer and task list.
+    - Add some object instantiation tests for the Timer and TaskList objects.
