@@ -27,7 +27,7 @@ What are the features and mechanics that we want to subsume into our final desig
 1. Theme.
     - Use CSS themes, specifically the paper CSS theme: see the bolded reason below.
     - __Draw our own designs__: we were considering CSS themes, especially the paper theme, but Teresa showed us some drawings, which looked better and felicitous for the setting of a Pomodoro Timer.
-    - Design only using a simplistic layout and a Lillipution amount of art: most of the members felt that having a miniscule amount of art was a bit too bland for our application.
+    - Design only using a simplistic layout and a minimum amount of art: most of the members felt that having a miniscule amount of art was a bit too bland for our application.
 2. Features pertaining to Francesco's Pomodoro Technique.
     - __25-30 minute break timer after 4 Pomodoros__: this is part of the core functionality of the timer, so we need to include it.
     - __To-do today/Task list sheet__: only having a timer as our project would seem insipid and prosaic. Adding a task list seems reasonable and achievable by the end of the quarter. Furthermore, it will help the user manage their tasks for the day.
@@ -39,7 +39,7 @@ What are the features and mechanics that we want to subsume into our final desig
         - Allow and track multiple estimations for a single task: this can engender a number of issues for the development team, and it may make parts of the page look cluttered. The biggest issue with this feature is that it aggrandizes the number of variables to keep track of and may drastically alter the way the Records Sheet must be displayed.
         - Evince estimated and real number of Pomodoros below timer: this simply contributes to clutter on the page and isn't necessary to implement.
 3. Miscellaneous features.
-    - Plots and visuals: this can introduce inexorable impediments because of how much planning may be invovled for implementing these features, so we thought it's best to exlude them from this project.
+    - Plots and visuals: this can introduce impediments because of how much planning may be invovled for implementing these features, so we thought it's best to exlude them from this project.
     - Display task remaining and completed count: Same reason as "evince estimated and real number of Pomodoros below timer."
     - __Documentation on application itself__: after a bit of thinking, we feel that our documentation would only take up a modicum of space on a Wiki page, so we advocated for writing documentation on the application itself, specifically on the landing page.
         - __Landing page__: we decided to incorporate a landing page to help introduce the user to the application since the Pomodoro Technique is a rather obscure self-improvement technique.
