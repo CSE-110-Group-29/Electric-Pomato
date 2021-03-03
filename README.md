@@ -26,6 +26,7 @@ And that should be it!
 
 ## Sass Setup Instructions
 
-- Assuming Linter Setup Instructions are followed, simply `cd` to the root directory of local repository `cse110-w21-group29/`
+- Assuming Linter Setup Instructions are followed, simply `cd` to the root directory of local repository `cse110-w21-group29/` and npm i if you haven't already.
 - Run `npm run sass-watch` and the scss files will automatically compile into css whenever the main.scss file is saved.
-- NOTE: Keep the terminal open when developing and if the script you ran ever crashes, just re-run `npm run sass` again once you fix the issues.
+- NOTE: Keep the terminal open when developing and if the script you ran ever crashes, just re-run `npm run sass-watch` again once you fix the issues.
+- If you want to just compile the sass to css just once, `npm run sass-compile` would be the command.
