@@ -6,12 +6,10 @@
  */
 
 /**
+ * @class Appends a text element containing the current year from a Date() object.
  * @classdesc Construct the HTML Button for Returning Users.
  */
 class ReturningUser extends HTMLElement {
-  /**
-   * @class Appends a text element containing the current year from a Date() object.
-   */
   constructor() {
     super();
 
@@ -22,7 +20,7 @@ class ReturningUser extends HTMLElement {
   }
 
   /**
-   * @function Create a HTML object for the 'Returning User' button.
+   * Create a HTML object for the 'Returning User' button.
    * <button type="button" class="btn btn-secondary btn-lg">Returning User</button>
    */
   static createAnchor() {

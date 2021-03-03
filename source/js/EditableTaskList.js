@@ -8,12 +8,10 @@ import EditableTaskListBody from './EditableTaskListBody.js';
 import EditableTaskListInput from './EditableTaskListInput.js';
 
 /**
+ * @class Constructs the HTML of the EditableTaskListBody and EditableTaskListInput.
  * @classdesc Constructs the HTML of the EditableTaskListBody and EditableTaskListInput.
  */
 class EditableTaskList extends HTMLElement {
-  /**
-   * @class Constructs the HTML of the EditableTaskListBody and EditableTaskListInput.
-   */
   constructor() {
     super();
 

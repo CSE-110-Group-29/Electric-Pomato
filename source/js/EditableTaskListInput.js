@@ -7,12 +7,10 @@
  */
 
 /**
+ * @class Constructor for the Add Task Row UI
  * @classdesc Define the and construct an editable TaskList, and handle the inputs.
  */
 class EditableTaskListInput extends HTMLElement {
-  /**
-   * @class Constructor for the Add Task Row UI.
-   */
   constructor() {
     super();
 
@@ -47,14 +45,14 @@ class EditableTaskListInput extends HTMLElement {
   }
 
   /**
-   * @function Initialize row to default UI state.
+   * Initialize row to default UI state.
    */
   connectedCallback() {
     this.reset();
   }
 
   /**
-   * @function Disable/Enable add task button based on validity of inputs.
+   * Disable/Enable add task button based on validity of inputs.
    */
   updateButtonState() {
     if (this.nameInput.value.length === 0 || Number(this.expectedInput.value) < 1) {
@@ -70,7 +68,7 @@ class EditableTaskListInput extends HTMLElement {
   }
 
   /**
-   * @function Add row to TaskList assuming it is the previous sibling.
+   * Add row to TaskList assuming it is the previous sibling.
    */
   addRow() {
     this.previousElementSibling.addRow(this.nameInput.value, this.expectedInput.value);
@@ -78,7 +76,7 @@ class EditableTaskListInput extends HTMLElement {
   }
 
   /**
-   * @function Initializes the UI of the row to its initial state.
+   * Initializes the UI of the row to its initial state.
    */
   reset() {
     this.nameInput.value = '';

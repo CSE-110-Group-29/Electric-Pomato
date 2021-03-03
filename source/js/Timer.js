@@ -7,11 +7,11 @@
  */
 
 /**
+ * @class Constructor for the timer object
  * @classdesc Defines the Timer class and defines its functionality.
  */
 class Timer {
   /**
-   * @class Constructor for the timer object.
    * @param {number} minutes - Numerical value of maximum minutes.
    * @param {number} seconds - Numerical value of maximum seconds.
    * @param {callback} callbackEverySecond - callback called every second.
@@ -25,7 +25,7 @@ class Timer {
   }
 
   /**
-   * @function Starts the timer. Timer cannot be reset to original time after ticking.
+   * Starts the timer. Timer cannot be reset to original time after ticking.
    * Note: This doesn't not check system date/time. It ticks at 1 second
    * intervals, possibly being ahead or behind by negligible amounts.
    */

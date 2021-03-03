@@ -7,12 +7,10 @@
 import TaskList from './TaskList.js';
 
 /**
+ * @class Constructs the HTML for the non-editable TaskList
  * @classdesc Defines the ViewOnlyTaskList and its helper functions.
  */
 class ViewOnlyTaskList extends HTMLElement {
-  /**
-   * @class Constructs the HTML for the non-editable TaskList.
-   */
   constructor() {
     super();
 
@@ -48,14 +46,14 @@ class ViewOnlyTaskList extends HTMLElement {
   }
 
   /**
-   * @function Callback function.
+   * Callback function.
    */
   connectedCallback() {
     this.position();
   }
 
   /**
-   * @function Insert a row.
+   * Insert a row.
    * @param  {...any} args data.
    */
   insertRow(...args) {
@@ -71,7 +69,7 @@ class ViewOnlyTaskList extends HTMLElement {
   }
 
   /**
-   * @function Insert a title.
+   * Insert a title.
    * @param {*} title The title.
    */
   insertTitle(title) {
@@ -80,7 +78,7 @@ class ViewOnlyTaskList extends HTMLElement {
   }
 
   /**
-   * @function Update the position.
+   * Update the position.
    */
   position() {
     if (this.visible) {

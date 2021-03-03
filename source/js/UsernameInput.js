@@ -6,10 +6,11 @@
  * @author Donald Wolfson
  */
 
+/**
+ * @class
+ * @classdesc Appends a text element containing the current year from a Date() object.
+ */
 class UsernameInput extends HTMLElement {
-  /**
-   * Appends a text element containing the current year from a Date() object.
-   */
   constructor() {
     super();
 
