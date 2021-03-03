@@ -30,6 +30,7 @@ class UsernameInput extends HTMLElement {
       // Save name to localStorage
       localStorage.setItem('Username', input.value);
 
+      // Redirect to app.html
       window.location.href = './app.html';
     });
   }
