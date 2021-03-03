@@ -1,15 +1,18 @@
 /**
- * Author: Andy Young, Teresa Truong, Annika Hatcher
- * Updated By: (Any names of people who've done some editing of the file)
- * Date: 02/12/2021
- * Github Issue: https://github.com/DonaldWolfson/cse110-w21-group29/issues/13
+ * @author Andy Young
+ * @author Teresa Truong
+ * @author Annika Hatcher
+ * Date: 03/04/2021
  */
 
 import TaskList from './TaskList.js';
 
+/**
+ * @classdesc Creates a customer HTMLElement for editing the TaskList.
+ */
 class EditableTaskListBody extends HTMLElement {
   /**
-   * Constructor for the Task List UI.
+   * @class Constructor for the Task List UI.
    */
   constructor() {
     super();
@@ -26,7 +29,7 @@ class EditableTaskListBody extends HTMLElement {
   }
 
   /**
-   * Create a new task with the given inputs and update the UI.
+   * @function Create a new task with the given inputs and update the UI.
    * @param {String} name Name of new task.
    * @param {Number} expected Expected number of pomos.
    */
@@ -36,7 +39,7 @@ class EditableTaskListBody extends HTMLElement {
   }
 
   /**
-   * Resets the instance variables relating to row editing.
+   * @function Resets the instance variables relating to row editing.
    */
   resetEditingState() {
     this.editingRow = null;
@@ -45,7 +48,7 @@ class EditableTaskListBody extends HTMLElement {
   }
 
   /**
-   * Edit task from todo at given index.
+   * @function Edit task from todo at given index.
    * @param {Number} index Index of task to remove.
    * @param {HTMLElement[]} inputs References to input tag of the row.
    */
@@ -69,7 +72,7 @@ class EditableTaskListBody extends HTMLElement {
   }
 
   /**
-   * Remove task from todo at given index.
+   * @function Remove task from todo at given index.
    * @param {Number} row Row of task to remove.
    */
   removeRow(row) {
@@ -89,7 +92,7 @@ class EditableTaskListBody extends HTMLElement {
   }
 
   /**
-   * Save changes to the row.
+   * @function Save changes to the row.
    */
   saveEdit() {
     const newValues = this.editingInputs.map((input) => input.value);
@@ -99,7 +102,7 @@ class EditableTaskListBody extends HTMLElement {
   }
 
   /**
-   * Exit out of editing mode.
+   * @function Exit out of editing mode.
    */
   cancelEdit() {
     this.editingRow.classList.remove('edit-mode');
@@ -115,7 +118,7 @@ class EditableTaskListBody extends HTMLElement {
   }
 
   /**
-   * Add a new row to the UI.
+   * @function Add a new row to the UI.
    * @param {Number} number Number of new task on the list.
    * @param {String} name Name of new task.
    * @param {Number} expected Expected number of pomos.

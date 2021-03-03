@@ -1,13 +1,16 @@
 /**
- * Author: Andy Young, Annika Hatcher
- * Updated By: (Any names of people who've done some editing of the file)
- * Date: 02/05/2021
- * Github Issue: https://github.com/DonaldWolfson/cse110-w21-group29/issues/13
+ * @file Holds the code the general functionality of the TaskList.
+ * @author Andy Young
+ * @author Annika Hatcher
+ * Date: 03/04/2021
  */
 
+/**
+ * @classdesc Creates the TaskList class and define its helper functions.
+ */
 class TaskList {
   /**
-   * Constructor for the task list object.
+   * @class Constructor for the TaskList object.
    */
   constructor() {
     // Checks localStorage for TaskList item.
@@ -24,7 +27,7 @@ class TaskList {
   }
 
   /**
-   * Reset instance variables to default empty value and save to localStorage.
+   * @function Reset instance variables to default empty value and save to localStorage.
    */
   reset() {
     this.todo = [];
@@ -33,7 +36,7 @@ class TaskList {
   }
 
   /**
-   * Save the instance variables to localStorage.
+   * @function Save the instance variables to localStorage.
    */
   save() {
     // Writes a stringified object with instance variables of TaskList to localStorage.
@@ -41,7 +44,7 @@ class TaskList {
   }
 
   /**
-   * Add new task to todo with given name and expected pomodoros.
+   * @function Add new task to todo with given name and expected pomodoros.
    * @param {String} name Name of task.
    * @param {Number} expected Expected number of pomodoros.
    */
@@ -59,7 +62,7 @@ class TaskList {
   }
 
   /**
-   * Remove task from todo at given index.
+   * @function Remove task from todo at given index.
    * @param {Number} index Index of task to remove.
    */
   deleteTask(index) {
@@ -68,7 +71,7 @@ class TaskList {
   }
 
   /**
-   * Update the task at the given index with the given name and expected pomodoros.
+   * @function Update the task at the given index with the given name and expected pomodoros.
    * @param {Number} index Index of task to update.
    * @param {String} name Updated name of task.
    * @param {Number} expected Updated expected number of pomodoros.
@@ -84,7 +87,7 @@ class TaskList {
   }
 
   /**
-   * Add a pomodoro to the current task.
+   * @function Add a pomodoro to the current task.
    */
   addPomo() {
     this.todo[0].actual += 1;
@@ -92,7 +95,7 @@ class TaskList {
   }
 
   /**
-   * Update todo/completed after finishing a task.
+   * @function Update todo/completed after finishing a task.
    */
   finishTask() {
     const current = this.todo[0];

@@ -238,4 +238,17 @@ footer > .container {
     input:disabled {
         cursor: pointer;
     }
+    .timer-text {
+        font-size: $h1-font-size;
+        width: 100%;
+    }
+
+    .timer-container {
+        width: 300px;
+    }
+
+    .timer-image {
+        z-index: -1;
+        width: 100%;
+    }
 }
