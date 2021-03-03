@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>js/EditableTaskListBody.js - Documentation</title>
+    <title>js/Timer.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -38,7 +38,7 @@ intervals, possibly being ahead or behind by negligible amounts.</a></span></li>
 
 <div id="main">
     
-    <h1 class="page-title">js/EditableTaskListBody.js</h1>
+    <h1 class="page-title">js/Timer.js</h1>
     
 
     
@@ -49,175 +49,59 @@ intervals, possibly being ahead or behind by negligible amounts.</a></span></li>
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @author Andy Young
- * @author Teresa Truong
- * @author Annika Hatcher
+ * @file Holds the Timer class and defines its functionality.
+ * @author Donald Wolfson
+ * @author Justin Lee
+ * @author Enrique Gan
  * Date: 03/04/2021
  */
 
-import TaskList from './TaskList.js';
-
 /**
- * @classdesc Creates a customer HTMLElement for editing the TaskList.
+ * @classdesc Defines the Timer class and defines its functionality.
  */
-class EditableTaskListBody extends HTMLElement {
+class Timer {
   /**
-   * @class Constructor for the Task List UI.
+   * @class Constructor for the timer object.
+   * @param {number} minutes - Numerical value of maximum minutes.
+   * @param {number} seconds - Numerical value of maximum seconds.
+   * @param {callback} callbackEverySecond - callback called every second.
    */
-  constructor() {
-    super();
-
-    // Initialize instance variables.
-    this.template = document.querySelector('#task-row-template').content;
-    this.data = new TaskList();
-    this.resetEditingState();
-
-    // For each task in the TaskList, insert a row.
-    this.data.todo.forEach(({ name, expected }, i) => {
-      this.insertRow(i + 1, name, expected);
-    });
+  constructor(minutes, seconds, callbackEverySecond) {
+    if (minutes > 99) minutes = 99;
+    this.minutes = minutes;
+    if (seconds > 59) seconds = 59;
+    this.seconds = seconds;
+    this.callbackEverySecond = callbackEverySecond;
   }
 
   /**
-   * @function Create a new task with the given inputs and update the UI.
-   * @param {String} name Name of new task.
-   * @param {Number} expected Expected number of pomos.
+   * @function Starts the timer. Timer cannot be reset to original time after ticking.
+   * Note: This doesn't not check system date/time. It ticks at 1 second
+   * intervals, possibly being ahead or behind by negligible amounts.
    */
-  addRow(...args) {
-    this.data.createTask(...args);
-    this.insertRow(this.data.todo.length, ...args);
-  }
-
-  /**
-   * @function Resets the instance variables relating to row editing.
-   */
-  resetEditingState() {
-    this.editingRow = null;
-    this.editingInputs = null;
-    this.originalValues = null;
-  }
-
-  /**
-   * @function Edit task from todo at given index.
-   * @param {Number} index Index of task to remove.
-   * @param {HTMLElement[]} inputs References to input tag of the row.
-   */
-  editRow(row, inputs) {
-    if (this.editingRow) {
-      this.cancelEdit();
-    }
-
-    this.editingRow = row;
-    this.editingInputs = inputs;
-    this.originalValues = inputs.map((input) => input.value);
-
-    row.classList.add('edit-mode');
-
-    inputs.forEach((input) => {
-      input.disabled = false;
-    });
-
-    inputs[0].focus();
-    inputs[0].setSelectionRange(inputs[0].value.length, inputs[0].value.length);
-  }
-
-  /**
-   * @function Remove task from todo at given index.
-   * @param {Number} row Row of task to remove.
-   */
-  removeRow(row) {
-    if (this.editingRow) {
-      this.cancelEdit();
-    }
-
-    this.data.deleteTask(Number(row.dataset.id));
-    row.remove();
-
-    Array.from(this.children).forEach((child, i) => {
-      child.querySelector('input').value = i + 1;
-      child.dataset.id = i;
-    });
-
-    this.nextElementSibling.reset();
-  }
-
-  /**
-   * @function Save changes to the row.
-   */
-  saveEdit() {
-    const newValues = this.editingInputs.map((input) => input.value);
-    this.data.updateTask(Number(this.editingRow.dataset.id), ...newValues);
-    this.originalValues = newValues;
-    this.cancelEdit();
-  }
-
-  /**
-   * @function Exit out of editing mode.
-   */
-  cancelEdit() {
-    this.editingRow.classList.remove('edit-mode');
-
-    this.editingInputs.forEach((input, i) => {
-      input.disabled = true;
-      input.value = this.originalValues[i];
-    });
-
-    this.resetEditingState();
-
-    this.nextElementSibling.reset();
-  }
-
-  /**
-   * @function Add a new row to the UI.
-   * @param {Number} number Number of new task on the list.
-   * @param {String} name Name of new task.
-   * @param {Number} expected Expected number of pomos.
-   */
-  insertRow(...args) {
-    const clone = this.template.cloneNode(true);
-    this.appendChild(clone);
-
-    const row = this.lastElementChild;
-    const inputs = row.querySelectorAll('input');
-    const userInputs = Array.from(inputs).slice(-2);
-    const [editIcon, removeIcon, saveIcon, cancelIcon] = row.querySelectorAll('i');
-    const [number] = args;
-
-    row.dataset.id = number - 1;
-
-    inputs.forEach((input, i) => {
-      input.value = args[i];
-    });
-
-    userInputs.forEach((input) => {
-      input.addEventListener('keyup', (e) => {
-        if (e.code === 'Enter') {
-          this.saveEdit();
+  startTimer() {
+    return new Promise((resolve) => {
+      const countdown = setInterval(() => {
+        // ~~This would be the line where HTML timer updates.~~
+        // console.log(`${this.parseMinutes()}:${this.parseSeconds()}`);
+        // This is where the timer callbacks a function every second
+        if (this.callbackEverySecond !== null) {
+          this.callbackEverySecond(this.minutes, this.seconds);
         }
-      });
-    });
-
-    editIcon.addEventListener('click', () => {
-      this.editRow(row, userInputs);
-    });
-
-    removeIcon.addEventListener('click', () => {
-      this.removeRow(row);
-    });
-
-    saveIcon.addEventListener('click', () => {
-      this.saveEdit();
-    });
-
-    cancelIcon.addEventListener('click', () => {
-      this.cancelEdit();
+        if (this.seconds === 0 &amp;&amp; this.minutes !== 0) {
+          this.minutes -= 1;
+          this.seconds = 60;
+        } else if (this.seconds === 0 &amp;&amp; this.minutes === 0) {
+          resolve();
+          clearInterval(countdown);
+        }
+        this.seconds -= 1;
+      }, 1000);
     });
   }
 }
 
-customElements.define('editable-task-list-body', EditableTaskListBody);
-
-export default EditableTaskListBody;
+export default Timer;
 </code></pre>
         </article>
     </section>
