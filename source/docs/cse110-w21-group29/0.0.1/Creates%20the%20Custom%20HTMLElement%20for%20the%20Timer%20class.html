@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>js/app.js - Documentation</title>
+    <title>Creates the Custom HTMLElement for the Timer class - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,166 +29,133 @@
 
 <div id="main">
     
-    <h1 class="page-title">js/app.js</h1>
+    <h1 class="page-title">Creates the Custom HTMLElement for the Timer class</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>/**
- * @file The main controller of the HTML and interaction between Front-End and Back-End.
- * @author Andy Young
- * @author Donald Wolfson
- * @author Justin Lee
- * @author Enrique Gan
- */
+        <h2>
+        Creates the Custom HTMLElement for the Timer class
+        </h2>
+        
+            <div class="class-description"><p>Creates the Custom HTMLElement for the Timer class.</p></div>
+        
+    
+</header>
 
-/**
- * STATE:
- * {
- *  Username: {String}
- *    null: redirect to index.html
- *  Started: {Boolean}
- *    true: display TimerUI &amp; ViewOnlyTaskList,
- *    false: go to Editable Task List display.
- *  TotalPomos: {Number}
- *    Elapsed pomos.
- *  Timer: {Boolean}
- *    true: pomodoro
- *    false: break
- *      TotalPomos % 4 == 0: long break
- *      else: short break
- * }
- */
+<article>
+    <div class="container-overview">
+    
+        
+<div class="section-method">
 
-import EditableTaskList from './EditableTaskList.js';
-import ViewOnlyTaskList from './ViewOnlyTaskList.js';
-import TimerUI from './TimerUI.js';
-import TaskList from './TaskList.js';
+    
+    <h2>Constructor</h2>
+    
 
-// Edge Case: Redirect to index.html if not logged in.
-// TODO: Run this on load
-if (!localStorage.getItem('Username')) {
-  window.location.href = 'index.html';
-}
+    <h4 class="name" id="Creates the Custom HTMLElement for the Timer class"><span class="type-signature"></span>new Creates the Custom HTMLElement for the Timer class<span class="signature">()</span><span class="type-signature"></span></h4>
 
-const appContainer = document.querySelector('.app-container');
+    
 
-// initialize the timer based on current state
-function initTimer(timer) {
-  const timerState = localStorage.getItem('Timer');
 
-  timer.reset();
 
-  // if timer is true set pomo, otherwise it is a break
-  if (timerState === 'true') {
-    timer.setColorGreen();
-    timer.createTimer(0, 25);
-  } else {
-    const totalPomos = Number(localStorage.getItem('TotalPomos'));
 
-    timer.setColorRed();
 
-    // if there has been 4 pomos then it is a long break
-    if (totalPomos > 0 &amp;&amp; totalPomos % 4 === 0) {
-      // long break
-      timer.createTimer(0, 10);
-    } else {
-      // short break
-      timer.createTimer(0, 5);
-    }
-  }
-}
 
-function handleClick(timer) {
-  let active = false;
 
-  timer.addEventListener('click', () => {
-    if (!active) {
-      active = true;
-      timer.startTimer().then(() => {
-        const timerState = localStorage.getItem('Timer');
+<dl class="details">
 
-        if (timerState === 'true') {
-          localStorage.setItem('TotalPomos', Number(localStorage.getItem('TotalPomos')) + 1);
-        }
+    
 
-        localStorage.setItem('Timer', timerState === 'false');
+    
 
-        initTimer(timer);
+    
 
-        active = false;
-      });
-    }
-  });
-}
+    
 
-function showTimer() {
-  const timerUI = new TimerUI();
-  const votl = new ViewOnlyTaskList();
+    
 
-  handleClick(timerUI);
-  initTimer(timerUI);
+    
 
-  appContainer.appendChild(timerUI);
-  appContainer.appendChild(votl);
+    
 
-  document.querySelector('.app-title').innerHTML = `Current Task: ${votl.data.todo[0].name}`;
-}
+    
 
-if (localStorage.getItem('Started')) {
-  showTimer();
-} else {
-  appContainer.appendChild(new EditableTaskList());
-  document.querySelector('.app-title').innerHTML = `${localStorage.getItem('Username')}'s Day`;
+    
 
-  appContainer.querySelector('button').addEventListener('click', () => {
-    const data = new TaskList();
-    if (data.todo.length > 0) {
-      localStorage.setItem('Started', true);
-      localStorage.setItem('Timer', true);
-      localStorage.setItem('TotalPomos', 0);
-      appContainer.lastElementChild.remove();
-      showTimer();
-    }
-  });
-}
+    
 
-// TODO: If New User, display Editable Task List.
-// TODO: Once User has tasks list (start day button?) display timer and ViewOnlyTaskList.
+    
 
-/*
-document.addEventListener('keydown', (e) => {
-  if (e.code === 'ArrowRight') {
-    appContainer.replaceChild(new ViewOnlyTaskList(), appContainer.lastElementChild);
-  } else if (e.code === 'ArrowLeft') {
-    appContainer.replaceChild(new EditableTaskList(), appContainer.lastElementChild);
-  }
-});
+    
 
-// Global Variables:
-const body = document.querySelector('.container');
-const timerUI = new TimerUI();
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="js_TimerUI.js.html">js/TimerUI.js</a>, <a href="js_TimerUI.js.html#line12">line 12</a>
+    </li></ul></dd>
+    
 
-body.appendChild(timerUI);
-timerUI.createTimer(0, 10);
-timerUI.setColorGreen();
+    
 
-async function testTimer() {
-  await timerUI.startTimer();
-  console.log('BOOM :)');
-  timerUI.setColorRed();
-}
+    
 
-testTimer();
-*/
-</code></pre>
-        </article>
-    </section>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
@@ -198,7 +165,7 @@ testTimer();
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Wed Mar 03 2021 21:21:32 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Wed Mar 03 2021 21:21:33 GMT+0000 (Coordinated Universal Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
