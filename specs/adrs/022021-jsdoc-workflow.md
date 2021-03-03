@@ -21,7 +21,7 @@ How should we set up documentation in our workflow?
 ## Decision Outcome
 
 1. The DevOps team chose to implement automatic documentation mainly because it's a requirement for the class.
-2. The DevOps team chose JSDocs.
+2. They chose chose JSDocs as the documentation framework for the project.
     - JSDocs seems to be mainstream used framework.
     - It was suggested by the professor in lecture.
     - JSDocs is already a framework that has been adopted by several members in our group. There are a few others like ESDoc and Gitbook, but the team didn't look into them much because they figured that learning something new isn't efficient.
