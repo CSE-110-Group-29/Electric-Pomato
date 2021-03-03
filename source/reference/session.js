@@ -4,7 +4,7 @@
  * */
 
 // Imports:
-import TimerUI from './TimerUI.js';
+import TimerUI from '../js/TimerUI.js';
 
 // Global Variables:
 const body = document.querySelector('.container');

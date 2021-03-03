@@ -6,12 +6,10 @@
  */
 
 /**
+ * @class Constructor for the TaskList object.
  * @classdesc Creates the TaskList class and define its helper functions.
  */
 class TaskList {
-  /**
-   * @class Constructor for the TaskList object.
-   */
   constructor() {
     // Checks localStorage for TaskList item.
     const stored = JSON.parse(localStorage.getItem('TaskList'));
@@ -27,7 +25,7 @@ class TaskList {
   }
 
   /**
-   * @function Reset instance variables to default empty value and save to localStorage.
+   * Reset instance variables to default empty value and save to localStorage.
    */
   reset() {
     this.todo = [];
@@ -36,7 +34,7 @@ class TaskList {
   }
 
   /**
-   * @function Save the instance variables to localStorage.
+   * Save the instance variables to localStorage.
    */
   save() {
     // Writes a stringified object with instance variables of TaskList to localStorage.
@@ -44,7 +42,7 @@ class TaskList {
   }
 
   /**
-   * @function Add new task to todo with given name and expected pomodoros.
+   * Add new task to todo with given name and expected pomodoros.
    * @param {String} name Name of task.
    * @param {Number} expected Expected number of pomodoros.
    */
@@ -62,7 +60,7 @@ class TaskList {
   }
 
   /**
-   * @function Remove task from todo at given index.
+   * Remove task from todo at given index.
    * @param {Number} index Index of task to remove.
    */
   deleteTask(index) {
@@ -71,7 +69,7 @@ class TaskList {
   }
 
   /**
-   * @function Update the task at the given index with the given name and expected pomodoros.
+   * Update the task at the given index with the given name and expected pomodoros.
    * @param {Number} index Index of task to update.
    * @param {String} name Updated name of task.
    * @param {Number} expected Updated expected number of pomodoros.
@@ -87,7 +85,7 @@ class TaskList {
   }
 
   /**
-   * @function Add a pomodoro to the current task.
+   * Add a pomodoro to the current task.
    */
   addPomo() {
     this.todo[0].actual += 1;
@@ -95,7 +93,7 @@ class TaskList {
   }
 
   /**
-   * @function Update todo/completed after finishing a task.
+   * Update todo/completed after finishing a task.
    */
   finishTask() {
     const current = this.todo[0];

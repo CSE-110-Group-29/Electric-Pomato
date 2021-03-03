@@ -8,12 +8,10 @@
 import TaskList from './TaskList.js';
 
 /**
+ * @class Constructor for the Task List UI
  * @classdesc Creates a customer HTMLElement for editing the TaskList.
  */
 class EditableTaskListBody extends HTMLElement {
-  /**
-   * @class Constructor for the Task List UI.
-   */
   constructor() {
     super();
 
@@ -29,7 +27,7 @@ class EditableTaskListBody extends HTMLElement {
   }
 
   /**
-   * @function Create a new task with the given inputs and update the UI.
+   * Create a new task with the given inputs and update the UI.
    * @param {String} name Name of new task.
    * @param {Number} expected Expected number of pomos.
    */
@@ -39,7 +37,7 @@ class EditableTaskListBody extends HTMLElement {
   }
 
   /**
-   * @function Resets the instance variables relating to row editing.
+   * Resets the instance variables relating to row editing.
    */
   resetEditingState() {
     this.editingRow = null;
@@ -48,7 +46,7 @@ class EditableTaskListBody extends HTMLElement {
   }
 
   /**
-   * @function Edit task from todo at given index.
+   * Edit task from todo at given index.
    * @param {Number} index Index of task to remove.
    * @param {HTMLElement[]} inputs References to input tag of the row.
    */
@@ -72,7 +70,7 @@ class EditableTaskListBody extends HTMLElement {
   }
 
   /**
-   * @function Remove task from todo at given index.
+   * Remove task from todo at given index.
    * @param {Number} row Row of task to remove.
    */
   removeRow(row) {
@@ -92,7 +90,7 @@ class EditableTaskListBody extends HTMLElement {
   }
 
   /**
-   * @function Save changes to the row.
+   * Save changes to the row.
    */
   saveEdit() {
     const newValues = this.editingInputs.map((input) => input.value);
@@ -102,7 +100,7 @@ class EditableTaskListBody extends HTMLElement {
   }
 
   /**
-   * @function Exit out of editing mode.
+   * Exit out of editing mode.
    */
   cancelEdit() {
     this.editingRow.classList.remove('edit-mode');
@@ -118,7 +116,7 @@ class EditableTaskListBody extends HTMLElement {
   }
 
   /**
-   * @function Add a new row to the UI.
+   * Add a new row to the UI.
    * @param {Number} number Number of new task on the list.
    * @param {String} name Name of new task.
    * @param {Number} expected Expected number of pomos.

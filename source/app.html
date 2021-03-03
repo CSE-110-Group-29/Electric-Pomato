@@ -14,7 +14,7 @@
 <body class="d-flex">
     <div class="container d-flex">
         <div class="app-container">
-            <h1 class="app-title">Current Task: Finish Biology Homework</h1>
+            <h1 class="app-title"></h1>
             <template id="edit-title-template">
                 <div class="row g-0">
                     <div class="col-10">
@@ -79,7 +79,16 @@
                     </div>
                 </div>
             </template>
-            <div class="text-white text-center">Left arrow for editable, right arrow for view only(this element will be replaced)</div>
+            <template id="timer-template">
+                <div class="timer-container position-relative">
+                    <img class="timer-image position-absolute top-50 start-50 translate-middle" src="./img/green-tomato.svg">
+                    <div class="timer-text text-center position-absolute top-50 start-50 translate-middle">
+                        <span id="minutes"></span>
+                        :
+                        <span id="seconds"></span>
+                    </div>
+                </div>
+            </template>
         </div>
     </div>
     <script src="js/app.js" type="module"></script>

@@ -10,39 +10,38 @@
 import Timer from './Timer.js';
 
 /**
+ * @class Creates the Custom HTMLElement for the Timer class
  * @classdesc Creates the Custom HTMLElement for the Timer class.
  */
 class TimerUI extends HTMLElement {
-  /**
-   * @class Creates the Custom HTMLElement for the Timer class.
-   */
   constructor() {
     super();
 
+    this.classList.add('position-absolute', 'w-100', 'h-100', 'd-flex', 'flex-column', 'justify-content-center', 'align-items-center');
     this.appendChild(document.querySelector('#timer-template').content.cloneNode(true));
 
-    this.minutes = this.querySelector('#minutes');
-    this.seconds = this.querySelector('#seconds');
+    this.text = this.querySelector('.timer-text');
+  }
 
-    // set default image
+  reset() {
+    this.text.innerHTML = 'START';
   }
 
   /**
-   * @function Create an internal `Timer` object that sets its `callbackEverySecond`
+   * Create an internal `Timer` object that sets its `callbackEverySecond`
    * callback function to a function that changes the timer html elements'
    * minute and second values for every second that it ticks down.
-   * @param {Number} minutes minutes amount.
-   * @param {Number} seconds seconds amount.
+   * @param {Number} minutes minutes that will be stored in object.
+   * @param {Number} seconds seconds that will be stored in object.
    */
   createTimer(minutes, seconds) {
     this.timer = new Timer(minutes, seconds, (newMinute, newSecond) => {
-      this.minutes.innerHTML = TimerUI.parseMinutes(newMinute);
-      this.seconds.innerHTML = TimerUI.parseSeconds(newSecond);
+      this.text.innerHTML = `${TimerUI.parseMinutes(newMinute)} : ${TimerUI.parseSeconds(newSecond)}`;
     });
   }
 
   /**
-   * @function Start the internal `Timer` object by returning the Promise from startTimer()
+   * Start the internal `Timer` object by returning the Promise from startTimer()
    * in the Timer class. Call this function by using await, the caller will be
    * blocked until the timer is done counting down.
    * @returns {Promise} Countdown of timer
@@ -52,22 +51,9 @@ class TimerUI extends HTMLElement {
   }
 
   /**
-   * @function Sets the Tomato image to a Green Tomato.
-   */
-  setColorGreen() {
-    this.querySelector('.timer-image').src = 'img/green-tomato.svg';
-  }
-
-  /**
-   * @function Sets the Tomato image to a Red Tomato.
-   */
-  setColorRed() {
-    this.querySelector('.timer-image').src = 'img/red-tomato.svg';
-  }
-
-  /**
-   * @function Returns a string representing the minutes left with the format "MM".
+   * Returns a string representing the minutes left with the format "MM".
    * ie: If 25 minuts are left, "25". If 9 minutes are left "09"
+   * @param {Number} minute Number of minutes that will be formatted.
    * @returns {String} Minutes Left
    */
   static parseMinutes(minute) {
@@ -76,8 +62,9 @@ class TimerUI extends HTMLElement {
   }
 
   /**
-   * @function Returns a string representing the seconds left with the format "SS".
+   * Returns a string representing the seconds left with the format "SS".
    * ie: If 25 seconds are left, "25". If 9 seconds are left "09"
+   * @param {Number} second Number of seconds that will be formatted.
    * @returns {String} Seconds Left
    */
   static parseSeconds(second) {
@@ -86,7 +73,19 @@ class TimerUI extends HTMLElement {
     return String(second);
   }
 
-  // TODO: Display/Hide "START" button. Session should be responsible for buttons?
+  /**
+   * Sets the Tomato image to a Green Tomato.
+   */
+  setColorGreen() {
+    this.querySelector('.timer-image').src = 'img/green-tomato.svg';
+  }
+
+  /**
+   * Sets the Tomato image to a Red Tomato.
+   */
+  setColorRed() {
+    this.querySelector('.timer-image').src = 'img/red-tomato.svg';
+  }
 }
 
 customElements.define('pomo-timer', TimerUI);
