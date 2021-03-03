@@ -20,12 +20,13 @@ How should we design the TaskList object? Additionally, the development team wan
 3.	What should be stored in each Task object?
 4.	How should we handle initialization of the task list?
 5.	How should we handle modifications to the task list?
-6.	How should the work be split up?
-7.	Consider one or more TaskList objects.
-8.	How do we deal with the user refreshing the page?
-9.	Is it much easier to work with the task list if it’s converted to a Session object?
-10.	How should we handle the interactivity of the task list?
-11.	Should we rebuild or re-render the task list every time it's updated?
+6.	How should the split the work amoung our members?
+7.	How should we divide the functionality of the editable TaskList in terms of JavaScript files?
+8.	Consider one or more TaskList objects.
+9.	How do we deal with the user refreshing the page?
+10.	Is it much easier to work with the task list if it’s converted to a Session object?
+11.	How should we handle the interactivity of the task list?
+12.	Should we rebuild or re-render the task list every time it's updated?
 
 ## Decision Outcomes
 
@@ -48,7 +49,11 @@ How should we design the TaskList object? Additionally, the development team wan
     - Annika: perform exploratory coding in the TaskList.js script and work on edge cases for both the TaskList and TaskListUI classes.
     - Teresa: stylize the TaskList code.
     - Enrique: Not part of the group that’s implementing the code for the task list, but he will be writing unit tests for the TaskList class.
-7. There should be two different task lists: one that's view-only and one that's editable.
+7. The TaskList component of our application will contain three parts (files): EditableTaskList.js, EditableTaskListBody.js, EditableTaskListInput.js.
+    - EditableTaskList.js: serves at the wrapper container for the body and input files below.
+    - EditableTaskListBody.js: acts as the container for the tasks that were added - is able to edit, save, cancel, and remove tasks.
+    - EditableTaskListInput.js: acts as the container for the bottom input section of the task list. This was previously AddRow.
+9. There should be two different task lists: one that's view-only and one that's editable.
     - The view-only task list should be the task list that simply displays upcoming and completed tasks to the user.
     - The editable task should only appear once the user clicks on the pencil icon to edit.
     -  UPDATE: after re-evaluating the decision drivers in our High Fidelity Design ADR, the development team chose to only enable the editable task list during the initial start TaskList page (before pressing "Start My Day"). Once again, we want to keep the logic of the overall application straightforward and intuitive for the user. Moreover, permitting the user to create more tasks after completing the initial task list defeats the purpose of the "Start My Day."
@@ -56,12 +61,12 @@ How should we design the TaskList object? Additionally, the development team wan
         - The pop-up task list only has a viewable version.
         - During the "Final Task" break, the user will no longer be queried to add any more tasks.
         - The scope of a "session" will now represent an entire day. The only way to change the task list is to start over from the landing page.
-8. Refreshing or exiting the page should just void the Pomodoro.
-9. ~~The development team decided that it’s much better to convert the TaskList object to a Session object.~~ Update: it’s better to keep these two objects separate. The session script will act as the middle man between the Timer and the TaskList object. This is because the session script is only communicating with UI components.
+10. Refreshing or exiting the page should just void the Pomodoro.
+11. ~~The development team decided that it’s much better to convert the TaskList object to a Session object.~~ Update: it’s better to keep these two objects separate. The session script will act as the middle man between the Timer and the TaskList object. This is because the session script is only communicating with UI components.
     - ~~One reason is because the TaskList object is already doing LocalStorage read and writes.~~
     - ~~It’s better to keep all the LocalStorage manipulation in one place because it makes the job of the main script easier – all it has to do is run new Session() and call the methods to do its logic.~~
-10. The pop-up task list should be a button with its own standalone logic. Teresa or Annika will implement this part of the task list.
-11. ~~We should update the task list by rebuilding. That is, we should procedurally inject HTML code into the task list via innerHTML every time something changes, even if it's a small change.~~ Update: Don't rely on rebuilding the task list every time something changes. Instead, we should just re-render the task list.
+12. The pop-up task list should be a button with its own standalone logic. Teresa or Annika will implement this part of the task list.
+13. ~~We should update the task list by rebuilding. That is, we should procedurally inject HTML code into the task list via innerHTML every time something changes, even if it's a small change.~~ Update: Don't rely on rebuilding the task list every time something changes. Instead, we should just re-render the task list.
     - Rebuilding the task list was rather inefficient -- it completely destroys and recreates the HTML elements, which is inefficient; not to mention that it also removes event listeners, making it hard to manage references. Additionally, Andy says a problem they've had is that the TaskList object is an instance variable, which means it won't be able to handle edits as the user is pulling up the task list on the web application.
     - Thus, by going with a component based approach and cloning the template for each row, we can store references of each row and keep track of the state easily.
     - Additionally, this precents the need to re-render the HTML portion of the task list after each change.
