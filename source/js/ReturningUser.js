@@ -14,7 +14,7 @@ class ReturningUser extends HTMLElement {
 
     // Only create the button if 'Username' in localStorage.
     if (localStorage.getItem('Username')) {
-      this.appendChild(ReturningUser.createButton());
+      this.appendChild(ReturningUser.createAnchor());
     }
   }
 
@@ -22,14 +22,13 @@ class ReturningUser extends HTMLElement {
    * Create a HTML object for the 'Returning User' button.
    * <button type="button" class="btn btn-secondary btn-lg">Returning User</button>
    */
-  static createButton() {
-    const button = document.createElement('button');
+  static createAnchor() {
+    const a = document.createElement('a');
     const text = document.createTextNode('Open App');
-    button.type = 'button';
-    button.classList.add('btn', 'btn-secondary', 'btn-lg');
-    button.appendChild(text);
-
-    return button;
+    a.href = 'app.html';
+    a.classList.add('btn', 'btn-secondary', 'btn-lg');
+    a.appendChild(text);
+    return a;
   }
 }
 
