@@ -24,6 +24,7 @@
 import EditableTaskList from './EditableTaskList.js';
 import ViewOnlyTaskList from './ViewOnlyTaskList.js';
 import TimerUI from './TimerUI.js';
+import TaskList from './TaskList.js';
 
 // Edge Case: Redirect to index.html if not logged in.
 // TODO: Run this on load
@@ -45,8 +46,10 @@ if (localStorage.getItem('Started')) {
 } else {
   appContainer.appendChild(new EditableTaskList());
   appContainer.querySelector('button').addEventListener('click', () => {
-    if (body.data.todos.length > 0) {
+    const data = new TaskList();
+    if (data.todo.length > 0) {
       localStorage.setItem('Started', true);
+      appContainer.lastElementChild.remove();
       showTimer();
     }
   });
