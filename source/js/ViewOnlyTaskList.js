@@ -1,6 +1,18 @@
+/**
+ * @file Creates and defines the ViewOnlyTaskList custom HTLMElement.
+ * @author Andy Young
+ * @author Annika Hatcher
+ * Date: 03/04/2021
+ */
 import TaskList from './TaskList.js';
 
+/**
+ * @classdesc Defines the ViewOnlyTaskList and its helper functions.
+ */
 class ViewOnlyTaskList extends HTMLElement {
+  /**
+   * @class Constructs the HTML for the non-editable TaskList.
+   */
   constructor() {
     super();
 
@@ -35,10 +47,17 @@ class ViewOnlyTaskList extends HTMLElement {
     });
   }
 
+  /**
+   * @function Callback function.
+   */
   connectedCallback() {
     this.position();
   }
 
+  /**
+   * @function Insert a row.
+   * @param  {...any} args data.
+   */
   insertRow(...args) {
     const clone = this.rowTemplate.cloneNode(true);
     this.appendChild(clone);
@@ -51,11 +70,18 @@ class ViewOnlyTaskList extends HTMLElement {
     });
   }
 
+  /**
+   * @function Insert a title.
+   * @param {*} title The title.
+   */
   insertTitle(title) {
     this.appendChild(this.titleTemplate.cloneNode(true));
     this.lastElementChild.appendChild(document.createTextNode(title));
   }
 
+  /**
+   * @function Update the position.
+   */
   position() {
     if (this.visible) {
       this.style.top = `${this.appTitle.offsetHeight}px`;

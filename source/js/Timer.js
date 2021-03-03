@@ -1,17 +1,21 @@
-/* *
- * Author: Donald Wolfson, Justin Lee, Enrique Gan
- * Updated By: Enrique Gan
- * Date: 02/15/2021
- * */
+/**
+ * @file Holds the Timer class and defines its functionality.
+ * @author Donald Wolfson
+ * @author Justin Lee
+ * @author Enrique Gan
+ * Date: 03/04/2021
+ */
 
+/**
+ * @classdesc Defines the Timer class and defines its functionality.
+ */
 class Timer {
-  /* *
-   * Constructor for the timer object.
+  /**
+   * @class Constructor for the timer object.
    * @param {number} minutes - Numerical value of maximum minutes.
    * @param {number} seconds - Numerical value of maximum seconds.
-   * @input {?@link callbackEverySecond} callbackEverySecond - callback
-   * func to call every second the timer ticks.
-   * */
+   * @param {callback} callbackEverySecond - callback called every second.
+   */
   constructor(minutes, seconds, callbackEverySecond) {
     if (minutes > 99) minutes = 99;
     this.minutes = minutes;
@@ -20,11 +24,11 @@ class Timer {
     this.callbackEverySecond = callbackEverySecond;
   }
 
-  /* *
-   * Starts the timer. Timer cannot be reset to original time after ticking.
+  /**
+   * @function Starts the timer. Timer cannot be reset to original time after ticking.
    * Note: This doesn't not check system date/time. It ticks at 1 second
    * intervals, possibly being ahead or behind by negligible amounts.
-   * */
+   */
   startTimer() {
     return new Promise((resolve) => {
       const countdown = setInterval(() => {

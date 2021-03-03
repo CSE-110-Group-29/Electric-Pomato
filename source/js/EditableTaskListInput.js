@@ -1,13 +1,17 @@
 /**
- * Author: Andy Young, Teresa Truong, Annika Hatcher
- * Updated By: (Any names of people who've done some editing of the file)
- * Date: 02/12/2021
- * Github Issue: https://github.com/DonaldWolfson/cse110-w21-group29/issues/13
+ * @file Define the and construct an editable TaskList, and handle the inputs.
+ * @author Andy Young
+ * @author Teresa Truong
+ * @author Annika Hatcher
+ * Date: 03/04/2021
  */
 
+/**
+ * @classdesc Define the and construct an editable TaskList, and handle the inputs.
+ */
 class EditableTaskListInput extends HTMLElement {
   /**
-   * Constructor for the Add Task Row UI.
+   * @class Constructor for the Add Task Row UI.
    */
   constructor() {
     super();
@@ -42,13 +46,15 @@ class EditableTaskListInput extends HTMLElement {
     });
   }
 
+  /**
+   * @function Initialize row to default UI state.
+   */
   connectedCallback() {
-    // Initialize row to default UI state.
     this.reset();
   }
 
   /**
-   * Disable/Enable add task button based on validity of inputs.
+   * @function Disable/Enable add task button based on validity of inputs.
    */
   updateButtonState() {
     if (this.nameInput.value.length === 0 || Number(this.expectedInput.value) < 1) {
@@ -64,7 +70,7 @@ class EditableTaskListInput extends HTMLElement {
   }
 
   /**
-   * Add row to TaskList assuming it is the previous sibling.
+   * @function Add row to TaskList assuming it is the previous sibling.
    */
   addRow() {
     this.previousElementSibling.addRow(this.nameInput.value, this.expectedInput.value);
@@ -72,7 +78,7 @@ class EditableTaskListInput extends HTMLElement {
   }
 
   /**
-   * Initializes the UI of the row to its initial state.
+   * @function Initializes the UI of the row to its initial state.
    */
   reset() {
     this.nameInput.value = '';

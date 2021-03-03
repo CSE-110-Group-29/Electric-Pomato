@@ -1,7 +1,19 @@
+/**
+ * @file Creates and displays an editable task list.
+ * @author Andy Young
+ * Date: 03/04/2021
+ */
+
 import EditableTaskListBody from './EditableTaskListBody.js';
 import EditableTaskListInput from './EditableTaskListInput.js';
 
+/**
+ * @classdesc Constructs the HTML of the EditableTaskListBody and EditableTaskListInput.
+ */
 class EditableTaskList extends HTMLElement {
+  /**
+   * @class Constructs the HTML of the EditableTaskListBody and EditableTaskListInput.
+   */
   constructor() {
     super();
 

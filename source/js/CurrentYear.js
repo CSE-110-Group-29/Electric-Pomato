@@ -3,9 +3,12 @@
  * @author Andy Young
  */
 
+/**
+ * @classdesc Updates the HTML with the current year.
+ */
 class CurrentYear extends HTMLElement {
   /**
-   * Appends a text element containing the current year from a Date() object.
+   * @class Appends a text element containing the current year from a Date() object.
    */
   constructor() {
     super();

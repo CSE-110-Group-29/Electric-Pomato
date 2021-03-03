@@ -5,9 +5,12 @@
  * @author Donald Wolfson
  */
 
+/**
+ * @classdesc Construct the HTML Button for Returning Users.
+ */
 class ReturningUser extends HTMLElement {
   /**
-   * Appends a text element containing the current year from a Date() object.
+   * @class Appends a text element containing the current year from a Date() object.
    */
   constructor() {
     super();
@@ -19,7 +22,7 @@ class ReturningUser extends HTMLElement {
   }
 
   /**
-   * Create a HTML object for the 'Returning User' button.
+   * @function Create a HTML object for the 'Returning User' button.
    * <button type="button" class="btn btn-secondary btn-lg">Returning User</button>
    */
   static createAnchor() {
