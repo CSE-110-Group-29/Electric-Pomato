@@ -1,13 +1,13 @@
 # Feb. 20th 2021, JSDoc Workflow ADR
+> (Last Modified: Mar. 3rd 2021, by Arman Mansourian)
 
 Resources to get started:
 
 - [Github Action](https://github.com/DonaldWolfson/cse110-w21-group29/blob/jsdoc-workflow/.github/workflows/jsdoc.yml)
-- Ask Arman about this.
 
 ## Status: accepted
 
-## Deciders: Class Recommendation, Arman, and Liam
+## Deciders: Arman and Liam
 
 ## Context and Problem Statement
 
@@ -20,8 +20,8 @@ How should we set up documentation in our workflow?
 
 ## Decision Outcome
 
-1. The DevOps team chose to implement automatic documentation mainly because it's a requirement for the class.
-2. They chose chose JSDocs as the documentation framework for the project.
-    - JSDocs seems to be mainstream used framework.
-    - It was suggested by the professor in lecture.
-    - JSDocs is already a framework that has been adopted by several members in our group. There are a few others like ESDoc and Gitbook, but the team didn't look into them much because they figured that learning something new isn't efficient.
+1. The DevOps team decided to implement automatic documentation generation to provide a more user friendly and accessible means of understanding the code base.
+2. They chose JSDoc as the documentation framework for the project.
+    - JSDocs seems to be mainstream used framework with many online resources.
+    - It was suggested by the professor in lecture and there are existing GitHub Actions for it.
+    - JSDoc is already a framework that has been adopted by several members in our group. There are a few others like ESDoc and Gitbook, but the team didn't look into them.
