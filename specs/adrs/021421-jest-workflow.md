@@ -1,9 +1,9 @@
 # Feb. 14th 2021, Jest Workflow ADR
+> (Last Modified: Mar. 3rd 2021, by Arman Mansourian)
 
 Resources to get started:
 
 - [Github Action](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/.github/workflows/jest.yml)
-- Ask Arman and Liam about this one for clarification.
 
 ## Status: accepted
 
@@ -25,13 +25,14 @@ How should we set up our testing framework?
 1. Everyone unanimously agreed to incorporate unit testing from the beginning.
 2. The DevOps team chose Jest as the unit testing framework.
     - Jest is the mainstream testing framework.
-    - This decision was a rather straightforward one because we weren't cognizant of alternatives before looking at the assignment's examples.
-    - The team found some propitious Github Actions for it, make testing convenient for us.
-3. We should be executing these tests fairly often.
+    - This decision was a rather straightforward one because it is a commonly used framework with many online resources.
+    - The team found Github Actions directly executing written tests remotely, make testing convenient for dev team.
+3. We should be executing these tests on all `push`es.
     - Run these tests every time someone updates the remote codebase with more code (any time someone pushes).
     - Run these tests even if these pushes occur on branches other than main.
-4. Because of the learning curve and arduity the DevOps team has with Jest, however, they decided that it's auspicious to have a member from the development team (Enrique) write out some rudimentary tests, which would provide some examples for the DevOps members to reference.
-    - Enrique found it best to make tests after code has been implemented since it fits the development team's process. They tend to do a copious amount of exploratory programming.
-    - The decisions are made based on the development team's build process: all Jest tests must be passed before branches can be pushed to the main branch. Enrique will also add final "consolidation" tests. That is, he will add tests that ensure the full funcionality of the branch. This way, if the team has to change something in the codebase they've previously completed, then they will know exactly how it changes the functionality of the code and if they need to make adjustments to other areas of the codebase.
+4. Initially decided on having devs write simple starter tests and have DevOps team go back and write more complex ones, trying to find edge cases. However the dev team, and in particular Enrique, wrote a significant amount of tests which are sufficient to cover most edge cases.
     - Every function in the codebase should be tested (start with basic ones for reference before moving on to edge cases).
     - Add some object instantiation tests for the Timer and TaskList objects.
+    - Enrique found it best to make tests after code has been implemented since it fits the development team's process.
+    - The development team's build process: all Jest tests must be passed before branches can be pushed to the main branch.
+    - Enrique will also add final "consolidation" tests checking the full functionality on the branch, allowing for backtracking when revisiting or modifying pre-existing code from merged branches.
