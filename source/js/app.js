@@ -14,10 +14,13 @@
  *  Started: {Boolean}
  *    true: display TimerUI & ViewOnlyTaskList,
  *    false: go to Editable Task List display.
- *  Timer: (1, 0, -1)
- *    1: Pomodoro
- *    0: Short Break
- *   -1: Long Break
+ *  TotalPomos: {Number}
+ *    Elapsed pomos.
+ *  Timer: {Boolean}
+ *    true: pomodoro
+ *    false: break
+ *      TotalPomos % 4 == 0: long break
+ *      else: short break
  * }
  */
 
@@ -34,33 +37,84 @@ if (!localStorage.getItem('Username')) {
 
 const appContainer = document.querySelector('.app-container');
 
+// initialize the timer based on current state
+function initTimer(timer) {
+  const timerState = localStorage.getItem('Timer');
+
+  timer.reset();
+
+  // if timer is true set pomo, otherwise it is a break
+  if (timerState === 'true') {
+    timer.setColorGreen();
+    timer.createTimer(0, 25);
+  } else {
+    const totalPomos = Number(localStorage.getItem('TotalPomos'));
+
+    timer.setColorRed();
+
+    // if there has been 4 pomos then it is a long break
+    if (totalPomos > 0 && totalPomos % 4 === 0) {
+      // long break
+      timer.createTimer(0, 10);
+    } else {
+      // short break
+      timer.createTimer(0, 5);
+    }
+  }
+}
+
+function handleClick(timer) {
+  let active = false;
+
+  timer.addEventListener('click', () => {
+    if (!active) {
+      active = true;
+      timer.startTimer().then(() => {
+        const timerState = localStorage.getItem('Timer');
+
+        if (timerState === 'true') {
+          localStorage.setItem('TotalPomos', Number(localStorage.getItem('TotalPomos')) + 1);
+        }
+
+        localStorage.setItem('Timer', timerState === 'false');
+
+        initTimer(timer);
+
+        active = false;
+      });
+    }
+  });
+}
+
 function showTimer() {
   const timerUI = new TimerUI();
+  const votl = new ViewOnlyTaskList();
+
+  handleClick(timerUI);
+  initTimer(timerUI);
+
   appContainer.appendChild(timerUI);
-  appContainer.appendChild(new ViewOnlyTaskList());
-  console.log('started');
+  appContainer.appendChild(votl);
+
+  document.querySelector('.app-title').innerHTML = `Current Task: ${votl.data.todo[0].name}`;
 }
 
 if (localStorage.getItem('Started')) {
   showTimer();
 } else {
   appContainer.appendChild(new EditableTaskList());
+  document.querySelector('.app-title').innerHTML = `${localStorage.getItem('Username')}'s Day`;
+
   appContainer.querySelector('button').addEventListener('click', () => {
     const data = new TaskList();
     if (data.todo.length > 0) {
       localStorage.setItem('Started', true);
+      localStorage.setItem('Timer', true);
+      localStorage.setItem('TotalPomos', 0);
       appContainer.lastElementChild.remove();
       showTimer();
     }
   });
-}
-
-// TODO: Update header with either 'Current Task', 'Next Task', 'Final Task', '<Name>'s Day'
-if (localStorage.getItem('Started')) {
-  // TODO: If working on unfinished task, display 'Current Task: <task_name>'
-} else {
-  const AppTitle = `${localStorage.getItem('Username')}'s Day`;
-  document.querySelector('.app-title').innerHTML = AppTitle;
 }
 
 // TODO: If New User, display Editable Task List.

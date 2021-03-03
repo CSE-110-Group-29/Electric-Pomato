@@ -19,12 +19,14 @@ class TimerUI extends HTMLElement {
   constructor() {
     super();
 
+    this.classList.add('position-absolute', 'w-100', 'h-100', 'd-flex', 'flex-column', 'justify-content-center', 'align-items-center');
     this.appendChild(document.querySelector('#timer-template').content.cloneNode(true));
 
-    this.minutes = this.querySelector('#minutes');
-    this.seconds = this.querySelector('#seconds');
+    this.text = this.querySelector('.timer-text');
+  }
 
-    // set default image
+  reset() {
+    this.text.innerHTML = 'START';
   }
 
   /**
@@ -36,8 +38,7 @@ class TimerUI extends HTMLElement {
    */
   createTimer(minutes, seconds) {
     this.timer = new Timer(minutes, seconds, (newMinute, newSecond) => {
-      this.minutes.innerHTML = TimerUI.parseMinutes(newMinute);
-      this.seconds.innerHTML = TimerUI.parseSeconds(newSecond);
+      this.text.innerHTML = `${TimerUI.parseMinutes(newMinute)} : ${TimerUI.parseSeconds(newSecond)}`;
     });
   }
 
@@ -49,20 +50,6 @@ class TimerUI extends HTMLElement {
    */
   startTimer() {
     return this.timer.startTimer();
-  }
-
-  /**
-   * @function Sets the Tomato image to a Green Tomato.
-   */
-  setColorGreen() {
-    this.querySelector('.timer-image').src = 'img/green-tomato.svg';
-  }
-
-  /**
-   * @function Sets the Tomato image to a Red Tomato.
-   */
-  setColorRed() {
-    this.querySelector('.timer-image').src = 'img/red-tomato.svg';
   }
 
   /**
@@ -84,6 +71,20 @@ class TimerUI extends HTMLElement {
     if (second === 60) return '00';
     if (second < 10) return `0${String(second)}`;
     return String(second);
+  }
+
+  /**
+   * @function Sets the Tomato image to a Green Tomato.
+   */
+  setColorGreen() {
+    this.querySelector('.timer-image').src = 'img/green-tomato.svg';
+  }
+
+  /**
+   * @function Sets the Tomato image to a Red Tomato.
+   */
+  setColorRed() {
+    this.querySelector('.timer-image').src = 'img/red-tomato.svg';
   }
 
   // TODO: Display/Hide "START" button. Session should be responsible for buttons?

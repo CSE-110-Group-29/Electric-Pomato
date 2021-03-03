@@ -14,16 +14,16 @@ class UsernameInput extends HTMLElement {
     super();
 
     this.appendChild(document.querySelector('#start-container-template').content.cloneNode(true));
-    const input = document.querySelector('.start-input');
-    this.querySelector('.start-input-button-wrapper').addEventListener('click', (event) => {
-      // Don't submit the form
-      event.preventDefault();
+    const input = this.querySelector('.start-input');
+    const button = this.querySelector('.start-input-button');
 
-      console.log(input.value);
+    input.addEventListener('keyup', (e) => {
+      if (e.code === 'Enter') {
+        button.click();
+      }
+    });
 
-      // Clear previous session
-      localStorage.clear();
-
+    button.addEventListener('click', () => {
       // Ignore it if input item is empty
       if (input.value.length < 1) return;
 
