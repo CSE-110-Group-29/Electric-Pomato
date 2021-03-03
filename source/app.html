@@ -79,7 +79,18 @@
                     </div>
                 </div>
             </template>
-            <div class="text-white text-center">Left arrow for editable, right arrow for view only(this element will be replaced)</div>
+            <template id="timer-template">
+                <div class="w-100 d-flex justify-content-center">
+                    <div class="timer-container position-relative">
+                        <img class="timer-image position-absolute top-50 start-50 translate-middle" src="./img/green-tomato.svg">
+                        <div class="timer-text text-center position-absolute top-50 start-50 translate-middle">
+                            <span id="minutes"></span>
+                            :
+                            <span id="seconds"></span>
+                        </div>
+                    </div>
+                </div>
+            </template>
         </div>
     </div>
     <script src="js/app.js" type="module"></script>

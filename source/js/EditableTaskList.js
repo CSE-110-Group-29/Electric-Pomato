@@ -20,8 +20,15 @@ class EditableTaskList extends HTMLElement {
     this.classList.add('task-list-container');
     this.appendChild(document.querySelector('#edit-title-template').content.cloneNode(true));
     this.appendChild(document.querySelector('#edit-header-row-template').content.cloneNode(true));
-    this.appendChild(new EditableTaskListBody());
+    const body = new EditableTaskListBody();
+    this.appendChild(body);
     this.appendChild(new EditableTaskListInput());
+
+    this.querySelector('button').addEventListener('click', () => {
+      if (body.data.todos.length > 0) {
+        localStorage.setItem('Started', true);
+      }
+    });
   }
 }
 
