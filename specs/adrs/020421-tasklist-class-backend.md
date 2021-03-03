@@ -51,7 +51,8 @@ How should we design the TaskList object? Additionally, the development team wan
 7. There should be two different task lists: one that's view-only and one that's editable.
     - The view-only task list should be the task list that simply displays upcoming and completed tasks to the user.
     - The editable task should only appear once the user clicks on the pencil icon to edit.
-    -  UPDATE: due to some unforseen circumstances (TODO: ask the development team for information about their thought process behind this decision because this has some pretty big ramifications), the development team chose to only enable the editable task list during the initial start TaskList page (before pressing "Start My Day").
+    -  UPDATE: after re-evaluating the decision drivers in our High Fidelity Design ADR, the development team chose to only enable the editable task list during the initial start TaskList page (before pressing "Start My Day"). Once again, we want to keep the logic of the overall application straightforward and intuitive for the user. Moreover, permitting the user to create more tasks after completing the initial task list defeats the purpose of the "Start My Day."
+        -  The motivation for making such a change stems from Francesco's deliniation of his Pomodoro Technique philosophy. The user must put full focus on realizing their task at hand during every Pomodoro session. Thus, to motivate the end user to get into such a mindset, it's better to disable the editing feature during the session.
         - The pop-up task list only has a viewable version.
         - During the "Final Task" break, the user will no longer be queried to add any more tasks.
         - The scope of a "session" will now represent an entire day. The only way to change the task list is to start over from the landing page.
