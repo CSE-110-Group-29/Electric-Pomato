@@ -241,13 +241,14 @@ footer > .container {
 }
 
 .timer-container {
-    width: 300px;
-    height: 300px;
+    width: 500px;
+    height: 500px;
     display: inline-block;
 }
 
 .timer-text {
-    font-size: $h1-font-size;
+    font-size: $h1-font-size * 1.5;
+    // font-size: $h1-font-size;
     width: 100%;
 }
 
