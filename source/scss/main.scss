@@ -247,8 +247,9 @@ footer > .container {
 }
 
 .timer-text {
+    // @extend %heading;
+    // @include font-size($h1-font-size * 1.5);
     font-size: $h1-font-size * 1.5;
-    // font-size: $h1-font-size;
     width: 100%;
 }
 
