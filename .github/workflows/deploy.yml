@@ -1,19 +1,55 @@
-name: Deploy
+name: JSDoc and Deploy
 
 on:
-  push:
+  pull_request:
     branches:
       - main
+    types: [closed]
 
 jobs:
-  compile:
+  jsdoc:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
         with:
-          ref: main
+          persist-credentials: false
+
+      - name: Set up node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12
+
+      - name: Install modules
+        run: npm ci
+
+      - name: Run JSDoc
+        run: npm run generate-docs
+
+      - name: Add and commit doc changes to main
+        run: |
+          git config --local user.email 'action@github.com'
+          git config --local user.name 'GitHub Action'
+          git add -A
+          git commit -m 'Updates JSDoc documentation files'
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+          force: true
+          branch: main
+
+  compile:
+    if: github.event.pull_request.merged == true
+    needs: jsdoc
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
 
       - name: Set up node
         uses: actions/setup-node@v2
@@ -47,14 +83,12 @@ jobs:
         run: |
           sudo rm -r ./scss
           sudo rm -r ./__tests__
-
       - name: Add and Commit changes to production branch
         run: |
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
           git add .
           git commit -m 'Updates compiled CSS files'
-
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:

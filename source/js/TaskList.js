@@ -1,14 +1,15 @@
 /**
- * Author: Andy Young, Annika Hatcher
- * Updated By: (Any names of people who've done some editing of the file)
- * Date: 02/05/2021
- * Github Issue: https://github.com/DonaldWolfson/cse110-w21-group29/issues/13
+ * @file Holds the code the general functionality of the TaskList.
+ * @author Andy Young
+ * @author Annika Hatcher
+ * Date: 03/04/2021
  */
 
+/**
+ * @class Constructor for the TaskList object.
+ * @classdesc Creates the TaskList class and define its helper functions.
+ */
 class TaskList {
-  /**
-   * Constructor for the task list object.
-   */
   constructor() {
     // Checks localStorage for TaskList item.
     const stored = JSON.parse(localStorage.getItem('TaskList'));
@@ -102,4 +103,4 @@ class TaskList {
   }
 }
 
-module.exports = { TaskList };
+export default TaskList;

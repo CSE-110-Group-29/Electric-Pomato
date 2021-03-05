@@ -1,6 +1,7 @@
 // to learn jest.timers -> https://jestjs.io/docs/en/timer-mocks
 
-const { Timer } = require('../js/Timer');
+import { jest } from '@jest/globals';
+import Timer from '../js/Timer.js';
 
 // CONSTRUCTOR TESTS
 
@@ -10,8 +11,6 @@ test('Check Timers Initialized Values 1', () => {
   const FiveSecondTimer = new Timer(minutes, seconds, null);
   expect(FiveSecondTimer.minutes).toBe(minutes);
   expect(FiveSecondTimer.seconds).toBe(seconds);
-  expect(FiveSecondTimer.parseMinutes()).toBe('00');
-  expect(FiveSecondTimer.parseSeconds()).toBe('05');
 });
 
 test('Check Timers Initialized Values 2', () => {
@@ -20,8 +19,6 @@ test('Check Timers Initialized Values 2', () => {
   const timer = new Timer(minutes, seconds, null);
   expect(timer.minutes).toBe(minutes);
   expect(timer.seconds).toBe(seconds);
-  expect(timer.parseMinutes()).toBe('09');
-  expect(timer.parseSeconds()).toBe('05');
 });
 
 test('Check Timers Initialized Values : Minutes > 99', () => {
@@ -31,8 +28,6 @@ test('Check Timers Initialized Values : Minutes > 99', () => {
   // minutes should be clamped to 99
   expect(timer.minutes).toBe(99);
   expect(timer.seconds).toBe(seconds);
-  expect(timer.parseMinutes()).toBe('99');
-  expect(timer.parseSeconds()).toBe('50');
 });
 
 test('Check Timers Initialized Values : Second > 59', () => {
@@ -42,8 +37,6 @@ test('Check Timers Initialized Values : Second > 59', () => {
   expect(timer.minutes).toBe(minutes);
   // seconds should be clamped to 59
   expect(timer.seconds).toBe(59);
-  expect(timer.parseMinutes()).toBe('01');
-  expect(timer.parseSeconds()).toBe('59');
 });
 
 // COUNT DOWN TESTS
