@@ -63,7 +63,7 @@ function initTimer(timer) {
   }
 }
 
-function handleClick(timer) {
+function handleClick(timer, taskList) {
   let active = false;
 
   timer.addEventListener('click', () => {
@@ -74,6 +74,7 @@ function handleClick(timer) {
 
         if (timerState === 'true') {
           localStorage.setItem('TotalPomos', Number(localStorage.getItem('TotalPomos')) + 1);
+          taskList.addPomo();
         }
 
         localStorage.setItem('Timer', timerState === 'false');
@@ -90,7 +91,7 @@ function showTimer() {
   const timerUI = new TimerUI();
   const votl = new ViewOnlyTaskList();
 
-  handleClick(timerUI);
+  handleClick(timerUI, votl);
   initTimer(timerUI);
 
   appContainer.appendChild(timerUI);

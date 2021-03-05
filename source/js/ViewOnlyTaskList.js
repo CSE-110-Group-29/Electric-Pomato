@@ -26,6 +26,26 @@ class ViewOnlyTaskList extends HTMLElement {
 
     this.classList.add('task-list-container', 'view-only');
 
+    this.addEventListener('click', () => {
+      this.visible = !this.visible;
+      this.position();
+    });
+
+    this.render();
+  }
+
+  /**
+   * Callback function.
+   */
+  connectedCallback() {
+    this.position();
+  }
+
+  render() {
+    while (this.firstChild) {
+      this.removeChild(this.firstChild);
+    }
+
     this.insertTitle('Task List');
     this.appendChild(this.headerRowTemplate.cloneNode(true));
     this.data.todo.forEach(({ name, expected, actual }, i) => {
@@ -38,18 +58,6 @@ class ViewOnlyTaskList extends HTMLElement {
     this.data.completed.forEach(({ name, expected, actual }, i) => {
       this.insertRow(i + 1, name, expected, actual);
     });
-
-    this.addEventListener('click', () => {
-      this.visible = !this.visible;
-      this.position();
-    });
-  }
-
-  /**
-   * Callback function.
-   */
-  connectedCallback() {
-    this.position();
   }
 
   /**
@@ -86,6 +94,16 @@ class ViewOnlyTaskList extends HTMLElement {
     } else {
       this.style.top = `${this.appContainer.offsetHeight - (this.querySelector('.header').getBoundingClientRect().top - this.getBoundingClientRect().top)}px`;
     }
+  }
+
+  addPomo() {
+    this.data.addPomo();
+    this.render();
+  }
+
+  finishTask() {
+    this.data.finishTask();
+    this.render();
   }
 }
 

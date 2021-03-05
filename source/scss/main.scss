@@ -43,7 +43,6 @@ body {
 
 .btn {
     border-radius: 2.5rem;
-    font-size: $h5-font-size;
     @include font-size($h5-font-size);
 }
 
@@ -83,8 +82,7 @@ input:focus {
 
 .subtitle {
     color: $primary;
-    // font-size: 2.5rem;
-    @include font-size($h2-font-size * 1.5);
+    @include font-size($h2-font-size * 1.25);
     font-weight: 600;
     text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 }
@@ -104,7 +102,6 @@ input:focus {
 
     .start-input {
         width: 100%;
-        // font-size: $h3-font-size;
         @include font-size($h3-font-size);
         padding: map-get($spacers, 3);
     }
@@ -136,7 +133,6 @@ footer {
     bottom: 0;
     width: 100%;
     padding: 1.5rem 0;
-    // font-size: 1.25rem;
     @include font-size($h5-font-size);
 }
 
@@ -251,9 +247,7 @@ footer > .container {
 }
 
 .timer-text {
-    // @extend %heading;
     @include font-size($h1-font-size * 1.5);
-    // font-size: $h1-font-size * 1.5;
     width: 100%;
 }
 
