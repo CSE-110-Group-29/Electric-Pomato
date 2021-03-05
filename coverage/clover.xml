@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1614969386144" clover="3.2.0">
-  <project timestamp="1614969386144" name="All files">
-    <metrics statements="41" coveredstatements="41" conditionals="18" coveredconditionals="18" methods="12" coveredmethods="12" elements="71" coveredelements="71" complexity="0" loc="41" ncloc="41" packages="1" files="2" classes="2"/>
+<coverage generated="1614973582550" clover="3.2.0">
+  <project timestamp="1614973582550" name="All files">
+    <metrics statements="57" coveredstatements="55" conditionals="24" coveredconditionals="21" methods="21" coveredmethods="21" elements="102" coveredelements="97" complexity="0" loc="57" ncloc="57" packages="1" files="3" classes="3"/>
     <file name="TaskList.js" path="/Users/dwolfson/Desktop/UCSD/CSE 110/cse110-w21-group29/source/js/TaskList.js">
       <metrics statements="25" coveredstatements="25" conditionals="4" coveredconditionals="4" methods="8" coveredmethods="8"/>
       <line num="15" count="12" type="stmt"/>
@@ -32,22 +32,41 @@
     </file>
     <file name="Timer.js" path="/Users/dwolfson/Desktop/UCSD/CSE 110/cse110-w21-group29/source/js/Timer.js">
       <metrics statements="16" coveredstatements="16" conditionals="14" coveredconditionals="14" methods="4" coveredmethods="4"/>
-      <line num="20" count="7" type="cond" truecount="2" falsecount="0"/>
-      <line num="21" count="7" type="stmt"/>
-      <line num="22" count="7" type="cond" truecount="2" falsecount="0"/>
-      <line num="23" count="7" type="stmt"/>
-      <line num="24" count="7" type="stmt"/>
-      <line num="33" count="3" type="stmt"/>
-      <line num="34" count="3" type="stmt"/>
-      <line num="38" count="70" type="cond" truecount="2" falsecount="0"/>
-      <line num="39" count="64" type="stmt"/>
-      <line num="41" count="70" type="cond" truecount="4" falsecount="0"/>
+      <line num="20" count="10" type="cond" truecount="2" falsecount="0"/>
+      <line num="21" count="10" type="stmt"/>
+      <line num="22" count="10" type="cond" truecount="2" falsecount="0"/>
+      <line num="23" count="10" type="stmt"/>
+      <line num="24" count="10" type="stmt"/>
+      <line num="33" count="4" type="stmt"/>
+      <line num="34" count="4" type="stmt"/>
+      <line num="38" count="72" type="cond" truecount="2" falsecount="0"/>
+      <line num="39" count="66" type="stmt"/>
+      <line num="41" count="72" type="cond" truecount="4" falsecount="0"/>
       <line num="42" count="1" type="stmt"/>
       <line num="43" count="1" type="stmt"/>
-      <line num="44" count="69" type="cond" truecount="4" falsecount="0"/>
+      <line num="44" count="71" type="cond" truecount="4" falsecount="0"/>
       <line num="45" count="3" type="stmt"/>
       <line num="46" count="3" type="stmt"/>
-      <line num="48" count="70" type="stmt"/>
+      <line num="48" count="72" type="stmt"/>
+    </file>
+    <file name="TimerUI.js" path="/Users/dwolfson/Desktop/UCSD/CSE 110/cse110-w21-group29/source/js/TimerUI.js">
+      <metrics statements="16" coveredstatements="14" conditionals="6" coveredconditionals="3" methods="9" coveredmethods="9"/>
+      <line num="18" count="7" type="stmt"/>
+      <line num="20" count="7" type="stmt"/>
+      <line num="21" count="7" type="stmt"/>
+      <line num="23" count="7" type="stmt"/>
+      <line num="27" count="1" type="stmt"/>
+      <line num="38" count="3" type="stmt"/>
+      <line num="39" count="2" type="stmt"/>
+      <line num="50" count="1" type="stmt"/>
+      <line num="60" count="2" type="cond" truecount="1" falsecount="1"/>
+      <line num="61" count="0" type="stmt"/>
+      <line num="71" count="2" type="cond" truecount="1" falsecount="1"/>
+      <line num="72" count="2" type="cond" truecount="1" falsecount="1"/>
+      <line num="73" count="0" type="stmt"/>
+      <line num="80" count="1" type="stmt"/>
+      <line num="87" count="1" type="stmt"/>
+      <line num="91" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>
