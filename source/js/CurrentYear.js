@@ -16,3 +16,4 @@ class CurrentYear extends HTMLElement {
 }
 
 customElements.define('current-year', CurrentYear);
+export default CurrentYear;

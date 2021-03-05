@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1614973582550" clover="3.2.0">
-  <project timestamp="1614973582550" name="All files">
-    <metrics statements="57" coveredstatements="55" conditionals="24" coveredconditionals="21" methods="21" coveredmethods="21" elements="102" coveredelements="97" complexity="0" loc="57" ncloc="57" packages="1" files="3" classes="3"/>
+<coverage generated="1614979151775" clover="3.2.0">
+  <project timestamp="1614979151775" name="All files">
+    <metrics statements="60" coveredstatements="58" conditionals="24" coveredconditionals="21" methods="22" coveredmethods="22" elements="106" coveredelements="101" complexity="0" loc="60" ncloc="60" packages="1" files="4" classes="4"/>
+    <file name="CurrentYear.js" path="/Users/dwolfson/Desktop/UCSD/CSE 110/cse110-w21-group29/source/js/CurrentYear.js">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="12" count="3" type="stmt"/>
+      <line num="14" count="3" type="stmt"/>
+      <line num="18" count="1" type="stmt"/>
+    </file>
     <file name="TaskList.js" path="/Users/dwolfson/Desktop/UCSD/CSE 110/cse110-w21-group29/source/js/TaskList.js">
       <metrics statements="25" coveredstatements="25" conditionals="4" coveredconditionals="4" methods="8" coveredmethods="8"/>
       <line num="15" count="12" type="stmt"/>
