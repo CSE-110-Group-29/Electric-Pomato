@@ -77,14 +77,16 @@ class TimerUI extends HTMLElement {
    * Sets the Tomato image to a Green Tomato.
    */
   setColorGreen() {
-    this.querySelector('.timer-image').src = 'img/green-tomato.svg';
+    this.querySelector('.timer-image').classList.remove('red-tomato');
+    this.querySelector('.timer-image').classList.add('green-tomato');
   }
 
   /**
    * Sets the Tomato image to a Red Tomato.
    */
   setColorRed() {
-    this.querySelector('.timer-image').src = 'img/red-tomato.svg';
+    this.querySelector('.timer-image').classList.remove('green-tomato');
+    this.querySelector('.timer-image').classList.add('red-tomato');
   }
 }
 

@@ -66,7 +66,7 @@ function initTimer(timer) {
 function handleClick(timer, taskList) {
   let active = false;
 
-  timer.addEventListener('click', () => {
+  timer.firstElementChild.addEventListener('click', () => {
     if (!active) {
       active = true;
       timer.startTimer().then(() => {
