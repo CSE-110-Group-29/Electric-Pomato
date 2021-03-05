@@ -34,3 +34,4 @@ class ReturningUser extends HTMLElement {
 }
 
 customElements.define('returning-user', ReturningUser);
+export default ReturningUser;

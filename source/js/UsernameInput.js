@@ -38,3 +38,4 @@ class UsernameInput extends HTMLElement {
 }
 
 customElements.define('username-input', UsernameInput);
+export default UsernameInput;

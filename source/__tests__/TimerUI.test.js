@@ -3,7 +3,17 @@ import TimerUI from '../js/TimerUI.js';
 
 // Initialize the DOM with a TimerUI element.
 beforeEach(() => {
-  document.body.innerHTML = '<template id="timer-template"><div class="timer-container position-relative mh-100 mw-100"><img class="timer-image w-100 h-100 position-absolute top-50 start-50 translate-middle" src="./img/green-tomato.svg"><div class="timer-text w-100 h-0 text-center position-absolute top-50 start-50 translate-middle"><span id="minutes"></span>:<span id="seconds"></span></div></div></template>';
+  document.body.innerHTML = `
+<template id="timer-template">
+    <div class="timer-container position-relative mh-100 mw-100">
+        <img class="timer-image w-100 h-100 position-absolute top-50 start-50 translate-middle" src="./img/green-tomato.svg">
+        <div class="timer-text w-100 h-0 text-center position-absolute top-50 start-50 translate-middle">
+            <span id="minutes"></span>
+            :
+            <span id="seconds"></span>
+        </div>
+    </div>
+</template>`;
   jest.useFakeTimers();
 });
 
@@ -17,8 +27,6 @@ test('TimerUI Properly Initialized', () => {
   const timerUI = new TimerUI();
   // timerUI's classList should hold everything given in its constructor.
   expect(timerUI.classList).toContain('position-absolute', 'w-100', 'h-100', 'd-flex', 'flex-column', 'justify-content-center', 'align-items-center');
-  // timerUI's text should hold the entire HTML element within the timer-template block.
-  expect(timerUI.text.innerHTML).toContain('<span id="minutes"></span>:<span id="seconds"></span>');
 });
 
 test('TimerUI Properly Resets', () => {
