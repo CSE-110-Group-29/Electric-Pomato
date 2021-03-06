@@ -4,6 +4,7 @@
  * @author Donald Wolfson
  * @author Justin Lee
  * @author Enrique Gan
+ * @author Annika Hatcher
  */
 
 /* ******************************** Imports ********************************* */
@@ -56,27 +57,36 @@ function handleOnLoad() {
  * Initialize the timer based on current STATE.
  */
 function initTimer(timer) {
-  const timerState = localStorage.getItem('Timer');
-  timer.reset();
-
-  // If timer is true set pomo, otherwise it is a break
-  if (timerState === 'true') {
-    timer.setColorGreen();
-    timer.createTimer(0, 25);
+  // Change to done page if no more tasks in todo.
+  if (JSON.parse(localStorage.getItem('TaskList')).todo.length === 0) {
+    document.querySelector('.app-title').innerHTML = `Congrats, ${localStorage.getItem('Username')}!`;
+    timer.clear();
+    timer.setColorGold();
   } else {
-    const totalPomos = Number(localStorage.getItem('TotalPomos'));
-    const breakPrompt = new BreakPrompt();
+    const timerState = localStorage.getItem('Timer');
+    timer.reset();
 
-    timer.setColorRed();
-    timer.appendChild(breakPrompt);
-
-    // If there has been 4 pomos then it is a long break
-    if (totalPomos > 0 && totalPomos % 4 === 0) {
-      // Long break
-      timer.createTimer(0, 10);
+    // If timer is true set pomo, otherwise it is a break
+    if (timerState === 'true') {
+      timer.setColorGreen();
+      timer.createTimer(0, 25);
+      document.querySelector('.app-title').innerHTML = `Current Task: ${JSON.parse(localStorage.getItem('TaskList')).todo[0].name}`;
     } else {
-      // Short break
-      timer.createTimer(0, 5);
+      const totalPomos = Number(localStorage.getItem('TotalPomos'));
+      const breakPrompt = new BreakPrompt();
+
+      timer.setColorRed();
+      timer.appendChild(breakPrompt);
+      document.querySelector('.app-title').innerHTML = 'Break!';
+
+      // If there has been 4 pomos then it is a long break
+      if (totalPomos > 0 && totalPomos % 4 === 0) {
+        // Long break
+        timer.createTimer(0, 10);
+      } else {
+        // Short break
+        timer.createTimer(0, 5);
+      }
     }
   }
 }
@@ -133,8 +143,6 @@ function showTimer() {
 
   appContainer.appendChild(timerUI);
   appContainer.appendChild(votl);
-
-  document.querySelector('.app-title').innerHTML = `Current Task: ${votl.data.todo[0].name}`;
 }
 
 /* ***************************** Event Handlign ***************************** */

@@ -280,6 +280,16 @@ footer > .container {
     }
 }
 
+.gold-tomato {
+    & > path:nth-child(1) {
+        fill: #e6b800;
+    }
+
+    & > path:nth-child(2) {
+        fill: #c59e01;
+    }
+}
+
 .timer-text {
     @include font-size($h2-font-size);
 }
