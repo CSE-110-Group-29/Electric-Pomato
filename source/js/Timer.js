@@ -8,7 +8,8 @@
 
 /**
  * @class Constructor for the timer object
- * @classdesc Defines the Timer class and defines its functionality.
+ * @classdesc Defines the Timer class that fires a callback the moment it starts
+ * and every second after until the timer reaches 0 mins 0 seconds (inclusive).
  */
 class Timer {
   /**
@@ -32,6 +33,7 @@ class Timer {
    */
   startTimer() {
     return new Promise((resolve) => {
+      // Count down immediately
       // This is where the timer callbacks a function every second
       if (this.callbackEverySecond !== null) {
         this.callbackEverySecond(this.minutes, this.seconds);
@@ -43,6 +45,7 @@ class Timer {
         resolve();
       }
       this.seconds -= 1;
+      // Keep counting down until it reaches 0 mins 0 seconds (inclusive)
       const countdown = setInterval(() => {
         // This is where the timer callbacks a function every second
         if (this.callbackEverySecond !== null) {
