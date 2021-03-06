@@ -59,9 +59,7 @@ function handleOnLoad() {
 function initTimer(timer) {
   // Change to done page if no more tasks in todo.
   if (JSON.parse(localStorage.getItem('TaskList')).todo.length === 0) {
-    document.querySelector('.app-title').innerHTML = `Congrats, ${localStorage.getItem('Username')}!`;
-    timer.clear();
-    timer.setColorGold();
+    window.location.href = 'done.html';
   } else {
     const timerState = localStorage.getItem('Timer');
     timer.reset();

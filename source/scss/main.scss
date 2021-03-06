@@ -290,6 +290,19 @@ footer > .container {
     }
 }
 
+.hover-false {
+    transform: none;
+}
+
+.hover-false:hover {
+    cursor: auto;
+    transform: none;
+}
+
+.hover-false:active {
+    transform: none;
+}
+
 .timer-text {
     @include font-size($h2-font-size);
 }

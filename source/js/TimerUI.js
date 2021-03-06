@@ -98,6 +98,7 @@ class TimerUI extends HTMLElement {
    */
   setColorGold() {
     this.querySelector('.timer-image').classList.add('gold-tomato');
+    this.querySelector('.timer-image').classList.add('hover-false');
   }
 }
 
