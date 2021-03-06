@@ -66,6 +66,10 @@ body {
     height: 100%;
 }
 
+a {
+    text-decoration: none;
+}
+
 input {
     border-bottom-left-radius: 15px 255px;
     border-bottom-right-radius: 225px 15px;
@@ -165,10 +169,18 @@ footer > .container {
     overflow: hidden;
 }
 
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    z-index: 2;
+    padding: map-get($spacers, 5) 0;
+}
+
 .app-title {
     color: white;
     text-align: center;
-    padding: map-get($spacers, 6) 0;
     margin-bottom: 0;
 }
 

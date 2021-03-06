@@ -21,7 +21,7 @@ class ViewOnlyTaskList extends HTMLElement {
     this.rowTemplate = document.querySelector('#view-row-template').content;
 
     this.appContainer = document.querySelector('.app-container');
-    this.appTitle = document.querySelector('.app-title');
+    this.appHeader = document.querySelector('.app-header');
     this.visible = false;
 
     this.classList.add('task-list-container', 'view-only');
@@ -90,7 +90,7 @@ class ViewOnlyTaskList extends HTMLElement {
    */
   position() {
     if (this.visible) {
-      this.style.top = `${this.appTitle.offsetHeight}px`;
+      this.style.top = `${this.appHeader.offsetHeight}px`;
     } else {
       this.style.top = `${this.appContainer.offsetHeight - (this.querySelector('.header').getBoundingClientRect().top - this.getBoundingClientRect().top)}px`;
     }
