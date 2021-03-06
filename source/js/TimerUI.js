@@ -47,6 +47,7 @@ class TimerUI extends HTMLElement {
    * @returns {Promise} Countdown of timer
    */
   startTimer() {
+    this.text.innerHTML = `${TimerUI.parseMinutes(this.timer.minutes)} : ${TimerUI.parseSeconds(this.timer.seconds)}`;
     return this.timer.startTimer();
   }
 
