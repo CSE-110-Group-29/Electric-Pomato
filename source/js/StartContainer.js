@@ -1,5 +1,5 @@
 /**
- * @file Creates the start container that will create all buttons and inputs depending 
+ * @file Creates the start container that will create all buttons and inputs depending
  *       on state of localStorage
  * @author Andy Young
  * @author Justin Lee
