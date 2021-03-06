@@ -2,30 +2,29 @@
  * @file Will determine if the 'Returning User' button is displayed based on localStorage.
  * @author Andy Young
  * @author Justin Lee
- * @author Donald Wolfson
  */
 
 /**
  * @class
- * @classdesc Construct the HTML Button for Returning Users.
+ * @classdesc Construct the HTML Button for creating a new session
  */
-class ReturningUser extends HTMLElement {
+class CreateSessionBtn extends HTMLElement {
   constructor() {
     super();
 
     // Only create the button if 'Username' in localStorage.
     if (localStorage.getItem('Username')) {
-      this.appendChild(ReturningUser.createAnchor());
+      this.appendChild(CreateSessionBtn.createAnchor());
     }
   }
 
   /**
-   * Create a HTML object for the 'Returning User' button.
-   * <button type="button" class="btn btn-secondary btn-lg">Returning User</button>
-   */
+     * Create a HTML object for the 'Returning User' button.
+     * <button type="button" class="btn btn-secondary btn-lg">Returning User</button>
+     */
   static createAnchor() {
     const a = document.createElement('a');
-    const text = document.createTextNode('Open App');
+    const text = document.createTextNode('Create New Session');
     a.href = 'app.html';
     a.classList.add('btn', 'btn-secondary', 'btn-lg');
     a.appendChild(text);
@@ -33,4 +32,4 @@ class ReturningUser extends HTMLElement {
   }
 }
 
-customElements.define('returning-user', ReturningUser);
+customElements.define('create-session', CreateSessionBtn);
