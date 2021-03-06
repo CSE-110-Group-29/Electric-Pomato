@@ -1,5 +1,5 @@
 /**
- * @file Will determine if the 'Returning User' button is displayed based on localStorage.
+ * @file Will determine if the 'Create Session' button is displayed based on localStorage.
  * @author Andy Young
  * @author Justin Lee
  */
@@ -14,21 +14,31 @@ class CreateSessionBtn extends HTMLElement {
 
     // Only create the button if 'Username' in localStorage.
     if (localStorage.getItem('Username')) {
-      this.appendChild(CreateSessionBtn.createAnchor());
+      this.appendChild(CreateSessionBtn.createButton());
     }
   }
 
   /**
-     * Create a HTML object for the 'Returning User' button.
-     * <button type="button" class="btn btn-secondary btn-lg">Returning User</button>
+     * Create a HTML object for the 'Create Session' button.
+     * <button type="button" class="btn btn-secondary btn-lg">Create New Session</button>
      */
-  static createAnchor() {
-    const a = document.createElement('a');
+  static createButton() {
+    const btn = document.createElement('btn');
     const text = document.createTextNode('Create New Session');
-    a.href = 'app.html';
-    a.classList.add('btn', 'btn-secondary', 'btn-lg');
-    a.appendChild(text);
-    return a;
+    btn.classList.add('btn', 'btn-secondary', 'btn-lg');
+    btn.appendChild(text);
+    btn.addEventListener('click', CreateSessionBtn.btnCallback);
+    return btn;
+  }
+
+  static btnCallback() {
+    // TODO show warning alert
+    // Wipe stuff from last session from local storage
+    localStorage.removeItem('TaskList');
+    localStorage.removeItem('Started');
+    localStorage.removeItem('TotalPomos');
+    localStorage.removeItem('Timer');
+    window.location.href = './app.html';
   }
 }
 

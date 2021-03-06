@@ -30,9 +30,10 @@
                 </div>
             </div>
             <div class="col-12 col-lg-6">
-                <username-input></username-input>
+                <start-container></start-container>
                 <template id="start-container-template">
-                    <div class="start-container">
+                    <div class="start-container" id="start-container"></div>
+                    <template id="username-input-template">
                         <div class="d-flex justify-content-start align-items-center">
                             <h2 class="subtitle">Are you ready to plug in?</h2>
                             <img class="start-question-icon" src="img/plug.svg" alt="plug">
@@ -44,9 +45,7 @@
                             </div>
                         </div>
                         <h5>Enter your name to start.</h5>
-                        <returning-user></returning-user>
-                        <create-session></create-session>
-                    </div>
+                    </template>
                 </template>
             </div>
         </div>
@@ -124,9 +123,11 @@
             </div>
         </div>
     </footer>
+    <script src="js/StartContainer.js"></script>
     <script src="js/CurrentYear.js"></script>
     <script src="js/ReturningUser.js"></script>
     <script src="js/UsernameInput.js"></script>
     <script src="js/CreateSessionBtn.js"></script>
+    <script src="js/WelcomeMessage.js"></script>
 </body>
 </html>

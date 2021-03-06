@@ -25,7 +25,7 @@ class ReturningUser extends HTMLElement {
    */
   static createAnchor() {
     const a = document.createElement('a');
-    const text = document.createTextNode('Open App');
+    const text = document.createTextNode('Resume My Session');
     a.href = 'app.html';
     a.classList.add('btn', 'btn-secondary', 'btn-lg');
     a.appendChild(text);
