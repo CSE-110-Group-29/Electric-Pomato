@@ -5,6 +5,10 @@
  * @author Justin Lee
  */
 
+import StartButtons from './StartButtons.js';
+import UsernameInput from './UsernameInput.js';
+import WelcomeMessage from './WelcomeMessage.js';
+
 /**
  * @class
  * @classdesc Appends the start container that will contain all user-interactable elements
@@ -13,22 +17,14 @@
 class StartContainer extends HTMLElement {
   constructor() {
     super();
-    this.appendChild(document.querySelector('#start-container-template').content.cloneNode(true));
-    const startContainerDiv = this.querySelector('#start-container');
 
-    if (localStorage.getItem('Username')) { // Returning User
-      const welcomeMessage = document.createElement('welcome-message');
-      startContainerDiv.appendChild(welcomeMessage);
-      const createNewSessionBtn = document.createElement('create-session');
-      startContainerDiv.appendChild(createNewSessionBtn);
-      const prevTaskList = JSON.parse(localStorage.getItem('TaskList'));
-      if (prevTaskList.todo.length > 0 || prevTaskList.completed.length > 0) { // Tasklist exists
-        const resumeSessionBtn = document.createElement('returning-user');
-        startContainerDiv.appendChild(resumeSessionBtn);
-      }
+    const username = localStorage.getItem('Username');
+
+    if (username) { // Returning User
+      this.appendChild(new WelcomeMessage(username));
+      this.appendChild(new StartButtons());
     } else { // First time User
-      const usernameInput = document.createElement('username-input');
-      startContainerDiv.appendChild(usernameInput);
+      this.appendChild(new UsernameInput());
     }
   }
 }

@@ -44,6 +44,16 @@ body {
 .btn {
     border-radius: 2.5rem;
     @include font-size($h5-font-size);
+    transform-origin: 50% 50%;
+    transition: none;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.btn:active {
+    transform: scale(1);
 }
 
 .btn-lg {
@@ -87,10 +97,11 @@ input:focus {
     text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 }
 
-.start-container {
+start-container {
     background-color: white;
     border-radius: 2.5rem;
     padding: $spacer * 2;
+    display: block;
 
     .start-question-icon {
         width: 40px;

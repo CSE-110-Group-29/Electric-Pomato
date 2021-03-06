@@ -9,19 +9,17 @@
  * @classdesc Custom welcome back message shown to return user.
  */
 class WelcomeMessage extends HTMLElement {
-  constructor() {
+  constructor(username) {
     super();
-    this.appendChild(WelcomeMessage.createMessage());
-  }
 
-  static createMessage() {
-    const name = localStorage.getItem('Username');
     const message = document.createElement('h2');
-    const text = document.createTextNode(`Welcome Back ${name}!`);
+    const text = document.createTextNode(`Welcome Back, ${username}!`);
     message.appendChild(text);
-    message.classList.add('subtitle');
-    return message;
+    message.classList.add('subtitle', 'mb-3');
+
+    this.appendChild(message);
   }
 }
 
 customElements.define('welcome-message', WelcomeMessage);
+export default WelcomeMessage;
