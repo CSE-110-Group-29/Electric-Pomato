@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Constructor for the Task List UI - Documentation</title>
+    <title>js/BreakPrompt.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,133 +29,43 @@
 
 <div id="main">
     
-    <h1 class="page-title">Constructor for the Task List UI</h1>
+    <h1 class="page-title">js/BreakPrompt.js</h1>
     
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-        Constructor for the Task List UI
-        </h2>
-        
-            <div class="class-description"><p>Creates a customer HTMLElement for editing the TaskList.</p></div>
-        
-    
-</header>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @file Creates a custom element to display the current year used for dynamic copyright years.
+ * @author Andy Young
+ */
 
-<article>
-    <div class="container-overview">
-    
-        
-<div class="section-method">
+/**
+ * @class Appends a text element containing the current year from a Date() object.
+ * @classdesc Updates the HTML with the current year.
+ */
+class BreakPrompt extends HTMLElement {
+  constructor() {
+    super();
 
-    
-    <h2>Constructor</h2>
-    
+    this.classList.add('text-center');
+    this.appendChild(document.querySelector('#prompt-template').content.cloneNode(true));
+  }
 
-    <h4 class="name" id="Constructor for the Task List UI"><span class="type-signature"></span>new Constructor for the Task List UI<span class="signature">()</span><span class="type-signature"></span></h4>
+  getChecked() {
+    return this.lastElementChild.checked;
+  }
+}
 
-    
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="js_EditableTaskListBody.js.html">js/EditableTaskListBody.js</a>, <a href="js_EditableTaskListBody.js.html#line10">line 10</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+customElements.define('break-prompt', BreakPrompt);
+export default BreakPrompt;
+</code></pre>
+        </article>
+    </section>
 
 
 
