@@ -4,6 +4,7 @@
  * @author Donald Wolfson
  * @author Justin Lee
  * @author Enrique Gan
+ * @author Teresa Truong
  */
 
 /* ******************************** Imports ********************************* */
@@ -37,17 +38,47 @@ const appContainer = document.querySelector('.app-container');
 
 /* **************************** Helper Functions **************************** */
 
-// TODO: Once User has tasks list (start day button?) display timer and ViewOnlyTaskList.
+/**
+ * @function updateAppTitle
+ * @param {boolean} nextTask
+ * Update the .app-title based on the break's checkbox.
+ */
+function updateAppTitle(nextTask) {
+  const taskList = JSON.parse(localStorage.getItem('TaskList'));
+  const { length } = taskList.todo;
+  let title = '';
+
+  // Handle all forms of Title.
+  if (length === 0) {
+    // TODO: Maybe send user to end of session page.
+    title = 'End of Session';
+    // console.log('EOS');
+  } else if (nextTask && length === 1) {
+    title = 'End of Session';
+    // console.log('EOS');
+  } else if (nextTask && length - 1 === 1) {
+    title = `Last Task: ${taskList.todo[1].name}`;
+    // console.log('LAST NEXT');
+  } else if (nextTask && length - 1 > 1) {
+    title = `Next Task: ${taskList.todo[1].name}`;
+    // console.log('NEXT');
+  } else if (length === 1) {
+    title = `Last Task: ${taskList.todo[0].name}`;
+    // console.log('LAST CURR');
+  } else {
+    title = `Current Task: ${taskList.todo[0].name}`;
+    // console.log('CURRENT');
+  }
+  document.querySelector('.app-title').innerHTML = title;
+}
 
 /**
- * @function handleOnLoad
- * Will hold all Edge Cases that should be check when a page is loaded.
+ * @function changeTitle
+ * A callback function used in the BreakPrompt on changing of the checkbox.
  */
-function handleOnLoad() {
-  // Redirect to index.html if no name is in localStorage.
-  if (!localStorage.getItem('Username')) {
-    window.location.href = 'index.html';
-  }
+function changeTitle(object) {
+  // console.log('Checkbox call', object.getChecked());
+  updateAppTitle(object.getChecked());
 }
 
 /**
@@ -63,10 +94,15 @@ function initTimer(timer) {
   if (timerState === 'true') {
     timer.setColorGreen();
     timer.createTimer(0, 25);
+    updateAppTitle(false);
+    // console.log('Green Tomato call');
   } else {
     const totalPomos = Number(localStorage.getItem('TotalPomos'));
-    const breakPrompt = new BreakPrompt();
+    const breakPrompt = new BreakPrompt(changeTitle);
 
+    // Update the HTML
+    updateAppTitle(false);
+    // console.log('Red Tomato call');
     timer.setColorRed();
     timer.appendChild(breakPrompt);
 
@@ -103,7 +139,6 @@ function handleClick(timer, taskList) {
 
         if (timerState === 'false') {
           if (timer.lastElementChild.getChecked()) {
-            document.querySelector('.app-title').innerHTML = `Next Task: ${taskList.data.todo[1].name}`;
             taskList.finishTask();
             taskList.render();
           }
@@ -128,13 +163,8 @@ function handleClick(timer, taskList) {
 function showTimer() {
   const timerUI = new TimerUI();
   const votl = new ViewOnlyTaskList();
-
-  if (votl.data.todo[0].actual >= votl.data.todo[0].expected) {
-    document.querySelector('.app-title').innerHTML = `Next Task: ${votl.data.todo[1].name}`;
-  }
-
-  document.querySelector('.app-title').innerHTML = `Current Task: ${votl.data.todo[0].name}`;
-
+  updateAppTitle(false);
+  // console.log('showTimer call');
   handleClick(timerUI, votl);
   initTimer(timerUI);
 
@@ -142,26 +172,37 @@ function showTimer() {
   appContainer.appendChild(votl);
 }
 
-/* ***************************** Event Handlign ***************************** */
+/* ***************************** Event Handling ***************************** */
 
-if (localStorage.getItem('Started')) {
-  appContainer.addEventListener('storage', () => {
+/**
+ * @function handleOnLoad
+ * Will hold all Edge Cases that should be check when a page is loaded.
+ */
+function handleOnLoad() {
+  // Redirect to index.html if no name is in localStorage.
+  if (!localStorage.getItem('Username')) {
+    window.location.href = 'index.html';
+  }
+  // TODO: Add more edge cases here
+  if (localStorage.getItem('Started')) {
     showTimer();
-  });
-} else {
-  appContainer.appendChild(new EditableTaskList());
-  document.querySelector('.app-title').innerHTML = `${localStorage.getItem('Username')}'s Day`;
-
-  appContainer.querySelector('button').addEventListener('click', () => {
-    const data = new TaskList();
-    if (data.todo.length > 0) {
-      localStorage.setItem('Started', true);
-      localStorage.setItem('Timer', true);
-      localStorage.setItem('TotalPomos', 0);
-      appContainer.lastElementChild.remove();
-      showTimer();
-    }
-  });
+  } else {
+    appContainer.appendChild(new EditableTaskList());
+    document.querySelector('.app-title').innerHTML = `${localStorage.getItem('Username')}'s Day`;
+    appContainer.querySelector('button').addEventListener('click', () => {
+      const data = new TaskList();
+      // Set values to default.
+      if (data.todo.length > 0) {
+        localStorage.setItem('Started', true);
+        localStorage.setItem('Timer', true);
+        localStorage.setItem('TotalPomos', 0);
+        appContainer.lastElementChild.remove();
+        showTimer();
+      } else {
+        handleOnLoad();
+      }
+    });
+  }
 }
 
 // Handle any edge cases on loading into the page.

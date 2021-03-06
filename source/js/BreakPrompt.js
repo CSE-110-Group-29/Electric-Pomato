@@ -8,11 +8,12 @@
  * @classdesc Updates the HTML with the current year.
  */
 class BreakPrompt extends HTMLElement {
-  constructor() {
+  constructor(callback) {
     super();
 
     this.classList.add('text-center');
     this.appendChild(document.querySelector('#prompt-template').content.cloneNode(true));
+    this.lastElementChild.addEventListener('change', callback.bind(this, this));
   }
 
   getChecked() {
