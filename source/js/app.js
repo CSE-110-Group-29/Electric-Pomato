@@ -82,6 +82,7 @@ function handleClick(timer, taskList) {
 
         if (timerState === 'false') {
           if (timer.lastElementChild.getChecked()) {
+            document.querySelector('.app-title').innerHTML = `Next Task: ${taskList.data.todo[1].name}`;
             taskList.finishTask();
             taskList.render();
           }
@@ -103,17 +104,23 @@ function showTimer() {
   const timerUI = new TimerUI();
   const votl = new ViewOnlyTaskList();
 
+  if (votl.data.todo[0].actual >= votl.data.todo[0].expected) {
+    document.querySelector('.app-title').innerHTML = `Next Task: ${votl.data.todo[1].name}`;
+  }
+
+  document.querySelector('.app-title').innerHTML = `Current Task: ${votl.data.todo[0].name}`;
+
   handleClick(timerUI, votl);
   initTimer(timerUI);
 
   appContainer.appendChild(timerUI);
   appContainer.appendChild(votl);
-
-  document.querySelector('.app-title').innerHTML = `Current Task: ${votl.data.todo[0].name}`;
 }
 
 if (localStorage.getItem('Started')) {
-  showTimer();
+  appContainer.addEventListener('storage', () => {
+    showTimer();
+  });
 } else {
   appContainer.appendChild(new EditableTaskList());
   document.querySelector('.app-title').innerHTML = `${localStorage.getItem('Username')}'s Day`;
