@@ -26,7 +26,9 @@ jobs:
         run: npm ci
 
       - name: Run JSDoc
-        run: npm run generate-docs
+        run: |
+          rm -rf ./source/docs
+          npm run generate-docs
 
       - name: Add and commit doc changes to main
         run: |
