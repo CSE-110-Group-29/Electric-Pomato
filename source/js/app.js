@@ -49,26 +49,19 @@ function updateAppTitle(nextTask) {
   const { length } = taskList.todo;
   let title = '';
 
-  // Handle all forms of Title.
+  // Determine the header based on the length of the TODO list.
   if (length === 0) {
-    // TODO: Maybe send user to end of session page.
     title = 'End of Session';
-    // console.log('EOS');
   } else if (nextTask && length === 1) {
     title = 'End of Session';
-    // console.log('EOS');
   } else if (nextTask && length - 1 === 1) {
     title = `Last Task: ${taskList.todo[1].name}`;
-    // console.log('LAST NEXT');
   } else if (nextTask && length - 1 > 1) {
     title = `Next Task: ${taskList.todo[1].name}`;
-    // console.log('NEXT');
   } else if (length === 1) {
     title = `Last Task: ${taskList.todo[0].name}`;
-    // console.log('LAST CURR');
   } else {
     title = `Current Task: ${taskList.todo[0].name}`;
-    // console.log('CURRENT');
   }
   document.querySelector('.app-title').innerHTML = title;
 }
@@ -152,9 +145,7 @@ function handleClick(timer, taskList) {
         }
 
         localStorage.setItem('Timer', timerState === 'false');
-
         initTimer(timer);
-
         active = false;
       });
     }
@@ -168,8 +159,9 @@ function handleClick(timer, taskList) {
 function showTimer() {
   const timerUI = new TimerUI();
   const votl = new ViewOnlyTaskList();
+
+  // Call any helper functions to handle user events.
   updateAppTitle(false);
-  // console.log('showTimer call');
   handleClick(timerUI, votl);
   initTimer(timerUI);
 
