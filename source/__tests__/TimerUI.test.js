@@ -52,6 +52,13 @@ test('TimerUI Properly Resets', () => {
   expect(timerUI.text.innerHTML).toContain('START');
 });
 
+test('TimerUI Properly Clears', () => {
+  const timerUI = new TimerUI();
+  timerUI.clear();
+  // timerUI's text should just be START.
+  expect(timerUI.text.innerHTML).toContain('All Done!');
+});
+
 test('TimerUI Properly Initializes Timer', () => {
   const timerUI = new TimerUI();
   timerUI.createTimer(0, 5);
@@ -82,6 +89,7 @@ test('TimerUI Properly Updates to Green Tomato', () => {
   // Check if the timer-image was set.
   timerUI.setColorGreen();
   expect(timerUI.querySelector('.timer-image').classList.contains('green-tomato')).toBe(true);
+  expect(timerUI.querySelector('.timer-image').classList.contains('red-tomato')).toBe(false);
 });
 
 test('TimerUI Properly Updates to Red Tomato', () => {
@@ -89,6 +97,15 @@ test('TimerUI Properly Updates to Red Tomato', () => {
   // Check if the timer-image was set.
   timerUI.setColorRed();
   expect(timerUI.querySelector('.timer-image').classList.contains('red-tomato')).toBe(true);
+  expect(timerUI.querySelector('.timer-image').classList.contains('green-tomato')).toBe(false);
+});
+
+test('TimerUI Properly Updates to Gold Tomato', () => {
+  const timerUI = new TimerUI();
+  // Check if the timer-image was set.
+  timerUI.setColorGold();
+  expect(timerUI.querySelector('.timer-image').classList.contains('gold-tomato')).toBe(true);
+  expect(timerUI.querySelector('.timer-image').classList.contains('hover-false')).toBe(true);
 });
 
 test('TimerUI Properly runs the Timer Object', () => {
