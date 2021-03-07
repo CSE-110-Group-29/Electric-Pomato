@@ -2,13 +2,17 @@
  * @file Creates a custom element to display a welcome back message to the user
  * @author Andy Young
  * @author Justin Lee
+ * @author Liam Stone
  */
 
 /**
- * @class
- * @classdesc Custom welcome back message shown to return user.
+ * Custom welcome back message shown to return user.
+ * @extends HTMLElement
  */
 class WelcomeMessage extends HTMLElement {
+  /**
+  * Constructor for WelcomeMessage
+  */
   constructor(username) {
     super();
 

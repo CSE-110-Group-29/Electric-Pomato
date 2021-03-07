@@ -3,14 +3,18 @@
  * @author Andy Young
  * @author Teresa Truong
  * @author Annika Hatcher
+ * @author Liam Stone
  * Date: 03/04/2021
  */
 
 /**
- * @class Constructor for the Add Task Row UI
- * @classdesc Define the and construct an editable TaskList, and handle the inputs.
+ * Define the tasks and construct an editable TaskList, and handle the inputs from the user.
+ * @extends HTMLElement
  */
 class EditableTaskListInput extends HTMLElement {
+  /**
+  * constructor for EditableTaskListInput
+  */
   constructor() {
     super();
 

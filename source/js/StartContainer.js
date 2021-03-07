@@ -3,6 +3,7 @@
  *       on state of localStorage
  * @author Andy Young
  * @author Justin Lee
+ * @author Liam Stone
  */
 
 import StartButtons from './StartButtons.js';
@@ -10,9 +11,9 @@ import UsernameInput from './UsernameInput.js';
 import WelcomeMessage from './WelcomeMessage.js';
 
 /**
- * @class
- * @classdesc Appends the start container that will contain all user-interactable elements
+ *Appends the start container that will contain all user-interactable elements
  *            in the landing page
+ * @extends HTMLElement
  */
 class StartContainer extends HTMLElement {
   constructor() {
