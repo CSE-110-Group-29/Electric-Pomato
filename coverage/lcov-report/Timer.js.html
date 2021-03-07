@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">88.46% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>18/18</span>
+                <span class='fraction'>23/26</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">87.5% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>14/14</span>
+                <span class='fraction'>21/24</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">87.5% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>16/16</span>
+                <span class='fraction'>21/24</span>
             </div>
         
             
@@ -111,7 +111,21 @@
 <a name='L52'></a><a href='#L52'>52</a>
 <a name='L53'></a><a href='#L53'>53</a>
 <a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -135,6 +149,7 @@
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -144,21 +159,32 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">68x</span>
+<span class="cline-any cline-yes">63x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">72x</span>
-<span class="cline-any cline-yes">66x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">72x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">71x</span>
+<span class="cline-any cline-yes">68x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">68x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">72x</span>
+<span class="cline-any cline-yes">68x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -175,7 +201,8 @@
 &nbsp;
 /**
  * @class Constructor for the timer object
- * @classdesc Defines the Timer class and defines its functionality.
+ * @classdesc Defines the Timer class that fires a callback the moment it starts
+ * and every second after until the timer reaches 0 mins 0 seconds (inclusive).
  */
 class Timer {
   /**
@@ -192,22 +219,34 @@ class Timer {
   }
 &nbsp;
   /**
-   * Starts the timer. Timer cannot be reset to original time after ticking.
+   * Starts the timer and immediately ticks down.
+   * Timer cannot be reset to original time after ticking.
    * Note: This doesn't not check system date/time. It ticks at 1 second
    * intervals, possibly being ahead or behind by negligible amounts.
    */
   startTimer() {
     return new Promise((resolve) =&gt; {
+      // Count down immediately
+      // This is where the timer callbacks a function every second
+      if (this.callbackEverySecond !== null) {
+        this.callbackEverySecond(this.minutes, this.seconds);
+      }
+      if (this.seconds === 0 &amp;&amp; this.minutes !== 0) {
+        this.minutes -= 1;
+        this.seconds = 60;
+      } else <span class="missing-if-branch" title="if path not taken" >I</span>if (this.seconds === 0 &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.minutes === 0)</span> {
+<span class="cstat-no" title="statement not covered" >        resolve();</span>
+      }
+      this.seconds -= 1;
+      // Keep counting down until it reaches 0 mins 0 seconds (inclusive)
       const countdown = setInterval(() =&gt; {
-        // ~~This would be the line where HTML timer updates.~~
-        // console.log(`${this.parseMinutes()}:${this.parseSeconds()}`);
         // This is where the timer callbacks a function every second
         if (this.callbackEverySecond !== null) {
           this.callbackEverySecond(this.minutes, this.seconds);
         }
-        if (this.seconds === 0 &amp;&amp; this.minutes !== 0) {
-          this.minutes -= 1;
-          this.seconds = 60;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (this.seconds === 0 &amp;&amp; this.minutes !== 0) {
+<span class="cstat-no" title="statement not covered" >          this.minutes -= 1;</span>
+<span class="cstat-no" title="statement not covered" >          this.seconds = 60;</span>
         } else if (this.seconds === 0 &amp;&amp; this.minutes === 0) {
           resolve();
           clearInterval(countdown);
@@ -226,7 +265,7 @@ export default Timer;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Mar 05 2021 14:35:12 GMT-0800 (Pacific Standard Time)
+                at Sat Mar 06 2021 17:20:23 GMT-0800 (Pacific Standard Time)
             </div>
         </div>
         <script src="prettify.js"></script>
