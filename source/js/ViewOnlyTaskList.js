@@ -2,13 +2,13 @@
  * @file Creates and defines the ViewOnlyTaskList custom HTLMElement.
  * @author Andy Young
  * @author Annika Hatcher
+ * @author Liam Stone
  * Date: 03/04/2021
  */
 import TaskList from './TaskList.js';
 
 /**
- * @class Constructs the HTML for the non-editable TaskList
- * @classdesc Defines the ViewOnlyTaskList and its helper functions.
+ * Defines the ViewOnlyTaskList and its helper functions.
  */
 class ViewOnlyTaskList extends HTMLElement {
   constructor() {
