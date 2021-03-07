@@ -63,13 +63,8 @@ test('Check Timer Count Down 2sec and Callback Each Sec', () => {
   // advance one second
   jest.advanceTimersByTime(1000);
   expect(timer.minutes).toBe(0);
-  expect(timer.seconds).toBe(1);
-
-  // advance another second second
-  jest.advanceTimersByTime(1000);
-
-  expect(timer.minutes).toBe(0);
   expect(timer.seconds).toBe(0);
+
   expect(jestCallback).toHaveBeenCalledTimes(seconds);
   expect(mutatableNum).toBe(seconds);
 });
@@ -92,14 +87,19 @@ test('Check Timer Count Down 1min and Access Timer Members', () => {
   expect(jestCallback).not.toBeCalled();
   timer.startTimer();
 
+  // should have ticked down by 1 after starting
+  expect(timer.seconds).toBe(60 - 1);
+  expect(timer.minutes).toBe(0);
+
   // count down 1 minute and check the values
   jest.advanceTimersByTime(1000);
-  for (let i = 1; i <= minutes * 60; i += 1) {
-    expect(timer.seconds).toBe(60 - i);
+  for (let i = 1; i <= minutes * 60 - 1; i += 1) {
+    expect(timer.seconds).toBe(60 - i - 1);
     expect(timer.minutes).toBe(0);
     jest.advanceTimersByTime(1000);
     // +1 because we ticked the timer 1 second prior to for-loop
-    expect(mutatableNum).toBe(i + 1);
+    // and another +1 because starting a timer immediately callsback
+    expect(mutatableNum).toBe(i + 1 + 1);
   }
 });
 

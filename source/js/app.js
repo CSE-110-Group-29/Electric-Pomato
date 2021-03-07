@@ -28,6 +28,7 @@ import EditableTaskList from './EditableTaskList.js';
 import ViewOnlyTaskList from './ViewOnlyTaskList.js';
 import TimerUI from './TimerUI.js';
 import TaskList from './TaskList.js';
+import BreakPrompt from './BreakPrompt.js';
 
 // Edge Case: Redirect to index.html if not logged in.
 // TODO: Run this on load
@@ -49,8 +50,10 @@ function initTimer(timer) {
     timer.createTimer(0, 25);
   } else {
     const totalPomos = Number(localStorage.getItem('TotalPomos'));
+    const breakPrompt = new BreakPrompt();
 
     timer.setColorRed();
+    timer.appendChild(breakPrompt);
 
     // if there has been 4 pomos then it is a long break
     if (totalPomos > 0 && totalPomos % 4 === 0) {
@@ -63,10 +66,10 @@ function initTimer(timer) {
   }
 }
 
-function handleClick(timer) {
+function handleClick(timer, taskList) {
   let active = false;
 
-  timer.addEventListener('click', () => {
+  timer.firstElementChild.addEventListener('click', () => {
     if (!active) {
       active = true;
       timer.startTimer().then(() => {
@@ -74,6 +77,16 @@ function handleClick(timer) {
 
         if (timerState === 'true') {
           localStorage.setItem('TotalPomos', Number(localStorage.getItem('TotalPomos')) + 1);
+          taskList.addPomo();
+        }
+
+        if (timerState === 'false') {
+          if (timer.lastElementChild.getChecked()) {
+            taskList.finishTask();
+            taskList.render();
+          }
+
+          timer.lastElementChild.remove();
         }
 
         localStorage.setItem('Timer', timerState === 'false');
@@ -90,7 +103,7 @@ function showTimer() {
   const timerUI = new TimerUI();
   const votl = new ViewOnlyTaskList();
 
-  handleClick(timerUI);
+  handleClick(timerUI, votl);
   initTimer(timerUI);
 
   appContainer.appendChild(timerUI);
