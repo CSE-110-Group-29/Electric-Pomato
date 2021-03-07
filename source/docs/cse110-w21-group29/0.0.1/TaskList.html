@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>BreakPrompt - Documentation</title>
+    <title>TaskList - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -31,7 +31,7 @@ Displays the Tomato.</a></span></li><li class="nav-item"><span class="nav-item-t
 
 <div id="main">
     
-    <h1 class="page-title">BreakPrompt</h1>
+    <h1 class="page-title">TaskList</h1>
     
 
     
@@ -44,10 +44,10 @@ Displays the Tomato.</a></span></li><li class="nav-item"><span class="nav-item-t
 <header>
     
         <h2>
-        BreakPrompt
+        TaskList
         </h2>
         
-            <div class="class-description"><p>Prompt HTML element to be displayed on break timer.</p></div>
+            <div class="class-description"><p>Creates the TaskList class and define its helper functions.</p></div>
         
     
 </header>
@@ -62,14 +62,14 @@ Displays the Tomato.</a></span></li><li class="nav-item"><span class="nav-item-t
     <h2>Constructor</h2>
     
 
-    <h4 class="name" id="BreakPrompt"><span class="type-signature"></span>new BreakPrompt<span class="signature">(callback)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="TaskList"><span class="type-signature"></span>new TaskList<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Create the HTML prompt element.</p>
+    <p>Constructor for the TaskList object.</p>
 </div>
 
 
@@ -105,7 +105,191 @@ Displays the Tomato.</a></span></li><li class="nav-item"><span class="nav-item-t
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="js_BreakPrompt.js.html">js/BreakPrompt.js</a>, <a href="js_BreakPrompt.js.html#line11">line 11</a>
+        <a href="js_TaskList.js.html">js/TaskList.js</a>, <a href="js_TaskList.js.html#line12">line 12</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="addPomo"><span class="type-signature"></span>addPomo<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Add a pomodoro to the current task.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="js_TaskList.js.html">js/TaskList.js</a>, <a href="js_TaskList.js.html#line93">line 93</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="createTask"><span class="type-signature"></span>createTask<span class="signature">(name, expected)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Add new task to todo with given name and expected pomodoros.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="js_TaskList.js.html">js/TaskList.js</a>, <a href="js_TaskList.js.html#line52">line 52</a>
     </li></ul></dd>
     
 
@@ -149,13 +333,13 @@ Displays the Tomato.</a></span></li><li class="nav-item"><span class="nav-item-t
 
         <tr>
             
-                <td class="name"><code>callback</code></td>
+                <td class="name"><code>name</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><code>requestCallback</code></span>
+<span class="param-type"><code>string</code></span>
 
 
             
@@ -166,7 +350,33 @@ Displays the Tomato.</a></span></li><li class="nav-item"><span class="nav-item-t
             
 
             <td class="description last">
-                <p>Callback function</p>
+                <p>Name of task.</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>expected</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>number</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>Expected number of pomodoros.</p>
                 
             </td>
         </tr>
@@ -191,49 +401,20 @@ Displays the Tomato.</a></span></li><li class="nav-item"><span class="nav-item-t
 
 
 </div>
-    
-    </div>
-
-    
-        <h3 class="subsection-title">Extends</h3>
-
-        
-
-
-    <ul>
-        <li>HTMLElement</li>
-    </ul>
-
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
         
             
 <div class="section-method">
 
     
 
-    <h4 class="name" id="getChecked"><span class="type-signature"></span>getChecked<span class="signature">()</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+    <h4 class="name" id="deleteTask"><span class="type-signature"></span>deleteTask<span class="signature">(index)</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Get whether checkbox is checked.</p>
+    <p>Remove task from todo at given index.</p>
 </div>
 
 
@@ -269,7 +450,142 @@ Displays the Tomato.</a></span></li><li class="nav-item"><span class="nav-item-t
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="js_BreakPrompt.js.html">js/BreakPrompt.js</a>, <a href="js_BreakPrompt.js.html#line27">line 27</a>
+        <a href="js_TaskList.js.html">js/TaskList.js</a>, <a href="js_TaskList.js.html#line69">line 69</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>number</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>Index of task to remove.</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="finishTask"><span class="type-signature"></span>finishTask<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Update todo/completed after finishing a task.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="js_TaskList.js.html">js/TaskList.js</a>, <a href="js_TaskList.js.html#line101">line 101</a>
     </li></ul></dd>
     
 
@@ -300,30 +616,358 @@ Displays the Tomato.</a></span></li><li class="nav-item"><span class="nav-item-t
 
 
 
-<div class="section-returns">
-<h5>Returns:</h5>
 
+
+</div>
         
+            
+<div class="section-method">
 
-<dl class="param-type">
-    <dt>
-        Type:
-    </dt>
-    <dd>
-        
-<span class="param-type"><code>boolean</code></span>
+    
+
+    <h4 class="name" id="reset"><span class="type-signature"></span>reset<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
 
 
-    </dd>
+
+<div class="description">
+    <p>Reset instance variables to default empty value and save to localStorage.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="js_TaskList.js.html">js/TaskList.js</a>, <a href="js_TaskList.js.html#line33">line 33</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
 </dl>
 
 
-<div class="param-desc">
-    <p>Checked property</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
+        
+            
+<div class="section-method">
 
     
+
+    <h4 class="name" id="save"><span class="type-signature"></span>save<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Save the instance variables to localStorage.</p>
 </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="js_TaskList.js.html">js/TaskList.js</a>, <a href="js_TaskList.js.html#line42">line 42</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="updateTask"><span class="type-signature"></span>updateTask<span class="signature">(index, name, expected)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Update the task at the given index with the given name and expected pomodoros.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="js_TaskList.js.html">js/TaskList.js</a>, <a href="js_TaskList.js.html#line80">line 80</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>number</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>Index of task to update.</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>Updated name of task.</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>expected</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>number</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>Updated expected number of pomodoros.</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
