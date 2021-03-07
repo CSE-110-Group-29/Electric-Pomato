@@ -63,7 +63,7 @@ class ViewOnlyTaskList extends HTMLElement {
 
   /**
    * Insert a row.
-   * @param  {...any} args data.
+   * @param  {...any} arg - args data.
    */
   insertRow(...args) {
     const clone = this.rowTemplate.cloneNode(true);
@@ -79,7 +79,7 @@ class ViewOnlyTaskList extends HTMLElement {
 
   /**
    * Insert a title.
-   * @param {*} title The title.
+   * @param {*} title-  title The title.
    */
   insertTitle(title) {
     this.appendChild(this.titleTemplate.cloneNode(true));
