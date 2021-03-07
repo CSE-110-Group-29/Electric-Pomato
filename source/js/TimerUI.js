@@ -40,6 +40,7 @@ class TimerUI extends HTMLElement {
    */
   createTimer(minutes, seconds) {
     this.timer = new Timer(minutes, seconds, (newMinute, newSecond) => {
+      // update html
       this.text.innerHTML = `${TimerUI.parseMinutes(newMinute)} : ${TimerUI.parseSeconds(newSecond)}`;
     });
   }
@@ -51,6 +52,8 @@ class TimerUI extends HTMLElement {
    * @returns {Promise} Countdown of timer
    */
   startTimer() {
+    // immediately update html
+    this.text.innerHTML = `${TimerUI.parseMinutes(this.timer.minutes)} : ${TimerUI.parseSeconds(this.timer.seconds)}`;
     return this.timer.startTimer();
   }
 

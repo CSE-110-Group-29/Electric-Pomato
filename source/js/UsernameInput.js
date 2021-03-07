@@ -1,5 +1,5 @@
 /**
- * @file Creates a custom element to display the current year used for dynamic copyright years.
+ * @file Creates a custom input for first time users to put their name in
  * @author Andy Young
  * @author Justin Lee
  * @author Teresa Truong
@@ -8,13 +8,12 @@
 
 /**
  * @class
- * @classdesc Appends a text element containing the current year from a Date() object.
+ * @classdesc Appends a custom text input element for users to put their name
  */
 class UsernameInput extends HTMLElement {
   constructor() {
     super();
-
-    this.appendChild(document.querySelector('#start-container-template').content.cloneNode(true));
+    this.appendChild(document.querySelector('#username-input-template').content.cloneNode(true));
     const input = this.querySelector('.start-input');
     const button = this.querySelector('.start-input-button');
 
@@ -38,3 +37,4 @@ class UsernameInput extends HTMLElement {
 }
 
 customElements.define('username-input', UsernameInput);
+export default UsernameInput;
