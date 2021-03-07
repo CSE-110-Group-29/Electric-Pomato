@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>js/app.js - Documentation</title>
+    <title>TaskList - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -31,219 +31,956 @@ Displays the Tomato.</a></span></li><li class="nav-item"><span class="nav-item-t
 
 <div id="main">
     
-    <h1 class="page-title">js/app.js</h1>
+    <h1 class="page-title">TaskList</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>/**
- * @file The main controller of the HTML and interaction between Front-End and Back-End.
- * @author Andy Young
- * @author Donald Wolfson
- * @author Justin Lee
- * @author Enrique Gan
- * @author Teresa Truong
- * @author Annika Hatcher
- */
+        <h2>
+        TaskList
+        </h2>
+        
+            <div class="class-description"><p>Creates the TaskList class and define its helper functions.</p></div>
+        
+    
+</header>
 
-/* ******************************** Imports ********************************* */
-import EditableTaskList from './EditableTaskList.js';
-import ViewOnlyTaskList from './ViewOnlyTaskList.js';
-import TimerUI from './TimerUI.js';
-import TaskList from './TaskList.js';
-import BreakPrompt from './BreakPrompt.js';
+<article>
+    <div class="container-overview">
+    
+        
+<div class="section-method">
 
-/**
- * STATE:
- * {
- *  Username: {String}
- *    null: redirect to index.html
- *  Started: {Boolean}
- *    true: display TimerUI &amp; ViewOnlyTaskList,
- *    false: go to Editable Task List display.
- *  TotalPomos: {Number}
- *    Elapsed pomos.
- *  Timer: {Boolean}
- *    true: pomodoro
- *    false: break
- *      TotalPomos % 4 == 0: long break
- *      else: short break
- * }
- */
+    
+    <h2>Constructor</h2>
+    
 
-/* ******************************* DOM Values ******************************* */
+    <h4 class="name" id="TaskList"><span class="type-signature"></span>new TaskList<span class="signature">()</span><span class="type-signature"></span></h4>
 
-const appContainer = document.querySelector('.app-container');
+    
 
-/* **************************** Helper Functions **************************** */
 
-/**
- * Update the .app-title based on the break's checkbox.
- * @param {boolean} nextTask - Next task in list.
- */
-function updateAppTitle(nextTask) {
-  const taskList = JSON.parse(localStorage.getItem('TaskList'));
-  const { length } = taskList.todo;
-  let title = '';
 
-  // Determine the header based on the length of the TODO list.
-  if (length === 0) {
-    title = 'End of Session';
-  } else if (nextTask &amp;&amp; length === 1) {
-    title = 'End of Session';
-  } else if (nextTask &amp;&amp; length - 1 === 1) {
-    title = `Last Task: ${taskList.todo[1].name}`;
-  } else if (nextTask &amp;&amp; length - 1 > 1) {
-    title = `Next Task: ${taskList.todo[1].name}`;
-  } else if (length === 1) {
-    title = `Last Task: ${taskList.todo[0].name}`;
-  } else {
-    title = `Current Task: ${taskList.todo[0].name}`;
-  }
-  document.querySelector('.app-title').innerHTML = title;
-}
+<div class="description">
+    <p>Constructor for the TaskList object.</p>
+</div>
 
-/**
- * A callback function used in the BreakPrompt on changing of the checkbox.
- * @param {Object} object - A BreakPrompt object.
- */
-function changeTitle(object) {
-  updateAppTitle(object.getChecked());
-}
 
-/**
- * Initialize the timer based on current STATE.
- * @param {Object} timer - The Timer object.
- */
-function initTimer(timer) {
-  // Change to done page if no more tasks in todo.
-  if (JSON.parse(localStorage.getItem('TaskList')).todo.length === 0) {
-    window.location.href = 'done.html';
-  } else {
-    const timerState = localStorage.getItem('Timer');
-    timer.reset();
 
-    // If timer is true set pomo, otherwise it is a break
-    if (timerState === 'true') {
-      // Update the HTML
-      updateAppTitle(false);
-      timer.setColorGreen();
-      timer.createTimer(0, 3);
-    } else {
-      const totalPomos = Number(localStorage.getItem('TotalPomos'));
-      const breakPrompt = new BreakPrompt(changeTitle);
 
-      // Update the HTML
-      updateAppTitle(false);
-      timer.setColorRed();
-      timer.appendChild(breakPrompt);
 
-      // If there has been 4 pomos then it is a long break
-      if (totalPomos > 0 &amp;&amp; totalPomos % 4 === 0) {
-        // Long break
-        timer.createTimer(0, 10);
-      } else {
-        // Short break
-        timer.createTimer(0, 5);
-      }
-    }
-  }
-}
+<dl class="details">
 
-/**
- * Handle starting the timer and updating the Pomos.
- * @param {Object} timer - The Timer object.
- * @param {Object} taskList - The TaskList object.
- */
-function handleClick(timer, taskList) {
-  let active = false;
+    
 
-  timer.firstElementChild.addEventListener('click', () => {
-    if (!active) {
-      active = true;
-      timer.startTimer().then(() => {
-        const timerState = localStorage.getItem('Timer');
+    
 
-        if (timerState === 'true') {
-          localStorage.setItem('TotalPomos', Number(localStorage.getItem('TotalPomos')) + 1);
-          taskList.addPomo();
-        }
+    
 
-        if (timerState === 'false') {
-          if (timer.lastElementChild.getChecked()) {
-            taskList.finishTask();
-            taskList.render();
-          }
+    
 
-          timer.lastElementChild.remove();
-        }
+    
 
-        localStorage.setItem('Timer', timerState === 'false');
-        initTimer(timer);
-        active = false;
-      });
-    }
-  });
-}
+    
 
-/**
- * Displays the Timer and begins to handle the events of interaction.
- */
-function showTimer() {
-  const timerUI = new TimerUI();
-  const votl = new ViewOnlyTaskList();
+    
 
-  // Call any helper functions to handle user events.
-  updateAppTitle(false);
-  handleClick(timerUI, votl);
-  initTimer(timerUI);
+    
 
-  appContainer.appendChild(timerUI);
-  appContainer.appendChild(votl);
-}
+    
 
-/* ***************************** Event Handling ***************************** */
+    
 
-/**
- * Will hold all Edge Cases that should be check when a page is loaded.
- */
-function handleOnLoad() {
-  // Redirect to index.html if no name is in localStorage.
-  if (!localStorage.getItem('Username')) {
-    window.location.href = 'index.html';
-  }
-  // TODO: Add more edge cases here
-  if (localStorage.getItem('Started')) {
-    showTimer();
-  } else {
-    appContainer.appendChild(new EditableTaskList());
-    document.querySelector('.app-title').innerHTML = `${localStorage.getItem('Username')}'s Day`;
-    appContainer.querySelector('button').addEventListener('click', () => {
-      const data = new TaskList();
-      // Set values to default.
-      if (data.todo.length > 0) {
-        localStorage.setItem('Started', true);
-        localStorage.setItem('Timer', true);
-        localStorage.setItem('TotalPomos', 0);
-        appContainer.lastElementChild.remove();
-        showTimer();
-      } else {
-        handleOnLoad();
-      }
-    });
-  }
-}
+    
 
-// Handle any edge cases on loading into the page.
-window.addEventListener('load', handleOnLoad);
-</code></pre>
-        </article>
-    </section>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="js_TaskList.js.html">js/TaskList.js</a>, <a href="js_TaskList.js.html#line12">line 12</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="addPomo"><span class="type-signature"></span>addPomo<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Add a pomodoro to the current task.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="js_TaskList.js.html">js/TaskList.js</a>, <a href="js_TaskList.js.html#line93">line 93</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="createTask"><span class="type-signature"></span>createTask<span class="signature">(name, expected)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Add new task to todo with given name and expected pomodoros.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="js_TaskList.js.html">js/TaskList.js</a>, <a href="js_TaskList.js.html#line52">line 52</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>Name of task.</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>expected</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>number</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>Expected number of pomodoros.</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="deleteTask"><span class="type-signature"></span>deleteTask<span class="signature">(index)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Remove task from todo at given index.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="js_TaskList.js.html">js/TaskList.js</a>, <a href="js_TaskList.js.html#line69">line 69</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>number</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>Index of task to remove.</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="finishTask"><span class="type-signature"></span>finishTask<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Update todo/completed after finishing a task.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="js_TaskList.js.html">js/TaskList.js</a>, <a href="js_TaskList.js.html#line101">line 101</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="reset"><span class="type-signature"></span>reset<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Reset instance variables to default empty value and save to localStorage.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="js_TaskList.js.html">js/TaskList.js</a>, <a href="js_TaskList.js.html#line33">line 33</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="save"><span class="type-signature"></span>save<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Save the instance variables to localStorage.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="js_TaskList.js.html">js/TaskList.js</a>, <a href="js_TaskList.js.html#line42">line 42</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="updateTask"><span class="type-signature"></span>updateTask<span class="signature">(index, name, expected)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Update the task at the given index with the given name and expected pomodoros.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="js_TaskList.js.html">js/TaskList.js</a>, <a href="js_TaskList.js.html#line80">line 80</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>number</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>Index of task to update.</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>Updated name of task.</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>expected</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>number</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>Updated expected number of pomodoros.</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

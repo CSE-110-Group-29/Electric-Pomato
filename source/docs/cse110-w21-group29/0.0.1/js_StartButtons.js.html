@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>js/app.js - Documentation</title>
+    <title>js/StartButtons.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -31,7 +31,7 @@ Displays the Tomato.</a></span></li><li class="nav-item"><span class="nav-item-t
 
 <div id="main">
     
-    <h1 class="page-title">js/app.js</h1>
+    <h1 class="page-title">js/StartButtons.js</h1>
     
 
     
@@ -42,205 +42,85 @@ Displays the Tomato.</a></span></li><li class="nav-item"><span class="nav-item-t
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @file The main controller of the HTML and interaction between Front-End and Back-End.
+ * @file TODO
  * @author Andy Young
- * @author Donald Wolfson
  * @author Justin Lee
- * @author Enrique Gan
- * @author Teresa Truong
- * @author Annika Hatcher
  */
 
-/* ******************************** Imports ********************************* */
-import EditableTaskList from './EditableTaskList.js';
-import ViewOnlyTaskList from './ViewOnlyTaskList.js';
-import TimerUI from './TimerUI.js';
 import TaskList from './TaskList.js';
-import BreakPrompt from './BreakPrompt.js';
 
 /**
- * STATE:
- * {
- *  Username: {String}
- *    null: redirect to index.html
- *  Started: {Boolean}
- *    true: display TimerUI &amp; ViewOnlyTaskList,
- *    false: go to Editable Task List display.
- *  TotalPomos: {Number}
- *    Elapsed pomos.
- *  Timer: {Boolean}
- *    true: pomodoro
- *    false: break
- *      TotalPomos % 4 == 0: long break
- *      else: short break
- * }
+ * TODO
+ * @extends HTMLElement
  */
+class StartButtons extends HTMLElement {
+  /**
+  * constructor for StartButtons
+  */
+  constructor() {
+    super();
 
-/* ******************************* DOM Values ******************************* */
+    this.classList.add('row');
 
-const appContainer = document.querySelector('.app-container');
+    const leftContainer = StartButtons.createButtonContainer();
+    leftContainer.classList.add('mb-3', 'mb-xxl-0');
+    const rightContainer = StartButtons.createButtonContainer();
+    this.appendChild(leftContainer);
+    this.appendChild(rightContainer);
 
-/* **************************** Helper Functions **************************** */
-
-/**
- * Update the .app-title based on the break's checkbox.
- * @param {boolean} nextTask - Next task in list.
- */
-function updateAppTitle(nextTask) {
-  const taskList = JSON.parse(localStorage.getItem('TaskList'));
-  const { length } = taskList.todo;
-  let title = '';
-
-  // Determine the header based on the length of the TODO list.
-  if (length === 0) {
-    title = 'End of Session';
-  } else if (nextTask &amp;&amp; length === 1) {
-    title = 'End of Session';
-  } else if (nextTask &amp;&amp; length - 1 === 1) {
-    title = `Last Task: ${taskList.todo[1].name}`;
-  } else if (nextTask &amp;&amp; length - 1 > 1) {
-    title = `Next Task: ${taskList.todo[1].name}`;
-  } else if (length === 1) {
-    title = `Last Task: ${taskList.todo[0].name}`;
-  } else {
-    title = `Current Task: ${taskList.todo[0].name}`;
-  }
-  document.querySelector('.app-title').innerHTML = title;
-}
-
-/**
- * A callback function used in the BreakPrompt on changing of the checkbox.
- * @param {Object} object - A BreakPrompt object.
- */
-function changeTitle(object) {
-  updateAppTitle(object.getChecked());
-}
-
-/**
- * Initialize the timer based on current STATE.
- * @param {Object} timer - The Timer object.
- */
-function initTimer(timer) {
-  // Change to done page if no more tasks in todo.
-  if (JSON.parse(localStorage.getItem('TaskList')).todo.length === 0) {
-    window.location.href = 'done.html';
-  } else {
-    const timerState = localStorage.getItem('Timer');
-    timer.reset();
-
-    // If timer is true set pomo, otherwise it is a break
-    if (timerState === 'true') {
-      // Update the HTML
-      updateAppTitle(false);
-      timer.setColorGreen();
-      timer.createTimer(0, 3);
-    } else {
-      const totalPomos = Number(localStorage.getItem('TotalPomos'));
-      const breakPrompt = new BreakPrompt(changeTitle);
-
-      // Update the HTML
-      updateAppTitle(false);
-      timer.setColorRed();
-      timer.appendChild(breakPrompt);
-
-      // If there has been 4 pomos then it is a long break
-      if (totalPomos > 0 &amp;&amp; totalPomos % 4 === 0) {
-        // Long break
-        timer.createTimer(0, 10);
-      } else {
-        // Short break
-        timer.createTimer(0, 5);
-      }
+    leftContainer.appendChild(StartButtons.createButton());
+    const taskList = new TaskList();
+    if (taskList.todo.length > 0 || taskList.completed.length > 0) {
+      rightContainer.appendChild(StartButtons.createAnchor());
     }
   }
-}
 
-/**
- * Handle starting the timer and updating the Pomos.
- * @param {Object} timer - The Timer object.
- * @param {Object} taskList - The TaskList object.
- */
-function handleClick(timer, taskList) {
-  let active = false;
-
-  timer.firstElementChild.addEventListener('click', () => {
-    if (!active) {
-      active = true;
-      timer.startTimer().then(() => {
-        const timerState = localStorage.getItem('Timer');
-
-        if (timerState === 'true') {
-          localStorage.setItem('TotalPomos', Number(localStorage.getItem('TotalPomos')) + 1);
-          taskList.addPomo();
-        }
-
-        if (timerState === 'false') {
-          if (timer.lastElementChild.getChecked()) {
-            taskList.finishTask();
-            taskList.render();
-          }
-
-          timer.lastElementChild.remove();
-        }
-
-        localStorage.setItem('Timer', timerState === 'false');
-        initTimer(timer);
-        active = false;
-      });
-    }
-  });
-}
-
-/**
- * Displays the Timer and begins to handle the events of interaction.
- */
-function showTimer() {
-  const timerUI = new TimerUI();
-  const votl = new ViewOnlyTaskList();
-
-  // Call any helper functions to handle user events.
-  updateAppTitle(false);
-  handleClick(timerUI, votl);
-  initTimer(timerUI);
-
-  appContainer.appendChild(timerUI);
-  appContainer.appendChild(votl);
-}
-
-/* ***************************** Event Handling ***************************** */
-
-/**
- * Will hold all Edge Cases that should be check when a page is loaded.
- */
-function handleOnLoad() {
-  // Redirect to index.html if no name is in localStorage.
-  if (!localStorage.getItem('Username')) {
-    window.location.href = 'index.html';
+  /* &lt;div class="col-12 col-lg-6">&lt;/div> */
+  static createButtonContainer() {
+    const div = document.createElement('div');
+    div.classList.add('col-12', 'col-xxl-6');
+    return div;
   }
-  // TODO: Add more edge cases here
-  if (localStorage.getItem('Started')) {
-    showTimer();
-  } else {
-    appContainer.appendChild(new EditableTaskList());
-    document.querySelector('.app-title').innerHTML = `${localStorage.getItem('Username')}'s Day`;
-    appContainer.querySelector('button').addEventListener('click', () => {
-      const data = new TaskList();
-      // Set values to default.
-      if (data.todo.length > 0) {
-        localStorage.setItem('Started', true);
-        localStorage.setItem('Timer', true);
-        localStorage.setItem('TotalPomos', 0);
-        appContainer.lastElementChild.remove();
-        showTimer();
-      } else {
-        handleOnLoad();
-      }
+
+  /**
+     * Create a HTML object for the 'Create Session' button.
+     * &lt;button type="button" class="btn btn-secondary btn-lg">Create New Session&lt;/button>
+     */
+  static createButton() {
+    const btn = document.createElement('btn');
+    const text = document.createTextNode('Create New Session');
+    btn.classList.add('btn', 'btn-success', 'btn-lg', 'btn-block');
+    btn.appendChild(text);
+
+    btn.addEventListener('click', () => {
+      // TODO show warning alert
+      // Wipe stuff from last session from local storage
+      localStorage.removeItem('TaskList');
+      localStorage.removeItem('Started');
+      localStorage.removeItem('TotalPomos');
+      localStorage.removeItem('Timer');
+      window.location.href = './app.html';
     });
+
+    return btn;
+  }
+
+  /**
+   * Create a HTML object for the 'Returning User' button.
+   * &lt;button type="button" class="btn btn-secondary btn-lg">Returning User&lt;/button>
+   */
+  static createAnchor() {
+    const a = document.createElement('a');
+    const text = document.createTextNode('Resume My Session');
+    a.href = 'app.html';
+    a.classList.add('btn', 'btn-secondary', 'btn-lg', 'btn-block');
+    a.appendChild(text);
+    return a;
   }
 }
 
-// Handle any edge cases on loading into the page.
-window.addEventListener('load', handleOnLoad);
+customElements.define('start-buttons', StartButtons);
+export default StartButtons;
 </code></pre>
         </article>
     </section>
