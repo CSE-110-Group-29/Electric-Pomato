@@ -6,6 +6,13 @@
  * @author Enrique Gan
  */
 
+/* ******************************** Imports ********************************* */
+import EditableTaskList from './EditableTaskList.js';
+import ViewOnlyTaskList from './ViewOnlyTaskList.js';
+import TimerUI from './TimerUI.js';
+import TaskList from './TaskList.js';
+import BreakPrompt from './BreakPrompt.js';
+
 /**
  * STATE:
  * {
@@ -24,27 +31,35 @@
  * }
  */
 
-import EditableTaskList from './EditableTaskList.js';
-import ViewOnlyTaskList from './ViewOnlyTaskList.js';
-import TimerUI from './TimerUI.js';
-import TaskList from './TaskList.js';
-import BreakPrompt from './BreakPrompt.js';
-
-// Edge Case: Redirect to index.html if not logged in.
-// TODO: Run this on load
-if (!localStorage.getItem('Username')) {
-  window.location.href = 'index.html';
-}
+/* ******************************* DOM Values ******************************* */
 
 const appContainer = document.querySelector('.app-container');
 
-// initialize the timer based on current state
+/* **************************** Helper Functions **************************** */
+
+// TODO: Once User has tasks list (start day button?) display timer and ViewOnlyTaskList.
+
+/**
+ * @function handleOnLoad
+ * Will hold all Edge Cases that should be check when a page is loaded.
+ */
+function handleOnLoad() {
+  // Redirect to index.html if no name is in localStorage.
+  if (!localStorage.getItem('Username')) {
+    window.location.href = 'index.html';
+  }
+}
+
+/**
+ * @function initTimer
+ * @param {Object} timer The Timer object.
+ * Initialize the timer based on current STATE.
+ */
 function initTimer(timer) {
   const timerState = localStorage.getItem('Timer');
-
   timer.reset();
 
-  // if timer is true set pomo, otherwise it is a break
+  // If timer is true set pomo, otherwise it is a break
   if (timerState === 'true') {
     timer.setColorGreen();
     timer.createTimer(0, 25);
@@ -55,17 +70,23 @@ function initTimer(timer) {
     timer.setColorRed();
     timer.appendChild(breakPrompt);
 
-    // if there has been 4 pomos then it is a long break
+    // If there has been 4 pomos then it is a long break
     if (totalPomos > 0 && totalPomos % 4 === 0) {
-      // long break
+      // Long break
       timer.createTimer(0, 10);
     } else {
-      // short break
+      // Short break
       timer.createTimer(0, 5);
     }
   }
 }
 
+/**
+ * @function
+ * @param {Object} timer The Timer object.
+ * @param {Object} taskList The TaskList object.
+ * Handle starting the timer and updating the Pomos.
+ */
 function handleClick(timer, taskList) {
   let active = false;
 
@@ -99,6 +120,10 @@ function handleClick(timer, taskList) {
   });
 }
 
+/**
+ * @function showTimer
+ * Displays the Timer and begins to handle the events of interaction.
+ */
 function showTimer() {
   const timerUI = new TimerUI();
   const votl = new ViewOnlyTaskList();
@@ -111,6 +136,8 @@ function showTimer() {
 
   document.querySelector('.app-title').innerHTML = `Current Task: ${votl.data.todo[0].name}`;
 }
+
+/* ***************************** Event Handlign ***************************** */
 
 if (localStorage.getItem('Started')) {
   showTimer();
@@ -130,31 +157,5 @@ if (localStorage.getItem('Started')) {
   });
 }
 
-// TODO: If New User, display Editable Task List.
-// TODO: Once User has tasks list (start day button?) display timer and ViewOnlyTaskList.
-
-/*
-document.addEventListener('keydown', (e) => {
-  if (e.code === 'ArrowRight') {
-    appContainer.replaceChild(new ViewOnlyTaskList(), appContainer.lastElementChild);
-  } else if (e.code === 'ArrowLeft') {
-    appContainer.replaceChild(new EditableTaskList(), appContainer.lastElementChild);
-  }
-});
-
-// Global Variables:
-const body = document.querySelector('.container');
-const timerUI = new TimerUI();
-
-body.appendChild(timerUI);
-timerUI.createTimer(0, 10);
-timerUI.setColorGreen();
-
-async function testTimer() {
-  await timerUI.startTimer();
-  console.log('BOOM :)');
-  timerUI.setColorRed();
-}
-
-testTimer();
-*/
+// Handle any edge cases on loading into the page.
+window.addEventListener('load', handleOnLoad);
