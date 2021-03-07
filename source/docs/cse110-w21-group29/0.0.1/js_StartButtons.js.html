@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>js/CurrentYear.js - Documentation</title>
+    <title>js/StartButtons.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -31,7 +31,7 @@ Displays the Timer and begins to handle the events of interaction.</a></span></l
 
 <div id="main">
     
-    <h1 class="page-title">js/CurrentYear.js</h1>
+    <h1 class="page-title">js/StartButtons.js</h1>
     
 
     
@@ -42,23 +42,82 @@ Displays the Timer and begins to handle the events of interaction.</a></span></l
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @file Creates a custom element to display the current year used for dynamic copyright years.
+ * @file TODO
  * @author Andy Young
+ * @author Justin Lee
  */
 
+import TaskList from './TaskList.js';
+
 /**
- * @class Appends a text element containing the current year from a Date() object.
- * @classdesc Updates the HTML with the current year.
+ * @class TODO
+ * @classdesc TODO
  */
-class CurrentYear extends HTMLElement {
+class StartButtons extends HTMLElement {
   constructor() {
     super();
 
-    this.appendChild(document.createTextNode(new Date().getFullYear()));
+    this.classList.add('row');
+
+    const leftContainer = StartButtons.createButtonContainer();
+    leftContainer.classList.add('mb-3', 'mb-xxl-0');
+    const rightContainer = StartButtons.createButtonContainer();
+    this.appendChild(leftContainer);
+    this.appendChild(rightContainer);
+
+    leftContainer.appendChild(StartButtons.createButton());
+    const taskList = new TaskList();
+    if (taskList.todo.length > 0 || taskList.completed.length > 0) {
+      rightContainer.appendChild(StartButtons.createAnchor());
+    }
+  }
+
+  /* &lt;div class="col-12 col-lg-6">&lt;/div> */
+  static createButtonContainer() {
+    const div = document.createElement('div');
+    div.classList.add('col-12', 'col-xxl-6');
+    return div;
+  }
+
+  /**
+     * Create a HTML object for the 'Create Session' button.
+     * &lt;button type="button" class="btn btn-secondary btn-lg">Create New Session&lt;/button>
+     */
+  static createButton() {
+    const btn = document.createElement('btn');
+    const text = document.createTextNode('Create New Session');
+    btn.classList.add('btn', 'btn-success', 'btn-lg', 'btn-block');
+    btn.appendChild(text);
+
+    btn.addEventListener('click', () => {
+      // TODO show warning alert
+      // Wipe stuff from last session from local storage
+      localStorage.removeItem('TaskList');
+      localStorage.removeItem('Started');
+      localStorage.removeItem('TotalPomos');
+      localStorage.removeItem('Timer');
+      window.location.href = './app.html';
+    });
+
+    return btn;
+  }
+
+  /**
+   * Create a HTML object for the 'Returning User' button.
+   * &lt;button type="button" class="btn btn-secondary btn-lg">Returning User&lt;/button>
+   */
+  static createAnchor() {
+    const a = document.createElement('a');
+    const text = document.createTextNode('Resume My Session');
+    a.href = 'app.html';
+    a.classList.add('btn', 'btn-secondary', 'btn-lg', 'btn-block');
+    a.appendChild(text);
+    return a;
   }
 }
 
-customElements.define('current-year', CurrentYear);
+customElements.define('start-buttons', StartButtons);
+export default StartButtons;
 </code></pre>
         </article>
     </section>

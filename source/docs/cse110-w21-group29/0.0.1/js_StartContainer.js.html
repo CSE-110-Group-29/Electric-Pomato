@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>js/CurrentYear.js - Documentation</title>
+    <title>js/StartContainer.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -31,7 +31,7 @@ Displays the Timer and begins to handle the events of interaction.</a></span></l
 
 <div id="main">
     
-    <h1 class="page-title">js/CurrentYear.js</h1>
+    <h1 class="page-title">js/StartContainer.js</h1>
     
 
     
@@ -42,23 +42,37 @@ Displays the Timer and begins to handle the events of interaction.</a></span></l
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @file Creates a custom element to display the current year used for dynamic copyright years.
+ * @file Creates the start container that will create all buttons and inputs depending
+ *       on state of localStorage
  * @author Andy Young
+ * @author Justin Lee
  */
 
+import StartButtons from './StartButtons.js';
+import UsernameInput from './UsernameInput.js';
+import WelcomeMessage from './WelcomeMessage.js';
+
 /**
- * @class Appends a text element containing the current year from a Date() object.
- * @classdesc Updates the HTML with the current year.
+ * @class
+ * @classdesc Appends the start container that will contain all user-interactable elements
+ *            in the landing page
  */
-class CurrentYear extends HTMLElement {
+class StartContainer extends HTMLElement {
   constructor() {
     super();
 
-    this.appendChild(document.createTextNode(new Date().getFullYear()));
+    const username = localStorage.getItem('Username');
+
+    if (username) { // Returning User
+      this.appendChild(new WelcomeMessage(username));
+      this.appendChild(new StartButtons());
+    } else { // First time User
+      this.appendChild(new UsernameInput());
+    }
   }
 }
 
-customElements.define('current-year', CurrentYear);
+customElements.define('start-container', StartContainer);
 </code></pre>
         </article>
     </section>

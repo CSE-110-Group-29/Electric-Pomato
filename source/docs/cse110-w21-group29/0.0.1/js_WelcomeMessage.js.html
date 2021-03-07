@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>js/CurrentYear.js - Documentation</title>
+    <title>js/WelcomeMessage.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -31,7 +31,7 @@ Displays the Timer and begins to handle the events of interaction.</a></span></l
 
 <div id="main">
     
-    <h1 class="page-title">js/CurrentYear.js</h1>
+    <h1 class="page-title">js/WelcomeMessage.js</h1>
     
 
     
@@ -42,23 +42,30 @@ Displays the Timer and begins to handle the events of interaction.</a></span></l
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @file Creates a custom element to display the current year used for dynamic copyright years.
+ * @file Creates a custom element to display a welcome back message to the user
  * @author Andy Young
+ * @author Justin Lee
  */
 
 /**
- * @class Appends a text element containing the current year from a Date() object.
- * @classdesc Updates the HTML with the current year.
+ * @class
+ * @classdesc Custom welcome back message shown to return user.
  */
-class CurrentYear extends HTMLElement {
-  constructor() {
+class WelcomeMessage extends HTMLElement {
+  constructor(username) {
     super();
 
-    this.appendChild(document.createTextNode(new Date().getFullYear()));
+    const message = document.createElement('h2');
+    const text = document.createTextNode(`Welcome Back, ${username}!`);
+    message.appendChild(text);
+    message.classList.add('subtitle', 'mb-3');
+
+    this.appendChild(message);
   }
 }
 
-customElements.define('current-year', CurrentYear);
+customElements.define('welcome-message', WelcomeMessage);
+export default WelcomeMessage;
 </code></pre>
         </article>
     </section>
