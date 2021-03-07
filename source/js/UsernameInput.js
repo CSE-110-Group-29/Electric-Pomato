@@ -12,6 +12,9 @@
  * @extends HTLMElement
  */
 class UsernameInput extends HTMLElement {
+  /**
+  * constructor for USernameInput
+  */
   constructor() {
     super();
     this.appendChild(document.querySelector('#username-input-template').content.cloneNode(true));
