@@ -35,6 +35,7 @@ class Timer {
     return new Promise((resolve) => {
       // Count down immediately
       // This is where the timer callbacks a function every second
+      const resolveMessage = 'Timer Finished';
       if (this.callbackEverySecond !== null) {
         this.callbackEverySecond(this.minutes, this.seconds);
       }
@@ -42,7 +43,7 @@ class Timer {
         this.minutes -= 1;
         this.seconds = 60;
       } else if (this.seconds === 0 && this.minutes === 0) {
-        resolve();
+        resolve(resolveMessage);
       }
       this.seconds -= 1;
       // Keep counting down until it reaches 0 mins 0 seconds (inclusive)
@@ -55,7 +56,7 @@ class Timer {
           this.minutes -= 1;
           this.seconds = 60;
         } else if (this.seconds === 0 && this.minutes === 0) {
-          resolve();
+          resolve(resolveMessage);
           clearInterval(countdown);
         }
         this.seconds -= 1;
