@@ -10,6 +10,9 @@
  * @extends HTMLElement
  */
 class WelcomeMessage extends HTMLElement {
+  /**
+  * Constructor for WelcomeMessage
+  */
   constructor(username) {
     super();
 
