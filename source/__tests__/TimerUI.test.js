@@ -1,4 +1,4 @@
-import { expect, jest } from '@jest/globals';
+import { expect, jest, test } from '@jest/globals';
 import TimerUI from '../js/TimerUI.js';
 
 // Initialize the DOM with a TimerUI element.
@@ -60,12 +60,21 @@ test('TimerUI Properly Initializes Timer', () => {
   expect(timerUI.timer.seconds).toBe(5);
 });
 
-test('TimerUI Properly Prints Time', () => {
-  const timerUI = new TimerUI();
-  timerUI.createTimer(0, 5);
+test('TimerUI Utility Functions Properly Prints Time', () => {
   // Check if the Timer was set.
-  expect(timerUI.timer.minutes).toBe(0);
-  expect(timerUI.timer.seconds).toBe(5);
+  expect(TimerUI.parseMinutes(0)).toBe('00');
+  expect(TimerUI.parseSeconds(5)).toBe('05');
+
+  expect(TimerUI.parseMinutes(1)).toBe('01');
+  expect(TimerUI.parseSeconds(5)).toBe('05');
+
+  expect(TimerUI.parseMinutes(12)).toBe('12');
+  expect(TimerUI.parseSeconds(25)).toBe('25');
+});
+
+test('Timer Utility Functions Clamps Time Strings', () => {
+  expect(TimerUI.parseSeconds(60)).toBe('00');
+  expect(TimerUI.parseSeconds(61)).toBe('00');
 });
 
 test('TimerUI Properly Updates to Green Tomato', () => {
