@@ -12,6 +12,9 @@
  * @extends HTMLElement
  */
 class EditableTaskListInput extends HTMLElement {
+  /**
+  * constructor for EditableTaskListInput
+  */
   constructor() {
     super();
 
