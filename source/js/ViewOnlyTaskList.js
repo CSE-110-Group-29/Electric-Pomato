@@ -9,6 +9,7 @@ import TaskList from './TaskList.js';
 
 /**
  * Defines the ViewOnlyTaskList and its helper functions.
+ * @extends HTMLElements
  */
 class ViewOnlyTaskList extends HTMLElement {
   constructor() {
