@@ -11,6 +11,9 @@ import TaskList from './TaskList.js';
  * @extends HTMLElement
  */
 class StartButtons extends HTMLElement {
+  /**
+  * constructor for StartButtons
+  */
   constructor() {
     super();
 
