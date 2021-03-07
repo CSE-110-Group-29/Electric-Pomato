@@ -40,9 +40,8 @@ const appContainer = document.querySelector('.app-container');
 /* **************************** Helper Functions **************************** */
 
 /**
- * @function updateAppTitle
- * @param {boolean} nextTask
  * Update the .app-title based on the break's checkbox.
+ * @param {boolean} nextTask - Next task in list.
  */
 function updateAppTitle(nextTask) {
   const taskList = JSON.parse(localStorage.getItem('TaskList'));
@@ -67,18 +66,16 @@ function updateAppTitle(nextTask) {
 }
 
 /**
- * @function changeTitle
- * @param {object} object - A BreakPrompt object.
  * A callback function used in the BreakPrompt on changing of the checkbox.
+ * @param {Object} object - A BreakPrompt object.
  */
 function changeTitle(object) {
   updateAppTitle(object.getChecked());
 }
 
 /**
- * @function initTimer
- * @param {Object} timer The Timer object.
  * Initialize the timer based on current STATE.
+ * @param {Object} timer - The Timer object.
  */
 function initTimer(timer) {
   // Change to done page if no more tasks in todo.
@@ -116,10 +113,9 @@ function initTimer(timer) {
 }
 
 /**
- * @function
- * @param {Object} timer The Timer object.
- * @param {Object} taskList The TaskList object.
  * Handle starting the timer and updating the Pomos.
+ * @param {Object} timer - The Timer object.
+ * @param {Object} taskList - The TaskList object.
  */
 function handleClick(timer, taskList) {
   let active = false;
@@ -153,7 +149,6 @@ function handleClick(timer, taskList) {
 }
 
 /**
- * @function showTimer
  * Displays the Timer and begins to handle the events of interaction.
  */
 function showTimer() {
@@ -172,7 +167,6 @@ function showTimer() {
 /* ***************************** Event Handling ***************************** */
 
 /**
- * @function handleOnLoad
  * Will hold all Edge Cases that should be check when a page is loaded.
  */
 function handleOnLoad() {
