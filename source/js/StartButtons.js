@@ -7,8 +7,8 @@
 import TaskList from './TaskList.js';
 
 /**
- * @class TODO
- * @classdesc TODO
+ * TODO
+ * @extends HTMLElement
  */
 class StartButtons extends HTMLElement {
   constructor() {
