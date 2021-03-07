@@ -305,6 +305,29 @@ footer > .container {
     }
 }
 
+.gold-tomato {
+    & > path:nth-child(1) {
+        fill: #e6b800;
+    }
+
+    & > path:nth-child(2) {
+        fill: #c59e01;
+    }
+}
+
+.hover-false {
+    transform: none;
+}
+
+.hover-false:hover {
+    cursor: auto;
+    transform: none;
+}
+
+.hover-false:active {
+    transform: none;
+}
+
 .timer-text {
     @include font-size($h2-font-size);
 }

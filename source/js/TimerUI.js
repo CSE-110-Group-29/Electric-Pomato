@@ -5,15 +5,20 @@
  * @author Enrique Gan
  * @author Donald Wolfson
  * @author Andy Young
+ * @author Liam Stone
+ * @author Arman Mansourian
  */
 
 import Timer from './Timer.js';
 
 /**
- * @class Creates the Custom HTMLElement for the Timer class
- * @classdesc Creates the Custom HTMLElement for the Timer class.
+ * Creates the Custom HTMLElement for the Timer class.
+ * @extends HTMLElement
  */
 class TimerUI extends HTMLElement {
+  /**
+   * constructor for the UI in the Timer Object.
+   */
   constructor() {
     super();
 
@@ -27,12 +32,16 @@ class TimerUI extends HTMLElement {
     this.text.innerHTML = 'START';
   }
 
+  clear() {
+    this.text.innerHTML = 'All Done!';
+  }
+
   /**
    * Create an internal `Timer` object that sets its `callbackEverySecond`
    * callback function to a function that changes the timer html elements'
    * minute and second values for every second that it ticks down.
-   * @param {Number} minutes minutes that will be stored in object.
-   * @param {Number} seconds seconds that will be stored in object.
+   * @param {number} minutes - minutes that will be stored in object.
+   * @param {number} seconds - seconds that will be stored in object.
    */
   createTimer(minutes, seconds) {
     this.timer = new Timer(minutes, seconds, (newMinute, newSecond) => {
@@ -56,8 +65,8 @@ class TimerUI extends HTMLElement {
   /**
    * Returns a string representing the minutes left with the format "MM".
    * ie: If 25 minuts are left, "25". If 9 minutes are left "09"
-   * @param {Number} minute Number of minutes that will be formatted.
-   * @returns {String} Minutes Left
+   * @param {number} minute - Number of minutes that will be formatted.
+   * @returns {string} Minutes Left
    */
   static parseMinutes(minute) {
     if (minute < 10) { return `0${String(minute)}`; }
@@ -66,9 +75,9 @@ class TimerUI extends HTMLElement {
 
   /**
    * Returns a string representing the seconds left with the format "SS".
-   * ie: If 25 seconds are left, "25". If 9 seconds are left "09"
-   * @param {Number} second Number of seconds that will be formatted.
-   * @returns {String} Seconds Left
+   * ie: If 25 seconds are left, "25". If 9 seconds are left "09".
+   * @param {number} second - Number of seconds that will be formatted.
+   * @returns {string} Seconds Left
    */
   static parseSeconds(second) {
     if (second === 60) return '00';
@@ -90,6 +99,14 @@ class TimerUI extends HTMLElement {
   setColorRed() {
     this.querySelector('.timer-image').classList.remove('green-tomato');
     this.querySelector('.timer-image').classList.add('red-tomato');
+  }
+
+  /**
+   * Sets the Tomato image to a Gold Tomato.
+   */
+  setColorGold() {
+    this.querySelector('.timer-image').classList.add('gold-tomato');
+    this.querySelector('.timer-image').classList.add('hover-false');
   }
 }
 

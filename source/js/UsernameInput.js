@@ -4,13 +4,17 @@
  * @author Justin Lee
  * @author Teresa Truong
  * @author Donald Wolfson
+ * @author Liam Stone
  */
 
 /**
- * @class
- * @classdesc Appends a custom text input element for users to put their name
+ * Appends a custom text input element for users to put their name
+ * @extends HTLMElement
  */
 class UsernameInput extends HTMLElement {
+  /**
+  * constructor for USernameInput
+  */
   constructor() {
     super();
     this.appendChild(document.querySelector('#username-input-template').content.cloneNode(true));
