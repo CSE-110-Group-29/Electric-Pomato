@@ -27,6 +27,10 @@ class TimerUI extends HTMLElement {
     this.text.innerHTML = 'START';
   }
 
+  clear() {
+    this.text.innerHTML = 'All Done!';
+  }
+
   /**
    * Create an internal `Timer` object that sets its `callbackEverySecond`
    * callback function to a function that changes the timer html elements'
@@ -87,6 +91,14 @@ class TimerUI extends HTMLElement {
   setColorRed() {
     this.querySelector('.timer-image').classList.remove('green-tomato');
     this.querySelector('.timer-image').classList.add('red-tomato');
+  }
+
+  /**
+   * Sets the Tomato image to a Gold Tomato.
+   */
+  setColorGold() {
+    this.querySelector('.timer-image').classList.add('gold-tomato');
+    this.querySelector('.timer-image').classList.add('hover-false');
   }
 }
 
