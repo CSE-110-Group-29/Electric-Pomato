@@ -5,6 +5,7 @@
  * @author Justin Lee
  * @author Enrique Gan
  * @author Teresa Truong
+ * @author Annika Hatcher
  */
 
 /* ******************************** Imports ********************************* */
@@ -74,10 +75,10 @@ function updateAppTitle(nextTask) {
 
 /**
  * @function changeTitle
+ * @param {object} object - A BreakPrompt object.
  * A callback function used in the BreakPrompt on changing of the checkbox.
  */
 function changeTitle(object) {
-  // console.log('Checkbox call', object.getChecked());
   updateAppTitle(object.getChecked());
 }
 
@@ -87,32 +88,36 @@ function changeTitle(object) {
  * Initialize the timer based on current STATE.
  */
 function initTimer(timer) {
-  const timerState = localStorage.getItem('Timer');
-  timer.reset();
-
-  // If timer is true set pomo, otherwise it is a break
-  if (timerState === 'true') {
-    timer.setColorGreen();
-    timer.createTimer(0, 25);
-    updateAppTitle(false);
-    // console.log('Green Tomato call');
+  // Change to done page if no more tasks in todo.
+  if (JSON.parse(localStorage.getItem('TaskList')).todo.length === 0) {
+    window.location.href = 'done.html';
   } else {
-    const totalPomos = Number(localStorage.getItem('TotalPomos'));
-    const breakPrompt = new BreakPrompt(changeTitle);
+    const timerState = localStorage.getItem('Timer');
+    timer.reset();
 
-    // Update the HTML
-    updateAppTitle(false);
-    // console.log('Red Tomato call');
-    timer.setColorRed();
-    timer.appendChild(breakPrompt);
-
-    // If there has been 4 pomos then it is a long break
-    if (totalPomos > 0 && totalPomos % 4 === 0) {
-      // Long break
-      timer.createTimer(0, 10);
+    // If timer is true set pomo, otherwise it is a break
+    if (timerState === 'true') {
+      // Update the HTML
+      updateAppTitle(false);
+      timer.setColorGreen();
+      timer.createTimer(0, 3);
     } else {
-      // Short break
-      timer.createTimer(0, 5);
+      const totalPomos = Number(localStorage.getItem('TotalPomos'));
+      const breakPrompt = new BreakPrompt(changeTitle);
+
+      // Update the HTML
+      updateAppTitle(false);
+      timer.setColorRed();
+      timer.appendChild(breakPrompt);
+
+      // If there has been 4 pomos then it is a long break
+      if (totalPomos > 0 && totalPomos % 4 === 0) {
+        // Long break
+        timer.createTimer(0, 10);
+      } else {
+        // Short break
+        timer.createTimer(0, 5);
+      }
     }
   }
 }
