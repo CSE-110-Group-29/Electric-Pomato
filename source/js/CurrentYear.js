@@ -1,16 +1,19 @@
 /**
  * @file Creates a custom element to display the current year used for dynamic copyright years.
  * @author Andy Young
+ * @author Arman Mansourian
  */
 
 /**
- * @class Appends a text element containing the current year from a Date() object.
- * @classdesc Updates the HTML with the current year.
+ * Appends a text element containing the current year from a Date() object.
+ * @extends HTMLElement
  */
 class CurrentYear extends HTMLElement {
+  /**
+   * Create the HTML text element and append.
+   */
   constructor() {
     super();
-
     this.appendChild(document.createTextNode(new Date().getFullYear()));
   }
 }

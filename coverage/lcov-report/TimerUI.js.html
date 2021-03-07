@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">88% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>22/22</span>
+                <span class='fraction'>22/25</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">81.82% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>9/9</span>
+                <span class='fraction'>9/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">86.36% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>19/19</span>
+                <span class='fraction'>19/22</span>
             </div>
         
             
@@ -154,7 +154,29 @@
 <a name='L95'></a><a href='#L95'>95</a>
 <a name='L96'></a><a href='#L96'>96</a>
 <a name='L97'></a><a href='#L97'>97</a>
-<a name='L98'></a><a href='#L98'>98</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a>
+<a name='L100'></a><a href='#L100'>100</a>
+<a name='L101'></a><a href='#L101'>101</a>
+<a name='L102'></a><a href='#L102'>102</a>
+<a name='L103'></a><a href='#L103'>103</a>
+<a name='L104'></a><a href='#L104'>104</a>
+<a name='L105'></a><a href='#L105'>105</a>
+<a name='L106'></a><a href='#L106'>106</a>
+<a name='L107'></a><a href='#L107'>107</a>
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a>
+<a name='L111'></a><a href='#L111'>111</a>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -181,6 +203,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -249,6 +275,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
@@ -258,15 +292,20 @@
  * @author Enrique Gan
  * @author Donald Wolfson
  * @author Andy Young
+ * @author Liam Stone
+ * @author Arman Mansourian
  */
 &nbsp;
 import Timer from './Timer.js';
 &nbsp;
 /**
- * @class Creates the Custom HTMLElement for the Timer class
- * @classdesc Creates the Custom HTMLElement for the Timer class.
+ * Creates the Custom HTMLElement for the Timer class.
+ * @extends HTMLElement
  */
 class TimerUI extends HTMLElement {
+  /**
+   * constructor for the UI in the Timer Object.
+   */
   constructor() {
     super();
 &nbsp;
@@ -280,12 +319,16 @@ class TimerUI extends HTMLElement {
     this.text.innerHTML = 'START';
   }
 &nbsp;
+<span class="fstat-no" title="function not covered" >  cl</span>ear() {
+<span class="cstat-no" title="statement not covered" >    this.text.innerHTML = 'All Done!';</span>
+  }
+&nbsp;
   /**
    * Create an internal `Timer` object that sets its `callbackEverySecond`
    * callback function to a function that changes the timer html elements'
    * minute and second values for every second that it ticks down.
-   * @param {Number} minutes minutes that will be stored in object.
-   * @param {Number} seconds seconds that will be stored in object.
+   * @param {number} minutes - minutes that will be stored in object.
+   * @param {number} seconds - seconds that will be stored in object.
    */
   createTimer(minutes, seconds) {
     this.timer = new Timer(minutes, seconds, (newMinute, newSecond) =&gt; {
@@ -309,8 +352,8 @@ class TimerUI extends HTMLElement {
   /**
    * Returns a string representing the minutes left with the format "MM".
    * ie: If 25 minuts are left, "25". If 9 minutes are left "09"
-   * @param {Number} minute Number of minutes that will be formatted.
-   * @returns {String} Minutes Left
+   * @param {number} minute - Number of minutes that will be formatted.
+   * @returns {string} Minutes Left
    */
   static parseMinutes(minute) {
     if (minute &lt; 10) { return `0${String(minute)}`; }
@@ -319,9 +362,9 @@ class TimerUI extends HTMLElement {
 &nbsp;
   /**
    * Returns a string representing the seconds left with the format "SS".
-   * ie: If 25 seconds are left, "25". If 9 seconds are left "09"
-   * @param {Number} second Number of seconds that will be formatted.
-   * @returns {String} Seconds Left
+   * ie: If 25 seconds are left, "25". If 9 seconds are left "09".
+   * @param {number} second - Number of seconds that will be formatted.
+   * @returns {string} Seconds Left
    */
   static parseSeconds(second) {
     if (second === 60 || second &gt;= 60) return '00';
@@ -344,6 +387,14 @@ class TimerUI extends HTMLElement {
     this.querySelector('.timer-image').classList.remove('green-tomato');
     this.querySelector('.timer-image').classList.add('red-tomato');
   }
+&nbsp;
+  /**
+   * Sets the Tomato image to a Gold Tomato.
+   */
+<span class="fstat-no" title="function not covered" >  se</span>tColorGold() {
+<span class="cstat-no" title="statement not covered" >    this.querySelector('.timer-image').classList.add('gold-tomato');</span>
+<span class="cstat-no" title="statement not covered" >    this.querySelector('.timer-image').classList.add('hover-false');</span>
+  }
 }
 &nbsp;
 customElements.define('pomo-timer', TimerUI);
@@ -355,7 +406,7 @@ export default TimerUI;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sun Mar 07 2021 15:34:05 GMT-0800 (Pacific Standard Time)
+                at Sun Mar 07 2021 15:44:10 GMT-0800 (Pacific Standard Time)
             </div>
         </div>
         <script src="prettify.js"></script>

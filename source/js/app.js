@@ -4,7 +4,16 @@
  * @author Donald Wolfson
  * @author Justin Lee
  * @author Enrique Gan
+ * @author Teresa Truong
+ * @author Annika Hatcher
  */
+
+/* ******************************** Imports ********************************* */
+import EditableTaskList from './EditableTaskList.js';
+import ViewOnlyTaskList from './ViewOnlyTaskList.js';
+import TimerUI from './TimerUI.js';
+import TaskList from './TaskList.js';
+import BreakPrompt from './BreakPrompt.js';
 
 /**
  * STATE:
@@ -24,48 +33,90 @@
  * }
  */
 
-import EditableTaskList from './EditableTaskList.js';
-import ViewOnlyTaskList from './ViewOnlyTaskList.js';
-import TimerUI from './TimerUI.js';
-import TaskList from './TaskList.js';
-import BreakPrompt from './BreakPrompt.js';
-
-// Edge Case: Redirect to index.html if not logged in.
-// TODO: Run this on load
-if (!localStorage.getItem('Username')) {
-  window.location.href = 'index.html';
-}
+/* ******************************* DOM Values ******************************* */
 
 const appContainer = document.querySelector('.app-container');
 
-// initialize the timer based on current state
-function initTimer(timer) {
-  const timerState = localStorage.getItem('Timer');
+/* **************************** Helper Functions **************************** */
 
-  timer.reset();
+/**
+ * Update the .app-title based on the break's checkbox.
+ * @param {boolean} nextTask - Next task in list.
+ */
+function updateAppTitle(nextTask) {
+  const taskList = JSON.parse(localStorage.getItem('TaskList'));
+  const { length } = taskList.todo;
+  let title = '';
 
-  // if timer is true set pomo, otherwise it is a break
-  if (timerState === 'true') {
-    timer.setColorGreen();
-    timer.createTimer(0, 25);
+  // Determine the header based on the length of the TODO list.
+  if (length === 0) {
+    title = 'End of Session';
+  } else if (nextTask && length === 1) {
+    title = 'End of Session';
+  } else if (nextTask && length - 1 === 1) {
+    title = `Last Task: ${taskList.todo[1].name}`;
+  } else if (nextTask && length - 1 > 1) {
+    title = `Next Task: ${taskList.todo[1].name}`;
+  } else if (length === 1) {
+    title = `Last Task: ${taskList.todo[0].name}`;
   } else {
-    const totalPomos = Number(localStorage.getItem('TotalPomos'));
-    const breakPrompt = new BreakPrompt();
+    title = `Current Task: ${taskList.todo[0].name}`;
+  }
+  document.querySelector('.app-title').innerHTML = title;
+}
 
-    timer.setColorRed();
-    timer.appendChild(breakPrompt);
+/**
+ * A callback function used in the BreakPrompt on changing of the checkbox.
+ * @param {Object} object - A BreakPrompt object.
+ */
+function changeTitle(object) {
+  updateAppTitle(object.getChecked());
+}
 
-    // if there has been 4 pomos then it is a long break
-    if (totalPomos > 0 && totalPomos % 4 === 0) {
-      // long break
-      timer.createTimer(0, 10);
+/**
+ * Initialize the timer based on current STATE.
+ * @param {Object} timer - The Timer object.
+ */
+function initTimer(timer) {
+  // Change to done page if no more tasks in todo.
+  if (JSON.parse(localStorage.getItem('TaskList')).todo.length === 0) {
+    window.location.href = 'done.html';
+  } else {
+    const timerState = localStorage.getItem('Timer');
+    timer.reset();
+
+    // If timer is true set pomo, otherwise it is a break
+    if (timerState === 'true') {
+      // Update the HTML
+      updateAppTitle(false);
+      timer.setColorGreen();
+      timer.createTimer(0, 3);
     } else {
-      // short break
-      timer.createTimer(0, 5);
+      const totalPomos = Number(localStorage.getItem('TotalPomos'));
+      const breakPrompt = new BreakPrompt(changeTitle);
+
+      // Update the HTML
+      updateAppTitle(false);
+      timer.setColorRed();
+      timer.appendChild(breakPrompt);
+
+      // If there has been 4 pomos then it is a long break
+      if (totalPomos > 0 && totalPomos % 4 === 0) {
+        // Long break
+        timer.createTimer(0, 10);
+      } else {
+        // Short break
+        timer.createTimer(0, 5);
+      }
     }
   }
 }
 
+/**
+ * Handle starting the timer and updating the Pomos.
+ * @param {Object} timer - The Timer object.
+ * @param {Object} taskList - The TaskList object.
+ */
 function handleClick(timer, taskList) {
   let active = false;
 
@@ -90,71 +141,60 @@ function handleClick(timer, taskList) {
         }
 
         localStorage.setItem('Timer', timerState === 'false');
-
         initTimer(timer);
-
         active = false;
       });
     }
   });
 }
 
+/**
+ * Displays the Timer and begins to handle the events of interaction.
+ */
 function showTimer() {
   const timerUI = new TimerUI();
   const votl = new ViewOnlyTaskList();
 
+  // Call any helper functions to handle user events.
+  updateAppTitle(false);
   handleClick(timerUI, votl);
   initTimer(timerUI);
 
   appContainer.appendChild(timerUI);
   appContainer.appendChild(votl);
-
-  document.querySelector('.app-title').innerHTML = `Current Task: ${votl.data.todo[0].name}`;
 }
 
-if (localStorage.getItem('Started')) {
-  showTimer();
-} else {
-  appContainer.appendChild(new EditableTaskList());
-  document.querySelector('.app-title').innerHTML = `${localStorage.getItem('Username')}'s Day`;
+/* ***************************** Event Handling ***************************** */
 
-  appContainer.querySelector('button').addEventListener('click', () => {
-    const data = new TaskList();
-    if (data.todo.length > 0) {
-      localStorage.setItem('Started', true);
-      localStorage.setItem('Timer', true);
-      localStorage.setItem('TotalPomos', 0);
-      appContainer.lastElementChild.remove();
-      showTimer();
-    }
-  });
-}
-
-// TODO: If New User, display Editable Task List.
-// TODO: Once User has tasks list (start day button?) display timer and ViewOnlyTaskList.
-
-/*
-document.addEventListener('keydown', (e) => {
-  if (e.code === 'ArrowRight') {
-    appContainer.replaceChild(new ViewOnlyTaskList(), appContainer.lastElementChild);
-  } else if (e.code === 'ArrowLeft') {
-    appContainer.replaceChild(new EditableTaskList(), appContainer.lastElementChild);
+/**
+ * Will hold all Edge Cases that should be check when a page is loaded.
+ */
+function handleOnLoad() {
+  // Redirect to index.html if no name is in localStorage.
+  if (!localStorage.getItem('Username')) {
+    window.location.href = 'index.html';
   }
-});
-
-// Global Variables:
-const body = document.querySelector('.container');
-const timerUI = new TimerUI();
-
-body.appendChild(timerUI);
-timerUI.createTimer(0, 10);
-timerUI.setColorGreen();
-
-async function testTimer() {
-  await timerUI.startTimer();
-  console.log('BOOM :)');
-  timerUI.setColorRed();
+  // TODO: Add more edge cases here
+  if (localStorage.getItem('Started')) {
+    showTimer();
+  } else {
+    appContainer.appendChild(new EditableTaskList());
+    document.querySelector('.app-title').innerHTML = `${localStorage.getItem('Username')}'s Day`;
+    appContainer.querySelector('button').addEventListener('click', () => {
+      const data = new TaskList();
+      // Set values to default.
+      if (data.todo.length > 0) {
+        localStorage.setItem('Started', true);
+        localStorage.setItem('Timer', true);
+        localStorage.setItem('TotalPomos', 0);
+        appContainer.lastElementChild.remove();
+        showTimer();
+      } else {
+        handleOnLoad();
+      }
+    });
+  }
 }
 
-testTimer();
-*/
+// Handle any edge cases on loading into the page.
+window.addEventListener('load', handleOnLoad);

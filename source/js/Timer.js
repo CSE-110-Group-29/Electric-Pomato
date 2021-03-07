@@ -3,16 +3,17 @@
  * @author Donald Wolfson
  * @author Justin Lee
  * @author Enrique Gan
- * Date: 03/04/2021
+ * @author Arman Mansourian
+ * Date: 03/07/2021
  */
 
 /**
- * @class Constructor for the timer object
- * @classdesc Defines the Timer class that fires a callback the moment it starts
+ * Defines the Timer class that fires a callback the moment it starts
  * and every second after until the timer reaches 0 mins 0 seconds (inclusive).
  */
 class Timer {
   /**
+   * Constructs the timer object.
    * @param {number} minutes - Numerical value of maximum minutes.
    * @param {number} seconds - Numerical value of maximum seconds.
    * @param {callback} callbackEverySecond - callback called every second.

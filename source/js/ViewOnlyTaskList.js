@@ -2,15 +2,19 @@
  * @file Creates and defines the ViewOnlyTaskList custom HTLMElement.
  * @author Andy Young
  * @author Annika Hatcher
+ * @author Liam Stone
  * Date: 03/04/2021
  */
 import TaskList from './TaskList.js';
 
 /**
- * @class Constructs the HTML for the non-editable TaskList
- * @classdesc Defines the ViewOnlyTaskList and its helper functions.
+ * Defines the ViewOnlyTaskList and its helper functions.
+ * @extends HTMLElements
  */
 class ViewOnlyTaskList extends HTMLElement {
+  /**
+  * constructor for ViewOnlyTaskList
+  */
   constructor() {
     super();
 
@@ -21,7 +25,7 @@ class ViewOnlyTaskList extends HTMLElement {
     this.rowTemplate = document.querySelector('#view-row-template').content;
 
     this.appContainer = document.querySelector('.app-container');
-    this.appTitle = document.querySelector('.app-title');
+    this.appHeader = document.querySelector('.app-header');
     this.visible = false;
 
     this.classList.add('task-list-container', 'view-only');
@@ -62,7 +66,7 @@ class ViewOnlyTaskList extends HTMLElement {
 
   /**
    * Insert a row.
-   * @param  {...any} args data.
+   * @param  {...any} arg - args data.
    */
   insertRow(...args) {
     const clone = this.rowTemplate.cloneNode(true);
@@ -78,7 +82,7 @@ class ViewOnlyTaskList extends HTMLElement {
 
   /**
    * Insert a title.
-   * @param {*} title The title.
+   * @param {*} title-  title The title.
    */
   insertTitle(title) {
     this.appendChild(this.titleTemplate.cloneNode(true));
@@ -90,7 +94,7 @@ class ViewOnlyTaskList extends HTMLElement {
    */
   position() {
     if (this.visible) {
-      this.style.top = `${this.appTitle.offsetHeight}px`;
+      this.style.top = `${this.appHeader.offsetHeight}px`;
     } else {
       this.style.top = `${this.appContainer.offsetHeight - (this.querySelector('.header').getBoundingClientRect().top - this.getBoundingClientRect().top)}px`;
     }

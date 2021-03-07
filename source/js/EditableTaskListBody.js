@@ -2,16 +2,20 @@
  * @author Andy Young
  * @author Teresa Truong
  * @author Annika Hatcher
- * Date: 03/04/2021
+ * @author Arman Mansourian
+ * Date: 03/07/2021
  */
 
 import TaskList from './TaskList.js';
 
 /**
- * @class Constructor for the Task List UI
- * @classdesc Creates a customer HTMLElement for editing the TaskList.
+ * Creates a customer HTMLElement for editing the TaskList.
+ * @extends HTMLElement
  */
 class EditableTaskListBody extends HTMLElement {
+  /**
+   * Constructor for the Task List UI.
+   */
   constructor() {
     super();
 
@@ -28,8 +32,8 @@ class EditableTaskListBody extends HTMLElement {
 
   /**
    * Create a new task with the given inputs and update the UI.
-   * @param {String} name Name of new task.
-   * @param {Number} expected Expected number of pomos.
+   * @param {string} name - Name of new task.
+   * @param {number} expected - Expected number of pomos.
    */
   addRow(...args) {
     this.data.createTask(...args);
@@ -47,8 +51,8 @@ class EditableTaskListBody extends HTMLElement {
 
   /**
    * Edit task from todo at given index.
-   * @param {Number} index Index of task to remove.
-   * @param {HTMLElement[]} inputs References to input tag of the row.
+   * @param {number} index - Index of task to remove.
+   * @param {HTMLElement[]} inputs - References to input tag of the row.
    */
   editRow(row, inputs) {
     if (this.editingRow) {
@@ -71,7 +75,7 @@ class EditableTaskListBody extends HTMLElement {
 
   /**
    * Remove task from todo at given index.
-   * @param {Number} row Row of task to remove.
+   * @param {number} row - Row of task to remove.
    */
   removeRow(row) {
     if (this.editingRow) {
@@ -117,9 +121,9 @@ class EditableTaskListBody extends HTMLElement {
 
   /**
    * Add a new row to the UI.
-   * @param {Number} number Number of new task on the list.
-   * @param {String} name Name of new task.
-   * @param {Number} expected Expected number of pomos.
+   * @param {number} number - Number of new task on the list.
+   * @param {string} name - Name of new task.
+   * @param {number} expected - Expected number of pomos.
    */
   insertRow(...args) {
     const clone = this.template.cloneNode(true);

@@ -2,14 +2,17 @@
  * @file Holds the code the general functionality of the TaskList.
  * @author Andy Young
  * @author Annika Hatcher
- * Date: 03/04/2021
+ * @author Arman Mansourian
+ * Date: 03/07/2021
  */
 
 /**
- * @class Constructor for the TaskList object.
- * @classdesc Creates the TaskList class and define its helper functions.
+ * Creates the TaskList class and define its helper functions.
  */
 class TaskList {
+  /**
+   * Constructor for the TaskList object.
+   */
   constructor() {
     // Checks localStorage for TaskList item.
     const stored = JSON.parse(localStorage.getItem('TaskList'));
@@ -43,8 +46,8 @@ class TaskList {
 
   /**
    * Add new task to todo with given name and expected pomodoros.
-   * @param {String} name Name of task.
-   * @param {Number} expected Expected number of pomodoros.
+   * @param {string} name - Name of task.
+   * @param {number} expected - Expected number of pomodoros.
    */
   createTask(name, expected) {
     // Put inputs into a task object with initial actual value of 0.
@@ -61,7 +64,7 @@ class TaskList {
 
   /**
    * Remove task from todo at given index.
-   * @param {Number} index Index of task to remove.
+   * @param {number} index - Index of task to remove.
    */
   deleteTask(index) {
     this.todo.splice(index, 1);
@@ -70,9 +73,9 @@ class TaskList {
 
   /**
    * Update the task at the given index with the given name and expected pomodoros.
-   * @param {Number} index Index of task to update.
-   * @param {String} name Updated name of task.
-   * @param {Number} expected Updated expected number of pomodoros.
+   * @param {number} index - Index of task to update.
+   * @param {string} name - Updated name of task.
+   * @param {number} expected - Updated expected number of pomodoros.
    */
   updateTask(index, name, expected) {
     const todoListSize = Object.keys(this.todo).length;
