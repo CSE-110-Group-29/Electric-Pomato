@@ -5,13 +5,14 @@
  * @author Enrique Gan
  * @author Donald Wolfson
  * @author Andy Young
+ * @author Liam Stone
  */
 
 import Timer from './Timer.js';
 
 /**
- * @class Creates the Custom HTMLElement for the Timer class
- * @classdesc Creates the Custom HTMLElement for the Timer class.
+ * Creates the Custom HTMLElement for the Timer class.
+ * @extends HTMLElement
  */
 class TimerUI extends HTMLElement {
   constructor() {
