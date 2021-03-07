@@ -11,6 +11,7 @@
 class BreakPrompt extends HTMLElement {
   /**
   * Create the HTML prompt element.
+  * @param {requestCallback} callback - Callback function
   */
   constructor(callback) {
     super();
@@ -21,7 +22,7 @@ class BreakPrompt extends HTMLElement {
 
   /**
   * Get whether checkbox is checked.
-  * @return {boolean} checked property
+  * @return {boolean} Checked property
   */
   getChecked() {
     return this.lastElementChild.checked;
