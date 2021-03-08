@@ -46,6 +46,18 @@ class EditableTaskListBody extends HTMLElement {
   }
 
   /**
+   * Disable/Enable save task button based on validity of inputs.
+   */
+  checkInputValidity(newName, newExpected) {
+    if (newName.length === 0 || Number(newExpected) === 0) {
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
+
+  /**
    * Edit task from todo at given index.
    * @param {Number} index Index of task to remove.
    * @param {HTMLElement[]} inputs References to input tag of the row.
@@ -139,8 +151,17 @@ class EditableTaskListBody extends HTMLElement {
 
     userInputs.forEach((input) => {
       input.addEventListener('keyup', (e) => {
-        if (e.code === 'Enter') {
+        if (e.code === 'Enter' && saveIcon.style.display != "none") {
           this.saveEdit();
+        }
+      });
+      input.addEventListener('input', () => {
+        const [newName, newExpected] = this.editingInputs.map((input) => input.value);
+        if (this.checkInputValidity(newName, newExpected) === true) {
+          saveIcon.style.display = "inline";
+        }
+        else {
+          saveIcon.style.display = "none";
         }
       });
     });
