@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1615160828140" clover="3.2.0">
-  <project timestamp="1615160828141" name="All files">
+<coverage generated="1615162248768" clover="3.2.0">
+  <project timestamp="1615162248768" name="All files">
     <metrics statements="222" coveredstatements="110" conditionals="56" coveredconditionals="36" methods="71" coveredmethods="31" elements="349" coveredelements="177" complexity="0" loc="222" ncloc="222" packages="1" files="9" classes="9"/>
     <file name="CurrentYear.js" path="/home/enrique/gitrepos/cse110/cse110-w21-group29/source/js/CurrentYear.js">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
