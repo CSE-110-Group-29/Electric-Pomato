@@ -44,12 +44,12 @@ class StartButtons extends HTMLElement {
      * <button type="button" class="btn btn-secondary btn-lg">Create New Session</button>
      */
   static createButton() {
-    const btn = document.createElement('btn');
+    const button = document.createElement('button');
     const text = document.createTextNode('Create New Session');
-    btn.classList.add('btn', 'btn-success', 'btn-lg', 'btn-block');
-    btn.appendChild(text);
+    button.classList.add('btn', 'btn-success', 'btn-lg', 'btn-block');
+    button.appendChild(text);
 
-    btn.addEventListener('click', () => {
+    button.addEventListener('click', () => {
       // TODO show warning alert
       // Wipe stuff from last session from local storage
       localStorage.removeItem('TaskList');
@@ -59,7 +59,7 @@ class StartButtons extends HTMLElement {
       window.location.href = './app.html';
     });
 
-    return btn;
+    return button;
   }
 
   /**

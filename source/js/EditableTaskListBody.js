@@ -15,9 +15,12 @@ import TaskList from './TaskList.js';
 class EditableTaskListBody extends HTMLElement {
   /**
    * Constructor for the Task List UI.
+   * @param {Object} editableTaskList - An EditableTaskList object.
    */
-  constructor() {
+  constructor(editableTaskList) {
     super();
+
+    this.editableTaskList = editableTaskList;
 
     // Initialize instance variables.
     this.template = document.querySelector('#task-row-template').content;
@@ -38,6 +41,8 @@ class EditableTaskListBody extends HTMLElement {
   addRow(name, expected) {
     this.data.createTask(name, Number(expected));
     this.insertRow(this.data.todo.length, name, expected);
+
+    this.editableTaskList.updateButtonState();
   }
 
   /**
@@ -89,6 +94,8 @@ class EditableTaskListBody extends HTMLElement {
       child.querySelector('input').value = i + 1;
       child.dataset.id = i;
     });
+
+    this.editableTaskList.updateButtonState();
 
     this.nextElementSibling.reset();
   }
