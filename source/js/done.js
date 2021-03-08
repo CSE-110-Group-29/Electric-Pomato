@@ -4,7 +4,7 @@
  */
 
 /* ******************************** Imports ********************************* */
-import TimerUI from './components/TimerUI.js';
+import TimerUI from './TimerUI.js';
 
 /**
  * STATE:
