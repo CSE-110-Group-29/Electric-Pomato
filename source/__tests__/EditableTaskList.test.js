@@ -1,4 +1,5 @@
 import EditableTaskList from '../js/EditableTaskList.js';
+import TaskList from '../js/TaskList.js';
 
 // Initialize the DOM with a EditableTaskList element.
 beforeEach(() => {
@@ -70,6 +71,18 @@ beforeEach(() => {
 });
 
 test('Blank Test', () => {
+  const editableTaskList = new EditableTaskList();
+  expect(editableTaskList).not.toBeNull();
+});
+
+test('Load Existing TaskList', () => {
+  // save a tasklist into localstorage
+  const taskList = new TaskList();
+  const taskName = 'first task';
+  const taskNum = 1;
+  taskList.createTask(taskName, taskNum);
+  taskList.save();
+
   const editableTaskList = new EditableTaskList();
   expect(editableTaskList).not.toBeNull();
 });

@@ -20,6 +20,8 @@ beforeEach(() => {
         <h5>Enter your name to start.</h5>
     </template>
   </div>`;
+
+  localStorage.clear();
 });
 
 test('Blank Test', () => {
@@ -43,6 +45,14 @@ test('keyup Event Listener', () => {
     40, // keyCode: unsigned long - the virtual key code, else 0
     0, // charCode: unsigned long - the Unicode character associated with the depressed key, else 0
   );
-  document.dispatchEvent(keyboardEvent);
-  expect(true).toBe(true);
+  // username
+  const username = 'Jest';
+  const usernameInput = new UsernameInput();
+
+  // write username
+  usernameInput.querySelector('.start-input').value = username;
+  usernameInput.querySelector('.start-input-button').dispatchEvent(keyboardEvent);
+  const localStorageUsername = localStorage.getItem('Username');
+
+  expect(localStorageUsername).toBe(username);
 });
