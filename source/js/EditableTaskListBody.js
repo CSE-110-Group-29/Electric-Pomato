@@ -35,9 +35,9 @@ class EditableTaskListBody extends HTMLElement {
    * @param {string} name - Name of new task.
    * @param {number} expected - Expected number of pomos.
    */
-  addRow(...args) {
-    this.data.createTask(...args);
-    this.insertRow(this.data.todo.length, ...args);
+  addRow(name, expected) {
+    this.data.createTask(name, Number(expected));
+    this.insertRow(this.data.todo.length, name, expected);
   }
 
   /**
@@ -97,9 +97,9 @@ class EditableTaskListBody extends HTMLElement {
    * Save changes to the row.
    */
   saveEdit() {
-    const newValues = this.editingInputs.map((input) => input.value);
-    this.data.updateTask(Number(this.editingRow.dataset.id), ...newValues);
-    this.originalValues = newValues;
+    const [newName, newExpected] = this.editingInputs.map((input) => input.value);
+    this.data.updateTask(Number(this.editingRow.dataset.id), newName, Number(newExpected));
+    this.originalValues = [newName, newExpected];
     this.cancelEdit();
   }
 
