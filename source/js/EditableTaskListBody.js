@@ -15,6 +15,7 @@ import TaskList from './TaskList.js';
 class EditableTaskListBody extends HTMLElement {
   /**
    * Constructor for the Task List UI.
+   * @param {Object} editableTaskList - An EditableTaskList object.
    */
   constructor(editableTaskList) {
     super();
