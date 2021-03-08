@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1615176103677" clover="3.2.0">
-  <project timestamp="1615176103677" name="All files">
-    <metrics statements="229" coveredstatements="156" conditionals="56" coveredconditionals="36" methods="72" coveredmethods="39" elements="357" coveredelements="231" complexity="0" loc="229" ncloc="229" packages="1" files="10" classes="10"/>
+<coverage generated="1615176252390" clover="3.2.0">
+  <project timestamp="1615176252390" name="All files">
+    <metrics statements="222" coveredstatements="149" conditionals="56" coveredconditionals="36" methods="71" coveredmethods="38" elements="349" coveredelements="223" complexity="0" loc="222" ncloc="222" packages="1" files="9" classes="9"/>
     <file name="CurrentYear.js" path="/home/enrique/gitrepos/cse110/cse110-w21-group29/source/js/CurrentYear.js">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <line num="16" count="3" type="stmt"/>
@@ -250,16 +250,6 @@
       <line num="109" count="0" type="stmt"/>
       <line num="110" count="0" type="stmt"/>
       <line num="114" count="1" type="stmt"/>
-    </file>
-    <file name="WelcomeMessage.js" path="/home/enrique/gitrepos/cse110/cse110-w21-group29/source/js/WelcomeMessage.js">
-      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <line num="17" count="1" type="stmt"/>
-      <line num="19" count="1" type="stmt"/>
-      <line num="20" count="1" type="stmt"/>
-      <line num="21" count="1" type="stmt"/>
-      <line num="22" count="1" type="stmt"/>
-      <line num="24" count="1" type="stmt"/>
-      <line num="28" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>
