@@ -27,6 +27,7 @@ How should we design the TaskList object? Additionally, the development team wan
 10.	Is it much easier to work with the task list if it’s converted to a Session object?
 11.	How should we handle the interactivity of the task list?
 12.	Should we rebuild or re-render the task list every time it's updated?
+13.	How do the "I need another Pomodoro!" and "I finished!" buttons function alongside the TaskList object?
 
 ## Decision Outcomes
 
@@ -53,7 +54,7 @@ How should we design the TaskList object? Additionally, the development team wan
     - EditableTaskList.js: serves at the wrapper container for the body and input files below.
     - EditableTaskListBody.js: acts as the container for the tasks that were added - is able to edit, save, cancel, and remove tasks.
     - EditableTaskListInput.js: acts as the container for the bottom input section of the task list. This was previously AddRow.
-9. There should be two different task lists: one that's view-only and one that's editable.
+8. There should be two different task lists: one that's view-only and one that's editable.
     - The view-only task list should be the task list that simply displays upcoming and completed tasks to the user.
     - The editable task should only appear once the user clicks on the pencil icon to edit.
     -  UPDATE: after re-evaluating the decision drivers in our High Fidelity Design ADR, the development team chose to only enable the editable task list during the initial start TaskList page (before pressing "Start My Day"). Once again, we want to keep the logic of the overall application straightforward and intuitive for the user. Moreover, permitting the user to create more tasks after completing the initial task list defeats the purpose of the "Start My Day."
@@ -61,13 +62,17 @@ How should we design the TaskList object? Additionally, the development team wan
         - The pop-up task list only has a viewable version.
         - During the "Final Task" break, the user will no longer be queried to add any more tasks.
         - The scope of a "session" will now represent an entire day. The only way to change the task list is to start over from the landing page.
-10. Refreshing or exiting the page should just void the Pomodoro.
-11. ~~The development team decided that it’s much better to convert the TaskList object to a Session object.~~ Update: it’s better to keep these two objects separate. The session script will act as the middle man between the Timer and the TaskList object. This is because the session script is only communicating with UI components.
+9. Refreshing or exiting the page should just void the Pomodoro.
+10. ~~The development team decided that it’s much better to convert the TaskList object to a Session object.~~ UPATE: it’s better to keep these two objects separate. The session script will act as the middle man between the Timer and the TaskList object. This is because the session script is only communicating with UI components.
     - ~~One reason is because the TaskList object is already doing LocalStorage read and writes.~~
     - ~~It’s better to keep all the LocalStorage manipulation in one place because it makes the job of the main script easier – all it has to do is run new Session() and call the methods to do its logic.~~
-12. The pop-up task list should be a button with its own standalone logic. Teresa or Annika will implement this part of the task list.
-13. ~~We should update the task list by rebuilding. That is, we should procedurally inject HTML code into the task list via innerHTML every time something changes, even if it's a small change.~~ Update: Don't rely on rebuilding the task list every time something changes. Instead, we should just re-render the task list.
+11. The pop-up task list should be a button with its own standalone logic. Teresa or Annika will implement this part of the task list.
+12. ~~We should update the task list by rebuilding. That is, we should procedurally inject HTML code into the task list via innerHTML every time something changes, even if it's a small change.~~ UPDATEe: don't rely on rebuilding the task list every time something changes. Instead, we should just re-render the task list.
     - Rebuilding the task list was rather inefficient -- it completely destroys and recreates the HTML elements; not to mention that it also removes event listeners, making it hard to manage references. Additionally, Andy says a problem they've had is that the TaskList object is an instance variable, which means it won't be able to handle edits as the user is pulling up the task list on the web application.
     - Thus, by going with a component based approach and cloning the template for each row, we can store references to each row and keep track of the state easily.
     - Additionally, this prevents the need to re-render the HTML portion of the task list after each change.
     - One thing to keep in mind, however, is that we should also create a separate TaskList object for the session script so it has its own list that can be rendered safely.
+13. ~~The "I need another Pomodoro!" and "I finished!" buttons are actually a single button that's toggleable, and the way the TaskList behaves is dependent on which button is displayed by the end of the break timer. If the button displays the former, then the TaskList doesn't change. Subsequently, the task displayed on top of the screen doesn't change either. If the button displays the latter, then the TaskList will move the finished task to the completed section and pull up the next task. The default option for the button is "I need another Pomodoro!" However, once the actual number of Pomodoros exceeds that of the estimated number of Pomodoros, then the application will "flip" the button.~~ UPDATE: the buttons are no longer being used. Instead, they are supplanted by a checkbox. Below are the reasons why the development team decided to make that change.
+    - The team felt that it was a bit weird to see a default button text of "I need another Pomodoro!" In this case of a button, it would make more sense to gray out the button. 
+    - Toggling the button without any explanation is going to be confusing for the end user.
+    - The team also thought about warning the user before "flipping" button, but even with that feature, it would still be akward for the user. Thus, a checkbox feels a lot more intuitive to use.
