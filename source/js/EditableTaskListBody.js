@@ -15,9 +15,12 @@ import TaskList from './TaskList.js';
 class EditableTaskListBody extends HTMLElement {
   /**
    * Constructor for the Task List UI.
+   * @param {Object} editableTaskList - An EditableTaskList object.
    */
-  constructor() {
+  constructor(editableTaskList) {
     super();
+
+    this.editableTaskList = editableTaskList;
 
     // Initialize instance variables.
     this.template = document.querySelector('#task-row-template').content;
@@ -35,9 +38,11 @@ class EditableTaskListBody extends HTMLElement {
    * @param {string} name - Name of new task.
    * @param {number} expected - Expected number of pomos.
    */
-  addRow(...args) {
-    this.data.createTask(...args);
-    this.insertRow(this.data.todo.length, ...args);
+  addRow(name, expected) {
+    this.data.createTask(name, Number(expected));
+    this.insertRow(this.data.todo.length, name, expected);
+
+    this.editableTaskList.updateButtonState();
   }
 
   /**
@@ -90,6 +95,8 @@ class EditableTaskListBody extends HTMLElement {
       child.dataset.id = i;
     });
 
+    this.editableTaskList.updateButtonState();
+
     this.nextElementSibling.reset();
   }
 
@@ -97,9 +104,9 @@ class EditableTaskListBody extends HTMLElement {
    * Save changes to the row.
    */
   saveEdit() {
-    const newValues = this.editingInputs.map((input) => input.value);
-    this.data.updateTask(Number(this.editingRow.dataset.id), ...newValues);
-    this.originalValues = newValues;
+    const [newName, newExpected] = this.editingInputs.map((input) => input.value);
+    this.data.updateTask(Number(this.editingRow.dataset.id), newName, Number(newExpected));
+    this.originalValues = [newName, newExpected];
     this.cancelEdit();
   }
 

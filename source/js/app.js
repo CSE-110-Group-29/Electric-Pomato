@@ -12,7 +12,6 @@
 import EditableTaskList from './EditableTaskList.js';
 import ViewOnlyTaskList from './ViewOnlyTaskList.js';
 import TimerUI from './TimerUI.js';
-import TaskList from './TaskList.js';
 import BreakPrompt from './BreakPrompt.js';
 
 /**
@@ -173,25 +172,17 @@ function handleOnLoad() {
   // Redirect to index.html if no name is in localStorage.
   if (!localStorage.getItem('Username')) {
     window.location.href = 'index.html';
-  }
-  // TODO: Add more edge cases here
-  if (localStorage.getItem('Started')) {
+  } else if (localStorage.getItem('Started')) {
     showTimer();
   } else {
     appContainer.appendChild(new EditableTaskList());
     document.querySelector('.app-title').innerHTML = `${localStorage.getItem('Username')}'s Day`;
     appContainer.querySelector('button').addEventListener('click', () => {
-      const data = new TaskList();
-      // Set values to default.
-      if (data.todo.length > 0) {
-        localStorage.setItem('Started', true);
-        localStorage.setItem('Timer', true);
-        localStorage.setItem('TotalPomos', 0);
-        appContainer.lastElementChild.remove();
-        showTimer();
-      } else {
-        handleOnLoad();
-      }
+      localStorage.setItem('Started', true);
+      localStorage.setItem('Timer', true);
+      localStorage.setItem('TotalPomos', 0);
+      appContainer.lastElementChild.remove();
+      showTimer();
     });
   }
 }
