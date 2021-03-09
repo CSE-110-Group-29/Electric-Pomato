@@ -1,20 +1,29 @@
 /**
- * @file Creates a custom element to display the current year used for dynamic copyright years.
+ * @file Creates custom HTML element for a break timer prompt.
  * @author Andy Young
+ * @author Arman Mansourian
  */
 
 /**
- * @class Appends a text element containing the current year from a Date() object.
- * @classdesc Updates the HTML with the current year.
+ * Prompt HTML element to be displayed on break timer.
+ * @extends HTMLElement
  */
 class BreakPrompt extends HTMLElement {
-  constructor() {
+  /**
+  * Create the HTML prompt element.
+  * @param {requestCallback} callback - Callback function
+  */
+  constructor(callback) {
     super();
-
     this.classList.add('text-center');
     this.appendChild(document.querySelector('#prompt-template').content.cloneNode(true));
+    this.lastElementChild.addEventListener('change', callback.bind(this, this));
   }
 
+  /**
+  * Get whether checkbox is checked.
+  * @return {boolean} Checked property
+  */
   getChecked() {
     return this.lastElementChild.checked;
   }

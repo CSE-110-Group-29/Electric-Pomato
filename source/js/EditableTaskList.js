@@ -1,25 +1,45 @@
 /**
  * @file Creates and displays an editable task list.
  * @author Andy Young
- * Date: 03/04/2021
+ * @author Arman Mansourian
+ * Date: 03/07/2021
  */
 
 import EditableTaskListBody from './EditableTaskListBody.js';
 import EditableTaskListInput from './EditableTaskListInput.js';
 
 /**
- * @class Constructs the HTML of the EditableTaskListBody and EditableTaskListInput.
- * @classdesc Constructs the HTML of the EditableTaskListBody and EditableTaskListInput.
+ * Constructs the HTML of the EditableTaskListBody and EditableTaskListInput.
+ * @extends HTMLElement
  */
 class EditableTaskList extends HTMLElement {
+  /**
+   * Create and append custom elements.
+   */
   constructor() {
     super();
 
-    this.classList.add('task-list-container');
     this.appendChild(document.querySelector('#edit-title-template').content.cloneNode(true));
-    this.appendChild(document.querySelector('#edit-header-row-template').content.cloneNode(true));
-    this.appendChild(new EditableTaskListBody());
-    this.appendChild(new EditableTaskListInput());
+
+    this.startButton = this.querySelector('button');
+
+    const taskListContainer = document.createElement('div');
+    taskListContainer.classList.add('task-list-container');
+    this.appendChild(taskListContainer);
+
+    taskListContainer.appendChild(document.querySelector('#edit-header-row-template').content.cloneNode(true));
+
+    this.body = new EditableTaskListBody(this);
+    taskListContainer.appendChild(this.body);
+    taskListContainer.appendChild(new EditableTaskListInput());
+  }
+
+  connectedCallback() {
+    this.updateButtonState();
+  }
+
+  updateButtonState() {
+    this.startButton.disabled = !(this.body.data.todo.length > 0);
   }
 }
 

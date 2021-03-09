@@ -2,31 +2,40 @@
  * @file Creates and defines the ViewOnlyTaskList custom HTLMElement.
  * @author Andy Young
  * @author Annika Hatcher
+ * @author Liam Stone
  * Date: 03/04/2021
  */
+
 import TaskList from './TaskList.js';
+import ViewOnlyTaskListSection from './ViewOnlyTaskListSection.js';
 
 /**
- * @class Constructs the HTML for the non-editable TaskList
- * @classdesc Defines the ViewOnlyTaskList and its helper functions.
+ * Defines the ViewOnlyTaskList and its helper functions.
+ * @extends HTMLElements
  */
 class ViewOnlyTaskList extends HTMLElement {
+  /**
+  * constructor for ViewOnlyTaskList
+  */
   constructor() {
     super();
 
     this.data = new TaskList();
 
-    this.titleTemplate = document.querySelector('#view-title-template').content;
-    this.headerRowTemplate = document.querySelector('#view-header-row-template').content;
-    this.rowTemplate = document.querySelector('#view-row-template').content;
-
     this.appContainer = document.querySelector('.app-container');
-    this.appTitle = document.querySelector('.app-title');
+    this.appHeader = document.querySelector('.app-header');
     this.visible = false;
 
-    this.classList.add('task-list-container', 'view-only');
+    this.taskListTitle = document.createElement('h2');
+    this.taskListTitle.classList.add('subtitle', 'text-center', 'mt-2', 'mb-2');
 
-    this.addEventListener('click', () => {
+    this.taskListContainer = document.createElement('div');
+    this.taskListContainer.classList.add('task-list-container');
+
+    this.appendChild(this.taskListTitle);
+    this.appendChild(this.taskListContainer);
+
+    this.taskListTitle.addEventListener('click', () => {
       this.visible = !this.visible;
       this.position();
     });
@@ -42,47 +51,14 @@ class ViewOnlyTaskList extends HTMLElement {
   }
 
   render() {
-    while (this.firstChild) {
-      this.removeChild(this.firstChild);
+    while (this.taskListContainer.firstChild) {
+      this.taskListContainer.removeChild(this.taskListContainer.firstChild);
     }
 
-    this.insertTitle('Task List');
-    this.appendChild(this.headerRowTemplate.cloneNode(true));
-    this.data.todo.forEach(({ name, expected, actual }, i) => {
-      this.insertRow(i + 1, name, expected, actual);
-    });
-
-    this.insertTitle('Completed');
-    this.lastElementChild.classList.add('mt-4');
-    this.appendChild(this.headerRowTemplate.cloneNode(true));
-    this.data.completed.forEach(({ name, expected, actual }, i) => {
-      this.insertRow(i + 1, name, expected, actual);
-    });
-  }
-
-  /**
-   * Insert a row.
-   * @param  {...any} args data.
-   */
-  insertRow(...args) {
-    const clone = this.rowTemplate.cloneNode(true);
-    this.appendChild(clone);
-
-    const row = this.lastElementChild;
-    const inputs = row.querySelectorAll('input');
-
-    inputs.forEach((input, i) => {
-      input.value = args[i];
-    });
-  }
-
-  /**
-   * Insert a title.
-   * @param {*} title The title.
-   */
-  insertTitle(title) {
-    this.appendChild(this.titleTemplate.cloneNode(true));
-    this.lastElementChild.appendChild(document.createTextNode(title));
+    this.taskListContainer.appendChild(new ViewOnlyTaskListSection('To Do', this.data.todo));
+    if (this.data.completed.length > 0) {
+      this.taskListContainer.appendChild(new ViewOnlyTaskListSection('Completed', this.data.completed));
+    }
   }
 
   /**
@@ -90,9 +66,11 @@ class ViewOnlyTaskList extends HTMLElement {
    */
   position() {
     if (this.visible) {
-      this.style.top = `${this.appTitle.offsetHeight}px`;
+      this.taskListTitle.innerHTML = '<i class="fas fa-chevron-down"></i>';
+      this.style.top = `${this.appHeader.offsetHeight}px`;
     } else {
-      this.style.top = `${this.appContainer.offsetHeight - (this.querySelector('.header').getBoundingClientRect().top - this.getBoundingClientRect().top)}px`;
+      this.taskListTitle.innerHTML = '<i class="fas fa-chevron-up"></i>';
+      this.style.top = `${this.appContainer.offsetHeight - (this.querySelector('.task-list-container').getBoundingClientRect().top - this.getBoundingClientRect().top)}px`;
     }
   }
 
