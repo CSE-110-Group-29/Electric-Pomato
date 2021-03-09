@@ -144,7 +144,7 @@ class EditableTaskListBody extends HTMLElement {
         }
       });
       input.addEventListener('input', () => {
-        const [newName, newExpected] = this.editingInputs.map((input) => input.value);
+        const [newName, newExpected] = this.editingInputs.map((inputValue) => inputValue.value);
         if (newName.length === 0 || Number(newExpected) === 0) {
           saveIcon.style.display = 'none';
         } else {
