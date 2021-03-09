@@ -44,4 +44,5 @@ class EditableTaskList extends HTMLElement {
 }
 
 customElements.define('editable-task-list', EditableTaskList);
+
 export default EditableTaskList;
