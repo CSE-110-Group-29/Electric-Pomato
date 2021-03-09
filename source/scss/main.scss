@@ -390,4 +390,11 @@ view-only-task-list {
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
+    animation-name: animatetop;
+    animation-duration: 0.5s
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
 }
