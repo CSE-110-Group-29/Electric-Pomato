@@ -45,8 +45,8 @@ Allen:
 Enrique:
 
 - Exploratory Programming, focusing on Timer functions.
-- Drew [System Diagram](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/admin/pitch/System%20Diagram.jpg) of our model.
-- Redrew [System Diagram](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/admin/pitch/systemdiagram.drawio.png).
+- Drew [System Diagram](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/specs/interface/wireframe/System%20Diagram.jpg) of our model.
+- Redrew [System Diagram](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/specs/interface/wireframe/systemdiagram.drawio.png).
 - [Timer](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/source/__tests__/Timer.test.js) and [TaskList](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/source/__tests__/TaskList.test.js) Unit Tests.
   - Debugged Jest to find best way to write unit tests using current libraries.
 - TODO: Work on session script and TimerUI.js script.
@@ -77,13 +77,13 @@ Teresa:
 Justin:
 
 - Worked on source code for [Timer](https://github.com/DonaldWolfson/cse110-w21-group29/blame/main/source/js/Timer.js).
-- Working on creating a [TimerUI](https://github.com/DonaldWolfson/cse110-w21-group29/blob/session_script/source/js/TimerUI.js) object similar to the TaskListUI object.
+- Working on creating a ~~[TimerUI](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/source/js/TimerUI.js)~~(Deprecated) object similar to the TaskListUI object.
 - Whiteboarding the session script.
 - TODO: Continue to work on session sript, and TimerUI.js.
 
 Andy:
 
-- Worked on source code for [TaskList](https://github.com/DonaldWolfson/cse110-w21-group29/blame/main/source/js/TaskList.js) and [TaskListUI](https://github.com/DonaldWolfson/cse110-w21-group29/blame/main/source/js/TaskListUI.js).
+- Worked on source code for [TaskList](https://github.com/DonaldWolfson/cse110-w21-group29/blame/main/source/js/TaskList.js) and ~~[TaskListUI](https://github.com/DonaldWolfson/cse110-w21-group29/blame/main/source/js/TaskListUI.js)~~(Deprecated).
 - Helped discuss lots of edge cases with Enrique and other devs in terms of testing.
 - Found a way to create a [production branch](https://github.com/DonaldWolfson/cse110-w21-group29/tree/production).
 - TODO: Work with dev team on finalizing smaller issues, as well as integrating code into HTML.
