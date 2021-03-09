@@ -204,9 +204,14 @@ footer > .container {
         align-items: center;
     }
 
-    .actions i {
+    .actions button {
         margin-left: 1rem;
-        cursor: pointer;
+        border: none;
+        background-color: inherit;
+    }
+
+    .actions button:disabled {
+        opacity: 0.4;
     }
 
     .save-cancel-container {
