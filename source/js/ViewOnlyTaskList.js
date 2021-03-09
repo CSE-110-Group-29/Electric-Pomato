@@ -48,6 +48,10 @@ class ViewOnlyTaskList extends HTMLElement {
    */
   connectedCallback() {
     this.position();
+
+    window.addEventListener('resize', () => {
+      this.position();
+    });
   }
 
   render() {
