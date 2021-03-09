@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1615176252390" clover="3.2.0">
-  <project timestamp="1615176252390" name="All files">
-    <metrics statements="222" coveredstatements="149" conditionals="56" coveredconditionals="36" methods="71" coveredmethods="38" elements="349" coveredelements="223" complexity="0" loc="222" ncloc="222" packages="1" files="9" classes="9"/>
-    <file name="CurrentYear.js" path="/home/enrique/gitrepos/cse110/cse110-w21-group29/source/js/CurrentYear.js">
+<coverage generated="1615255500588" clover="3.2.0">
+  <project timestamp="1615255500588" name="All files">
+    <metrics statements="229" coveredstatements="172" conditionals="56" coveredconditionals="38" methods="72" coveredmethods="47" elements="357" coveredelements="257" complexity="0" loc="229" ncloc="229" packages="1" files="10" classes="10"/>
+    <file name="CurrentYear.js" path="/Users/annika/cse110/cse110-w21-group29/source/js/CurrentYear.js">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <line num="16" count="3" type="stmt"/>
       <line num="17" count="3" type="stmt"/>
       <line num="21" count="1" type="stmt"/>
     </file>
-    <file name="EditableTaskList.js" path="/home/enrique/gitrepos/cse110/cse110-w21-group29/source/js/EditableTaskList.js">
+    <file name="EditableTaskList.js" path="/Users/annika/cse110/cse110-w21-group29/source/js/EditableTaskList.js">
       <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <line num="20" count="2" type="stmt"/>
       <line num="22" count="2" type="stmt"/>
@@ -18,7 +18,7 @@
       <line num="26" count="2" type="stmt"/>
       <line num="30" count="1" type="stmt"/>
     </file>
-    <file name="EditableTaskListBody.js" path="/home/enrique/gitrepos/cse110/cse110-w21-group29/source/js/EditableTaskListBody.js">
+    <file name="EditableTaskListBody.js" path="/Users/annika/cse110/cse110-w21-group29/source/js/EditableTaskListBody.js">
       <metrics statements="62" coveredstatements="26" conditionals="6" coveredconditionals="0" methods="21" coveredmethods="6"/>
       <line num="20" count="2" type="stmt"/>
       <line num="23" count="2" type="stmt"/>
@@ -83,7 +83,7 @@
       <line num="165" count="0" type="stmt"/>
       <line num="170" count="1" type="stmt"/>
     </file>
-    <file name="EditableTaskListInput.js" path="/home/enrique/gitrepos/cse110/cse110-w21-group29/source/js/EditableTaskListInput.js">
+    <file name="EditableTaskListInput.js" path="/Users/annika/cse110/cse110-w21-group29/source/js/EditableTaskListInput.js">
       <metrics statements="25" coveredstatements="11" conditionals="8" coveredconditionals="0" methods="10" coveredmethods="3"/>
       <line num="19" count="2" type="stmt"/>
       <line num="22" count="2" type="stmt"/>
@@ -111,35 +111,35 @@
       <line num="89" count="0" type="stmt"/>
       <line num="93" count="1" type="stmt"/>
     </file>
-    <file name="TaskList.js" path="/home/enrique/gitrepos/cse110/cse110-w21-group29/source/js/TaskList.js">
+    <file name="TaskList.js" path="/Users/annika/cse110/cse110-w21-group29/source/js/TaskList.js">
       <metrics statements="25" coveredstatements="25" conditionals="4" coveredconditionals="4" methods="8" coveredmethods="8"/>
-      <line num="18" count="16" type="stmt"/>
-      <line num="20" count="16" type="cond" truecount="2" falsecount="0"/>
+      <line num="18" count="21" type="stmt"/>
+      <line num="20" count="21" type="cond" truecount="2" falsecount="0"/>
       <line num="22" count="3" type="stmt"/>
-      <line num="25" count="13" type="stmt"/>
-      <line num="26" count="13" type="stmt"/>
-      <line num="34" count="14" type="stmt"/>
-      <line num="35" count="14" type="stmt"/>
-      <line num="36" count="14" type="stmt"/>
-      <line num="44" count="138" type="stmt"/>
-      <line num="54" count="22" type="stmt"/>
-      <line num="61" count="22" type="stmt"/>
-      <line num="62" count="22" type="stmt"/>
-      <line num="70" count="7" type="stmt"/>
-      <line num="71" count="7" type="stmt"/>
+      <line num="25" count="18" type="stmt"/>
+      <line num="26" count="18" type="stmt"/>
+      <line num="34" count="16" type="stmt"/>
+      <line num="35" count="16" type="stmt"/>
+      <line num="36" count="16" type="stmt"/>
+      <line num="44" count="144" type="stmt"/>
+      <line num="54" count="24" type="stmt"/>
+      <line num="61" count="24" type="stmt"/>
+      <line num="62" count="24" type="stmt"/>
+      <line num="70" count="8" type="stmt"/>
+      <line num="71" count="8" type="stmt"/>
       <line num="81" count="3" type="stmt"/>
       <line num="82" count="3" type="cond" truecount="2" falsecount="0"/>
       <line num="83" count="1" type="stmt"/>
       <line num="85" count="2" type="stmt"/>
       <line num="86" count="2" type="stmt"/>
       <line num="87" count="2" type="stmt"/>
-      <line num="94" count="91" type="stmt"/>
-      <line num="95" count="91" type="stmt"/>
-      <line num="102" count="1" type="stmt"/>
-      <line num="104" count="1" type="stmt"/>
-      <line num="105" count="1" type="stmt"/>
+      <line num="94" count="92" type="stmt"/>
+      <line num="95" count="92" type="stmt"/>
+      <line num="102" count="2" type="stmt"/>
+      <line num="104" count="2" type="stmt"/>
+      <line num="105" count="2" type="stmt"/>
     </file>
-    <file name="Timer.js" path="/home/enrique/gitrepos/cse110/cse110-w21-group29/source/js/Timer.js">
+    <file name="Timer.js" path="/Users/annika/cse110/cse110-w21-group29/source/js/Timer.js">
       <metrics statements="25" coveredstatements="25" conditionals="24" coveredconditionals="24" methods="4" coveredmethods="4"/>
       <line num="22" count="11" type="cond" truecount="2" falsecount="0"/>
       <line num="23" count="11" type="stmt"/>
@@ -167,7 +167,7 @@
       <line num="61" count="3" type="stmt"/>
       <line num="63" count="138" type="stmt"/>
     </file>
-    <file name="TimerUI.js" path="/home/enrique/gitrepos/cse110/cse110-w21-group29/source/js/TimerUI.js">
+    <file name="TimerUI.js" path="/Users/annika/cse110/cse110-w21-group29/source/js/TimerUI.js">
       <metrics statements="22" coveredstatements="22" conditionals="8" coveredconditionals="8" methods="11" coveredmethods="11"/>
       <line num="23" count="8" type="stmt"/>
       <line num="25" count="8" type="stmt"/>
@@ -192,7 +192,7 @@
       <line num="109" count="1" type="stmt"/>
       <line num="113" count="1" type="stmt"/>
     </file>
-    <file name="UsernameInput.js" path="/home/enrique/gitrepos/cse110/cse110-w21-group29/source/js/UsernameInput.js">
+    <file name="UsernameInput.js" path="/Users/annika/cse110/cse110-w21-group29/source/js/UsernameInput.js">
       <metrics statements="12" coveredstatements="7" conditionals="4" coveredconditionals="0" methods="3" coveredmethods="1"/>
       <line num="19" count="2" type="stmt"/>
       <line num="20" count="2" type="stmt"/>
@@ -207,49 +207,59 @@
       <line num="38" count="0" type="stmt"/>
       <line num="43" count="1" type="stmt"/>
     </file>
-    <file name="ViewOnlyTaskList.js" path="/home/enrique/gitrepos/cse110/cse110-w21-group29/source/js/ViewOnlyTaskList.js">
-      <metrics statements="41" coveredstatements="23" conditionals="2" coveredconditionals="0" methods="12" coveredmethods="3"/>
-      <line num="19" count="1" type="stmt"/>
-      <line num="21" count="1" type="stmt"/>
-      <line num="23" count="1" type="stmt"/>
-      <line num="24" count="1" type="stmt"/>
-      <line num="25" count="1" type="stmt"/>
-      <line num="27" count="1" type="stmt"/>
-      <line num="28" count="1" type="stmt"/>
-      <line num="29" count="1" type="stmt"/>
-      <line num="31" count="1" type="stmt"/>
-      <line num="33" count="1" type="stmt"/>
+    <file name="ViewOnlyTaskList.js" path="/Users/annika/cse110/cse110-w21-group29/source/js/ViewOnlyTaskList.js">
+      <metrics statements="41" coveredstatements="39" conditionals="2" coveredconditionals="2" methods="12" coveredmethods="11"/>
+      <line num="19" count="6" type="stmt"/>
+      <line num="21" count="6" type="stmt"/>
+      <line num="23" count="6" type="stmt"/>
+      <line num="24" count="6" type="stmt"/>
+      <line num="25" count="6" type="stmt"/>
+      <line num="27" count="6" type="stmt"/>
+      <line num="28" count="6" type="stmt"/>
+      <line num="29" count="6" type="stmt"/>
+      <line num="31" count="6" type="stmt"/>
+      <line num="33" count="6" type="stmt"/>
       <line num="34" count="0" type="stmt"/>
       <line num="35" count="0" type="stmt"/>
-      <line num="38" count="1" type="stmt"/>
-      <line num="45" count="0" type="stmt"/>
-      <line num="49" count="2" type="stmt"/>
-      <line num="50" count="12" type="stmt"/>
-      <line num="53" count="2" type="stmt"/>
-      <line num="54" count="2" type="stmt"/>
-      <line num="55" count="2" type="stmt"/>
-      <line num="56" count="0" type="stmt"/>
-      <line num="59" count="2" type="stmt"/>
-      <line num="60" count="2" type="stmt"/>
-      <line num="61" count="2" type="stmt"/>
-      <line num="62" count="2" type="stmt"/>
-      <line num="63" count="0" type="stmt"/>
-      <line num="72" count="0" type="stmt"/>
-      <line num="73" count="0" type="stmt"/>
-      <line num="75" count="0" type="stmt"/>
-      <line num="76" count="0" type="stmt"/>
-      <line num="78" count="0" type="stmt"/>
-      <line num="79" count="0" type="stmt"/>
-      <line num="88" count="4" type="stmt"/>
-      <line num="89" count="4" type="stmt"/>
-      <line num="96" count="0" type="cond" truecount="0" falsecount="2"/>
-      <line num="97" count="0" type="stmt"/>
-      <line num="99" count="0" type="stmt"/>
-      <line num="104" count="0" type="stmt"/>
-      <line num="105" count="0" type="stmt"/>
-      <line num="109" count="0" type="stmt"/>
-      <line num="110" count="0" type="stmt"/>
+      <line num="38" count="6" type="stmt"/>
+      <line num="45" count="2" type="stmt"/>
+      <line num="49" count="9" type="stmt"/>
+      <line num="50" count="36" type="stmt"/>
+      <line num="53" count="9" type="stmt"/>
+      <line num="54" count="9" type="stmt"/>
+      <line num="55" count="9" type="stmt"/>
+      <line num="56" count="1" type="stmt"/>
+      <line num="59" count="9" type="stmt"/>
+      <line num="60" count="9" type="stmt"/>
+      <line num="61" count="9" type="stmt"/>
+      <line num="62" count="9" type="stmt"/>
+      <line num="63" count="1" type="stmt"/>
+      <line num="72" count="3" type="stmt"/>
+      <line num="73" count="3" type="stmt"/>
+      <line num="75" count="3" type="stmt"/>
+      <line num="76" count="3" type="stmt"/>
+      <line num="78" count="3" type="stmt"/>
+      <line num="79" count="12" type="stmt"/>
+      <line num="88" count="18" type="stmt"/>
+      <line num="89" count="18" type="stmt"/>
+      <line num="96" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="97" count="1" type="stmt"/>
+      <line num="99" count="1" type="stmt"/>
+      <line num="104" count="1" type="stmt"/>
+      <line num="105" count="1" type="stmt"/>
+      <line num="109" count="1" type="stmt"/>
+      <line num="110" count="1" type="stmt"/>
       <line num="114" count="1" type="stmt"/>
+    </file>
+    <file name="WelcomeMessage.js" path="/Users/annika/cse110/cse110-w21-group29/source/js/WelcomeMessage.js">
+      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="17" count="1" type="stmt"/>
+      <line num="19" count="1" type="stmt"/>
+      <line num="20" count="1" type="stmt"/>
+      <line num="21" count="1" type="stmt"/>
+      <line num="22" count="1" type="stmt"/>
+      <line num="24" count="1" type="stmt"/>
+      <line num="28" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>
