@@ -19,6 +19,7 @@ And that should be it!
 
 - Make sure repo is up-to-date, `npm ci`.
 - Run unit tests that are found in `cse110-w21-group29/source/__tests__/` by running jest, `npm run test`.
+- To get the code coverage report, please run: `npm run coverage`.
 
 ## Branches
 
