@@ -90,4 +90,5 @@ class ViewOnlyTaskList extends HTMLElement {
 }
 
 customElements.define('view-only-task-list', ViewOnlyTaskList);
+
 export default ViewOnlyTaskList;

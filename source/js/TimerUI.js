@@ -80,7 +80,7 @@ class TimerUI extends HTMLElement {
    * @returns {string} Seconds Left
    */
   static parseSeconds(second) {
-    if (second === 60 || second >= 60) return '00';
+    if (second === 60) return '00';
     if (second < 10) return `0${String(second)}`;
     return String(second);
   }
