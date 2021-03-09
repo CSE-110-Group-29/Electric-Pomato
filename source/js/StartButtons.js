@@ -5,7 +5,7 @@
  */
 
 import TaskList from './TaskList.js';
-
+import Notification from './Notification.js';
 /**
  * TODO
  * @extends HTMLElement
@@ -50,13 +50,20 @@ class StartButtons extends HTMLElement {
     button.appendChild(text);
 
     button.addEventListener('click', () => {
-      // TODO show warning alert
-      // Wipe stuff from last session from local storage
-      localStorage.removeItem('TaskList');
-      localStorage.removeItem('Started');
-      localStorage.removeItem('TotalPomos');
-      localStorage.removeItem('Timer');
-      window.location.href = './app.html';
+      const tasklist = new TaskList();
+      if (tasklist.todo.length > 0) {
+        const warning = 'Are you sure you want to delete the old task list?';
+        Notification.prompt(warning, () => {
+          console.log('test callback');
+          localStorage.removeItem('TaskList');
+          localStorage.removeItem('Started');
+          localStorage.removeItem('TotalPomos');
+          localStorage.removeItem('Timer');
+          window.location.href = './app.html';
+        });
+      } else {
+        window.location.href = './app.html';
+      }
     });
 
     return button;
