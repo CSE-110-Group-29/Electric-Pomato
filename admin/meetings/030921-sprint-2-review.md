@@ -3,7 +3,8 @@
 ## Meeting Details
 
 - Type of meeting: Sprint Review
-- Members present: Allen Zou, Andy Young, Annika Hatcher, Arman Mansourian, Don Wolfson, Enrique Gan, Justin Lee, Liam Stone, Teresa Truong
+- Members present: Allen Zou, Annika Hatcher, Arman Mansourian, Don Wolfson, Justin Lee, Liam Stone, Teresa Truong
+- Members absent: Andy Young, Enrique Gan
 - Meeting location: ZOOM
 - Start/finish time: 3:00 PM PST - 4:00 PM PST
 
@@ -18,20 +19,20 @@ This is also going to be our [Sprint Review](https://canvas.ucsd.edu/courses/217
 
 ## Sprint Review
 
-Arman:
+Arman: Worked with Liam, Don, and Andy on getting JSDoc deployment up and running, figured out how to format it properly and 
 
-Allen:
+Allen: Remedy technical debt through ADRs, searching through decisions and 
 
-Enrique:
+Enrique: ---
 
-Liam:
+Liam: JSDoc with Arman figuring out proper formatting and modifying code to make docs look nice.
 
-Annika:
+Annika: Moved on to testing and setting up code coverage, mostly yellow but we're moving along to all greens.
 
-Teresa:
+Teresa: Helping Don implement app titles. Converted image assets to .svg files, and helped Allen with ADRs.
 
-Justin:
+Justin: Worked with Andy revamping landing page, added two buttons based on state of local storage. Created notification component being used on landing page currently.
 
-Andy:
+Andy: ---
 
-Donald:
+Donald: Helped Teresa debugging task header and started unit testing with Enrique. Cleaned up repository structure.
