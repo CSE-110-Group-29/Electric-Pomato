@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1615176252390" clover="3.2.0">
-  <project timestamp="1615176252390" name="All files">
-    <metrics statements="222" coveredstatements="149" conditionals="56" coveredconditionals="36" methods="71" coveredmethods="38" elements="349" coveredelements="223" complexity="0" loc="222" ncloc="222" packages="1" files="9" classes="9"/>
+<coverage generated="1615263323059" clover="3.2.0">
+  <project timestamp="1615263323059" name="All files">
+    <metrics statements="235" coveredstatements="162" conditionals="56" coveredconditionals="36" methods="74" coveredmethods="41" elements="365" coveredelements="239" complexity="0" loc="235" ncloc="235" packages="1" files="11" classes="11"/>
+    <file name="BreakPrompt.js" path="/home/enrique/gitrepos/cse110/cse110-w21-group29/source/js/BreakPrompt.js">
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <line num="17" count="2" type="stmt"/>
+      <line num="18" count="2" type="stmt"/>
+      <line num="19" count="2" type="stmt"/>
+      <line num="20" count="2" type="stmt"/>
+      <line num="28" count="2" type="stmt"/>
+      <line num="32" count="1" type="stmt"/>
+    </file>
     <file name="CurrentYear.js" path="/home/enrique/gitrepos/cse110/cse110-w21-group29/source/js/CurrentYear.js">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <line num="16" count="3" type="stmt"/>
@@ -250,6 +259,16 @@
       <line num="109" count="0" type="stmt"/>
       <line num="110" count="0" type="stmt"/>
       <line num="114" count="1" type="stmt"/>
+    </file>
+    <file name="WelcomeMessage.js" path="/home/enrique/gitrepos/cse110/cse110-w21-group29/source/js/WelcomeMessage.js">
+      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="17" count="1" type="stmt"/>
+      <line num="19" count="1" type="stmt"/>
+      <line num="20" count="1" type="stmt"/>
+      <line num="21" count="1" type="stmt"/>
+      <line num="22" count="1" type="stmt"/>
+      <line num="24" count="1" type="stmt"/>
+      <line num="28" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>
