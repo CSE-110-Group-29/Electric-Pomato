@@ -28,4 +28,4 @@ How should we set up our deployment workflow?
     - Bootstrap and sass should be automatically built on our deployment.
     - Documentation should be updated automatically and included in the build on our deployment as well.
     - Update: HTML files should now be split into three different files: index.html, done.html, and app.html. These will represent the different page layouts (landing page, timer page, and records sheet page), which makes it more organized and easier to work with.
-    - Update: we implement one of Sim's suggestions, which is to enable the user to return back to the landing page.
+    - Update: we implemented one of Sim's suggestions, which is to enable the user to return back to the landing page.
