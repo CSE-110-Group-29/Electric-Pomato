@@ -2,7 +2,7 @@ $primary: #203647;
 $secondary: #BEC8ED;
 $success: #7dc37d;
 $danger: #DB6666;
-$info: #85BBD1;
+$info: #B2E3FF;
 
 @import "../../node_modules/bootstrap/scss/functions";
 @import "../../node_modules/bootstrap/scss/variables";
@@ -374,4 +374,38 @@ view-only-task-list {
 
 .timer-text {
     @include font-size($h2-font-size);
+}
+
+.notification {
+    display: none; /* Hidden by default */
+    align-items: center;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.notif-content {
+    background-color: #fefefe;
+    padding: map-get($spacers, 4);
+    background-color: $info;
+    border-radius: 2.5rem;
+    border: 5px solid $primary;
+    animation-name: animatetop;
+    animation-duration: 0.5s;
+    text-align: center;
+}
+
+.notif-content > *:not(:last-child) {
+    margin-bottom: map-get($spacers, 4);
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
 }
