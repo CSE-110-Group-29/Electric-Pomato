@@ -31,14 +31,16 @@ const appContainer = document.querySelector('.app-container');
 /* **************************** Helper Functions **************************** */
 
 /**
- * @function showTomato
- * Displays the Tomato.
+ * @function showElements
+ * Displays the Tomato and redirect buttons.
  */
-function showTomato() {
+function showElements() {
   const timerUI = new TimerUI();
   appContainer.appendChild(timerUI);
   timerUI.setColorGold();
   timerUI.clear();
+
+  timerUI.appendChild(document.querySelector('#redirect-buttons-template').content.cloneNode(true));
 }
 
 /**
@@ -51,8 +53,9 @@ function handleOnLoad() {
     window.location.href = 'index.html';
   } else {
     document.querySelector('.app-title').innerHTML = `Congrats, ${localStorage.getItem('Username')}!`;
-    showTomato();
+    showElements();
   }
 }
+
 // Handle any edge cases on loading into the page.
 window.addEventListener('load', handleOnLoad);

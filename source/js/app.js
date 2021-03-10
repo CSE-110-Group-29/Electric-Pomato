@@ -53,11 +53,11 @@ function updateAppTitle(nextTask) {
   } else if (nextTask && length === 1) {
     title = 'End of Session';
   } else if (nextTask && length - 1 === 1) {
-    title = `Last Task: ${taskList.todo[1].name}`;
+    title = `Final Task: ${taskList.todo[1].name}`;
   } else if (nextTask && length - 1 > 1) {
     title = `Next Task: ${taskList.todo[1].name}`;
   } else if (length === 1) {
-    title = `Last Task: ${taskList.todo[0].name}`;
+    title = `Final Task: ${taskList.todo[0].name}`;
   } else {
     title = `Current Task: ${taskList.todo[0].name}`;
   }

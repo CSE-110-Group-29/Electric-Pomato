@@ -73,6 +73,15 @@ body {
     height: 100%;
 }
 
+.btn-row {
+    align-items: center; 
+    display: flex;
+}
+
+.btn-done {
+    margin: 20px;
+}
+
 a {
     text-decoration: none;
 }
