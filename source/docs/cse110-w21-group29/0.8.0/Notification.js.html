@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>ViewOnlyTaskListSection.js - Documentation</title>
+    <title>Notification.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -31,7 +31,7 @@ Displays the Tomato.</a></span></li><li class="nav-item"><span class="nav-item-t
 
 <div id="main">
     
-    <h1 class="page-title">ViewOnlyTaskListSection.js</h1>
+    <h1 class="page-title">Notification.js</h1>
     
 
     
@@ -42,65 +42,53 @@ Displays the Tomato.</a></span></li><li class="nav-item"><span class="nav-item-t
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @file TODO
+ * @file Creates a notification controller that displays notifications and
+ * runs callbacks.
  * @author Andy Young
+ * @author Justin Lee
  */
 
 /**
- * TODO
- * @extends HTMLElement
+ * Finds the notification element on the page and handles the display/hide of
+ * notifications.
  */
-class ViewOnlyTaskListSection extends HTMLElement {
+class Notification {
   /**
-   * TODO
-   */
-  constructor(title, data) {
-    super();
+  * Prompt a notification with the given title + subtitle, and then run
+  * the callback on a successful button press.
+  * @param {Object} message - The message object.
+  * @param {string} employee.title - The title of the message.
+  * @param {string} employee.subtitle - The subtitle of the message.
+  * @param {requestCallback} callback - The callback that the notification runs.
+  */
+  static prompt({ title, subtitle }, callback) {
+    const notificationWindow = document.querySelector('#notification');
 
-    this.headerRowTemplate = document.querySelector('#view-header-row-template').content;
-    this.rowTemplate = document.querySelector('#view-row-template').content;
+    notificationWindow.style.display = 'flex';
 
-    this.insertTitle(title);
-    this.insertHeaderRow();
-    data.forEach(({ name, expected, actual }, i) => {
-      this.insertRow(i + 1, name, expected, actual);
-    });
-  }
+    document.querySelector('#notification-title').innerHTML = title || '';
+    document.querySelector('#notification-subtitle').innerHTML = subtitle || '';
 
-  /**
-   * Insert a title.
-   * @param {*} title - title The title.
-   */
-  insertTitle(title) {
-    const h3 = document.createElement('h3');
-    h3.classList.add('fw-bold', 'mb-0');
-    h3.textContent = title;
-    this.appendChild(h3);
-  }
+    // If user clicks outside of notification, close it
+    window.onclick = (e) => {
+      if (e.target === notificationWindow) {
+        notificationWindow.style.display = 'none';
+      }
+    };
 
-  insertHeaderRow() {
-    this.appendChild(this.headerRowTemplate.cloneNode(true));
-  }
+    // Action for pressing no
+    document.querySelector('#notif-no').onclick = () => {
+      notificationWindow.style.display = 'none';
+    };
 
-  /**
-   * Insert a row.
-   * @param  {...any} arg - args data.
-   */
-  insertRow(...args) {
-    const clone = this.rowTemplate.cloneNode(true);
-    this.appendChild(clone);
-
-    const row = this.lastElementChild;
-    const inputs = row.querySelectorAll('input');
-
-    inputs.forEach((input, i) => {
-      input.value = args[i];
-    });
+    // Action for pressing yes
+    document.querySelector('#notif-yes').onclick = () => {
+      callback();
+    };
   }
 }
 
-customElements.define('view-only-task-list-section', ViewOnlyTaskListSection);
-export default ViewOnlyTaskListSection;
+export default Notification;
 </code></pre>
         </article>
     </section>

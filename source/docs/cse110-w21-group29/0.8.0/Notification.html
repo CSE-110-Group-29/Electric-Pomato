@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>ViewOnlyTaskListSection.js - Documentation</title>
+    <title>Notification - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -31,79 +31,352 @@ Displays the Tomato.</a></span></li><li class="nav-item"><span class="nav-item-t
 
 <div id="main">
     
-    <h1 class="page-title">ViewOnlyTaskListSection.js</h1>
+    <h1 class="page-title">Notification</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>/**
- * @file TODO
- * @author Andy Young
- */
+        <h2>
+        Notification
+        </h2>
+        
+            <div class="class-description"><p>Finds the notification element on the page and handles the display/hide of
+notifications.</p></div>
+        
+    
+</header>
 
-/**
- * TODO
- * @extends HTMLElement
- */
-class ViewOnlyTaskListSection extends HTMLElement {
-  /**
-   * TODO
-   */
-  constructor(title, data) {
-    super();
+<article>
+    <div class="container-overview">
+    
+        
+<div class="section-method">
 
-    this.headerRowTemplate = document.querySelector('#view-header-row-template').content;
-    this.rowTemplate = document.querySelector('#view-row-template').content;
+    
+    <h2>Constructor</h2>
+    
 
-    this.insertTitle(title);
-    this.insertHeaderRow();
-    data.forEach(({ name, expected, actual }, i) => {
-      this.insertRow(i + 1, name, expected, actual);
-    });
-  }
+    <h4 class="name" id="Notification"><span class="type-signature"></span>new Notification<span class="signature">()</span><span class="type-signature"></span></h4>
 
-  /**
-   * Insert a title.
-   * @param {*} title - title The title.
-   */
-  insertTitle(title) {
-    const h3 = document.createElement('h3');
-    h3.classList.add('fw-bold', 'mb-0');
-    h3.textContent = title;
-    this.appendChild(h3);
-  }
+    
 
-  insertHeaderRow() {
-    this.appendChild(this.headerRowTemplate.cloneNode(true));
-  }
 
-  /**
-   * Insert a row.
-   * @param  {...any} arg - args data.
-   */
-  insertRow(...args) {
-    const clone = this.rowTemplate.cloneNode(true);
-    this.appendChild(clone);
 
-    const row = this.lastElementChild;
-    const inputs = row.querySelectorAll('input');
 
-    inputs.forEach((input, i) => {
-      input.value = args[i];
-    });
-  }
-}
 
-customElements.define('view-only-task-list-section', ViewOnlyTaskListSection);
-export default ViewOnlyTaskListSection;
-</code></pre>
-        </article>
-    </section>
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Notification.js.html">Notification.js</a>, <a href="Notification.js.html#line12">line 12</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id=".prompt"><span class="type-signature">(static) </span>prompt<span class="signature">(message, callback)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Prompt a notification with the given title + subtitle, and then run
+the callback on a successful button press.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Notification.js.html">Notification.js</a>, <a href="Notification.js.html#line21">line 21</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>message</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Object</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>The message object.</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>employee.title</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>The title of the message.</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>employee.subtitle</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>The subtitle of the message.</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>requestCallback</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>The callback that the notification runs.</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
