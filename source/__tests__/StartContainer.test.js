@@ -30,15 +30,20 @@ describe('StartContainer tests', () => {
     // should only create a Username Input child element if there
     // is no username in local storage
     expect(startContainer.childElementCount).toBe(1);
+    expect(startContainer.firstChild.nodeName).toBe('USERNAME-INPUT');
   });
 
   test('Constructor with a Username in Local Storage', () => {
-    localStorage.setItem('Username', 'Jest');
+    const username = 'Jest';
+    localStorage.setItem('Username', username);
     // create a start container
     const startContainer = new StartContainer();
 
-    // should only create a Username Input child element if there
-    // is no username in local storage
+    // Create two child elements, a WelcomeMessage element and
+    // a startButtons element
     expect(startContainer.childElementCount).toBe(2);
+    expect(startContainer.firstChild.nodeName).toBe('WELCOME-MESSAGE');
+    expect(startContainer.lastChild.nodeName).toBe('START-BUTTONS');
+    expect(startContainer.firstChild.innerHTML).toContain(username);
   });
 });
