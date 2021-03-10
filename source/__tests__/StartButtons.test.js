@@ -6,8 +6,10 @@ describe('StartButtons tests', () => {
   test('Simple Constructor', () => {
     const startButtons = new StartButtons();
 
-    // start buttons generate two child buttons
+    // start buttons generate two child start containers
     expect(startButtons.childElementCount).toBe(2);
+    expect(startButtons.lastChild.nodeName).toBe('DIV');
+    expect(startButtons.firstChild.nodeName).toBe('DIV');
   });
 
   test('Constructor When TaskList is not empty', () => {
