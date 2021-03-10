@@ -2,7 +2,7 @@
 
 Our site can found [here](https://donaldwolfson.github.io/cse110-w21-group29/)!
 
-Our JSDocs Documentation can be found [here](https://donaldwolfson.github.io/cse110-w21-group29/docs/cse110-w21-group29/0.0.1/index.html)!
+Our JSDocs Documentation can be found [here](https://donaldwolfson.github.io/cse110-w21-group29/docs/cse110-w21-group29/0.8.0/index.html)!
 
 ## Airbnb Linter Setup Instructions (VS Code)
 
