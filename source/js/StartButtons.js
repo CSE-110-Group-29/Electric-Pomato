@@ -52,9 +52,12 @@ class StartButtons extends HTMLElement {
     button.addEventListener('click', () => {
       const tasklist = new TaskList();
       if (tasklist.todo.length > 0) {
-        const warning = 'Are you sure you want to delete the old task list?';
+        const warning = {
+          title: 'You already have an existing session, creating a new one will overwrite it!',
+          subtitle: 'Continue anyway?',
+        };
+
         Notification.prompt(warning, () => {
-          console.log('test callback');
           localStorage.removeItem('TaskList');
           localStorage.removeItem('Started');
           localStorage.removeItem('TotalPomos');
