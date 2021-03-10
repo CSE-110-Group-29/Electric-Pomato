@@ -22,8 +22,9 @@ How should we set up our deployment workflow?
 
 1. Because of confidentiality reasons, we should create a new branch called "production" for our deployment.
     - The Github repository should be using this branch as the root for the deployment.
-2. The following files and folders should exist on this branch: css folder, img folder, js folder, reference folder, TaskListUI.html, and index.html.
+2. The following files and folders should exist on this branch: css folder, img folder, js folder, reference folder, TaskListUI.html, index.html, done.html, and app.html.
     - These are the only files that are deployed to Github pages.
     - Don't include anything else in the main branch into deployment to conceal our workflows, meeting notes, etc. from people that use our website.
     - Bootstrap and sass should be automatically built on our deployment.
     - Documentation should be updated automatically and included in the build on our deployment as well.
+    - Update: HTML files should now be split into three different files: index.html, done.html, and app.html. These will represent the different page layouts (landing page, timer page, and records sheet page), which makes it more organized and easier to work with.
