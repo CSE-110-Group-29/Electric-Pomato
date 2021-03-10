@@ -59,8 +59,13 @@ class EditableTaskListInput extends HTMLElement {
    * Disable/Enable add task button based on validity of inputs.
    */
   updateButtonState() {
-    if (this.nameInput.value.length === 0 || Number(this.expectedInput.value) < 1) {
+    // Empty String
+    if (this.nameInput.value.length === 0) {
       this.button.disabled = true;
+    // Estimated Pomos must be between 1 & 5
+    } else if (Number(this.expectedInput.value) < 1 || Number(this.expectedInput.value) > 5) {
+      this.button.disabled = true;
+    // Valid Inputs
     } else {
       this.button.disabled = false;
     }

@@ -157,8 +157,13 @@ class EditableTaskListBody extends HTMLElement {
 
       input.addEventListener('input', () => {
         const [currentName, currentExpected] = userInputs;
-        if (currentName.value.length === 0 || Number(currentExpected.value) < 1) {
+        // Empty string
+        if (currentName.value.length === 0) {
           saveButton.disabled = true;
+        // Estimated Pomos must be between 1 & 5
+        } else if (Number(currentExpected.value) < 1 || Number(currentExpected.value) > 5) {
+          saveButton.disabled = true;
+        // Valid Inputs
         } else {
           saveButton.disabled = false;
         }
