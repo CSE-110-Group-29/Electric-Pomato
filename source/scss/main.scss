@@ -324,6 +324,30 @@ view-only-task-list {
     transform: scale(0.9);
 }
 
+.slider-tomato-container {
+    width: 95%;
+    cursor: pointer;
+    user-select: none;
+}
+
+.slider-tomato {
+    width: 18%;
+}
+
+.white-tomato {
+    & > path:nth-child(1) {
+        fill: white;
+    }
+
+    & > path:nth-child(2) {
+        fill: white;
+    }
+
+    & > path:nth-child(4) {
+        fill: white;
+    }
+}
+
 .red-tomato {
     & > path:nth-child(1) {
         fill: #d7212d;
