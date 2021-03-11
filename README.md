@@ -2,7 +2,7 @@
 
 Our site can found [here](https://donaldwolfson.github.io/cse110-w21-group29/)!
 
-Our JSDocs Documentation can be found [here](https://donaldwolfson.github.io/cse110-w21-group29/docs/cse110-w21-group29/0.8.0/index.html)!
+Our JSDocs Documentation can be found [here](https://donaldwolfson.github.io/cse110-w21-group29/docs/cse110-w21-group29/0.0.1/index.html)!
 
 ## Airbnb Linter Setup Instructions (VS Code)
 
@@ -19,6 +19,7 @@ And that should be it!
 
 - Make sure repo is up-to-date, `npm ci`.
 - Run unit tests that are found in `cse110-w21-group29/source/__tests__/` by running jest, `npm run test`.
+- To get the code coverage report, please run: `npm run coverage`.
 
 ## Branches
 

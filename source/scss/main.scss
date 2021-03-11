@@ -237,14 +237,9 @@ editable-task-list, view-only-task-list {
             align-items: center;
         }
 
-        .actions button {
+        .actions i {
             margin-left: 1rem;
-            border: none;
-            background-color: inherit;
-        }
-
-        .actions button:disabled {
-            opacity: 0.4;
+            cursor: pointer;
         }
 
         .save-cancel-container {

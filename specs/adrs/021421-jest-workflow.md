@@ -19,6 +19,7 @@ How should we set up our testing framework?
 2. What testing framework should we use?
 3. How often should we be running tests and when do we run them?
 4. How should we approach writing the tests themselves?
+5. Should we use Cypress?
 
 ## Decision Outcome
 
@@ -36,3 +37,7 @@ How should we set up our testing framework?
     - Enrique found it best to make tests after code has been implemented since it fits the development team's process.
     - The development team's build process: all Jest tests must be passed before branches can be pushed to the main branch.
     - Enrique will also add final "consolidation" tests checking the full functionality on the branch, allowing for backtracking when revisiting or modifying pre-existing code from merged branches.
+5. Regrettably, we didn't believe we had the resources to intergrate Cypress. Though Cypress would have made testing the web components a lot easier, but that comes at a cost.
+   - Integrating it into our build pipeline might have been too big of a headache for us. Many of us had other very time consuming classes and getting it setup in our specific environment would take an undeterminable amount of time.
+   - Because of this, we chose to skip testing if event listeners would work. Using jest purely to do so would make the tests messy and hard to understand.
+   - We don't know if we should have had testing in mind as we developed the source code, or if that foresight might even discourage us from making something we need. It's a balancing act.
