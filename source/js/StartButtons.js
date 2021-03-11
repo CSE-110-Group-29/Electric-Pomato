@@ -57,7 +57,7 @@ class StartButtons extends HTMLElement {
           subtitle: 'Continue anyway?',
         };
 
-        Notification.prompt(warning, () => {
+        Notification.prompt(warning, true, () => {
           localStorage.removeItem('TaskList');
           localStorage.removeItem('Started');
           localStorage.removeItem('TotalPomos');

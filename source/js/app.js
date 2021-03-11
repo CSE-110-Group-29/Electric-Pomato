@@ -13,6 +13,7 @@ import EditableTaskList from './EditableTaskList.js';
 import ViewOnlyTaskList from './ViewOnlyTaskList.js';
 import TimerUI from './TimerUI.js';
 import BreakPrompt from './BreakPrompt.js';
+import Notification from './Notification.js';
 
 /**
  * STATE:
@@ -73,13 +74,46 @@ function changeTitle(object) {
 }
 
 /**
+ * Handles all things that need to be done at the end of the session, called by initTimer
+ */
+function handleEndOfSession() {
+  // Move completed task list to history
+  let history = JSON.parse(localStorage.getItem('History'));
+  const { completed } = JSON.parse(localStorage.getItem('TaskList'));
+  if (history) {
+    history.tasklists.push(completed);
+  } else {
+    history = { tasklists: [completed] };
+  }
+  localStorage.setItem('History', JSON.stringify(history));
+
+  // Wipe data from previous task list
+  localStorage.removeItem('TaskList');
+  localStorage.removeItem('Started');
+  localStorage.removeItem('TotalPomos');
+  localStorage.removeItem('Timer');
+
+  // Pop up prompt
+  const endMessage = {
+    title: 'Congratulations, you have finished this session!',
+    subtitle: 'What would you like to do next?',
+  };
+
+  Notification.prompt(endMessage, false, () => {
+    window.location.href = 'index.html';
+  }, () => {
+    window.location.href = 'done.html';
+  });
+}
+
+/**
  * Initialize the timer based on current STATE.
  * @param {Object} timer - The Timer object.
  */
 function initTimer(timer) {
   // Change to done page if no more tasks in todo.
   if (JSON.parse(localStorage.getItem('TaskList')).todo.length === 0) {
-    window.location.href = 'done.html';
+    handleEndOfSession();
   } else {
     const timerState = localStorage.getItem('Timer');
     timer.reset();
