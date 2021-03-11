@@ -44,14 +44,6 @@ class TomatoSlider extends HTMLElement {
     this.updateState();
   }
 
-  static get observedAttributes() {
-    return ['value'];
-  }
-
-  attributeChangedCallback(attrName, oldVal, newVal) {
-    this[attrName] = newVal;
-  }
-
   updateState() {
     if (this.input.disabled) {
       this.defaultMode();
