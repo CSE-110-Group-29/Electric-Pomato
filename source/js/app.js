@@ -97,12 +97,16 @@ function handleEndOfSession() {
   const endMessage = {
     title: 'Congratulations, you have finished this session!',
     subtitle: 'What would you like to do next?',
+    leftButton: 'Start New Session',
+    rightButton: 'View Logs',
   };
 
-  Notification.prompt(endMessage, false, () => {
-    window.location.href = 'index.html';
-  }, () => {
-    window.location.href = 'done.html';
+  Notification.prompt(endMessage, false).then((result) => {
+    if (result === 'left') {
+      window.location.href = 'index.html';
+    } else if (result === 'right') {
+      window.location.href = 'done.html';
+    }
   });
 }
 

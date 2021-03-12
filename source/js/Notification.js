@@ -18,36 +18,46 @@ class Notification {
   * @param {string} message.subtitle - The subtitle of the message.
   * @param {Boolean} fastClose - Whether this notification allows for the user to close it by
   *                               clicking outside the box
-  * @param {requestCallback} leftCallback - The callback that the notification runs when the
-  *                                         user clicks the left button.
-  * @param {requestCallback} rightCallback - The callback that the notification runs when the
-  *                                          user clicks the right button.
+  * @returns {Promise} Promise object represents the left or right button click.
   */
-  static prompt({ title, subtitle }, fastClose, leftCallback = () => {}, rightCallback = () => {}) {
-    const notificationWindow = document.querySelector('#notification');
 
-    notificationWindow.style.display = 'flex';
+  static show() {
+    document.querySelector('#notification').style.display = 'flex';
+  }
 
+  static hide() {
+    document.querySelector('#notification').style.display = 'none';
+  }
+
+  static prompt({
+    title, subtitle, leftButton, rightButton,
+  }, fastClose) {
     document.querySelector('#notification-title').innerHTML = title || '';
     document.querySelector('#notification-subtitle').innerHTML = subtitle || '';
+    document.querySelector('#notif-left').innerHTML = leftButton || '';
+    document.querySelector('#notif-right').innerHTML = rightButton || '';
 
-    // If user clicks outside of notification, close it
-    window.onclick = (e) => {
-      if (e.target === notificationWindow && fastClose) {
-        notificationWindow.style.display = 'none';
-      }
-    };
+    Notification.show();
 
-    // Action for pressing yes
-    document.querySelector('#notif-left').onclick = () => {
-      leftCallback();
-    };
+    return new Promise((resolve) => {
+      document.querySelector('#notification').onclick = (e) => {
+        // If outside of #notif-content and fastClose is on, then close
+        if (e.target.querySelector('#notif-content') && fastClose) {
+          Notification.hide();
+          resolve('neither');
+        }
+      };
 
-    // Action for pressing no
-    document.querySelector('#notif-right').onclick = () => {
-      notificationWindow.style.display = 'none';
-      rightCallback();
-    };
+      // Action for pressing left
+      document.querySelector('#notif-left').onclick = () => {
+        resolve('left');
+      };
+
+      // Action for pressing right
+      document.querySelector('#notif-right').onclick = () => {
+        resolve('right');
+      };
+    });
   }
 }
 
