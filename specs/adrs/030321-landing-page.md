@@ -8,4 +8,10 @@
 
 What features do we add to the landing page?
 
-## Things that were considered and their decision outcomes
+## Things to consider
+
+1. Should we permit the user to return to the landing page?
+
+## Decision outcome
+
+1. This was suggested by Sim. We decided to implement it because relatively quick to add and because it's a nice quality of life feature.
