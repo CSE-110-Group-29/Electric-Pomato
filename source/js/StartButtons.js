@@ -55,14 +55,20 @@ class StartButtons extends HTMLElement {
         const warning = {
           title: 'You already have an existing session, creating a new one will overwrite it!',
           subtitle: 'Continue anyway?',
+          leftButton: 'Yes',
+          rightButton: 'No',
         };
 
-        Notification.prompt(warning, () => {
-          localStorage.removeItem('TaskList');
-          localStorage.removeItem('Started');
-          localStorage.removeItem('TotalPomos');
-          localStorage.removeItem('Timer');
-          window.location.href = './app.html';
+        Notification.prompt(warning, true).then((result) => {
+          if (result === 'left') {
+            localStorage.removeItem('TaskList');
+            localStorage.removeItem('Started');
+            localStorage.removeItem('TotalPomos');
+            localStorage.removeItem('Timer');
+            window.location.href = './app.html';
+          } else if (result === 'right') {
+            Notification.hide();
+          }
         });
       } else {
         window.location.href = './app.html';
