@@ -28,6 +28,7 @@ How should we design the TaskList object? Additionally, the development team wan
 11.	How should we handle the interactivity of the task list?
 12.	Should we rebuild or re-render the task list every time it's updated?
 13.	How do the "I need another Pomodoro!" and "I finished!" buttons function alongside the TaskList object?
+14.	The method of accepting the expected Pomodoro count as input from the user.
 
 ## Decision Outcomes
 
@@ -81,3 +82,7 @@ How should we design the TaskList object? Additionally, the development team wan
     - The team also thought about warning the user before "flipping" button, but even with that feature, it would still be akward for the user. Thus, a checkbox feels a lot more intuitive to use.
     - The only time the checkbox won't appear is on the last task. The checkbox will be replaced by an "End Day" button, which will pull up the prompt that asks if the user wants to create a new session or review the session they just completed.
     - The team also discussed the option of making it a prompt instead, but they agreed that it's not a good idea. It makes sense from a UI/UX perspective to prompt the end user, but the constant pop-up can become an annoying vexation.
+14. ~~An input box that takes in integer inputs for the expected Pomodoro count should suffice. Update: the development team is now using a slider to get the expected Pomodoro count from the user.~~ Update 2: the development team has extra time to make this part of the task list look a bit nicer. Instead of using a slider, the team has now supplanted it with 5 blank tomatoes side by side. Hovering over the tomatoes highlights the one that the cursor is over as well as all tomoatoes to the left of it, which indicates the estimated number of Pomodoros for the task.
+    - Francesco explained that if a task takes more than 5 Pomodoros, then it should be broken down to smaller tasks.
+    - Given the low range of values, it makes a bit more sense to use a ~~slider~~ rating scale.
+    - On a side note, after rigorous testing, we discovered that there is a copious amount of problems when using the input box, so it's much simpler to implement a ~~slider~~ rating scale anyway.~~ 
