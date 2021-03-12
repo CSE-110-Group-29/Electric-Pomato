@@ -31,6 +31,12 @@ class EditableTaskListBody extends HTMLElement {
     this.data.todo.forEach(({ name, expected }, i) => {
       this.insertRow(i + 1, name, expected);
     });
+
+    this.connected = false;
+  }
+
+  connectedCallback() {
+    this.connected = true;
   }
 
   /**
@@ -147,6 +153,10 @@ class EditableTaskListBody extends HTMLElement {
     inputs.forEach((input, i) => {
       input.value = args[i];
     });
+
+    if (this.connected) {
+      row.querySelector('tomato-slider').render();
+    }
 
     userInputs.forEach((input) => {
       input.addEventListener('keyup', (e) => {
