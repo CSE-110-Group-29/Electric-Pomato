@@ -34,7 +34,11 @@ What are the features and mechanics that we want to subsume into our final desig
     - Activity Inventory sheet: while this is part of the Pomodoro Technique that Francesco delineated, we felt that this may inundate the development team with too many things to implement. It also adds a layer of complexity that goes against the idea of simplicity and intuitiveness that we want for the user.
     - Unplanned and urgent list: same reason as above, especially because this is one of the most convoluted parts of the Pomodoro Technique.
         - ~~Urgent task slot: IGNORE.~~
-    - __Records sheet__: our team decided to incorporate this page because it goes along with the task list and would help the user summarize his or her performance; however, we don't want this to be too sophisticated for the sake of giving the developers enough time to work on this project.
+    - __Records sheet__: our team decided to incorporate this page because it goes along with the task list and would help the user summarize his or her performance; ~~however, we don't want this to be too sophisticated for the sake of giving the developers enough time to work on this project.~~ update: adding analytics to our records sheet page was originally seen as too onerous to implement, but the development team changed their minds. We will now be using a third party library called ZingChart for this feature.
+        - Due to a very productive sprint session, however, the development team managed to clear most of the issues on Github, which now makes an analytics feature possible within our appetite.
+        - Installing ZingChart is relatively simple. It turns out that there are only 3 steps required to install it.
+        - It makes the application feel more complete.
+        - TODO: because this is a third party library, we will need to justify this a bit more.
     - __Estimated number of Pomodoros__: this is a relatively straightforward thing to implement. It's also a mechanic that Francesco limns in his book.
         - Allow and track multiple estimations for a single task: this can engender a number of issues for the development team, and it may make parts of the page look cluttered. The biggest issue with this feature is that it aggrandizes the number of variables to keep track of and may drastically alter the way the Records Sheet must be displayed.
         - Evince estimated and real number of Pomodoros below timer: this simply contributes to clutter on the page and isn't necessary to implement.
