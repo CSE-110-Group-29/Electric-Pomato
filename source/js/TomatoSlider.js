@@ -62,6 +62,14 @@ class TomatoSlider extends HTMLElement {
     });
   }
 
+  render() {
+    if (this.input.disabled) {
+      this.colorTomatos(Number(this.input.value), 'green');
+    } else {
+      this.colorTomatos(Number(this.input.value), 'red');
+    }
+  }
+
   handleClick(e) {
     const { left, right } = document.querySelector('.slider-tomato-container').getBoundingClientRect();
     this.input.value = Math.min(Math.ceil((e.clientX - left + 1) / ((right - left) / 5)), 5);
@@ -78,7 +86,7 @@ class TomatoSlider extends HTMLElement {
   }
 
   editMode() {
-    this.colorTomatos(Number(this.input.value), 'red');
+    this.render();
 
     this.container.style.cursor = 'pointer';
 
@@ -88,7 +96,7 @@ class TomatoSlider extends HTMLElement {
   }
 
   defaultMode() {
-    this.colorTomatos(Number(this.input.value), 'green');
+    this.render();
 
     this.container.style.cursor = 'default';
 

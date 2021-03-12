@@ -334,6 +334,14 @@ view-only-task-list {
     width: 18%;
 }
 
+.task-list-container {
+    input:disabled + div .white-tomato {
+        & > path {
+            fill: white;
+        }
+    }
+}
+
 .white-tomato {
     & > path:nth-child(1) {
         fill: white;

@@ -46,6 +46,8 @@ class EditableTaskListInput extends HTMLElement {
     this.button.addEventListener('click', () => {
       this.addRow();
     });
+
+    this.resetCount = 0;
   }
 
   /**
@@ -82,6 +84,10 @@ class EditableTaskListInput extends HTMLElement {
     this.expectedInput.value = '1';
     this.nameInput.focus();
     this.updateButtonState();
+    if (this.resetCount > 0) {
+      this.querySelector('tomato-slider').render();
+    }
+    this.resetCount += 1;
   }
 }
 
