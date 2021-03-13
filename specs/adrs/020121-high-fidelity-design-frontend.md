@@ -44,7 +44,7 @@ What are the features and mechanics that we want to subsume into our final desig
     - __Documentation on application itself: after a bit of thinking, we feel that our documentation would only take up a modicum of space on a Wiki page, so we advocated for writing documentation on the application itself, specifically on the landing page.__
         - __Landing page: we decided to incorporate a landing page to help introduce the user to the application since the Pomodoro Technique is a rather obscure self-improvement technique.__
     - Docmentation on separate wiki page: see "documentation on application itself" above.
-4. Funcitonality.
+4. Functionality.
     - __Begin button for the timer: to clarify, we were debating on whether the timer should start immediately after adding completing the task list at the beginning of the day or prompt the user to start when they're ready. We decided to do the latter. That is, to add a button prompting the user so the application doesn't start untowardly.__
     - Exit application button during the break timer: the user can just close the application any time. Additionally, it just adds more clutter.
     - Hide timer and supplant it with a hoverable "bar:" this might make the application a lot less intuitive and understandable for the user.
@@ -55,12 +55,12 @@ What are the features and mechanics that we want to subsume into our final desig
         - UPDATE 2: Teresa brought up that both buttons ("I need another Pomodoro" and "I finished") should be implemented; these buttons should have a toggle function that enables the user to swap between these two buttons. Clicking on "I finished!" changes the screen to the "Next Task" screen while clicking on "I need another Pomodoro" should change the screen to the "Current Task" screen.__
     - __Prompt the user to input more tasks if they completed all their tasks for the day: ~~perhaps the user may want to do more tasks in a single day, and this doesn't add much complexity.~~
         - ~~UPDATE: the development team thinks that implementing this is wishful thinking, so we are moving this to rejected.~~
-        - UPDATE 2: we changed our minds again. The application should show the prompt after the user completes the last task. The timer will still count down while the prompt is shown on the screen. however. If the timer fully elapses, then it should automatically take the user to the Records Sheet screen.__
+        - UPDATE 2: we changed our minds again. The application should show the prompt after the user completes the last task. The timer will still count down while the prompt is shown on the screen; however, if the timer fully elapses, then it should automatically take the user to the Records Sheet screen.
 5. User information storage.
     - Store user accounts: implementing this would most likely require a server/backend component of this project, which is an unconscionable expectation for the developers.
     - __Only keep track of a single user: this application is most likely going to be used for personal reasons, so we decided to only keep track of a single user's information.__
 6. Page layout.
-    - __Single page for timer: as our project was still in an amorphus state, this is something we needed to ask the developers about since it shapes the code layout of our project. They ultimately decided to go for a single pagea application (timer page only) because it's a lot easier to keep track of things and minimizes the number of times the program must interact with local storage.__
+    - __Single page for timer: as our project was still in an amorphous state, this is something we needed to ask the developers about since it shapes the code layout of our project. They ultimately decided to go for a single page application (timer page only) because it's a lot easier to keep track of things and minimizes the number of times the program must interact with local storage.__
     - Multiple pages for timer: see "single page for timer" above.
 7. Task list appearance.
-    - __Pop-up task list__: The task list is tucked away at the bottom of the timer page. Our task list acts like a dropdown menu when the user places their cursor over its bar. The option of keeping the entire task list on the same screen as the timer was discarded, because it would be too distracting and adding clutter on the screen.
+    - __Pop-up task list__: The task list is tucked away at the bottom of the timer page. Our task list acts like a dropdown menu when the user clicks on the bar. The option of keeping the entire task list on the same screen as the timer was discarded because it would be too distracting and add clutter to the screen.
