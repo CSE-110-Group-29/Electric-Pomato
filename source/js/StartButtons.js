@@ -5,7 +5,7 @@
  */
 
 import TaskList from './TaskList.js';
-
+import Notification from './Notification.js';
 /**
  * TODO
  * @extends HTMLElement
@@ -44,22 +44,38 @@ class StartButtons extends HTMLElement {
      * <button type="button" class="btn btn-secondary btn-lg">Create New Session</button>
      */
   static createButton() {
-    const btn = document.createElement('btn');
+    const button = document.createElement('button');
     const text = document.createTextNode('Create New Session');
-    btn.classList.add('btn', 'btn-success', 'btn-lg', 'btn-block');
-    btn.appendChild(text);
+    button.classList.add('btn', 'btn-success', 'btn-lg', 'btn-block');
+    button.appendChild(text);
 
-    btn.addEventListener('click', () => {
-      // TODO show warning alert
-      // Wipe stuff from last session from local storage
-      localStorage.removeItem('TaskList');
-      localStorage.removeItem('Started');
-      localStorage.removeItem('TotalPomos');
-      localStorage.removeItem('Timer');
-      window.location.href = './app.html';
+    button.addEventListener('click', () => {
+      const tasklist = new TaskList();
+      if (tasklist.todo.length > 0) {
+        const warning = {
+          title: 'You already have an existing session, creating a new one will overwrite it!',
+          subtitle: 'Continue anyway?',
+          leftButton: 'Yes',
+          rightButton: 'No',
+        };
+
+        Notification.prompt(warning, true).then((result) => {
+          if (result === 'left') {
+            localStorage.removeItem('TaskList');
+            localStorage.removeItem('Started');
+            localStorage.removeItem('TotalPomos');
+            localStorage.removeItem('Timer');
+            window.location.href = './app.html';
+          } else if (result === 'right') {
+            Notification.hide();
+          }
+        });
+      } else {
+        window.location.href = './app.html';
+      }
     });
 
-    return btn;
+    return button;
   }
 
   /**

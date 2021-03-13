@@ -30,4 +30,5 @@ class StartContainer extends HTMLElement {
   }
 }
 
+export default StartContainer;
 customElements.define('start-container', StartContainer);
