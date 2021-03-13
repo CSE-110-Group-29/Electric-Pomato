@@ -2,8 +2,9 @@
 
 Resources to get started:
 
-- [Script](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/source/js/TaskListUI.js)
-- [Dev Meeting](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/source/js/Timer.js)
+- [Timer Class](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/source/js/Timer.js)
+- [TimeUI HTMLElement](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/source/js/TimerUI.js)
+- [Dev Meeting](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/admin/meetings/020421-dev.md)
 
 ## Status: accepted, finished, tested
 
