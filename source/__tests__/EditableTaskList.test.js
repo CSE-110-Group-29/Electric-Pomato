@@ -98,7 +98,7 @@ test('Reset TaskListInput', () => {
 
   // Check that input values were reset to ''
   expect(editableTaskListInput.nameInput.value).toBe('');
-  expect(editableTaskListInput.expectedInput.value).toBe('');
+  expect(editableTaskListInput.expectedInput.value).toBe('1');
 });
 
 test('Check updateButtonState() For EditableTaskListInput', () => {
@@ -123,8 +123,9 @@ test('Check updateButtonState() For EditableTaskListInput', () => {
 });
 
 test('Add Row From EditableTaskListBody', () => {
-  // Create new EditableTaskListInput
-  const editableTaskListBody = new EditableTaskListBody();
+  // Create new EditableTaskListBody
+  const editableTaskListInput = new EditableTaskListInput();
+  const editableTaskListBody = new EditableTaskListBody(editableTaskListInput);
 
   // Reset data for testing purposes
   editableTaskListBody.data.reset();
@@ -141,7 +142,8 @@ test('Add Row From EditableTaskListBody', () => {
 
 test('Edit Row From EditableTaskListBody', () => {
   // Create new EditableTaskListInput
-  const editableTaskListBody = new EditableTaskListBody();
+  const editableTaskListInput = new EditableTaskListInput();
+  const editableTaskListBody = new EditableTaskListBody(editableTaskListInput);
 
   // Reset data for testing purposes
   editableTaskListBody.data.reset();

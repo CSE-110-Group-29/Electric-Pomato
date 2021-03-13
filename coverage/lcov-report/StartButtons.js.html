@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">72.97% </span>
+                <span class="strong">67.5% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>27/37</span>
+                <span class='fraction'>27/40</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.67% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/6</span>
+                <span class='fraction'>4/10</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">72.97% </span>
+                <span class="strong">67.5% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>27/37</span>
+                <span class='fraction'>27/40</span>
             </div>
         
             
@@ -147,7 +147,13 @@
 <a name='L88'></a><a href='#L88'>88</a>
 <a name='L89'></a><a href='#L89'>89</a>
 <a name='L90'></a><a href='#L90'>90</a>
-<a name='L91'></a><a href='#L91'>91</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -206,12 +212,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -244,7 +256,7 @@
  */
 &nbsp;
 import TaskList from './TaskList.js';
-import Notification from './Notification.js';
+import PopUp from './PopUp.js';
 /**
  * TODO
  * @extends HTMLElement
@@ -294,14 +306,20 @@ class StartButtons extends HTMLElement {
         const warning = <span class="cstat-no" title="statement not covered" >{</span>
           title: 'You already have an existing session, creating a new one will overwrite it!',
           subtitle: 'Continue anyway?',
+          leftButton: 'Yes',
+          rightButton: 'No',
         };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        Notification.prompt(warning, <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >          localStorage.removeItem('TaskList');</span>
-<span class="cstat-no" title="statement not covered" >          localStorage.removeItem('Started');</span>
-<span class="cstat-no" title="statement not covered" >          localStorage.removeItem('TotalPomos');</span>
-<span class="cstat-no" title="statement not covered" >          localStorage.removeItem('Timer');</span>
-<span class="cstat-no" title="statement not covered" >          window.location.href = './app.html';</span>
+<span class="cstat-no" title="statement not covered" >        PopUp.prompt(warning, true).then(<span class="fstat-no" title="function not covered" >(r</span>esult) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >          if (result === 'left') {</span>
+<span class="cstat-no" title="statement not covered" >            localStorage.removeItem('TaskList');</span>
+<span class="cstat-no" title="statement not covered" >            localStorage.removeItem('Started');</span>
+<span class="cstat-no" title="statement not covered" >            localStorage.removeItem('TotalPomos');</span>
+<span class="cstat-no" title="statement not covered" >            localStorage.removeItem('Timer');</span>
+<span class="cstat-no" title="statement not covered" >            window.location.href = './app.html';</span>
+          } else <span class="cstat-no" title="statement not covered" >if (result === 'right') {</span>
+<span class="cstat-no" title="statement not covered" >            PopUp.hide();</span>
+          }
         });
       } else {
 <span class="cstat-no" title="statement not covered" >        window.location.href = './app.html';</span>
@@ -334,7 +352,7 @@ export default StartButtons;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Mar 10 2021 17:37:17 GMT-0800 (Pacific Standard Time)
+                at Sat Mar 13 2021 15:20:26 GMT-0800 (Pacific Standard Time)
             </div>
         </div>
         <script src="prettify.js"></script>
