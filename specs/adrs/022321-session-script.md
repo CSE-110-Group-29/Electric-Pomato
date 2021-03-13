@@ -6,7 +6,7 @@ Resources to get started:
 
 ## Status: accepted
 
-## Deciders: Donald, Enrique, Justin, Annika, and Andy
+## Deciders: Donald, Enrique, Justin, Annika, Andy, and Teresa
 
 ## Context and Problem Statement
 
@@ -38,9 +38,10 @@ How should we set up our session script?
     - The TimerUI is incognizant of when this happens. This is inauspicoius because it occurs when the session script needs to create a new timer.
     - The session script needs to use this as an indicator to pop the next task off the task list.
 4. The following are elements that the session script should contain:
-    - Username
-    - A Boolean variable of HasCreatedTaskList or something similar. It should be noted that if the user refreshes the task list screen, we should construe this as remaining on the initial task list screen.
-    - Number of Pomodoros
+    - Username: {String} If username is not entered, then the user should be redirected to the landing page.
+    - Started: {Boolean} A boolean variable for whether the user created their task list or not. If the user has already created their task list, then user will see the tomato timer and the view-only task list. If the user has not created their task list, then the user will view the editable task list page. It should be noted that if the user refreshes, the Started state will be used appropriate redirection.
+    - TotalPomos: {Number} The total number of elapsed pomodoros is recorded in localStorage. 
+    - Timer: {Boolean} If timer boolean is true, then the green pomodoro timer will be displayed. If the timer boolean is false, then the red break timer will be displayed.
 5. The session script will decide what to show as soon as the user inputs all of his or her information on the landing page.
     - ~~Send the session script down a list of event handlers to see what the user has done.~~
     - Update: it will be much simpler to check what’s in LocalStorage because it should already contain information about what the user has done.
