@@ -2,7 +2,8 @@
 
 Resources to get started:
 
-- [Script](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/source/js/TaskListUI.js)
+- [EditableTaskList Class](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/source/js/EditableTaskList.js)
+- [ViewOnlyTaskList Class](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/source/js/ViewOnlyTaskList.js)
 - [Dev Meeting](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/admin/meetings/020421-dev.md)
 
 ## Status: accepted
