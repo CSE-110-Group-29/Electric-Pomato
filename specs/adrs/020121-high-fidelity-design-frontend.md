@@ -27,7 +27,7 @@ What are the features and mechanics that we want to subsume into our final desig
 1. Theme.
     - Use CSS themes, specifically the paper CSS theme: see the bolded reason below.
     - __Draw our own designs: we were considering CSS themes, especially the paper theme, but Teresa showed us some drawings, which looked better and felicitous for the setting of a Pomodoro Timer.__
-    - Design only using a simplistic layout and a Lillipution amount of art: most of the members felt that having a miniscule amount of art was a bit too bland for our application.
+    - Design only using a simplistic layout and a minimum amount of art: most of the members felt that having a miniscule amount of art was a bit too bland for our application.
 2. Features pertaining to Francesco's Pomodoro Technique.
     - __25-30 minute break timer after 4 Pomodoros: this is part of the core functionality of the timer, so we need to include it.__
     - __To-do today/Task list sheet: only having a timer as our project would seem insipid and prosaic. Adding a task list seems reasonable and achievable by the end of the quarter. Furthermore, it will help the user manage their tasks for the day.__
@@ -39,7 +39,7 @@ What are the features and mechanics that we want to subsume into our final desig
         - Allow and track multiple estimations for a single task: this can engender a number of issues for the development team, and it may make parts of the page look cluttered. The biggest issue with this feature is that it aggrandizes the number of variables to keep track of and may drastically alter the way the Records Sheet must be displayed.
         - Evince estimated and real number of Pomodoros below timer: this simply contributes to clutter on the page and isn't necessary to implement.
 3. Miscellaneous features.
-    - Plots and visuals: this can introduce inexorable impediments because of how much planning may be invovled for implementing these features, so we thought it's best to exlude them from this project.
+    - Plots and visuals: this can introduce impediments because of how much planning may be invovled for implementing these features, so we thought it's best to exlude them from this project.
     - Display task remaining and completed count: Same reason as "evince estimated and real number of Pomodoros below timer."
     - __Documentation on application itself: after a bit of thinking, we feel that our documentation would only take up a modicum of space on a Wiki page, so we advocated for writing documentation on the application itself, specifically on the landing page.__
         - __Landing page: we decided to incorporate a landing page to help introduce the user to the application since the Pomodoro Technique is a rather obscure self-improvement technique.__
@@ -48,8 +48,7 @@ What are the features and mechanics that we want to subsume into our final desig
     - __Begin button for the timer: to clarify, we were debating on whether the timer should start immediately after adding completing the task list at the beginning of the day or prompt the user to start when they're ready. We decided to do the latter. That is, to add a button prompting the user so the application doesn't start untowardly.__
     - Exit application button during the break timer: the user can just close the application any time. Additionally, it just adds more clutter.
     - Hide timer and supplant it with a hoverable "bar:" this might make the application a lot less intuitive and understandable for the user.
-    - __"I finished early!" button: the user needs to be able to indicate if they finish their task early so they don't get stuck on the same task even if they've completed it.
-        - UPDATE: “I finished early” may be ambiguous because some people may take that as finish the break early. It will be renamed to “I need another Pomodoro” instead. __
+    - __"I finished early!" button: the user needs to be able to indicate if they finish their task early so they don't get stuck on the same task even if they've completed it.__
     - __"I need more time!" button: ~~our reason for changing the button if the number of actual Pomodoros exceeds that of the user's estimated Pomodoros is because of the following philosophy behind the Pomodoro Technique: you should start getting a feel for how much time each task should take as you employ this technique, which should help you with planning. This small time pressure should help encourage the aforementioned idea.~~
         - ~~UPDATE: the development team thinks this makes the logic a bit convoluted. They want to change this button to use the same logic as the “I finished early!” so it doesn’t forcibly kick the user off, which may stress out the user.~~
         - UPDATE 2: Teresa brought up that both buttons ("I need another Pomodoro" and "I finished") should be implemented; these buttons should have a toggle function that enables the user to swap between these two buttons. Clicking on "I finished!" changes the screen to the "Next Task" screen while clicking on "I need another Pomodoro" should change the screen to the "Current Task" screen.__
