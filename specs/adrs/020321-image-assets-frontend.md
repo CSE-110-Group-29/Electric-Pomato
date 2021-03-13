@@ -23,4 +23,4 @@ What image assets should we use for our final project?
 2. How should the start day graphic be implemented?
     - There were two options for this: timer with a "START" button below it and a green tomato with a "START" overlay. Teresa chose the latter.
 3. What should the file types/extensions be for these assets?
-    - Both PNG files and SVG files were tested. The development team will use SVG files for all of the image assets.
+    - Both PNG files and SVG files were tested. The development team will use SVG files for all of the image assets. We have the green and red tomato as ICO file format for the desktop notification and the browser icon.
