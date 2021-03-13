@@ -25,3 +25,7 @@ How should we set up documentation in our workflow?
     - JSDocs seems to be mainstream used framework with many online resources.
     - It was suggested by the professor in lecture and there are existing GitHub Actions for it.
     - JSDoc is already a framework that has been adopted by several members in our group. There are a few others like ESDoc and Gitbook, but the team didn't look into them.
+
+## Third Party Uses
+
+The DecOps team used the styling of [minami](https://github.com/nijikokun/minami) for JSdocs. They chose this styling because the photos on his README looked neater than generic JSdocs pages. It also had details on how to implement this style in their github page.
