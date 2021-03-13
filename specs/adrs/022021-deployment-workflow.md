@@ -3,7 +3,8 @@
 
 Resources to get started:
 
-- [Github Action](https://github.com/DonaldWolfson/cse110-w21-group29/blob/setup-bootstrap/.github/workflows/deploy.yml)
+- [Github Action](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/.github/workflows/deploy.yml)
+- although this is the same file as the JSdoc file, it has it's own build action which is why it has it's own ADR.
 
 ## Status: accepted
 
