@@ -1,6 +1,6 @@
 # Feb. 20th 2021, Bootstrap Sass
 
-Resources to get started:
+Resources to get started: 
 
 - [Bootstrap Sass Docs](https://getbootstrap.com/docs/5.0/customize/sass/)
 
