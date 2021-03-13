@@ -3,7 +3,7 @@
 
 Resources to get started:
 
-- [Github Action](https://github.com/DonaldWolfson/cse110-w21-group29/blob/jsdoc-workflow/.github/workflows/jsdoc.yml)
+- [Github Action](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/.github/workflows/deploy.yml)
 
 ## Status: accepted
 
