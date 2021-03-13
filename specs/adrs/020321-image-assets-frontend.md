@@ -1,4 +1,5 @@
 # Feb. 3rd 2021, Image Assets for FrontEnd ADR
+> (Last Decision: Mar. 12 2021, by Justin Lee)
 
 Resources to get started:
 
