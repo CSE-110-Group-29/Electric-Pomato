@@ -1,4 +1,5 @@
 # Feb. 14th 2021, Session Script ADR
+> (Last Decision: Mar. 3 2021, by Andy Young)
 
 Resources to get started:
 
