@@ -1,8 +1,20 @@
 import { beforeEach } from '@jest/globals';
 import ViewOnlyTaskList from '../js/ViewOnlyTaskList.js';
+import TaskList from '../js/TaskList.js';
 
 beforeEach(() => {
   document.body.innerHTML = `
+  <div class="app-container">
+            <div class="app-header">
+                <a href="./" class="mb-4 mb-lg-0">
+                    <div class="text-white">
+                        <h1 class="mb-0">Electric Pomato</h1>
+                        <h4 class="mb-0">Plan. Track. Record.</h4>
+                    </div>
+                </a>
+                <h1 class="app-title"></h1>
+            </div>
+        </div>
     <template id="view-title-template">
       <h2 class="subtitle text-center"></h2>
     </template>
@@ -63,5 +75,53 @@ beforeEach(() => {
 test('Simple ViewOnlyTaskList construction', () => {
   const taskList = new ViewOnlyTaskList();
   taskList.render();
+  taskList.connectedCallback();
   expect(true).toBe(true);
+});
+
+test('Existing ViewOnlyTaskList construction', () => {
+  // Save taskList to localStorage
+  const taskList = new TaskList();
+  const taskName = 'first task';
+  const taskNum = 1;
+  taskList.createTask(taskName, taskNum);
+  taskList.save();
+
+  // Create ViewOnlyTaskList
+  const viewOnlyTaskList = new ViewOnlyTaskList();
+  viewOnlyTaskList.render();
+  viewOnlyTaskList.connectedCallback();
+  expect(viewOnlyTaskList).not.toBeNull();
+});
+
+test('Add pomo', () => {
+  // Create taskList
+  const taskList = new ViewOnlyTaskList();
+  const taskName = 'first task';
+  const taskNum = 1;
+  taskList.data.createTask(taskName, taskNum);
+  taskList.data.save();
+
+  // Add pomo
+  taskList.addPomo();
+
+  // Check that first task's actual was updated
+  expect(taskList.data.todo[0].actual).toBe(1);
+});
+
+test('Finish task', () => {
+  // Create taskList
+  const taskList = new ViewOnlyTaskList();
+  const taskName = 'first task';
+  const taskNum = 1;
+  taskList.data.createTask(taskName, taskNum);
+  taskList.data.save();
+
+  // Finish task
+  taskList.finishTask();
+
+  // Check that task was moved to completed
+  expect(taskList.data.completed[0].name).toBe(taskName);
+  expect(taskList.data.completed[0].expected).toBe(taskNum);
+  expect(taskList.data.completed[0].actual).toBe(1);
 });
