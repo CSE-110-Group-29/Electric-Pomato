@@ -34,9 +34,8 @@ How should we design the TaskList object? Additionally, the development team wan
 ## Decision Outcomes
 
 1.	The ability for the user to edit the task list is a reasonable and achievable addition for the amount of time we have in the quarter. Update: the TaskList object on the timer page is no longer editable. See #7 for more information.
-    - Don’t have a separate button to edit a task on the list because it might be annoying. Instead, allow the user to click on the input itself to edit the task.
-    - ~~For now, don’t add the option to reset the task list or remove tasks from the list during the day. A warning should pop up saying that their task list is final once they’ve finished adding tasks.~~ Update: the inability to remove a task is probably an annoying impediment to the user. It’s also not unviable to implement such a thing. Adding a reset task feature is still superfluous, though. Update: ended up keeping a separate 'edit' button to start editing a task on the list.
-    - Update: we no longer plan to add the "reset" option (deletes everything on the task list) for the initial task list at the beginning of the day because of our limited time during week 10 and finals week.
+    -  ~~Allow the user to click on the input itself to edit the task.~~ Update: We have 4 buttons that corresponds to editing the task list: save, cancel, edit, remove. The user has to click on the buttons in order to manipulate their task list.
+    - Update: Once the task list has been created, the task list becomes a view-only version. Thus, the user will not be able to manipulate their task list. The user must complete all their tasks in the "current session" or "create a new session/task list" through the landing page.
     - Use onclick in JavaScript instead of the input keyword in HTML. Andy says the advantage for using onclick is that we will have access to it in the Javascript file and some scoping blocks.
     - What is an unconscionable request for the development team to add, however, is the ability to shift tasks around in the task list -- we don't want to inundate the development team with too many features.
 2. The development team has decided to use LocalStorage for storing information on the task list.
@@ -55,11 +54,12 @@ How should we design the TaskList object? Additionally, the development team wan
     - Annika: perform exploratory coding in the TaskList.js script and work on edge cases and unit tests for both the TaskList and TaskListUI classes.
     - Teresa: stylize the TaskList code.
     - Enrique: Not part of the group that’s implementing the code for the task list, but he will be writing unit tests for the TaskList class.
-7. The TaskList component of our application will contain three parts (files): EditableTaskList.js, EditableTaskListBody.js, EditableTaskListInput.js.
+7. The TaskList component of our application will contain four parts (files): EditableTaskList.js, EditableTaskListBody.js, EditableTaskListInput.js, and TomatoSlider.js.
     - EditableTaskList.js: serves at the wrapper container for the body and input files below.
     - EditableTaskListBody.js: acts as the container for the tasks that were added - is able to edit, save, cancel, and remove tasks.
     - EditableTaskListInput.js: acts as the container for the bottom input section of the task list. This was previously AddRow.
-8. There should be two different task lists: one that's view-only and one that's editable.
+    - TomatoSlider.js: Input system for "Estimated Pomodoros" corresponding to its task. We call it a tomato slider, since the input is based from onclick. It mocks a 5 star rating system--but it is a 5 tomato rating system with green and red color indication by selection.
+8. There should be two different task lists: editable and view-only.
     - The view-only task list should be the task list that simply displays upcoming and completed tasks to the user.
     - The editable task should only appear once the user clicks on the pencil icon to edit.
     -  Update: after re-evaluating the decision drivers in our High Fidelity Design ADR, the development team chose to only enable the editable task list during the initial start TaskList page (before pressing "Start My Day"). Once again, we want to keep the logic of the overall application straightforward and intuitive for the user. Moreover, permitting the user to create more tasks after completing the initial task list defeats the purpose of the "Start My Day."
@@ -71,7 +71,7 @@ How should we design the TaskList object? Additionally, the development team wan
 10. ~~The development team decided that it’s much better to convert the TaskList object to a Session object.~~ Update: it’s better to keep these two objects separate. The session script will act as the middle man between the Timer and the TaskList object. This is because the session script is only communicating with UI components.
     - ~~One reason is because the TaskList object is already doing LocalStorage read and writes.~~
     - ~~It’s better to keep all the LocalStorage manipulation in one place because it makes the job of the main script easier – all it has to do is run new Session() and call the methods to do its logic.~~
-11. The pop-up task list should be a button with its own standalone logic. Teresa or Annika will implement this part of the task list.
+11. The pop-up task list should be a button with its own standalone logic. Annika will implement this part of the task list.
 12. ~~We should update the task list by rebuilding. That is, we should procedurally inject HTML code into the task list via innerHTML every time something changes, even if it's a small change.~~ Update: don't rely on rebuilding the task list every time something changes. Instead, we should just re-render the task list.
     - Rebuilding the task list was rather inefficient -- it completely destroys and recreates the HTML elements; not to mention that it also removes event listeners, making it hard to manage references. Additionally, Andy says a problem they've had is that the TaskList object is an instance variable, which means it won't be able to handle edits as the user is pulling up the task list on the web application.
     - Thus, by going with a component based approach and cloning the template for each row, we can store references to each row and keep track of the state easily.
@@ -83,7 +83,7 @@ How should we design the TaskList object? Additionally, the development team wan
     - The team also thought about warning the user before "flipping" button, but even with that feature, it would still be awkward for the user. Thus, a checkbox feels a lot more intuitive to use.
     - The only time the checkbox won't appear is on the last task. The checkbox will be replaced by an "End Day" button, which will pull up the prompt that asks if the user wants to create a new session or review the session they just completed.
     - The team also discussed the option of making it a prompt instead, but they agreed that it's not a good idea. It makes sense from a UI/UX perspective to prompt the end user, but the constant pop-up can become an annoying vexation.
-14. ~~An input box that takes in integer inputs for the expected Pomodoro count should suffice. Update: the development team is now using a slider to get the expected Pomodoro count from the user.~~ Update 2: the development team has extra time to make this part of the task list look a bit nicer. Instead of using a slider, the team has now supplanted it with 5 blank tomatoes side by side. Hovering over the tomatoes highlights the one that the cursor is over as well as all tomoatoes to the left of it, which indicates the estimated number of Pomodoros for the task.
+14. ~~An input box that takes in integer inputs for the expected Pomodoro count should suffice. Update: the development team is now using a slider to get the expected Pomodoro count from the user.~~ Update 2: The development team has extra time to make this part of the task list look a bit nicer. Instead of using a slider, the team has now supplanted the "Estimated Pomodoros input" with 5 blank tomatoes side by side. Hovering over the tomatoes highlights the one that the cursor is over as well as all tomatoes to the left of it, which indicates the estimated number of Pomodoros for the task.
     - Francesco explained that if a task takes more than 5 Pomodoros, then it should be broken down to smaller tasks.
-    - Given the low range of values, it makes a bit more sense to use a ~~slider~~ rating scale.
-    - On a side note, after rigorous testing, we discovered that there is a copious amount of problems when using the input box, so it's much simpler to implement a ~~slider~~ rating scale anyway.
+    - Given the low range of values, it makes a bit more sense to use a ~~slider~~ "rating system" to select between the finite number options on the UI end.
+    - On a side note, after rigorous testing, we discovered that there is a copious amount of problems when using the number input box, so it's much simpler to implement a ~~slider~~ rating scale anyway (referred to as Tomato Slider).
