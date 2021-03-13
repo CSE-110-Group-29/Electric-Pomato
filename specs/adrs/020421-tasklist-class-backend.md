@@ -21,7 +21,7 @@ How should we design the TaskList object? Additionally, the development team wan
 3.	What should be stored in each Task object?
 4.	How should we handle initialization of the task list?
 5.	How should we handle modifications to the task list?
-6.	How should the split the work amoung our members?
+6.	How should we split the work amoung our members?
 7.	How should we divide the functionality of the editable TaskList in terms of JavaScript files?
 8.	Consider one or more TaskList objects.
 9.	How do we deal with the user refreshing the page?
@@ -35,8 +35,8 @@ How should we design the TaskList object? Additionally, the development team wan
 
 1.	The ability for the user to edit the task list is a reasonable and achievable addition for the amount of time we have in the quarter. Update: the TaskList object on the timer page is no longer editable. See #7 for more information.
     - Don’t have a separate button to edit a task on the list because it might be annoying. Instead, allow the user to click on the input itself to edit the task.
-    - ~~For now, don’t add the option to reset the task list or remove tasks from the list during the day. A warning should pop up saying that their task list is final once they’ve finished adding tasks.~~ Update: the inability to remove a task is probably an annoying impediment to the user. It’s also not unviable to implement such a thing. Adding a reset task feature is still superfluous, though.
-    - Update: we no longer plan to add the a "reset" option (deletes everything on the task list) for the initial task list at the beginning of the day because of our limited time during week 10 and finals week.
+    - ~~For now, don’t add the option to reset the task list or remove tasks from the list during the day. A warning should pop up saying that their task list is final once they’ve finished adding tasks.~~ Update: the inability to remove a task is probably an annoying impediment to the user. It’s also not unviable to implement such a thing. Adding a reset task feature is still superfluous, though. Update: ended up keeping a separate 'edit' button to start editing a task on the list.
+    - Update: we no longer plan to add the "reset" option (deletes everything on the task list) for the initial task list at the beginning of the day because of our limited time during week 10 and finals week.
     - Use onclick in JavaScript instead of the input keyword in HTML. Andy says the advantage for using onclick is that we will have access to it in the Javascript file and some scoping blocks.
     - What is an unconscionable request for the development team to add, however, is the ability to shift tasks around in the task list -- we don't want to inundate the development team with too many features.
 2. The development team has decided to use LocalStorage for storing information on the task list.
@@ -52,7 +52,7 @@ How should we design the TaskList object? Additionally, the development team wan
     - It allows the TaskList object to act as a data store with its own methods to abstract LocalStorage.
 6. The members of the development team that will work on the task list classes are Andy, Annika, and Teresa
     - Andy: work on the source code for TaskList and TaskListUI and discuss as many edge cases as possible with Enrique and Annika for them to handle.
-    - Annika: perform exploratory coding in the TaskList.js script and work on edge cases for both the TaskList and TaskListUI classes.
+    - Annika: perform exploratory coding in the TaskList.js script and work on edge cases and unit tests for both the TaskList and TaskListUI classes.
     - Teresa: stylize the TaskList code.
     - Enrique: Not part of the group that’s implementing the code for the task list, but he will be writing unit tests for the TaskList class.
 7. The TaskList component of our application will contain three parts (files): EditableTaskList.js, EditableTaskListBody.js, EditableTaskListInput.js.
@@ -68,7 +68,7 @@ How should we design the TaskList object? Additionally, the development team wan
         - During the "Final Task" break, the user will no longer be queried to add any more tasks.
         - The scope of a "session" will now represent an entire day. The only way to change the task list is to start over from the landing page.
 9. Refreshing or exiting the page should just void the Pomodoro.
-10. ~~The development team decided that it’s much better to convert the TaskList object to a Session object.~~ UPATE: it’s better to keep these two objects separate. The session script will act as the middle man between the Timer and the TaskList object. This is because the session script is only communicating with UI components.
+10. ~~The development team decided that it’s much better to convert the TaskList object to a Session object.~~ Update: it’s better to keep these two objects separate. The session script will act as the middle man between the Timer and the TaskList object. This is because the session script is only communicating with UI components.
     - ~~One reason is because the TaskList object is already doing LocalStorage read and writes.~~
     - ~~It’s better to keep all the LocalStorage manipulation in one place because it makes the job of the main script easier – all it has to do is run new Session() and call the methods to do its logic.~~
 11. The pop-up task list should be a button with its own standalone logic. Teresa or Annika will implement this part of the task list.
@@ -80,7 +80,7 @@ How should we design the TaskList object? Additionally, the development team wan
 13. ~~The "I need another Pomodoro!" and "I finished!" buttons are actually a single button that's toggleable, and the way the TaskList behaves is dependent on which button is displayed by the end of the break timer. If the button displays the former, then the TaskList doesn't change. Subsequently, the task displayed on top of the screen doesn't change either. If the button displays the latter, then the TaskList will move the finished task to the completed section and pull up the next task. The default option for the button is "I need another Pomodoro!" However, once the actual number of Pomodoros exceeds that of the estimated number of Pomodoros, then the application will "flip" the button.~~ Update: the buttons are no longer being used. Instead, they are supplanted by a checkbox. Below are the reasons why the development team decided to make that change.
     - The team felt it was a bit weird to see a default button text of "I need another Pomodoro!" In this case of a button, it would make more sense to gray out the button. 
     - Toggling the button without any explanation is going to be confusing for the end user.
-    - The team also thought about warning the user before "flipping" button, but even with that feature, it would still be akward for the user. Thus, a checkbox feels a lot more intuitive to use.
+    - The team also thought about warning the user before "flipping" button, but even with that feature, it would still be awkward for the user. Thus, a checkbox feels a lot more intuitive to use.
     - The only time the checkbox won't appear is on the last task. The checkbox will be replaced by an "End Day" button, which will pull up the prompt that asks if the user wants to create a new session or review the session they just completed.
     - The team also discussed the option of making it a prompt instead, but they agreed that it's not a good idea. It makes sense from a UI/UX perspective to prompt the end user, but the constant pop-up can become an annoying vexation.
 14. ~~An input box that takes in integer inputs for the expected Pomodoro count should suffice. Update: the development team is now using a slider to get the expected Pomodoro count from the user.~~ Update 2: the development team has extra time to make this part of the task list look a bit nicer. Instead of using a slider, the team has now supplanted it with 5 blank tomatoes side by side. Hovering over the tomatoes highlights the one that the cursor is over as well as all tomoatoes to the left of it, which indicates the estimated number of Pomodoros for the task.
