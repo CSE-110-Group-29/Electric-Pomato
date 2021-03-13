@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>TaskList.js - Documentation</title>
+    <title>PopUp.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -31,7 +31,7 @@ Displays the Tomato.</a></span></li><li class="nav-item"><span class="nav-item-t
 
 <div id="main">
     
-    <h1 class="page-title">TaskList.js</h1>
+    <h1 class="page-title">PopUp.js</h1>
     
 
     
@@ -42,114 +42,69 @@ Displays the Tomato.</a></span></li><li class="nav-item"><span class="nav-item-t
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @file Holds the code the general functionality of the TaskList.
+ * @file Creates a notification controller that displays notifications and
+ * runs callbacks.
  * @author Andy Young
- * @author Annika Hatcher
- * @author Arman Mansourian
- * Date: 03/07/2021
+ * @author Justin Lee
  */
 
 /**
- * Creates the TaskList class and define its helper functions.
+ * Finds the notification element on the page and handles the display/hide of
+ * notifications.
  */
-class TaskList {
+class PopUp {
   /**
-   * Constructor for the TaskList object.
-   */
-  constructor() {
-    // Checks localStorage for TaskList item.
-    const stored = JSON.parse(localStorage.getItem('TaskList'));
+  * Prompt a notification with the given title + subtitle, and then run
+  * the callback on a successful button press.
+  * @param {Object} message - The message object.
+  * @param {string} message.title - The title of the message.
+  * @param {string} message.subtitle - The subtitle of the message.
+  * @param {Boolean} fastClose - Whether this notification allows for the user to close it by
+  *                               clicking outside the box
+  * @returns {Promise} Promise object represents the left or right button click.
+  */
 
-    if (stored == null) {
-      // If null, initialize variables to default value and save to localStorage.
-      this.reset();
-    } else {
-      // Otherwise, initialize variables to stored data.
-      this.todo = stored.todo;
-      this.completed = stored.completed;
-    }
+  static show() {
+    document.querySelector('#notification').style.display = 'flex';
   }
 
-  /**
-   * Reset instance variables to default empty value and save to localStorage.
-   */
-  reset() {
-    this.todo = [];
-    this.completed = [];
-    this.save();
+  static hide() {
+    document.querySelector('#notification').style.display = 'none';
   }
 
-  /**
-   * Save the instance variables to localStorage.
-   */
-  save() {
-    // Writes a stringified object with instance variables of TaskList to localStorage.
-    localStorage.setItem('TaskList', JSON.stringify({ todo: this.todo, completed: this.completed }));
-  }
+  static prompt({
+    title, subtitle, leftButton, rightButton,
+  }, fastClose) {
+    document.querySelector('#notification-title').innerHTML = title || '';
+    document.querySelector('#notification-subtitle').innerHTML = subtitle || '';
+    document.querySelector('#notif-left').innerHTML = leftButton || '';
+    document.querySelector('#notif-right').innerHTML = rightButton || '';
 
-  /**
-   * Add new task to todo with given name and expected pomodoros.
-   * @param {string} name - Name of task.
-   * @param {number} expected - Expected number of pomodoros.
-   */
-  createTask(name, expected) {
-    // Put inputs into a task object with initial actual value of 0.
-    const task = {
-      name,
-      expected,
-      actual: 0,
-    };
+    PopUp.show();
 
-    // Push task into todo list.
-    this.todo.push(task);
-    this.save();
-  }
+    return new Promise((resolve) => {
+      document.querySelector('#notification').onclick = (e) => {
+        // If outside of #notif-content and fastClose is on, then close
+        if (e.target.querySelector('#notif-content') &amp;&amp; fastClose) {
+          PopUp.hide();
+          resolve('neither');
+        }
+      };
 
-  /**
-   * Remove task from todo at given index.
-   * @param {number} index - Index of task to remove.
-   */
-  deleteTask(index) {
-    this.todo.splice(index, 1);
-    this.save();
-  }
+      // Action for pressing left
+      document.querySelector('#notif-left').onclick = () => {
+        resolve('left');
+      };
 
-  /**
-   * Update the task at the given index with the given name and expected pomodoros.
-   * @param {number} index - Index of task to update.
-   * @param {string} name - Updated name of task.
-   * @param {number} expected - Updated expected number of pomodoros.
-   */
-  updateTask(index, name, expected) {
-    const todoListSize = Object.keys(this.todo).length;
-    if (index >= todoListSize) {
-      return;
-    }
-    this.todo[index].name = name;
-    this.todo[index].expected = expected;
-    this.save();
-  }
-
-  /**
-   * Add a pomodoro to the current task.
-   */
-  addPomo() {
-    this.todo[0].actual += 1;
-    this.save();
-  }
-
-  /**
-   * Update todo/completed after finishing a task.
-   */
-  finishTask() {
-    const current = this.todo[0];
-
-    this.completed.push(current);
-    this.deleteTask(0);
+      // Action for pressing right
+      document.querySelector('#notif-right').onclick = () => {
+        resolve('right');
+      };
+    });
   }
 }
 
-export default TaskList;
+export default PopUp;
 </code></pre>
         </article>
     </section>
