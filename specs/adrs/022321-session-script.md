@@ -1,5 +1,9 @@
 # Feb. 14th 2021, Session Script ADR
 
+Resources to get started:
+
+- [Session Script](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/source/js/app.js)
+
 ## Status: accepted
 
 ## Deciders: Donald, Enrique, Justin, Annika, and Andy
