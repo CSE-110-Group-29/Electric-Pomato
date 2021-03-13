@@ -13,7 +13,7 @@ import EditableTaskList from './EditableTaskList.js';
 import ViewOnlyTaskList from './ViewOnlyTaskList.js';
 import TimerUI from './TimerUI.js';
 import BreakPrompt from './BreakPrompt.js';
-import Notification from './Notification.js';
+import PopUp from './PopUp.js';
 
 /**
  * STATE:
@@ -101,7 +101,7 @@ function handleEndOfSession() {
     rightButton: 'View Logs',
   };
 
-  Notification.prompt(endMessage, false).then((result) => {
+  PopUp.prompt(endMessage, false).then((result) => {
     if (result === 'left') {
       window.location.href = 'index.html';
     } else if (result === 'right') {
@@ -150,6 +150,32 @@ function initTimer(timer) {
 }
 
 /**
+ * Displays notification and plays sound when timer ends
+ */
+function showTimerNotification() {
+  const timerState = localStorage.getItem('Timer');
+  if (timerState === 'true') {
+    const pomoAlert = new Notification('Electric Pomato', {
+      icon: 'img/green-tomato.ico',
+      body: 'Good Work! Time to recharge.',
+    });
+    setTimeout(pomoAlert.close.bind(pomoAlert), 5000);
+    pomoAlert.addEventListener('click', () => {
+      window.focus();
+    });
+  } else {
+    const breakAlert = new Notification('Electric Pomato', {
+      icon: 'img/red-tomato.ico',
+      body: "Break time is over. It's time to plug in!",
+    });
+    setTimeout(breakAlert.close.bind(breakAlert), 5000);
+    breakAlert.addEventListener('click', () => {
+      window.focus();
+    });
+  }
+}
+
+/**
  * Handle starting the timer and updating the Pomos.
  * @param {Object} timer - The Timer object.
  * @param {Object} taskList - The TaskList object.
@@ -177,6 +203,9 @@ function handleClick(timer, taskList) {
           timer.lastElementChild.remove();
         }
 
+        if (Notification.permission === 'granted') {
+          showTimerNotification();
+        }
         localStorage.setItem('Timer', timerState === 'false');
         initTimer(timer);
         active = false;
@@ -222,6 +251,16 @@ function handleOnLoad() {
       appContainer.lastElementChild.remove();
       showTimer();
     });
+  }
+
+  // Request notification permission on page load
+  if (!('Notification' in window)) {
+    console.log('This browser does not support notifications.');
+  } else {
+    console.log(Notification.permission);
+    if (Notification.permission !== 'denied') {
+      Notification.requestPermission();
+    }
   }
 }
 

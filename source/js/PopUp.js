@@ -9,7 +9,7 @@
  * Finds the notification element on the page and handles the display/hide of
  * notifications.
  */
-class Notification {
+class PopUp {
   /**
   * Prompt a notification with the given title + subtitle, and then run
   * the callback on a successful button press.
@@ -37,13 +37,13 @@ class Notification {
     document.querySelector('#notif-left').innerHTML = leftButton || '';
     document.querySelector('#notif-right').innerHTML = rightButton || '';
 
-    Notification.show();
+    PopUp.show();
 
     return new Promise((resolve) => {
       document.querySelector('#notification').onclick = (e) => {
         // If outside of #notif-content and fastClose is on, then close
         if (e.target.querySelector('#notif-content') && fastClose) {
-          Notification.hide();
+          PopUp.hide();
           resolve('neither');
         }
       };
@@ -61,4 +61,4 @@ class Notification {
   }
 }
 
-export default Notification;
+export default PopUp;

@@ -5,7 +5,7 @@
  */
 
 import TaskList from './TaskList.js';
-import Notification from './Notification.js';
+import PopUp from './PopUp.js';
 /**
  * TODO
  * @extends HTMLElement
@@ -59,7 +59,7 @@ class StartButtons extends HTMLElement {
           rightButton: 'No',
         };
 
-        Notification.prompt(warning, true).then((result) => {
+        PopUp.prompt(warning, true).then((result) => {
           if (result === 'left') {
             localStorage.removeItem('TaskList');
             localStorage.removeItem('Started');
@@ -67,7 +67,7 @@ class StartButtons extends HTMLElement {
             localStorage.removeItem('Timer');
             window.location.href = './app.html';
           } else if (result === 'right') {
-            Notification.hide();
+            PopUp.hide();
           }
         });
       } else {
