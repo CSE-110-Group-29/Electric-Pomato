@@ -125,8 +125,6 @@ function showTimerNotification() {
     pomoAlert.addEventListener('click', () => {
       window.focus();
     });
-    const sound = new Audio('audio/pomo_end.mp3');
-    sound.play();
   } else {
     const breakAlert = new Notification('Electric Pomato', {
       icon: 'img/red-tomato.ico',
@@ -136,8 +134,6 @@ function showTimerNotification() {
     breakAlert.addEventListener('click', () => {
       window.focus();
     });
-    const sound = new Audio('audio/break_end.mp3');
-    sound.play();
   }
 }
 
