@@ -19,7 +19,7 @@ What image assets should we use for our final project?
     - Two of these four assets should have glowing versions as well, specifically the green tomato and bolt images. The green tomato and bolt images are used to indicate if the user is hovering over the bolt button on the landing page and the initial "START" green tomato on the timer page.
     - UPDATE: When the user hovers over the tomato timers, they will slightly be enlarged for button indication.
     - UPDATE: Teresa originally had an /images directory in the source directory with all the image assets in the form of PNG files. She discarded that directory in favor of /img directory, because the developers decided to use a mix of SVG and PNG files that they rendered themselves from Figma.
-    - UPDATE: We added a sad tomato image asset in the form of SVG file to use in the case the user wants to overwrite their current session. It is meant to discourage the user from quitting their plan for the day.
+    - UPDATE: Justin decided to add a sad tomato image asset to use in the case the user wants to overwrite their current session. It is meant to discourage the user from quitting their plan for the day. Teresa designed and provided the sad red tomato in the form of an SVG file under ./img directory.
 2. How should the start day graphic be implemented?
     - There were two options for this: timer with a "START" button below it and a green tomato with a "START" overlay. Teresa chose the latter.
 3. What should the file types/extensions be for these assets?
