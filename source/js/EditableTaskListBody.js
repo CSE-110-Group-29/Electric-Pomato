@@ -31,6 +31,12 @@ class EditableTaskListBody extends HTMLElement {
     this.data.todo.forEach(({ name, expected }, i) => {
       this.insertRow(i + 1, name, expected);
     });
+
+    this.connected = false;
+  }
+
+  connectedCallback() {
+    this.connected = true;
   }
 
   /**
@@ -139,7 +145,7 @@ class EditableTaskListBody extends HTMLElement {
     const row = this.lastElementChild;
     const inputs = row.querySelectorAll('input');
     const userInputs = Array.from(inputs).slice(-2);
-    const [editButton, removeButton, saveButton, cancelButton] = row.querySelectorAll('button');
+    const [editIcon, removeIcon, saveIcon, cancelIcon] = row.querySelectorAll('i');
     const [number] = args;
 
     row.dataset.id = number - 1;
@@ -148,36 +154,31 @@ class EditableTaskListBody extends HTMLElement {
       input.value = args[i];
     });
 
+    if (this.connected) {
+      row.querySelector('tomato-slider').render();
+    }
+
     userInputs.forEach((input) => {
       input.addEventListener('keyup', (e) => {
-        if (e.code === 'Enter' && !saveButton.disabled) {
+        if (e.code === 'Enter') {
           this.saveEdit();
         }
       });
-
-      input.addEventListener('input', () => {
-        const [currentName, currentExpected] = userInputs;
-        if (currentName.value.length === 0 || Number(currentExpected.value) < 1) {
-          saveButton.disabled = true;
-        } else {
-          saveButton.disabled = false;
-        }
-      });
     });
 
-    editButton.addEventListener('click', () => {
+    editIcon.addEventListener('click', () => {
       this.editRow(row, userInputs);
     });
 
-    removeButton.addEventListener('click', () => {
+    removeIcon.addEventListener('click', () => {
       this.removeRow(row);
     });
 
-    saveButton.addEventListener('click', () => {
+    saveIcon.addEventListener('click', () => {
       this.saveEdit();
     });
 
-    cancelButton.addEventListener('click', () => {
+    cancelIcon.addEventListener('click', () => {
       this.cancelEdit();
     });
   }

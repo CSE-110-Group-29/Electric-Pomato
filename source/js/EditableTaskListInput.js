@@ -46,6 +46,8 @@ class EditableTaskListInput extends HTMLElement {
     this.button.addEventListener('click', () => {
       this.addRow();
     });
+
+    this.resetCount = 0;
   }
 
   /**
@@ -59,7 +61,7 @@ class EditableTaskListInput extends HTMLElement {
    * Disable/Enable add task button based on validity of inputs.
    */
   updateButtonState() {
-    if (this.nameInput.value.length === 0 || Number(this.expectedInput.value) < 1) {
+    if (this.nameInput.value.length === 0) {
       this.button.disabled = true;
     } else {
       this.button.disabled = false;
@@ -79,9 +81,13 @@ class EditableTaskListInput extends HTMLElement {
    */
   reset() {
     this.nameInput.value = '';
-    this.expectedInput.value = '';
+    this.expectedInput.value = '1';
     this.nameInput.focus();
     this.updateButtonState();
+    if (this.resetCount > 0) {
+      this.querySelector('tomato-slider').render();
+    }
+    this.resetCount += 1;
   }
 }
 
