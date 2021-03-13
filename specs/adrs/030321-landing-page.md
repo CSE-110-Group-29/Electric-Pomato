@@ -1,4 +1,5 @@
 # March 3rd 2021, Landing Page ADR
+> (Last Decision: Mar. 6 2021, by Justin Lee)
 
 ## Status: accepted
 
