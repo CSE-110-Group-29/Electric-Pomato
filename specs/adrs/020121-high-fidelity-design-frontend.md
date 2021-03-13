@@ -22,45 +22,6 @@ What are the features and mechanics that we want to subsume into our final desig
 - Francesco Chirillo's Pomodoro Technique philosophy.
 - Task and time management.
 
-## Options to consider
-
-1. Theme:
-    - Use CSS themes, specifically the paper CSS theme.
-    - Draw our own designs.
-    - Design only using a simplistic layout and a Lillipution amount of art.
-2. Features pertaining to Francesco's Pomodoro Technique:
-    - 25-30 minute break timer after 4 Pomodoros.
-    - To-do today/Task list sheet.
-    - Activity Inventory sheet.
-    - Unplanned and urgent list.
-        - Urgent task slot.
-    - Records sheet.
-    - Estimated number of Pomodoros.
-        - Allow and track multiple estimations for a single task.
-        - Evince estimated and real number of Pomodoros below timer.
-3. Miscellaneous features:
-    - Plots and visuals.
-    - Display task remaining and completed count.
-    - Documentation on application itself.
-        - Landing page.
-    - Docmentation on separate wiki page.
-4. Funcitonality:
-    - Begin button for the timer.
-    - Exit application button during the break timer.
-    - Hide timer and supplant it with a hoverable "bar."
-    - "I finished early!" button.
-        - Additional "I need more time!" button.
-    - Prompt the user to input more tasks if they completed all their tasks for the day.
-5. User information storage:
-    - Store user accounts.
-    - Only keep track of a single user.
-6. Page layout:
-    - Single page for timer.
-    - Multiple pages for timer.
-7. Task list appearance:
-    - Pop-up task list.
-    - Display task list and timer concomitantly on the same page.
-
 ## Decision Outcome (bolded options indicate the features we decided to implement)
 
 1. Theme.
