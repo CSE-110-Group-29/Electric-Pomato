@@ -324,6 +324,38 @@ view-only-task-list {
     transform: scale(0.9);
 }
 
+.slider-tomato-container {
+    width: 95%;
+    cursor: pointer;
+    user-select: none;
+}
+
+.slider-tomato {
+    width: 18%;
+}
+
+.task-list-container {
+    input:disabled + div .white-tomato {
+        & > path {
+            fill: white;
+        }
+    }
+}
+
+.white-tomato {
+    & > path:nth-child(1) {
+        fill: white;
+    }
+
+    & > path:nth-child(2) {
+        fill: white;
+    }
+
+    & > path:nth-child(4) {
+        fill: white;
+    }
+}
+
 .red-tomato {
     & > path:nth-child(1) {
         fill: #d7212d;
@@ -375,7 +407,7 @@ view-only-task-list {
     display: none; /* Hidden by default */
     align-items: center;
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 3; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -385,7 +417,7 @@ view-only-task-list {
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-.notif-content {
+#notif-content {
     background-color: #fefefe;
     padding: map-get($spacers, 4);
     background-color: $info;
@@ -396,7 +428,7 @@ view-only-task-list {
     text-align: center;
 }
 
-.notif-content > *:not(:last-child) {
+#notif-content > *:not(:last-child) {
     margin-bottom: map-get($spacers, 4);
 }
 
