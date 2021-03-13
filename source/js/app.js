@@ -203,9 +203,6 @@ function handleClick(timer, taskList) {
           timer.lastElementChild.remove();
         }
 
-        if (Notification.permission === 'granted') {
-          showTimerNotification();
-        }
         localStorage.setItem('Timer', timerState === 'false');
         initTimer(timer);
         active = false;
@@ -251,16 +248,6 @@ function handleOnLoad() {
       appContainer.lastElementChild.remove();
       showTimer();
     });
-  }
-
-  // Request notification permission on page load
-  if (!('Notification' in window)) {
-    console.log('This browser does not support notifications.');
-  } else {
-    console.log(Notification.permission);
-    if (Notification.permission !== 'denied') {
-      Notification.requestPermission();
-    }
   }
 }
 
