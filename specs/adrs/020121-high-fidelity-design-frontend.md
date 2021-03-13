@@ -1,4 +1,5 @@
 # Feb. 1st 2021, High Fidelity Design for FrontEnd ADR
+> (Last Modified: Feb. 19 2021, by Teresa Truong)
 
 Resources to get started:
 
