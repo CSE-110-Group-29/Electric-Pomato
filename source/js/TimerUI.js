@@ -108,6 +108,22 @@ class TimerUI extends HTMLElement {
     this.querySelector('.timer-image').classList.add('gold-tomato');
     this.querySelector('.timer-image').classList.add('hover-false');
   }
+
+  /**
+   * Removes the hover effect on the Tomato image during a timer.
+   */
+  removeHoverEffect() {
+    this.querySelector('.timer-image').classList.remove('timer-img');
+    this.querySelector('.timer-image').classList.add('hover-false');
+  }
+
+  /**
+   * Adds the hover effect to the Tomato image when timer is not counting.
+   */
+  addHoverEffect() {
+    this.querySelector('.timer-image').classList.add('timer-img');
+    this.querySelector('.timer-image').classList.remove('hover-false');
+  }
 }
 
 customElements.define('pomo-timer', TimerUI);

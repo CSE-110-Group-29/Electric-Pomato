@@ -365,15 +365,16 @@ view-only-task-list {
 
 .hover-false {
     transform: none;
+    transform: scale(0.9);
 }
 
 .hover-false:hover {
     cursor: auto;
-    transform: none;
+    transform: scale(0.9);
 }
 
 .hover-false:active {
-    transform: none;
+    transform: scale(0.9);
 }
 
 .timer-text {
