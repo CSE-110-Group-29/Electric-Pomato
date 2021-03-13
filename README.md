@@ -42,7 +42,7 @@ And that should be it!
 
 ## Contributing
 
-To start contributing, first look over our [onboarding]() doc to familiarize yourself with our repo. Then make sure to check our wikis on [creating issues](https://github.com/DonaldWolfson/cse110-w21-group29/wiki/How-to-Post-an-Issue), and [working on issues](https://github.com/DonaldWolfson/cse110-w21-group29/wiki/How-to-Work-on-an-Issue).
+To start contributing, first look over our [onboarding](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/specs/onboard.md) doc to familiarize yourself with our repo. Then make sure to check our wikis on [creating issues](https://github.com/DonaldWolfson/cse110-w21-group29/wiki/How-to-Post-an-Issue), and [working on issues](https://github.com/DonaldWolfson/cse110-w21-group29/wiki/How-to-Work-on-an-Issue).
 
 ## Contributors
 
