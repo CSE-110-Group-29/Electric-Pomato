@@ -13,7 +13,7 @@ import EditableTaskList from './EditableTaskList.js';
 import ViewOnlyTaskList from './ViewOnlyTaskList.js';
 import TimerUI from './TimerUI.js';
 import BreakPrompt from './BreakPrompt.js';
-import Notification from './Notification.js';
+import PopUp from './PopUp.js';
 
 /**
  * STATE:
@@ -101,7 +101,7 @@ function handleEndOfSession() {
     rightButton: 'View Logs',
   };
 
-  Notification.prompt(endMessage, false).then((result) => {
+  PopUp.prompt(endMessage, false).then((result) => {
     if (result === 'left') {
       window.location.href = 'index.html';
     } else if (result === 'right') {
