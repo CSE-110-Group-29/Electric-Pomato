@@ -24,7 +24,7 @@
 
 ## Meetings Notes
 
-1. Presented Design Team's Mini Pitch. Most of the selected ideas aren't in these meeting notes. They're in the ![rough](https://github.com/DonaldWolfson/cse110-w21-group29/tree/specs_updates/specs/interface/rough) directory. Below are some new things that were brought up.
+1. Presented Design Team's Mini Pitch. Most of the selected ideas aren't in these meeting notes. They're in the [rough](https://github.com/DonaldWolfson/cse110-w21-group29/tree/main/specs/interface/rough) directory. Below are some new things that were brought up.
    1. People really liked the Tomato theme (add those as symbols later).
    2. Found a cool [CSS library](https://www.getpapercss.com/) to possibly use.
       - Development team will test this out in the future.
