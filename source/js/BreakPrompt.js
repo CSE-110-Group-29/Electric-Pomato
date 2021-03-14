@@ -25,7 +25,7 @@ class BreakPrompt extends HTMLElement {
   * @return {boolean} Checked property
   */
   getChecked() {
-    return this.lastElementChild.checked;
+    return this.querySelector('#break-checkbox').checked;
   }
 }
 
