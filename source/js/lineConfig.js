@@ -2,6 +2,7 @@ const lineConfig = {
   type: 'line',
   globals: {
     fontFamily: 'Neucha',
+    fontSize: '15px',
   },
   utc: true,
   plotarea: {
@@ -15,7 +16,6 @@ const lineConfig = {
     align: 'center',
     item: {
       fontColor: '#707d94',
-      fontSize: '14px',
       cursor: 'pointer',
     },
     marker: {
@@ -28,19 +28,9 @@ const lineConfig = {
   },
   scaleX: {
     shadow: 0,
-    step: 3600000 * 6,
-    transform: {
-      type: 'date',
-      all: '%D, %d %M<br />%h:%i %A',
-      guide: {
-        visible: false,
-      },
-      item: {
-        visible: false,
-      },
-    },
+    step: 1,
     label: {
-      visible: false,
+      text: 'Session',
     },
     minorTicks: 0,
   },
@@ -51,7 +41,7 @@ const lineConfig = {
       lineStyle: 'solid',
     },
     label: {
-      text: 'Average FCP',
+      text: 'Pomos',
     },
     minorTicks: 0,
     thousandsSeparator: ',',
