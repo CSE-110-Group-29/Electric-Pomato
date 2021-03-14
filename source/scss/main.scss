@@ -407,12 +407,6 @@ view-only-task-list {
     @include font-size($h2-font-size);
 }
 
-.pomato-data {
-    width: 80%; 
-    margin: 42% 10% 10% 10%; 
-    position: absolute;
-}
-
 .notification {
     display: none; /* Hidden by default */
     align-items: center;
