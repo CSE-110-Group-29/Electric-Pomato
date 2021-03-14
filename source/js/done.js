@@ -4,7 +4,7 @@
  * @author Andy Young
  */
 
-import zingchart from './zingchart-es6.min.js';
+import zingchart from '../dependencies/zingchart-es6.min.js';
 import lineConfig from './lineConfig.js';
 import { hex } from './lineColors.js';
 
