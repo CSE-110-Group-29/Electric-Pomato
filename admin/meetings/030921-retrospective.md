@@ -29,7 +29,7 @@
       - Most of us think that the course seems very unstructured and unorganized, making it hard to figure out what we're truly supposed to do in terms of the project and Agile practice.
       - Despite this being the most voted grouping of posts, the team unanimously agreed that there isn't anything we can do about these concerns, so we moved on.
   - Lack of Collaboration:
-  ![Lack of Collaboration Items](../meeting_images/Lack\ of\ Collaboration.PNG)
+  ![Lack of Collaboration Items](../meeting_images/Lack of Collaboration.PNG)
     - We first addressed the concern of people not contributing enough to the team because this is a repeated concern that we had in the previous retrospective.
       - Once again, we think the team members shouldn't worry too much about this because we're being too hard on ourselves. As we will see in the later topics, we've put posts saying that our team dynamic is great.
       - Unfortunately, because the quarter natually gets heavy near finals week, it becomes significantly harder for team members to meet up and do pair programming. We don't need an action plan for this either because it's inexorable.
@@ -44,8 +44,8 @@
     - Donald helped improve the team morale because we were having qualms about our ability to add all of our desired features.
       - The goal is simple. Finish resolving the remaining issues on Github, and then go all out on the Analytics page. We already prepared the codebase for that page.
   - Team Dynamic
-  ![Team Dynamic Items](../meeting_images/Team\ Dynamic2.PNG)
+  ![Team Dynamic Items](../meeting_images/Team Dynamic2.PNG)
     - We didn't spend much time on this because most of the comments for this grouping of posts was already made in during our discussion for the "Progress" grouping.
   - Clean Code & Documentation
-  ![Documentation Items](../meeting_images/Clean\ Code\ &\ Documentation2.PNG)
+  ![Documentation Items](../meeting_images/Clean Code & Documentation2.PNG)
     - No one had comments about this, so we moved on.
