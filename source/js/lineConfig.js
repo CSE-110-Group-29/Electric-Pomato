@@ -1,7 +1,7 @@
 const lineConfig = {
   type: 'line',
   globals: {
-    fontFamily: 'Poppins',
+    fontFamily: 'Neucha',
   },
   utc: true,
   plotarea: {
@@ -94,3 +94,5 @@ const lineConfig = {
   },
   series: [],
 };
+
+export default lineConfig;
