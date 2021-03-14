@@ -35,7 +35,6 @@
   "dependencies": {
     "@jest/globals": "^26.6.2",
     "bootstrap": "^5.0.0-beta2",
-    "node-sass": "^5.0.0",
-    "zingchart": "^2.9.2"
+    "node-sass": "^5.0.0"
   }
 }
