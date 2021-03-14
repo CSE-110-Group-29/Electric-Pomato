@@ -1,4 +1,6 @@
 import EditableTaskList from '../js/EditableTaskList.js';
+import EditableTaskListInput from '../js/EditableTaskListInput.js';
+import EditableTaskListBody from '../js/EditableTaskListBody.js';
 import TaskList from '../js/TaskList.js';
 
 // Initialize the DOM with a EditableTaskList element.
@@ -85,4 +87,79 @@ test('Load Existing TaskList', () => {
 
   const editableTaskList = new EditableTaskList();
   expect(editableTaskList).not.toBeNull();
+});
+
+test('Reset TaskListInput', () => {
+  // Create new EditableTaskListInput
+  const editableTaskListInput = new EditableTaskListInput();
+
+  // connectedCallback just calls reset()
+  editableTaskListInput.connectedCallback();
+
+  // Check that input values were reset to ''
+  expect(editableTaskListInput.nameInput.value).toBe('');
+  expect(editableTaskListInput.expectedInput.value).toBe('1');
+});
+
+test('Check updateButtonState() For EditableTaskListInput', () => {
+  // Create new EditableTaskListInput
+  const editableTaskListInput = new EditableTaskListInput();
+
+  // connectedCallback just calls reset()
+  editableTaskListInput.updateButtonState();
+
+  // Check that button is disabled
+  expect(editableTaskListInput.button.disabled).toBe(true);
+
+  // Fill in valid values
+  editableTaskListInput.nameInput.value = 'first task';
+  editableTaskListInput.expectedInput.value = 3;
+
+  // Call updateButtonState() again
+  editableTaskListInput.updateButtonState();
+
+  // Button should not be disabled now
+  expect(editableTaskListInput.button.disabled).toBe(false);
+});
+
+test('Add Row From EditableTaskListBody', () => {
+  // Create new EditableTaskListBody
+  const editableTaskListInput = new EditableTaskListInput();
+  const editableTaskListBody = new EditableTaskListBody(editableTaskListInput);
+
+  // Reset data for testing purposes
+  editableTaskListBody.data.reset();
+
+  // Add row
+  const taskName = 'first task';
+  const taskExpectedPomo = 3;
+  editableTaskListBody.addRow(taskName, taskExpectedPomo);
+
+  // Check for row data in todo
+  expect(editableTaskListBody.data.todo[0].name).toBe(taskName);
+  expect(editableTaskListBody.data.todo[0].expected).toBe(taskExpectedPomo);
+});
+
+test('Edit Row From EditableTaskListBody', () => {
+  // Create new EditableTaskListInput
+  const editableTaskListInput = new EditableTaskListInput();
+  const editableTaskListBody = new EditableTaskListBody(editableTaskListInput);
+
+  // Reset data for testing purposes
+  editableTaskListBody.data.reset();
+
+  // Add row
+  const taskName = 'first task';
+  const taskExpectedPomo = 3;
+  editableTaskListBody.addRow(taskName, taskExpectedPomo);
+
+  // Edit the row
+  const row = editableTaskListBody.lastElementChild;
+  const inputs = row.querySelectorAll('input');
+  const userInputs = Array.from(inputs).slice(-2);
+  editableTaskListBody.editRow(row, userInputs);
+
+  // Check that edit was not saved yet
+  expect(editableTaskListBody.data.todo[0].name).toBe(taskName);
+  expect(editableTaskListBody.data.todo[0].expected).toBe(taskExpectedPomo);
 });
