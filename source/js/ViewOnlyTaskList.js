@@ -40,6 +40,10 @@ class ViewOnlyTaskList extends HTMLElement {
       this.position();
     });
 
+    window.addEventListener('resize', () => {
+      this.position();
+    });
+
     this.render();
   }
 
