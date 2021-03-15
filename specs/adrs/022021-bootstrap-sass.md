@@ -1,6 +1,7 @@
 # Feb. 20th 2021, Bootstrap Sass
+> (Last Decision: Feb. 24 2021, by Andy Young)
 
-Resources to get started:
+Resources to get started: 
 
 - [Bootstrap Sass Docs](https://getbootstrap.com/docs/5.0/customize/sass/)
 

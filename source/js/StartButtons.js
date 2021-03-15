@@ -5,7 +5,7 @@
  */
 
 import TaskList from './TaskList.js';
-
+import PopUp from './PopUp.js';
 /**
  * TODO
  * @extends HTMLElement
@@ -50,13 +50,29 @@ class StartButtons extends HTMLElement {
     button.appendChild(text);
 
     button.addEventListener('click', () => {
-      // TODO show warning alert
-      // Wipe stuff from last session from local storage
-      localStorage.removeItem('TaskList');
-      localStorage.removeItem('Started');
-      localStorage.removeItem('TotalPomos');
-      localStorage.removeItem('Timer');
-      window.location.href = './app.html';
+      const tasklist = new TaskList();
+      if (tasklist.todo.length > 0) {
+        const warning = {
+          title: 'You already have an existing session, creating a new one will overwrite it!',
+          subtitle: 'Continue anyway?',
+          leftButton: 'Yes',
+          rightButton: 'No',
+        };
+
+        PopUp.prompt(warning, true).then((result) => {
+          if (result === 'left') {
+            localStorage.removeItem('TaskList');
+            localStorage.removeItem('Started');
+            localStorage.removeItem('TotalPomos');
+            localStorage.removeItem('Timer');
+            window.location.href = './app.html';
+          } else if (result === 'right') {
+            PopUp.hide();
+          }
+        });
+      } else {
+        window.location.href = './app.html';
+      }
     });
 
     return button;

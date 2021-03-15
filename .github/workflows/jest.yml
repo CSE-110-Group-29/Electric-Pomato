@@ -1,6 +1,9 @@
 name: Jest CI
 
-on: [push]
+on: 
+  push:
+    branches-ignore:
+      - 'master'
 
 jobs:
   test:

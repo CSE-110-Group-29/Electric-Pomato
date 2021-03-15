@@ -43,6 +43,43 @@ test('Check Timers Initialized Values : Second > 59', () => {
 
 jest.useFakeTimers();
 
+test('Check Timer to Return Promise', () => {
+  // callback jest function and increment mutableNum
+  const jestCallback = jest.fn();
+  const callback = function thing() {
+    jestCallback();
+  };
+
+  // timer
+  const seconds = 0;
+  const timer = new Timer(0, seconds, callback);
+  const promise = timer.startTimer();
+
+  return expect(promise).resolves.toBe('Timer Finished');
+});
+
+test('Check Timer Count Down 1sec and Callback Each Sec', () => {
+  // callback jest function and increment mutableNum
+  const jestCallback = jest.fn();
+  let mutatableNum = 0;
+  const callback = function thing() {
+    jestCallback();
+    mutatableNum += 1;
+  };
+
+  // timer
+  const seconds = 1;
+  const timer = new Timer(0, seconds, callback);
+
+  // start counting
+  expect(jestCallback).not.toBeCalled();
+  timer.startTimer();
+
+  // expect promise to resolve because timer ends
+  expect(jestCallback).toHaveBeenCalledTimes(seconds);
+  expect(mutatableNum).toBe(seconds);
+});
+
 test('Check Timer Count Down 2sec and Callback Each Sec', () => {
   // callback jest function and increment mutableNum
   const jestCallback = jest.fn();
@@ -79,7 +116,7 @@ test('Check Timer Count Down 1min and Access Timer Members', () => {
   };
 
   // timer
-  const minutes = 1;
+  const minutes = 2;
   const seconds = 0;
   const timer = new Timer(minutes, seconds, callback);
 
@@ -88,14 +125,14 @@ test('Check Timer Count Down 1min and Access Timer Members', () => {
   timer.startTimer();
 
   // should have ticked down by 1 after starting
-  expect(timer.seconds).toBe(60 - 1);
-  expect(timer.minutes).toBe(0);
+  expect(timer.seconds).toBe(59);
+  expect(timer.minutes).toBe(1);
 
   // count down 1 minute and check the values
   jest.advanceTimersByTime(1000);
-  for (let i = 1; i <= minutes * 60 - 1; i += 1) {
+  for (let i = 1; i <= 60 - 1 - 1; i += 1) {
     expect(timer.seconds).toBe(60 - i - 1);
-    expect(timer.minutes).toBe(0);
+    expect(timer.minutes).toBe(1);
     jest.advanceTimersByTime(1000);
     // +1 because we ticked the timer 1 second prior to for-loop
     // and another +1 because starting a timer immediately callsback
@@ -109,7 +146,8 @@ test('Null callbackEverySecond Member Variable', () => {
 
   expect(callbackFunction).not.toBeCalled();
   timer.startTimer();
-  jest.runAllTimers();
+  // jest.runAllTimers();
+  jest.advanceTimersByTime(5000);
 
   expect(callbackFunction).not.toBeCalled();
 });

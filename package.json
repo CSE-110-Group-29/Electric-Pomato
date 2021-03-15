@@ -7,6 +7,7 @@
     "lint": "NODE_OPTIONS=--experimental-vm-modules npx eslint ./source/js --ext .js",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest ./source/__tests__",
     "generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose",
+    "coverage": "NODE_OPTIONS=--experimental-vm-modules jest --coverage",
     "sass-compile": "node-sass ./source/scss/main.scss ./source/css/main.css",
     "sass-watch": "node-sass ./source/scss/main.scss ./source/css/main.css -w"
   },
@@ -34,7 +35,6 @@
   "dependencies": {
     "@jest/globals": "^26.6.2",
     "bootstrap": "^5.0.0-beta2",
-    "node-sass": "^5.0.0",
-    "zingchart": "^2.9.2"
+    "node-sass": "^5.0.0"
   }
 }

@@ -3,7 +3,8 @@
 ## Meeting Details
 
 - Type of meeting: kick-off
-- Members present/absent: Allen Zou, Andy Young, Annika Hatcher, Arman Mansourian, Don Wolfson, Enrique Gan, Justin Lee, Liam Stone, Teresa Truong/Sim (TA)
+- Members present: Allen Zou, Andy Young, Annika Hatcher, Arman Mansourian, Don Wolfson, Enrique Gan, Justin Lee, Liam Stone, Teresa Truong
+- Mmebers absent: Sim (TA)
 - Meeting location: ZOOM
 - Start/finish time: 3:00 PM PST - 4:30 PM PST
 
@@ -20,7 +21,7 @@
 2. Management - Group Kickoff, Repo and Meeting Prep
    1. [Link to Assignment](https://canvas.ucsd.edu/courses/21783/assignments/267399)
    2. Discuss Promodoro clock, and make sure everyone understand the current project.
-   3. Discuss future meetings time, is Friay at 4:00PM good?
+   3. Discuss future meetings time, is Friday at 4:00PM good?
    4. Group Roles
 3. Manage - Page and Video
    1. [Link to Assignment](https://canvas.ucsd.edu/courses/21783/assignments/259312)
@@ -36,18 +37,20 @@
    2. Agreed that the primary form of communication will be on Slack.
       1. Asked everyone to download the Phone app to get notifications incase of any urgent issues.
       2. Expect responses within 24 hours to major notifications.
-   3. Discussing specific concepts about the project should be on Github using the issues tab.
-      1. If something requires lots of back and forth, use the Slack `# github-issues` channel.
-   4. Meetings will be held Fridays, 4:00pm regurlarly, Ad-hoc meetings may be needed, but try to handle issues on Slack as much as possible.
-   5. Discuss General Responsiblities,
+   4. Discuss General Responsiblities,
       1. Agreed that everyone will put at least on norm/rule they believe should be followed in this section after meeting due to time consraints.
-   6. Discussed Specific Roles,
-      1. Agreed that we need to know more about the project and each other before assigning roles. Will be likely done by the end of the following week.
-   7. Discussed Conflict Resolution:
+   6. Discussed Conflict Resolution:
       1. Simple 5-4 majority votes on group based conflicts.
       2. Personal conflicts details in the rules.md file.
-   8. Discussed what needed to be submitted for the kick-off assignment. Will likely be able to be turned in by Monday.
-   9. Spent the ending of the meeting attempting to record for the video. Decided to asysnchronous recordings and sent them to Teresa. More details about what to submit in the Slack channel.
+ 2. Management - Group Kickoff, Repo and Meeting Prep
+   1. Discussed what needed to be submitted for the kick-off assignment. Will likely be able to be turned in by Monday.
+   2. Meetings will be held Fridays, 4:00pm regurlarly, Ad-hoc meetings may be needed, but try to handle issues on Slack as much as possible.
+   3. Discussing specific concepts about the project should be on Github using the issues tab.
+      1. If something requires lots of back and forth, use the Slack `# github-issues` channel.
+   4. Discussed Specific Roles,
+      1. Agreed that we need to know more about the project and each other before assigning roles. Will be likely done by the end of the following week.
+ 3. Manage - Page and Video
+   1. Spent the ending of the meeting attempting to record for the video. Decided to asysnchronous recordings and sent them to Teresa. More details about what to submit in the Slack channel.
 
 ## Tasks to complete
 
@@ -57,6 +60,8 @@
    3. Record 10-15 second clip following Teresa's format in the `# group-video` channel.
    4. Upload you're signed PDF of the `rules.md` file (I think this requires @DonaldWolfson to upload the actual rules.md file of the Google Doc).
    5. Upload link of the repo for the `Management - Group Kickoff, Repo and Meeting Prep` assignment, once this is pushed, the repo should meet all requirements for this assignment.
+   6. Vote for a team name in the general channel on Slack.
+   7. Add your entry to our group Wiki page.
 
 - Donald:
    1. Upload finalized Rules Google Doc to: `/admin/misc/rules.md`

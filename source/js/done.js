@@ -1,139 +1,67 @@
 /**
  * @file The main controller of the HTML of the last page.
  * @author Annika Hatcher
+ * @author Andy Young
  */
 
-/* ******************************** Imports ********************************* */
-import TimerUI from './TimerUI.js';
-import zingchart from '../../node_modules/zingchart/es6.js';
-import '../../node_modules/zingchart/modules-es6/zingchart-pareto.min.js';
+import zingchart from '../dependencies/zingchart-es6.min.js';
+import lineConfig from './lineConfig.js';
+import { hex } from './lineColors.js';
 
-/**
- * STATE:
- * {
- *  Username: {String}
- *    null: redirect to index.html
- *  Started: {Boolean}
- *    true: display TimerUI & ViewOnlyTaskList,
- *    false: go to Editable Task List display.
- *  TotalPomos: {Number}
- *    Elapsed pomos.
- *  Timer: {Boolean}
- *    true: pomodoro
- *    false: break
- *      TotalPomos % 4 == 0: long break
- *      else: short break
- * }
- */
-
-/* ******************************* DOM Values ******************************* */
-
-const appContainer = document.querySelector('.app-container');
-
-/* **************************** Helper Functions **************************** */
-
-/**
- * @function showTomato
- * Displays the glorious golden Tomato.
- */
-function showTomato() {
-  const timerUI = new TimerUI();
-  appContainer.appendChild(timerUI);
-  timerUI.setColorGold();
-  timerUI.clear();
-  appContainer.appendChild(document.querySelector('#pomato-data-template').content.cloneNode(true));
-}
-
-/**
- * @function setData
- * Compiles and renders the zingchart data.
- */
-function setData() {
-  const expecteds = [];
-  const actuals = [];
-  const taskList = JSON.parse(localStorage.getItem('TaskList'));
-  const { completed } = taskList;
-  const { length } = completed;
-  const tasks = [length];
-
-  // Load the data.
-  for (let index = 0; index < length; index += 1) {
-    expecteds[index] = completed[index].expected;
-    actuals[index] = completed[index].actual;
-    tasks[index] = completed[index].name;
-  }
-
-  const myConfig = {
-    type: 'bar',
-    title: {
-      text: 'Session Data',
-      fontSize: 24,
-      color: '#333333',
+function line(name, data, color) {
+  return {
+    text: name.charAt(0).toUpperCase() + name.slice(1),
+    values: data,
+    lineColor: color,
+    lineWidth: '2px',
+    marker: {
+      type: 'square',
+      backgroundColor: color,
+      borderColor: color,
+      shadow: false,
+      size: 3,
     },
-    legend: {
-      draggable: true,
+    highlightMarker: {
+      backgroundColor: color,
+      borderColor: color,
+      size: 5,
     },
-    scaleX: {
-      // set scale label
-      label: {
-        text: 'Task',
-      },
-      // convert text on scale indices
-      labels: tasks,
-    },
-    scaleY: {
-      values: '0:5:1',
-      // scale label with unicode character
-      label: {
-        text: 'Pomodoros',
-      },
-    },
-    plot: {
-      // animation docs here:
-      // https://www.zingchart.com/docs/tutorials/design-and-styling/chart-animation/#animation__effect
-      animation: {
-        effect: 'ANIMATION_EXPAND_BOTTOM',
-        method: 'ANIMATION_STRONG_EASE_OUT',
-        sequence: 'ANIMATION_BY_NODE',
-        speed: 275,
-      },
-    },
-    series: [{
-      // plot 1 values, linear data
-      values: expecteds,
-      text: 'Expected',
-      backgroundColor: '#2fa027',
-    },
-    {
-      // plot 2 values, linear data
-      values: actuals,
-      text: 'Actual',
-      backgroundColor: '#f5c815',
-    },
-    ],
+    palette: 0,
+    shadow: false,
+    visible: true,
   };
-
-  // render chart with width and height to
-  // fill the parent container CSS dimensions
-  zingchart.render({
-    id: 'pomatoData',
-    data: myConfig,
-  });
 }
 
-/**
- * @function handleOnLoad
- * Will hold all Edge Cases that should be check when a page is loaded.
- */
 function handleOnLoad() {
-  // Redirect to index.html if no name is in localStorage.
-  if (!localStorage.getItem('Username')) {
-    window.location.href = 'index.html';
-  } else {
-    document.querySelector('.app-title').innerHTML = `Congrats, ${localStorage.getItem('Username')}!`;
-    showTomato();
-    setData();
-  }
+  const { tasklists } = JSON.parse(localStorage.getItem('History'));
+
+  const lines = ['expected', 'actual'];
+
+  lines.forEach((name) => {
+    const data = [];
+    tasklists.forEach((session) => {
+      let total = 0;
+      session.forEach((task) => {
+        total += task[name];
+      });
+      data.push(total);
+    });
+    lineConfig.series.push(line(name, data, hex.pop()));
+  });
+
+  /* functional version
+  lineConfig.series = lines.map((name) =>
+    line(name, tasklists.map((tasklist) =>
+      tasklist.reduce((total, task) => total + task[name], 0)
+    ), rgba.pop())
+  );
+  */
+  zingchart.render({
+    id: 'lineChart',
+    data: lineConfig,
+    height: 500,
+    width: '100%',
+  });
 }
 
 // Handle any edge cases on loading into the page.
