@@ -43,7 +43,7 @@ How should we set up our session script?
     - Started: {Boolean} A boolean variable for whether the user created their task list or not. If the user has already created their task list, then user will see the tomato timer and the view-only task list. If the user has not created their task list, then the user will view the editable task list page. It should be noted that if the user refreshes, the Started state will be used appropriate redirection.
     - TotalPomos: {Number} The total number of elapsed pomodoros is recorded in localStorage. 
     - Timer: {Boolean} If timer boolean is true, then the green pomodoro timer will be displayed. If the timer boolean is false, then the red break timer will be displayed.
-    - Timer Notification: When the pomodoro or break timer ends (0 minutes, 0 seconds), there will be a desktop browser notification and sound notification.
+    - Timer Notification: When the pomodoro or break timer ends (0 minutes, 0 seconds), there will be a desktop browser notification.
 5. The session script will decide what to show as soon as the user inputs all of his or her information on the landing page.
     - ~~Send the session script down a list of event handlers to see what the user has done.~~
     - Update: it will be much simpler to check what’s in LocalStorage because it should already contain information about what the user has done.
