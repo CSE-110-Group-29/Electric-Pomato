@@ -30,6 +30,7 @@ class TimerUI extends HTMLElement {
 
   reset() {
     this.text.innerHTML = 'START';
+    this.classList.remove('timer-active');
   }
 
   clear() {
@@ -59,6 +60,7 @@ class TimerUI extends HTMLElement {
   startTimer() {
     // immediately update html
     this.text.innerHTML = `${TimerUI.parseMinutes(this.timer.minutes)} : ${TimerUI.parseSeconds(this.timer.seconds)}`;
+    this.classList.add('timer-active');
     return this.timer.startTimer();
   }
 
@@ -106,23 +108,6 @@ class TimerUI extends HTMLElement {
    */
   setColorGold() {
     this.querySelector('.timer-image').classList.add('gold-tomato');
-    this.querySelector('.timer-image').classList.add('hover-false');
-  }
-
-  /**
-   * Removes the hover effect on the Tomato image during a timer.
-   */
-  removeHoverEffect() {
-    this.querySelector('.timer-image').classList.remove('timer-img');
-    this.querySelector('.timer-image').classList.add('hover-false');
-  }
-
-  /**
-   * Adds the hover effect to the Tomato image when timer is not counting.
-   */
-  addHoverEffect() {
-    this.querySelector('.timer-image').classList.add('timer-img');
-    this.querySelector('.timer-image').classList.remove('hover-false');
   }
 }
 

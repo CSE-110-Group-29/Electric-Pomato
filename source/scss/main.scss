@@ -324,6 +324,11 @@ view-only-task-list {
     transform: scale(0.9);
 }
 
+.timer-active .timer-image:hover {
+    cursor: default;
+    transform: scale(0.9);
+}
+
 .slider-tomato-container {
     width: 95%;
     cursor: pointer;
@@ -384,20 +389,6 @@ view-only-task-list {
     & > path:nth-child(2) {
         fill: #c59e01;
     }
-}
-
-.hover-false {
-    transform: none;
-    transform: scale(0.9);
-}
-
-.hover-false:hover {
-    cursor: auto;
-    transform: scale(0.9);
-}
-
-.hover-false:active {
-    transform: scale(0.9);
 }
 
 .timer-text {

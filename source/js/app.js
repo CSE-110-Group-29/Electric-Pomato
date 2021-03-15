@@ -121,7 +121,6 @@ function initTimer(timer) {
   } else {
     const timerState = localStorage.getItem('Timer');
     timer.reset();
-    timer.addHoverEffect();
 
     // If timer is true set pomo, otherwise it is a break
     if (timerState === 'true') {
@@ -187,7 +186,6 @@ function handleClick(timer, taskList) {
   timer.firstElementChild.addEventListener('click', () => {
     if (!active) {
       active = true;
-      timer.removeHoverEffect();
       timer.startTimer().then(() => {
         const timerState = localStorage.getItem('Timer');
 
