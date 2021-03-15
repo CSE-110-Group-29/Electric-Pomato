@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>done.js - Documentation</title>
+    <title>LogsButton - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,87 +29,148 @@
 
 <div id="main">
     
-    <h1 class="page-title">done.js</h1>
+    <h1 class="page-title">LogsButton</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>/**
- * @file The main controller of the HTML of the last page.
- * @author Annika Hatcher
- * @author Andy Young
- */
+        <h2>
+        LogsButton
+        </h2>
+        
+            <div class="class-description"><p>TODO</p></div>
+        
+    
+</header>
 
-import zingchart from '../dependencies/zingchart-es6.min.js';
-import lineConfig from './lineConfig.js';
-import { hex } from './lineColors.js';
+<article>
+    <div class="container-overview">
+    
+        
+<div class="section-method">
 
-function line(name, data, color) {
-  return {
-    text: name.charAt(0).toUpperCase() + name.slice(1),
-    values: data,
-    lineColor: color,
-    lineWidth: '2px',
-    marker: {
-      type: 'square',
-      backgroundColor: color,
-      borderColor: color,
-      shadow: false,
-      size: 3,
-    },
-    highlightMarker: {
-      backgroundColor: color,
-      borderColor: color,
-      size: 5,
-    },
-    palette: 0,
-    shadow: false,
-    visible: true,
-  };
-}
+    
+    <h2>Constructor</h2>
+    
 
-function handleOnLoad() {
-  const { tasklists } = JSON.parse(localStorage.getItem('History'));
+    <h4 class="name" id="LogsButton"><span class="type-signature"></span>new LogsButton<span class="signature">()</span><span class="type-signature"></span></h4>
 
-  const lines = ['expected', 'actual'];
+    
 
-  lines.forEach((name) => {
-    const data = [];
-    tasklists.forEach((session) => {
-      let total = 0;
-      session.forEach((task) => {
-        total += task[name];
-      });
-      data.push(total);
-    });
-    lineConfig.series.push(line(name, data, hex.pop()));
-  });
 
-  /* functional version
-  lineConfig.series = lines.map((name) =>
-    line(name, tasklists.map((tasklist) =>
-      tasklist.reduce((total, task) => total + task[name], 0)
-    ), rgba.pop())
-  );
-  */
-  zingchart.render({
-    id: 'lineChart',
-    data: lineConfig,
-    height: 500,
-    width: '100%',
-  });
-}
 
-// Handle any edge cases on loading into the page.
-window.addEventListener('load', handleOnLoad);
-</code></pre>
-        </article>
-    </section>
+<div class="description">
+    <p>constructor for LogsButton</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="LogsButton.js.html">LogsButton.js</a>, <a href="LogsButton.js.html#line10">line 10</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    
+    </div>
+
+    
+        <h3 class="subsection-title">Extends</h3>
+
+        
+
+
+    <ul>
+        <li>HTMLElement</li>
+    </ul>
+
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
