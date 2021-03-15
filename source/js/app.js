@@ -14,6 +14,7 @@ import ViewOnlyTaskList from './ViewOnlyTaskList.js';
 import TimerUI from './TimerUI.js';
 import BreakPrompt from './BreakPrompt.js';
 import PopUp from './PopUp.js';
+import TaskList from './TaskList.js';
 
 /**
  * STATE:
@@ -37,41 +38,11 @@ import PopUp from './PopUp.js';
 
 const appContainer = document.querySelector('.app-container');
 
+/* ***************************** Finished State ***************************** */
+
+let finished = false;
+
 /* **************************** Helper Functions **************************** */
-
-/**
- * Update the .app-title based on the break's checkbox.
- * @param {boolean} nextTask - Next task in list.
- */
-function updateAppTitle(nextTask) {
-  const taskList = JSON.parse(localStorage.getItem('TaskList'));
-  const { length } = taskList.todo;
-  let title = '';
-
-  // Determine the header based on the length of the TODO list.
-  if (length === 0) {
-    title = 'End of Session';
-  } else if (nextTask && length === 1) {
-    title = 'End of Session';
-  } else if (nextTask && length - 1 === 1) {
-    title = `Final Task: ${taskList.todo[1].name}`;
-  } else if (nextTask && length - 1 > 1) {
-    title = `Next Task: ${taskList.todo[1].name}`;
-  } else if (length === 1) {
-    title = `Final Task: ${taskList.todo[0].name}`;
-  } else {
-    title = `Current Task: ${taskList.todo[0].name}`;
-  }
-  document.querySelector('.app-title').innerHTML = title;
-}
-
-/**
- * A callback function used in the BreakPrompt on changing of the checkbox.
- * @param {Object} object - A BreakPrompt object.
- */
-function changeTitle(object) {
-  updateAppTitle(object.getChecked());
-}
 
 /**
  * Handles all things that need to be done at the end of the session, called by initTimer
@@ -103,11 +74,53 @@ function handleEndOfSession() {
 
   PopUp.prompt(endMessage, false).then((result) => {
     if (result === 'left') {
-      window.location.href = 'index.html';
+      window.location.href = './index.html';
     } else if (result === 'right') {
-      window.location.href = 'done.html';
+      window.location.href = './done.html';
     }
   });
+}
+
+/**
+ * Update the .app-title based on the break's checkbox.
+ * @param {boolean} nextTask - Next task in list.
+ */
+function updateAppTitle(nextTask) {
+  const taskList = JSON.parse(localStorage.getItem('TaskList'));
+  const { length } = taskList.todo;
+  let title = '';
+
+  // Determine the header based on the length of the TODO list.
+  if (length === 0) {
+    title = 'End of Session';
+    finished = true;
+    const t = new TaskList();
+    t.finishTask();
+    handleEndOfSession();
+  } else if (nextTask && length === 1) {
+    title = 'End of Session';
+    finished = true;
+    const t = new TaskList();
+    t.finishTask();
+    handleEndOfSession();
+  } else if (nextTask && length - 1 === 1) {
+    title = `Final Task: ${taskList.todo[1].name}`;
+  } else if (nextTask && length - 1 > 1) {
+    title = `Next Task: ${taskList.todo[1].name}`;
+  } else if (length === 1) {
+    title = `Final Task: ${taskList.todo[0].name}`;
+  } else {
+    title = `Current Task: ${taskList.todo[0].name}`;
+  }
+  document.querySelector('.app-title').innerHTML = title;
+}
+
+/**
+ * A callback function used in the BreakPrompt on changing of the checkbox.
+ * @param {Object} object - A BreakPrompt object.
+ */
+function changeTitle(object) {
+  updateAppTitle(object.getChecked());
 }
 
 /**
@@ -187,28 +200,30 @@ function handleClick(timer, taskList) {
     if (!active) {
       active = true;
       timer.startTimer().then(() => {
-        const timerState = localStorage.getItem('Timer');
+        if (!finished) {
+          const timerState = localStorage.getItem('Timer');
 
-        if (timerState === 'true') {
-          localStorage.setItem('TotalPomos', Number(localStorage.getItem('TotalPomos')) + 1);
-          taskList.addPomo();
-        }
-
-        if (timerState === 'false') {
-          if (timer.lastElementChild.getChecked()) {
-            taskList.finishTask();
-            taskList.render();
+          if (timerState === 'true') {
+            localStorage.setItem('TotalPomos', Number(localStorage.getItem('TotalPomos')) + 1);
+            taskList.addPomo();
           }
 
-          timer.lastElementChild.remove();
-        }
+          if (timerState === 'false') {
+            if (timer.lastElementChild.getChecked()) {
+              taskList.finishTask();
+              taskList.render();
+            }
 
-        if (Notification.permission === 'granted') {
-          showTimerNotification();
+            timer.lastElementChild.remove();
+          }
+
+          if (Notification.permission === 'granted') {
+            showTimerNotification();
+          }
+          localStorage.setItem('Timer', timerState === 'false');
+          initTimer(timer);
+          active = false;
         }
-        localStorage.setItem('Timer', timerState === 'false');
-        initTimer(timer);
-        active = false;
       });
     }
   });
