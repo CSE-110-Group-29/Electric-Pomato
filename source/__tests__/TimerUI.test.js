@@ -100,14 +100,6 @@ test('TimerUI Properly Updates to Red Tomato', () => {
   expect(timerUI.querySelector('.timer-image').classList.contains('green-tomato')).toBe(false);
 });
 
-test('TimerUI Properly Updates to Gold Tomato', () => {
-  const timerUI = new TimerUI();
-  // Check if the timer-image was set.
-  timerUI.setColorGold();
-  expect(timerUI.querySelector('.timer-image').classList.contains('gold-tomato')).toBe(true);
-  expect(timerUI.querySelector('.timer-image').classList.contains('hover-false')).toBe(true);
-});
-
 test('TimerUI Properly runs the Timer Object', () => {
   const timerUI = new TimerUI();
   timerUI.createTimer(0, 2, (newMinute, newSecond) => {
