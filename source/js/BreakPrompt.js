@@ -18,11 +18,11 @@ class BreakPrompt extends HTMLElement {
 
     this.checked = false;
 
-    const { length } = JSON.parse(localStorage.getItem('TaskList')).todo;
+    const taskList = JSON.parse(localStorage.getItem('TaskList'));
 
     const button = document.createElement('button');
     button.classList.add('btn', 'btn-success', 'btn-lg');
-    button.textContent = length > 1 ? 'Finished Current Task' : 'Finished Final Task, End Session';
+    button.textContent = taskList && taskList.todo.length > 1 ? 'Finished Current Task' : 'Finished Final Task, End Session';
     this.appendChild(button);
 
     button.addEventListener('click', () => {
