@@ -112,7 +112,7 @@ function updateAppTitle(nextTask) {
   } else {
     title = `Current Task: ${taskList.todo[0].name}`;
   }
-  document.querySelector('.app-title').innerHTML = title;
+  document.querySelector('.app-title').textContent = title;
 }
 
 /**
@@ -258,7 +258,7 @@ function handleOnLoad() {
     showTimer();
   } else {
     appContainer.appendChild(new EditableTaskList());
-    document.querySelector('.app-title').innerHTML = `${localStorage.getItem('Username')}'s Day`;
+    document.querySelector('.app-title').textContent = `${localStorage.getItem('Username')}'s Day`;
     appContainer.querySelector('button').addEventListener('click', () => {
       localStorage.setItem('Started', true);
       localStorage.setItem('Timer', true);

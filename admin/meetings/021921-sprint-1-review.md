@@ -17,8 +17,9 @@ This is also going to be our [Sprint Review](https://canvas.ucsd.edu/courses/217
    3) Progress on DevOps
 2) Automating Production branch
    1) Andy's terminal code into a Github Action
-3) [ADR's](https://canvas.ucsd.edu/courses/21783/assignments/259317)
-   1) Allen will be PMing people throughout next week to clarify their features/code so we can have ADR's
+3) [ADRs assignment](https://canvas.ucsd.edu/courses/21783/assignments/259317)
+   1) It turns out that a lot of the decisions made occurred in Slack rather than in meetings. A lot of those decisions weren't tracked.
+   2) Allen will be PMing people throughout next week to clarify their features/code so we can have ADRs in this [directory](https://github.com/DonaldWolfson/cse110-w21-group29/tree/specs_cleanup/specs/adrs).
 4) [Sprint Video](https://canvas.ucsd.edu/courses/21783/assignments/277675) (DUE 2/25)
    1) "... show off your hard work make a short 4 minute or less video (MP4 or Quicktime format) that presents the status of your software, the function of your pipeline and the health of your team."
    2) "You should also be transparent about any challenges you are facing which may have arising in your retrospective."
@@ -45,8 +46,8 @@ Allen:
 Enrique:
 
 - Exploratory Programming, focusing on Timer functions.
-- Drew [System Diagram](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/admin/pitch/System%20Diagram.jpg) of our model.
-- Redrew [System Diagram](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/admin/pitch/systemdiagram.drawio.png).
+- Drew [System Diagram](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/specs/interface/wireframe/System%20Diagram.jpg) of our model.
+- Redrew [System Diagram](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/specs/interface/wireframe/systemdiagram.drawio.png).
 - [Timer](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/source/__tests__/Timer.test.js) and [TaskList](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/source/__tests__/TaskList.test.js) Unit Tests.
   - Debugged Jest to find best way to write unit tests using current libraries.
 - TODO: Work on session script and TimerUI.js script.
@@ -63,6 +64,7 @@ Annika:
 
 - Keeping up with testing and Jest API documentation.
 - Working on Edge Cases for [TaskList](https://github.com/DonaldWolfson/cse110-w21-group29/blame/main/source/js/TaskList.js) and [TaskListUI](https://github.com/DonaldWolfson/cse110-w21-group29/blame/main/source/js/TaskListUI.js).
+   - Update: the TaskListUI file no longer exists. Link to the ADR is [here](https://github.com/DonaldWolfson/cse110-w21-group29/blob/specs_cleanup/specs/adrs/020421-tasklist-class-backend.md).
 - Assited with coding and experimenting with the TaskList.js script.
 - TODO: Begin helping with adding more unit tests for TaskList and TaskListUI.
 
@@ -77,13 +79,14 @@ Teresa:
 Justin:
 
 - Worked on source code for [Timer](https://github.com/DonaldWolfson/cse110-w21-group29/blame/main/source/js/Timer.js).
-- Working on creating a [TimerUI](https://github.com/DonaldWolfson/cse110-w21-group29/blob/session_script/source/js/TimerUI.js) object similar to the TaskListUI object.
+- Working on creating a [TimerUI](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/source/js/TimerUI.js) object similar to the TaskListUI object.
 - Whiteboarding the session script.
 - TODO: Continue to work on session sript, and TimerUI.js.
 
 Andy:
 
 - Worked on source code for [TaskList](https://github.com/DonaldWolfson/cse110-w21-group29/blame/main/source/js/TaskList.js) and [TaskListUI](https://github.com/DonaldWolfson/cse110-w21-group29/blame/main/source/js/TaskListUI.js).
+   - Update: the TaskListUI file no longer exists. Link to the ADR is [here](https://github.com/DonaldWolfson/cse110-w21-group29/blob/specs_cleanup/specs/adrs/020421-tasklist-class-backend.md).
 - Helped discuss lots of edge cases with Enrique and other devs in terms of testing.
 - Found a way to create a [production branch](https://github.com/DonaldWolfson/cse110-w21-group29/tree/production).
 - TODO: Work with dev team on finalizing smaller issues, as well as integrating code into HTML.
