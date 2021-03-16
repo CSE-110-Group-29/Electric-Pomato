@@ -163,20 +163,46 @@ Finish first Sprint and start the next. Primary goal is to add final touches of 
       - Discuss how the app displays the current task to the user during the timer/break sequences.
     - Record:
       - Discuss comparison of Expected to Actual number of Pomodoros?
+  - Set up the main branch to use ES6 import/export modules instead of the CommonJS ones
+  - Remove duplicate Github workflow called JSDoc CI
 - Sprint Review and Sprint Retrospective
 - Create second sprint project backlog
 - Resolved the following issues:
+  - Changes after switching to ES6
+    - Main has decided on ES6 or CommonJS import/exports
+    - session_script conforms with main
+    - Timer and TaskList classes conform with main
+    - Jest tests created conform with main
 
 ## Week 9
 
 Continue working on issues and branches. Goal is to have an MVP by end of week.
 
+- Assigned more issues
+  - Update JSDocs format
+    - Update the Globals tags to have functions that are supposed to be under a class elsewhere.
+    - @function is likely use to store the name of the function, not its description.
+  - Continue finding and debugging issues that arrizes
+    - CSS issues
+    - User input issues
+    - functionality issues
+  - Get the Timer object to work with session_script
+  - Deal with edge cases related to HTML
+  - Implement .app-title with the proper header
+    - Cases to handle:
+      - "Arman's Day"
+        - Will display while the day hasn't started, there should be flag for "started", essentially is only display while editing the task list.
+      - "Current Task"
+        - Will display during a Pomo "Timer" in localStorage == 1 or when a break is ongoing and we are in 1/3 Pomos of a task.
+      - "Next Task"
+        - Will display during a break, and we are at 3/3 Pomos.
+      - "Final Task"
+        - Will display during a break, and we are about to enter the last task in the TaskList.
+  - Handle cases that should be dealt with on window.onload()
+  - Add a loader for app.html
+    - Redirects to this page look strange because we don't have a default loader for app.html
 - More unit tests to add code coverage
 - Add more code for HTMLElements to help communication between JavaScript and HTML
-- Continue finding and debugging issues that arrizes
-  - CSS issues
-  - User input issues
-  - functionality issues
 - Resolved the following issues:
   - Interaction between the Timer and TaskList objects
   - Finalized JSDocs workflow
@@ -184,6 +210,8 @@ Continue working on issues and branches. Goal is to have an MVP by end of week.
   - Wrapped TaskListUI and AddRowUI to a parent class
   - Finalized system diagram
   - Finished documentation on Landing Page
+  - Removed the duplicate Github workflow JSDoc CI
+  - Timer object now works with session_script
 
 ## Week 10
 
@@ -196,6 +224,11 @@ Final touches on project, including unit tests, and any small bugs. Sprint 2 Rev
 - Sprint Review and Retrospective
 - Resolved the following issues:
   - Finished updating most of the ADRs
+  - JSDocs format has been updated
+  - Edge cases have been dealt with
+  - .app-title now has proper headers
+  - window.onload() cases are now handled
+  - Added default loader to app.html
 
 ## Week 11
 
