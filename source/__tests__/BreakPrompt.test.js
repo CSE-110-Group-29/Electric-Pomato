@@ -33,7 +33,7 @@ describe('BreakPrompt testing', () => {
 
   test('Checking Checkbox', () => {
     // check checkbox
-    bp.querySelector('#break-checkbox').checked = true;
+    bp.querySelector('button').click();
     expect(bp.getChecked()).toBe(true);
   });
 });

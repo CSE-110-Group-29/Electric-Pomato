@@ -15,9 +15,21 @@ class BreakPrompt extends HTMLElement {
   */
   constructor(callback) {
     super();
-    this.classList.add('text-center');
-    this.appendChild(document.querySelector('#prompt-template').content.cloneNode(true));
-    this.lastElementChild.addEventListener('change', callback.bind(this, this));
+
+    this.checked = false;
+
+    const taskList = JSON.parse(localStorage.getItem('TaskList'));
+
+    const button = document.createElement('button');
+    button.classList.add('btn', 'btn-success', 'btn-lg');
+    button.textContent = taskList && taskList.todo.length > 1 ? 'Finished Current Task' : 'Finished Final Task, End Session';
+    this.appendChild(button);
+
+    button.addEventListener('click', () => {
+      this.checked = true;
+      button.remove();
+      callback.bind(this, this)();
+    });
   }
 
   /**
@@ -25,7 +37,7 @@ class BreakPrompt extends HTMLElement {
   * @return {boolean} Checked property
   */
   getChecked() {
-    return this.querySelector('#break-checkbox').checked;
+    return this.checked;
   }
 }
 
