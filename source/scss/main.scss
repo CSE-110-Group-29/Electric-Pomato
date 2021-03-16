@@ -146,6 +146,7 @@ start-container {
 }
 
 .card {
+    width: 100%;
     border-radius: 2.5rem;
     padding: map-get($spacers, 4);
 }
@@ -278,9 +279,8 @@ view-only-task-list {
         overflow-y: scroll;
 
         &::-webkit-scrollbar-track {
-            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
             border-radius: 10px;
-            background-color: #F5F5F5;
+            background-color: #FFFFFF;
         }
 
         &::-webkit-scrollbar {
@@ -290,8 +290,15 @@ view-only-task-list {
 
         &::-webkit-scrollbar-thumb {
             border-radius: 10px;
-            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-            background-color: $primary;
+            background-color: #E5E7EB;
+        }
+
+        &::-webkit-scrollbar-thumb:vertical:hover {
+            background-color: #D1D5DB;
+        }
+
+        &::-webkit-scrollbar-thumb:vertical:active {
+            background-color: #9CA3AF;
         }
     }
 
