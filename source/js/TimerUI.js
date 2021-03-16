@@ -29,12 +29,12 @@ class TimerUI extends HTMLElement {
   }
 
   reset() {
-    this.text.innerHTML = 'START';
+    this.text.textContent = 'START';
     this.classList.remove('timer-active');
   }
 
   clear() {
-    this.text.innerHTML = 'All Done!';
+    this.text.textContent = 'All Done!';
   }
 
   /**
@@ -47,7 +47,7 @@ class TimerUI extends HTMLElement {
   createTimer(minutes, seconds) {
     this.timer = new Timer(minutes, seconds, (newMinute, newSecond) => {
       // update html
-      this.text.innerHTML = `${TimerUI.parseMinutes(newMinute)} : ${TimerUI.parseSeconds(newSecond)}`;
+      this.text.textContent = `${TimerUI.parseMinutes(newMinute)} : ${TimerUI.parseSeconds(newSecond)}`;
     });
   }
 
@@ -59,7 +59,7 @@ class TimerUI extends HTMLElement {
    */
   startTimer() {
     // immediately update html
-    this.text.innerHTML = `${TimerUI.parseMinutes(this.timer.minutes)} : ${TimerUI.parseSeconds(this.timer.seconds)}`;
+    this.text.textContent = `${TimerUI.parseMinutes(this.timer.minutes)} : ${TimerUI.parseSeconds(this.timer.seconds)}`;
     this.classList.add('timer-active');
     return this.timer.startTimer();
   }

@@ -32,10 +32,10 @@ class PopUp {
   static prompt({
     title, subtitle, leftButton, rightButton,
   }, fastClose) {
-    document.querySelector('#notification-title').innerHTML = title || '';
-    document.querySelector('#notification-subtitle').innerHTML = subtitle || '';
-    document.querySelector('#notif-left').innerHTML = leftButton || '';
-    document.querySelector('#notif-right').innerHTML = rightButton || '';
+    document.querySelector('#notification-title').textContent = title || '';
+    document.querySelector('#notification-subtitle').textContent = subtitle || '';
+    document.querySelector('#notif-left').textContent = leftButton || '';
+    document.querySelector('#notif-right').textContent = rightButton || '';
 
     PopUp.show();
 
