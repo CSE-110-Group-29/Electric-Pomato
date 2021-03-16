@@ -1,4 +1,6 @@
-# Team Pomato's Electric Pomato! Roadmap
+# Team Pomato's Electric Pomato Roadmap (Group 29)!
+
+Note: if you would like to see our project-based roadmaps, please check out this [link](https://github.com/DonaldWolfson/cse110-w21-group29/projects).
 
 ## Week 1
 
@@ -188,6 +190,7 @@ Continue working on issues and branches. Goal is to have an MVP by end of week.
     - functionality issues
   - Get the Timer object to work with session_script
   - Deal with edge cases related to HTML
+    - Use `<noscript>` tag to tell the user to enable JavaScript 
   - Implement .app-title with the proper header
     - Cases to handle:
       - "Arman's Day"
@@ -198,25 +201,45 @@ Continue working on issues and branches. Goal is to have an MVP by end of week.
         - Will display during a break, and we are at 3/3 Pomos.
       - "Final Task"
         - Will display during a break, and we are about to enter the last task in the TaskList.
+- From ths point on, the team only has to deal with minor issues for the MVP
   - Handle cases that should be dealt with on window.onload()
   - Add a loader for app.html
     - Redirects to this page look strange because we don't have a default loader for app.html
+  - Update TaskList after each actual Pomodoro
+  - Handle the final task case
+  - Implement Sim's suggestion: allow the user on app.html to return to index.html
+  - Choose a CSS style for the button toggle
+    - Update: we no longer have a toggle-able button, so this issue isn't ever truly resolved
+  - Update SVG images to not have square hitboxes
+  - TaskList visual bug: TaskList fails to pull up properly when resizing window
+  - Add a notification component
+  - Change UsernameInput component to only prompt once
+  - Handle long TaskList overflow
+  - TaskList doesn't check for valid inputs (> 1 estimated Pomodoros)
+    - Issue itself was never truly "resolved" because the input box for estimated number of Pomodoros has been replaced with a "rating" system, which is guaranteed to have proper inputs
+  - Update landing page documentation again
+    - No changes were actually made when this issue was resolved
 - More unit tests to add code coverage
 - Add more code for HTMLElements to help communication between JavaScript and HTML
 - Resolved the following issues:
   - Interaction between the Timer and TaskList objects
   - Finalized JSDocs workflow
-  - Finalized teh handshake mechanic in TimerUI.js
+  - Finalized the handshake mechanic in TimerUI.js
   - Wrapped TaskListUI and AddRowUI to a parent class
   - Finalized system diagram
   - Finished documentation on Landing Page
   - Removed the duplicate Github workflow JSDoc CI
   - Timer object now works with session_script
+  - TaskList now updates after each actual Pomodoro
+  - Final task case is now handled
+  - SVG files no longer have square hitboxes on the application
 
 ## Week 10
 
 Final touches on project, including unit tests, and any small bugs. Sprint 2 Review and Retrospective.
 
+- Assigned the final minor issues
+  - 
 - Debugging
 - Add the last of unit tests
 - Finalized CI/CD pipeline, particularly code coverage
@@ -229,6 +252,11 @@ Final touches on project, including unit tests, and any small bugs. Sprint 2 Rev
   - .app-title now has proper headers
   - window.onload() cases are now handled
   - Added default loader to app.html
+  - User can now return to index.html from app.html
+  - Fixed TaskList visual issue when resizing screen
+  - Application now gives notifications
+  - Username prompt now only appears once
+  - Overflow issue of TaskList has been dealt with
 
 ## Week 11
 
