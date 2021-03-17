@@ -71,7 +71,7 @@ class TomatoSlider extends HTMLElement {
   }
 
   handleClick(e) {
-    const { left, right } = document.querySelector('.slider-tomato-container').getBoundingClientRect();
+    const { left, right } = this.querySelector('.slider-tomato-container').getBoundingClientRect();
     this.input.value = Math.min(Math.ceil((e.clientX - left + 1) / ((right - left) / 5)), 5);
   }
 
@@ -80,7 +80,7 @@ class TomatoSlider extends HTMLElement {
   }
 
   handleMouseMove(e) {
-    const { left, right } = document.querySelector('.slider-tomato-container').getBoundingClientRect();
+    const { left, right } = this.querySelector('.slider-tomato-container').getBoundingClientRect();
     const n = Math.min(Math.max(Math.ceil((e.clientX - left) / ((right - left) / 5)), 1), 5);
     this.colorTomatos(n, 'red');
   }
