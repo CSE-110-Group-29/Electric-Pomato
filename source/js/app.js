@@ -45,7 +45,8 @@ let finished = false;
 /* **************************** Helper Functions **************************** */
 
 /**
- * @function handleEndOfSession
+ * @ignore
+ * @function [handleEndOfSession]
  * Handles all things that need to be done at the end of the session, called by initTimer
  */
 function handleEndOfSession() {
@@ -83,7 +84,8 @@ function handleEndOfSession() {
 }
 
 /**
- * @function updateAppTitle
+ * @ignore
+ * @function [updateAppTitle]
  * Update the .app-title based on the break's checkbox.
  * @param {boolean} nextTask - Next task in list.
  */
@@ -118,7 +120,8 @@ function updateAppTitle(nextTask) {
 }
 
 /**
- * @function changeTitle
+ * @ignore
+ * @function [changeTitle]
  * A callback function used in the BreakPrompt on changing of the checkbox.
  * @param {Object} object - A BreakPrompt object.
  */
@@ -127,7 +130,7 @@ function changeTitle(object) {
 }
 
 /**
- * @function initTimer
+ * @function [initTimer]
  * Initialize the timer based on current STATE.
  * @param {Object} timer - The Timer object.
  */
@@ -167,7 +170,8 @@ function initTimer(timer) {
 }
 
 /**
- * @function showTimerNotification
+ * @ignore
+ * @function [showTimerNotification]
  * Displays notification and plays sound when timer ends
  */
 function showTimerNotification() {
@@ -194,7 +198,8 @@ function showTimerNotification() {
 }
 
 /**
- * @function handleClick
+ * @ignore
+ * @function [handleClick]
  * Handle starting the timer and updating the Pomos.
  * @param {Object} timer - The Timer object.
  * @param {Object} taskList - The TaskList object.
@@ -236,7 +241,8 @@ function handleClick(timer, taskList) {
 }
 
 /**
- * @function showTimer
+ * @ignore
+ * @function [showTimer]
  * Displays the Timer and begins to handle the events of interaction.
  */
 function showTimer() {
@@ -255,7 +261,8 @@ function showTimer() {
 /* ***************************** Event Handling ***************************** */
 
 /**
- * @function handleOnLoad
+ * @ignore
+ * @function [handleOnLoad]
  * Will hold all Edge Cases that should be check when a page is loaded.
  */
 function handleOnLoad() {
