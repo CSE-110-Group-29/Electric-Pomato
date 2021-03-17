@@ -145,6 +145,16 @@ start-container {
     }
 }
 
+.edit-name {
+    width: 100%;
+    @include font-size($font-size-base * 2);
+    margin-bottom: 10px;
+}
+
+.icon-pos {
+    margin-bottom: 15px;
+}
+
 .card {
     width: 100%;
     border-radius: 2.5rem;
