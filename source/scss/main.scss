@@ -147,12 +147,7 @@ start-container {
 
 .edit-name {
     width: 100%;
-    @include font-size($font-size-base * 2);
-    margin-bottom: 10px;
-}
-
-.icon-pos {
-    margin-bottom: 15px;
+    @include font-size($h3-font-size);
 }
 
 .card {
@@ -510,7 +505,14 @@ view-only-task-list {
   }
 }
 
-.one-line {
-    align-items: center;
-    display: flex;
+welcome-message {
+    button {
+
+    }
+    
+    i {
+        cursor: pointer;
+        margin-left: 1rem;
+        @include font-size($h5-font-size);
+    }
 }

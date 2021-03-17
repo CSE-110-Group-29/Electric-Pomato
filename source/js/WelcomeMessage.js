@@ -17,14 +17,14 @@ class WelcomeMessage extends HTMLElement {
   constructor(username) {
     super();
     this.container = document.createElement('div');
-    this.container.classList.add('one-line');
+    this.container.classList.add('d-flex', 'align-items-center', 'justify-content-between', 'mb-3');
     this.appendChild(this.container);
     this.enterDefaultMode(username);
   }
 
   createEditNameButton() {
     const editIcon = document.createElement('i');
-    editIcon.classList.add('fas', 'fa-pencil-alt', 'text-warning', 'edit-icon', 'btn', 'icon-pos');
+    editIcon.classList.add('fas', 'fa-pencil-alt', 'text-warning', 'edit-icon');
     editIcon.addEventListener('click', () => {
       this.enterEditMode();
     });
@@ -33,7 +33,7 @@ class WelcomeMessage extends HTMLElement {
 
   createFinishEditButton() {
     const saveBtn = document.createElement('i');
-    saveBtn.classList.add('fas', 'fa-check', 'text-success', 'save-icon', 'btn', 'icon-pos');
+    saveBtn.classList.add('fas', 'fa-check', 'text-success', 'save-icon');
 
     saveBtn.addEventListener('click', () => {
       let newName = this.container.firstChild.value;
@@ -49,7 +49,7 @@ class WelcomeMessage extends HTMLElement {
 
   createCancelEditButton() {
     const cancelBtn = document.createElement('i');
-    cancelBtn.classList.add('fas', 'fa-times', 'text-danger', 'cancel-icon', 'btn', 'icon-pos');
+    cancelBtn.classList.add('fas', 'fa-times', 'text-danger', 'cancel-icon');
 
     cancelBtn.addEventListener('click', () => {
       const name = localStorage.getItem('Username');
@@ -75,6 +75,14 @@ class WelcomeMessage extends HTMLElement {
     this.container.appendChild(input);
     this.container.appendChild(this.createFinishEditButton());
     this.container.appendChild(this.createCancelEditButton());
+
+    input.addEventListener('input', (e) => {
+      if (e.code === 'Enter') {
+        //
+      }
+    });
+
+    input.focus();
   }
 
   /**
@@ -84,7 +92,7 @@ class WelcomeMessage extends HTMLElement {
     const message = document.createElement('h2');
     const text = document.createTextNode(`Welcome Back, ${username}!`);
     message.appendChild(text);
-    message.classList.add('subtitle', 'mb-3');
+    message.classList.add('subtitle', 'mb-0');
 
     // Clear old container
     while (this.container.lastElementChild) {
