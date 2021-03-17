@@ -217,6 +217,8 @@ Continue working on issues and branches. Goal is to have an MVP by end of week.
   - Handle long TaskList overflow
   - TaskList doesn't check for valid inputs (> 1 estimated Pomodoros)
     - Issue itself was never truly "resolved" because the input box for estimated number of Pomodoros has been replaced with a "rating" system, which is guaranteed to have proper inputs
+    - Future issues related to this have been denied
+    - See week 10's issues about the "slider" object
   - Update landing page documentation again
     - No changes were actually made when this issue was resolved
 - More unit tests to add code coverage
@@ -239,7 +241,21 @@ Continue working on issues and branches. Goal is to have an MVP by end of week.
 Final touches on project, including unit tests, and any small bugs. Sprint 2 Review and Retrospective.
 
 - Assigned the final minor issues
-  - 
+  - Reorganize file structure in the source folder
+  - Production branch is unprotected
+    - This issue is denied because protecting it causes too many issues for the team
+  - Frozen break timer when going back a page from done.html to app.html
+  - Manipulating LocalStorage affects the application
+    - Denied because this is simply a front-end only application
+    - Introduces too many edge cases to handle for our MVP
+  - Add feature: end of day prompt 
+  - Disallow bad Pomodoro inputs by implementing a slider
+    - Like mentioned in week 9, this has been changed to a "rating" system
+  - Current year doesn't show up on the application
+  - Update wireframe a third time to include new classes
+  - New edge case: injecting JavaScript code
+  - User is being forced to have a break before they can move to the Analytics page
+  - Add a link to the Analytics page from the homepage
 - Debugging
 - Add the last of unit tests
 - Finalized CI/CD pipeline, particularly code coverage
@@ -248,7 +264,6 @@ Final touches on project, including unit tests, and any small bugs. Sprint 2 Rev
 - Resolved the following issues:
   - Finished updating most of the ADRs
   - JSDocs format has been updated
-  - Edge cases have been dealt with
   - .app-title now has proper headers
   - window.onload() cases are now handled
   - Added default loader to app.html
@@ -257,7 +272,17 @@ Final touches on project, including unit tests, and any small bugs. Sprint 2 Rev
   - Application now gives notifications
   - Username prompt now only appears once
   - Overflow issue of TaskList has been dealt with
+  - File structure has been reorganized, not just in the source folder but also some parts of the repository itself
+  - Frozen timer bug has been dealt with (when going back a page from done.html)
+  - There's now an end of the day prompt
+  - Input box for estimated number of Pomodoros has been replaced with a rating system to deal with bad Pomdoro inputs
+  - Current year now shows up on the landing page
 
 ## Week 11
 
 Final presentation, video or synchronous?
+- Final issues resolved:
+  - Final update to the wireframe
+  - Edge cases have been dealt with
+  - User is no longer forced to have a break before they can move on to the Analytis page
+  - User can now access the Analytics page from the homepage
