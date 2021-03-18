@@ -10,18 +10,18 @@ This project is the result of a 10 week UCSD class, CSE 110, during Winter 2021.
 
 Our code is stored in the [`source`](https://github.com/DonaldWolfson/cse110-w21-group29/tree/main/source) directory. Inside of this directory are a variety of directories that are described below:
 
-- `__tests__`: This directory stores our unit tests which are run through Jest. The code coverage can be found in the `coverage` directory in the root.
-- `css`: This directory is only generated after compiling our Sass script. You'll likely only find this file in our `production` branch, or on your local branch.
-- `docs`: This directory is generated JSDocs documentation on our code. These files are created by our GitHub Actions, so don't touch them since they will be regenerated on each run.
-- `img`: This directory stores any image assets that are used by our website.
-- `js`: This directory stores all of our JavaScript classes, and scripts. If you're unsure about what each file does, please look over our JSDocs documentation, or the inline comments in the files.
-- `scss`: This directory stores our Sass scripts for styling.
+- [`__tests__`](https://github.com/DonaldWolfson/cse110-w21-group29/tree/main/source/__tests__): This directory stores our unit tests which are run through Jest. The code coverage can be found in the [`coverage`](https://github.com/DonaldWolfson/cse110-w21-group29/tree/main/coverage) directory in the root.
+- [`css`](https://github.com/DonaldWolfson/cse110-w21-group29/tree/production/css): This directory is only generated after compiling our Sass script. You'll likely only find this file in our [`production`](https://github.com/DonaldWolfson/cse110-w21-group29/tree/production) branch, or on your local branch.
+- [`docs`](https://github.com/DonaldWolfson/cse110-w21-group29/tree/production/docs/cse110-w21-group29/0.8.0): This directory is generated JSDocs documentation on our code. These files are created by our GitHub Actions, so don't touch them since they will be regenerated on each run.
+- [`img`](https://github.com/DonaldWolfson/cse110-w21-group29/tree/main/source/img): This directory stores any image assets that are used by our website.
+- [`js`](https://github.com/DonaldWolfson/cse110-w21-group29/tree/main/source/js): This directory stores all of our JavaScript classes, and scripts. If you're unsure about what each file does, please look over our JSDocs documentation, or the inline comments in the files.
+- [`scss`](https://github.com/DonaldWolfson/cse110-w21-group29/tree/main/source/scss): This directory stores our Sass scripts for styling.
 
-The `.html` files within `source` are our individual webpages. Each file relates to a seperate section of our website:
+The `.html` files within [`source`](https://github.com/DonaldWolfson/cse110-w21-group29/tree/main/source) are our individual webpages. Each file relates to a seperate section of our website:
 
-- `app.html`: This is where all the fun is. This file is used to display our timer, and task lists. Essentially its the main feature of our project.
-- `done.html`: This page is opened after a sessions to display to the user the data from the previous session.
-- `index.html`: This is the homepage of our project. This page holds documentation on how to use our website, and lets the user create a new session.
+- [`app.html`](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/source/app.html): This is where all the fun is. This file is used to display our timer, and task lists. Essentially its the main feature of our project.
+- [`done.html`](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/source/done.html): This page is opened after a sessions to display to the user the data from the previous session.
+- [`index.html`](https://github.com/DonaldWolfson/cse110-w21-group29/blob/main/source/index.html): This is the homepage of our project. This page holds documentation on how to use our website, and lets the user create a new session.
 
 ## Who decided to do that?
 
