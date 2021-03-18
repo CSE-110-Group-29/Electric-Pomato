@@ -144,7 +144,7 @@ function initTimer(timer) {
       // Update the HTML
       updateAppTitle(false);
       timer.setColorGreen();
-      timer.createTimer(0, 3);
+      timer.createTimer(25, 0);
     } else {
       const totalPomos = Number(localStorage.getItem('TotalPomos'));
       const breakPrompt = new BreakPrompt(changeTitle);
@@ -157,10 +157,10 @@ function initTimer(timer) {
       // If there has been 4 pomos then it is a long break
       if (totalPomos > 0 && totalPomos % 4 === 0) {
         // Long break
-        timer.createTimer(0, 10);
+        timer.createTimer(25, 0);
       } else {
         // Short break
-        timer.createTimer(0, 5);
+        timer.createTimer(5, 0);
       }
     }
   }
