@@ -47,32 +47,35 @@
     </div>
     <template id="edit-title-template">
         <div class="row g-0">
-            <div class="col-10">
-                <h2 class="subtitle">Task List</h2>
-            </div>
-            <div class="col-2">
-                <button class="btn btn-secondary btn-block">Start My Day!</button>
+            <div class="col-12">
+                <h2 class="subtitle text-center">Task List</h2>
             </div>
         </div>
     </template>
     <template id="edit-header-row-template">
         <div class="row g-0 header row-bordered">
             <div class="d-none d-lg-block col-1"><input type="text" value="#" disabled></div>
-            <div class="col-7 col-lg-6"><input type="text" value="Name" disabled></div>
-            <div class="col-3"><input type="text" value="Estimated Pomos" disabled></div>
-            <div class="col-2"></div>
+            <div class="d-none d-sm-flex col-6"><input type="text" value="Name" disabled></div>
+            <div class="d-none d-sm-flex col-5 col-lg-3"><input type="text" value="Estimated Pomos" disabled></div>
+            <div class="d-none d-sm-flex col-1 col-lg-2"></div>
         </div>
     </template>
     <template id="task-row-template">
         <div class="row g-0 row-bordered">
             <div class="d-none d-lg-block col-lg-1"><input type="number" value="" disabled></div>
-            <div class="col-7 col-lg-6"><input type="text" value="" disabled></div>
-            <div class="col-3">
+            <div class="d-flex d-sm-none col-12 fw-bold">
+                Name:
+            </div>
+            <div class="col-12 col-sm-6"><input type="text" value="" disabled></div>
+            <div class="d-flex d-sm-none col-12 fw-bold">
+                Estimated Pomos:
+            </div>
+            <div class="col-12 col-sm-5 col-lg-3">
                 <tomato-slider>
                     <input type="number" value="" disabled>
                 </tomato-slider>
             </div>
-            <div class="col-2 actions">
+            <div class="col-12 col-sm-1 col-lg-2 actions">
                 <div class="edit-remove-container">
                     <button>
                         <i class="fas fa-pencil-alt text-warning edit-icon"></i>
@@ -233,6 +236,9 @@
             </div>
             <div class="col-12 col-lg-2">
                 <button class="btn btn-success btn-block">Add Task</button>
+            </div>
+            <div class="col-12">
+                <button id="start-day-button" class="btn btn-secondary btn-block">Start My Day!</button>
             </div>
         </div>
     </template>
