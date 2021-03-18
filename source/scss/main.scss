@@ -145,11 +145,6 @@ start-container {
     }
 }
 
-.edit-name {
-    width: 80%;
-    @include font-size($h3-font-size);
-}
-
 .card {
     width: 100%;
     border-radius: 2.5rem;
@@ -511,6 +506,11 @@ view-only-task-list {
 }
 
 welcome-message {
+    .edit-name {
+        width: 80%;
+        @include font-size($h3-font-size);
+    }
+
     .save-btn {
         margin-left: 1rem;
         border: none;
