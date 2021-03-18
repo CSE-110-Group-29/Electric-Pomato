@@ -228,7 +228,7 @@ function handleClick(timer, taskList) {
             timer.lastElementChild.remove();
           }
 
-          if (!('Notification' in window) && Notification.permission === 'granted') {
+          if (('Notification' in window) && Notification.permission === 'granted') {
             showTimerNotification();
           }
 
