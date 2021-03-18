@@ -28,6 +28,7 @@ const lineConfig = {
   },
   scaleX: {
     shadow: 0,
+    minValue: 1,
     step: 1,
     label: {
       text: 'Session',
