@@ -146,7 +146,7 @@ start-container {
 }
 
 .edit-name {
-    width: 100%;
+    width: 80%;
     @include font-size($h3-font-size);
 }
 
@@ -511,8 +511,24 @@ view-only-task-list {
 }
 
 welcome-message {
-    button {
+    .save-btn {
+        margin-left: 1rem;
+        border: none;
+        background-color: inherit;
+    }
 
+    .save-btn:disabled {
+        opacity: 0.4;
+    }
+
+    .save-btn i {
+        margin-left: 0;
+    }
+
+    &> div {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     
     i {

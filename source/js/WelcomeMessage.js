@@ -17,7 +17,7 @@ class WelcomeMessage extends HTMLElement {
   constructor(username) {
     super();
     this.container = document.createElement('div');
-    this.container.classList.add('d-flex', 'align-items-center', 'justify-content-between', 'mb-3');
+    this.container.classList.add('d-flex', 'align-items-center', 'justify-content-between', 'mb-3', 'flex-wrap');
     this.appendChild(this.container);
     this.enterDefaultMode(username);
   }
@@ -32,8 +32,11 @@ class WelcomeMessage extends HTMLElement {
   }
 
   createFinishEditButton() {
-    const saveBtn = document.createElement('i');
-    saveBtn.classList.add('fas', 'fa-check', 'text-success', 'save-icon');
+    const saveBtn = document.createElement('button');
+    saveBtn.classList.add('save-btn');
+    const icon = document.createElement('i');
+    icon.classList.add('fas', 'fa-check', 'text-success', 'save-icon');
+    saveBtn.appendChild(icon);
 
     saveBtn.addEventListener('click', () => {
       let newName = this.container.firstChild.value;
@@ -76,9 +79,17 @@ class WelcomeMessage extends HTMLElement {
     this.container.appendChild(this.createFinishEditButton());
     this.container.appendChild(this.createCancelEditButton());
 
-    input.addEventListener('input', (e) => {
+    input.addEventListener('keyup', (e) => {
       if (e.code === 'Enter') {
-        //
+        this.querySelector('.save-btn').click();
+      }
+    });
+
+    input.addEventListener('input', () => {
+      if (input.value.length > 0) {
+        this.querySelector('.save-btn').disabled = false;
+      } else {
+        this.querySelector('.save-btn').disabled = true;
       }
     });
 
