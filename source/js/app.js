@@ -45,9 +45,8 @@ let finished = false;
 /* **************************** Helper Functions **************************** */
 
 /**
- * @ignore
- * @function [handleEndOfSession]
  * Handles all things that need to be done at the end of the session, called by initTimer
+ * @ignore
  */
 function handleEndOfSession() {
   // Move completed task list to history
@@ -84,10 +83,9 @@ function handleEndOfSession() {
 }
 
 /**
- * @ignore
- * @function [updateAppTitle]
  * Update the .app-title based on the break's checkbox.
  * @param {boolean} nextTask - Next task in list.
+ * @ignore
  */
 function updateAppTitle(nextTask) {
   const taskList = JSON.parse(localStorage.getItem('TaskList'));
@@ -120,19 +118,18 @@ function updateAppTitle(nextTask) {
 }
 
 /**
- * @ignore
- * @function [changeTitle]
  * A callback function used in the BreakPrompt on changing of the checkbox.
  * @param {Object} object - A BreakPrompt object.
+ * @ignore
  */
 function changeTitle(object) {
   updateAppTitle(object.getChecked());
 }
 
 /**
- * @function [initTimer]
  * Initialize the timer based on current STATE.
  * @param {Object} timer - The Timer object.
+ * @ignore
  */
 function initTimer(timer) {
   // Change to done page if no more tasks in todo.
@@ -170,9 +167,8 @@ function initTimer(timer) {
 }
 
 /**
- * @ignore
- * @function [showTimerNotification]
  * Displays notification and plays sound when timer ends
+ * @ignore
  */
 function showTimerNotification() {
   const timerState = localStorage.getItem('Timer');
@@ -198,11 +194,10 @@ function showTimerNotification() {
 }
 
 /**
- * @ignore
- * @function [handleClick]
  * Handle starting the timer and updating the Pomos.
  * @param {Object} timer - The Timer object.
  * @param {Object} taskList - The TaskList object.
+ * @ignore
  */
 function handleClick(timer, taskList) {
   let active = false;
@@ -242,9 +237,8 @@ function handleClick(timer, taskList) {
 }
 
 /**
- * @ignore
- * @function [showTimer]
  * Displays the Timer and begins to handle the events of interaction.
+ * @ignore
  */
 function showTimer() {
   const timerUI = new TimerUI();
@@ -262,9 +256,8 @@ function showTimer() {
 /* ***************************** Event Handling ***************************** */
 
 /**
- * @ignore
- * @function [handleOnLoad]
  * Will hold all Edge Cases that should be check when a page is loaded.
+ * @ignore
  */
 function handleOnLoad() {
   // Redirect to index.html if no name is in localStorage.
