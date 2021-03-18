@@ -505,7 +505,35 @@ view-only-task-list {
   }
 }
 
-.one-line {
-    align-items: center;
-    display: flex;
+welcome-message {
+    .edit-name {
+        width: 80%;
+        @include font-size($h3-font-size);
+    }
+
+    .save-btn {
+        margin-left: 1rem;
+        border: none;
+        background-color: inherit;
+    }
+
+    .save-btn:disabled {
+        opacity: 0.4;
+    }
+
+    .save-btn i {
+        margin-left: 0;
+    }
+
+    &> div {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    i {
+        cursor: pointer;
+        margin-left: 1rem;
+        @include font-size($h5-font-size);
+    }
 }
