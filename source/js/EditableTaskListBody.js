@@ -145,7 +145,7 @@ class EditableTaskListBody extends HTMLElement {
     const row = this.lastElementChild;
     const inputs = row.querySelectorAll('input');
     const userInputs = Array.from(inputs).slice(-2);
-    const [editIcon, removeIcon, saveIcon, cancelIcon] = row.querySelectorAll('i');
+    const [editButton, removeButton, saveButton, cancelButton] = row.querySelectorAll('button');
     const [number] = args;
 
     row.dataset.id = number - 1;
@@ -160,25 +160,35 @@ class EditableTaskListBody extends HTMLElement {
 
     userInputs.forEach((input) => {
       input.addEventListener('keyup', (e) => {
-        if (e.code === 'Enter') {
+        if (e.code === 'Enter' && !saveButton.disabled) {
           this.saveEdit();
+        }
+      });
+
+      input.addEventListener('input', () => {
+        const [currentName, currentExpected] = userInputs;
+        if (currentName.value.length === 0 || Number(currentExpected.value) < 1) {
+          saveButton.disabled = true;
+        } else {
+          saveButton.disabled = false;
         }
       });
     });
 
-    editIcon.addEventListener('click', () => {
+    editButton.addEventListener('click', () => {
+      saveButton.disabled = false;
       this.editRow(row, userInputs);
     });
 
-    removeIcon.addEventListener('click', () => {
+    removeButton.addEventListener('click', () => {
       this.removeRow(row);
     });
 
-    saveIcon.addEventListener('click', () => {
+    saveButton.addEventListener('click', () => {
       this.saveEdit();
     });
 
-    cancelIcon.addEventListener('click', () => {
+    cancelButton.addEventListener('click', () => {
       this.cancelEdit();
     });
   }
