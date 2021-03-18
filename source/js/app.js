@@ -127,7 +127,9 @@ function changeTitle(object) {
 }
 
 /**
+ * @ignore
  * Initialize the timer based on current STATE.
+ * @ignore
  * @param {Object} timer - The Timer object.
  * @ignore
  */
