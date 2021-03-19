@@ -42,7 +42,7 @@ test('HTML Properly Initialized', () => {
 test('TimerUI Properly Initialized', () => {
   const timerUI = new TimerUI();
   // timerUI's classList should hold everything given in its constructor.
-  expect(timerUI.classList).toContain('w-100', 'h-100', 'd-flex', 'flex-column', 'justify-content-center', 'align-items-center');
+  expect(timerUI.classList).toContain('position-absolute', 'w-100', 'h-100', 'd-flex', 'flex-column', 'justify-content-center', 'align-items-center');
 });
 
 test('TimerUI Properly Resets', () => {

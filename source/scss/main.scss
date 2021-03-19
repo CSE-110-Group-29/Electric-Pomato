@@ -322,15 +322,9 @@ view-only-task-list {
     }
 }
 
-pomo-timer {
-    margin-bottom: 10%;
-}
-
 .timer-container {
-    // width: 400px;
-    // height: 400px;
-    width: 75%;
-    height: 75%;
+    width: 500px;
+    height: 500px;
     display: inline-block;
 }
 
@@ -386,7 +380,6 @@ pomo-timer {
 }
 
 .red-tomato {
-    /*
     & > path:nth-child(1) {
         fill: #d7212d;
     }
@@ -394,46 +387,15 @@ pomo-timer {
     & > path:nth-child(2) {
         fill: #b9182a;
     }
-    */
-
-    #\#fe250cff path {
-        fill: #fe250cff;
-    }
-
-    #\#fb1101ff path {
-        fill: #fb1101ff;
-    }
-
-    #\#fe5637ff path {
-        fill: #fe5637ff;
-    }
 }
 
-
 .green-tomato {
-    /*
     & > path:nth-child(1) {
         fill: #2dd721;
     }
 
     & > path:nth-child(2) {
         fill: #2AB918;
-    }
-    */
-
-    // body color
-    #\#fe250cff path {
-        fill: #62e462ff;
-    }
-
-    // shadow color
-    #\#fb1101ff path {
-        fill: #5fdd5fff;
-    }
-
-    // highlight color
-    #\#fe5637ff path {
-        fill: #66ec66ff;
     }
 }
 
@@ -448,7 +410,7 @@ pomo-timer {
 }
 
 .timer-text {
-    @include font-size($h1-font-size * 3);
+    @include font-size($h2-font-size);
 }
 
 .notification {

@@ -22,7 +22,7 @@ class TimerUI extends HTMLElement {
   constructor() {
     super();
 
-    this.classList.add('w-100', 'h-100', 'd-flex', 'flex-column', 'justify-content-center', 'align-items-center');
+    this.classList.add('position-absolute', 'w-100', 'h-100', 'd-flex', 'flex-column', 'justify-content-center', 'align-items-center');
     this.appendChild(document.querySelector('#timer-template').content.cloneNode(true));
 
     this.text = this.querySelector('.timer-text');
