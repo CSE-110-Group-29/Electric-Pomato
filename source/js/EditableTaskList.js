@@ -33,12 +33,13 @@ class EditableTaskList extends HTMLElement {
   }
 
   connectedCallback() {
-    this.startButton = this.querySelector('#start-day-button');
     this.updateButtonState();
   }
 
   updateButtonState() {
-    this.startButton.disabled = !(this.body.data.todo.length > 0);
+    this.querySelectorAll('.start-day-button').forEach((button) => {
+      button.disabled = !(this.body.data.todo.length > 0);
+    });
   }
 }
 

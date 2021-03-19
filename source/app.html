@@ -47,8 +47,11 @@
     </div>
     <template id="edit-title-template">
         <div class="row g-0">
-            <div class="col-12">
-                <h2 class="subtitle text-center">Task List</h2>
+            <div class="col-12 col-lg-10">
+                <h2 class="subtitle text-center text-lg-start">Task List</h2>
+            </div>
+            <div class="d-none d-lg-flex col-lg-2">
+                <button class="btn btn-secondary btn-block start-day-button">Start My Day!</button>
             </div>
         </div>
     </template>
@@ -63,12 +66,16 @@
     <template id="task-row-template">
         <div class="row g-0 row-bordered">
             <div class="d-none d-lg-block col-lg-1"><input type="number" value="" disabled></div>
-            <div class="d-flex d-sm-none col-12 fw-bold">
-                Name:
+            <div class="d-flex d-sm-none col-12">
+                <h5 class="fw-bold mb-0">
+                    Name:
+                </h5>
             </div>
             <div class="col-12 col-sm-6"><input type="text" value="" disabled></div>
-            <div class="d-flex d-sm-none col-12 fw-bold">
-                Estimated Pomos:
+            <div class="d-flex d-sm-none col-12">
+                <h5 class="fw-bold mb-0">
+                    Estimated Pomos:
+                </h5>
             </div>
             <div class="col-12 col-sm-5 col-lg-3">
                 <tomato-slider>
@@ -228,7 +235,17 @@
     <template id="add-row-template">
         <div class="row g-0">
             <div class="d-none d-lg-block col-lg-1"></div>
+            <div class="col-12 col-sm-7 col-lg-6 d-sm-none">
+                <h5 class="fw-bold mb-0">
+                    Name:
+                </h5>
+            </div>
             <div class="col-12 col-sm-7 col-lg-6"><input type="text" value=""></div>
+            <div class="col-12 col-sm-5 col-lg-3 d-sm-none">
+                <h5 class="fw-bold mb-0">
+                    Estimated Pomos:
+                </h5>
+            </div>
             <div class="col-12 col-sm-5 col-lg-3">
                 <tomato-slider>
                     <input type="number" value="1">
@@ -237,8 +254,8 @@
             <div class="col-12 col-lg-2">
                 <button class="btn btn-success btn-block">Add Task</button>
             </div>
-            <div class="col-12">
-                <button id="start-day-button" class="btn btn-secondary btn-block">Start My Day!</button>
+            <div class="col-12 d-lg-none">
+                <button class="btn btn-secondary btn-block start-day-button">Start My Day!</button>
             </div>
         </div>
     </template>
