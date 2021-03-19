@@ -372,15 +372,15 @@ pomo-timer {
 }
 
 .white-tomato {
-    & > path:nth-child(1) {
+    #\#fe250cff path {
         fill: white;
     }
 
-    & > path:nth-child(2) {
+    #\#fb1101ff path {
         fill: white;
     }
 
-    & > path:nth-child(4) {
+    #\#fe5637ff path {
         fill: white;
     }
 }
@@ -438,11 +438,28 @@ pomo-timer {
 }
 
 .gold-tomato {
+    /*
     & > path:nth-child(1) {
         fill: #e6b800;
     }
 
     & > path:nth-child(2) {
+        fill: #c59e01;
+    }
+    */
+
+    // body color
+    #\#fe250cff path {
+        fill: #e6b800;
+    }
+
+    // shadow color
+    #\#fb1101ff path {
+        fill: #e6b800;
+    }
+
+    // highlight color
+    #\#fe5637ff path {
         fill: #c59e01;
     }
 }
