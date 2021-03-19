@@ -203,7 +203,7 @@ editable-task-list, view-only-task-list {
         height: 100%;
 
         input {
-            width: 95%;
+            width: 100%;
             padding: map-get($spacers, 2);
         }
 
@@ -248,12 +248,18 @@ editable-task-list, view-only-task-list {
             opacity: 0.4;
         }
 
+        .save-cancel-container, .edit-remove-container {
+            display: flex;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+        }
+
         .save-cancel-container {
             display: none;
         }
 
         .edit-mode .save-cancel-container {
-            display: block;
+            display: flex;
         }
 
         .edit-mode .edit-remove-container {
@@ -348,7 +354,7 @@ pomo-timer {
 }
 
 .slider-tomato-container {
-    width: 95%;
+    width: 100%;
     cursor: pointer;
     user-select: none;
 }

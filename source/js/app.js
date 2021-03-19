@@ -270,12 +270,14 @@ function handleOnLoad() {
   } else {
     appContainer.appendChild(new EditableTaskList());
     document.querySelector('.app-title').textContent = `${localStorage.getItem('Username')}'s Day`;
-    appContainer.querySelector('button').addEventListener('click', () => {
-      localStorage.setItem('Started', true);
-      localStorage.setItem('Timer', true);
-      localStorage.setItem('TotalPomos', 0);
-      appContainer.lastElementChild.remove();
-      showTimer();
+    appContainer.querySelectorAll('.start-day-button').forEach((button) => {
+      button.addEventListener('click', () => {
+        localStorage.setItem('Started', true);
+        localStorage.setItem('Timer', true);
+        localStorage.setItem('TotalPomos', 0);
+        appContainer.lastElementChild.remove();
+        showTimer();
+      });
     });
   }
 

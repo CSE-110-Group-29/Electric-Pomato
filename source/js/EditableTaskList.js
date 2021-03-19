@@ -21,8 +21,6 @@ class EditableTaskList extends HTMLElement {
 
     this.appendChild(document.querySelector('#edit-title-template').content.cloneNode(true));
 
-    this.startButton = this.querySelector('button');
-
     const taskListContainer = document.createElement('div');
     taskListContainer.classList.add('task-list-container');
     this.appendChild(taskListContainer);
@@ -39,7 +37,9 @@ class EditableTaskList extends HTMLElement {
   }
 
   updateButtonState() {
-    this.startButton.disabled = !(this.body.data.todo.length > 0);
+    this.querySelectorAll('.start-day-button').forEach((button) => {
+      button.disabled = !(this.body.data.todo.length > 0);
+    });
   }
 }
 
